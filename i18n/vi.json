@@ -1215,6 +1215,7 @@
   },
   "common": {
     "loading": "Đang tải...",
+    "logout": "Đăng xuất",
     "logoutSuccess": "Đăng xuất thành công!",
     "error": "Lỗi"
   },

@@ -1216,6 +1216,7 @@
   },
   "common": {
     "loading": "Loading...",
+    "logout": "Logout",
     "logoutSuccess": "Logged out successfully!",
     "error": "Error"
   },

@@ -1222,6 +1222,7 @@
   },
   "common": {
     "loading": "로딩 중...",
+    "logout": "로그아웃",
     "logoutSuccess": "로그아웃 성공!",
     "error": "오류"
   },

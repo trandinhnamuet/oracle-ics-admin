@@ -1223,6 +1223,7 @@
   },
   "common": {
     "loading": "加载中...",
+    "logout": "退出",
     "logoutSuccess": "退出成功！",
     "error": "错误"
   },
