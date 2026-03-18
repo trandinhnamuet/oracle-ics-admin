@@ -30,9 +30,9 @@ export default function LoginPage() {
   useEffect(() => {
     if (isAuthenticated && !isLoading) {
       console.log('[LOGIN PAGE] User already authenticated, redirecting to admin')
-      router.replace('/admin')
+      window.location.replace('/admin')
     }
-  }, [isAuthenticated, isLoading, router])
+  }, [isAuthenticated, isLoading])
 
   // Check if user just verified email
   useEffect(() => {

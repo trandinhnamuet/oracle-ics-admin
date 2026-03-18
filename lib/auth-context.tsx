@@ -147,10 +147,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           isLoading: false,
           token: 'from-httponly-cookie'
         })
-        console.log('✅ [AUTH CONTEXT] Redirecting to /admin...')
-        // Use replace to clear history so /unauthorized won't appear when navigating back
-        router.replace("/admin")
-        console.log('✅ [AUTH CONTEXT] Router.replace called')
+        console.log('✅ [AUTH CONTEXT] Hard redirecting to /admin...')
+        // Use hard redirect so browser sends a fresh request with the new admin cookie.
+        // client-side router.push can race with the Set-Cookie from the login response,
+        // causing the middleware to still see the old (non-admin) refreshToken.
+        window.location.replace('/admin')
       } else {
         // Should not happen, but handle gracefully
         console.error('❌ [AUTH CONTEXT] No user data in response')
@@ -178,8 +179,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       if (typeof window !== 'undefined') {
         localStorage.removeItem('auth-storage')
       }
-      // Use replace to clear history so /unauthorized won't be in back stack
-      router.replace("/login")
+      router.push("/login")
     }
   }, [router])
 
@@ -199,7 +199,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       if (typeof window !== 'undefined') {
         localStorage.removeItem('auth-storage')
       }
-      router.replace("/login")
+      router.push("/login")
     }
   }, [router])
 
