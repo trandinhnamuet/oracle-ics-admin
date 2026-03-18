@@ -88,6 +88,14 @@ export function AdminHeader() {
             {isAuthenticated && user ? (
               <div className="flex items-center space-x-2">
                 <NotificationBell />
+                <div className="flex items-center space-x-2 text-sm text-muted-foreground border border-border rounded-md px-3 py-1.5">
+                  <User className="h-4 w-4" />
+                  <span className="font-medium text-foreground">
+                    {user.firstName && user.lastName
+                      ? `${user.firstName} ${user.lastName}`
+                      : user.firstName || user.email}
+                  </span>
+                </div>
                 <Button
                   variant="outline"
                   onClick={handleLogout}
