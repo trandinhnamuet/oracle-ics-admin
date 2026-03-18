@@ -1,0 +1,2023 @@
+{
+  "packageManagement": {
+    "title": "サブスクリプションパッケージ管理",
+    "subtitle": "利用中のサービスパッケージを追跡および管理",
+    "searchPlaceholder": "パッケージ名、メールアドレスで検索...",
+    "status": "ステータス",
+    "type": "パッケージタイプ",
+    "filter": {
+      "all": "すべて",
+      "active": "アクティブ",
+      "inactive": "非アクティブ"
+    },
+    "stats": {
+      "total": "パッケージ総数",
+      "active": "アクティブ",
+      "inactive": "非アクティブ",
+      "revenue": "月間収益"
+    },
+    "table": {
+      "title": "サブスクリプションパッケージ一覧 ({{count}})",
+      "packageName": "パッケージ名",
+      "type": "タイプ",
+      "paidAmount": "支払い金額",
+      "createdAt": "登録日",
+      "updatedAt": "最終更新日",
+      "status": "ステータス",
+      "actions": "操作",
+      "noMatch": "一致するパッケージが見つかりません",
+      "noPackage": "サブスクリプションパッケージはまだありません",
+      "customPackage": "カスタムパッケージ",
+      "active": "アクティブ",
+      "inactive": "非アクティブ",
+      "pending": "保留中",
+      "suspended": "一時停止",
+      "cancelled": "キャンセル済み",
+      "expired": "期限切れ",
+      "pauseTitle": "パッケージ一時停止",
+      "activateTitle": "パッケージ有効化",
+      "deleteTitle": "パッケージ削除"
+    },
+    "confirmDialog": {
+      "cancel": "キャンセル",
+      "confirm": "確認",
+      "deleteSubscription": {
+        "title": "サブスクリプションの削除を確認",
+        "description": "この操作は、Oracle Cloud上のサブスクリプションと仮想マシン(VM)を永久に削除します。関連するすべてのデータが削除され、復元できません。削除前に重要なデータをバックアップしてください。"
+      },
+      "stopVm": {
+        "title": "VM停止の確認",
+        "description": "このVMを停止しますか？"
+      },
+      "startVm": {
+        "title": "VM起動の確認",
+        "description": "このVMを起動しますか？"
+      },
+      "renewSubscription": {
+        "title": "サブスクリプション更新の確認",
+        "description": "\"{{packageName}}\"プランを更新しますか？{{cost}}がウォレットから差し引かれます。"
+      }
+    },
+    "toast": {
+      "loadingList": "サブスクリプションリストを読み込み中...",
+      "vmNotConfigured": "VMが構成されていません",
+      "vmStopSent": "VM停止コマンドを送信しました",
+      "vmStartSent": "VM起動コマンドを送信しました",
+      "vmActionPending": "完了時にステータスが自動的に更新されます。",
+      "vmStopError": "VM停止エラー",
+      "vmStartError": "VM起動エラー",
+      "renewSuccess": "サブスクリプション更新成功！",
+      "renewSuccessDesc": "サブスクリプションが有効化され、VMが起動されました。",
+      "renewFailed": "更新失敗",
+      "renewInsufficientFunds": "更新のためのウォレット残高が不足しています。チャージしてください。",
+      "renewError": "サブスクリプション更新中にエラーが発生しました",
+      "deleteSuccess": "サブスクリプションとVMを正常に削除しました！",
+      "deleteError": "サブスクリプションの削除中にエラーが発生しました"
+    },
+    "notConfigured": "未構成",
+    "tooltip": {
+      "stopVm": "VMを停止",
+      "startVm": "VMを起動",
+      "stopping": "VM停止中...",
+      "starting": "VM起動中...",
+      "transitioning": "VMは移行状態です",
+      "renewSubscription": "サブスクリプションを更新"
+    },
+    "fetchError": {
+      "title": "エラー",
+      "system": "サブスクリプションリストの読み込み中にシステムエラーが発生しました。後で再試してください。",
+      "network": "サブスクリプションリストを読み込めません。ネットワーク接続を確認してください。"
+    }
+  },
+  "contactInfo": {
+    "heroTitle": "お問い合わせ",
+    "heroDesc": "ベトナムの公式Oracleパートナー、24時間年中無休でサポート",
+    "companyInfo": "会社情報",
+    "companyName": "国際サイバーセキュリティ株式会社 - ICS",
+    "officeHanoi": "ハノイオフィス",
+    "officeAddress": "ハノイ市ディンコン、大キム新都市エリアTT3-5",
+    "contactInfo": "連絡先情報",
+    "phoneHotline": "電話およびホットライン",
+    "email": "メール",
+    "website": "ウェブサイト",
+    "mapTitle": "地図上の位置",
+    "mapDesc": "当社オフィスへの道順",
+    "learnMore": "弊社について詳しく →",
+    "openInMaps": "地図で開く"
+  },
+  "dashboard": {
+    "title": "システム管理",
+    "user": {
+      "title": "ユーザー管理",
+      "desc": "ユーザーアカウントの表示、編集、管理",
+      "stats": "合計 {{count}} ユーザー"
+    },
+    "customRegistration": {
+      "title": "カスタムパッケージ登録",
+      "desc": "カスタムサービスパッケージの登録リクエストを管理",
+      "stats": "{{count}} 新規リクエスト"
+    },
+    "access": "アクセス"
+  },
+  "admin": {
+    "title": "管理ダッシュボード",
+    "userTitle": "ユーザー管理",
+    "userDesc": "ユーザーアカウントの表示、編集、管理",
+    "userStats": "合計{{count}}ユーザー",
+    "customRegTitle": "カスタムパッケージ申請管理",
+    "customRegDesc": "カスタムパッケージ申請の追跡と処理",
+    "customRegStats": "{{count}}件の新規申請",
+    "access": "アクセス",
+    "packagesTitle": "クラウドパッケージ管理",
+    "packagesDesc": "クラウドサービスパッケージの作成、編集、管理",
+    "packagesStats": "合計：{{count}}個のパッケージ",
+    "subscriptionsTitle": "サービスサブスクリプション管理",
+    "subscriptionsDesc": "ユーザーがサブスクライブしたサービスパッケージ（サブスクリプション）の表示と管理",
+    "subscriptionsStats": "ユーザーがサブスクライブしたサービスパッケージ（サブスクリプション）の表示と管理",
+    "user": {
+      "title": "ユーザー管理",
+      "subtitle": "システム内のユーザーアカウントを管理",
+      "exportExcel": "Excelにエクスポート",
+      "searchPlaceholder": "メール、名前、会社で検索...",
+      "stats": {
+        "total": "ユーザー総数",
+        "active": "アクティブ",
+        "inactive": "ロック済み"
+      },
+      "table": {
+        "id": "ID",
+        "email": "メール",
+        "name": "フルネーム",
+        "phone": "電話番号",
+        "company": "会社",
+        "role": "役割",
+        "status": "ステータス",
+        "createdAt": "作成日",
+        "updatedAt": "更新日",
+        "actions": "操作",
+        "noUserFound": "ユーザーが見つかりません",
+        "noUser": "ユーザーはまだいません",
+        "noData": "データなし",
+        "admin": "管理者",
+        "customer": "顧客",
+        "active": "アクティブ",
+        "inactive": "ロック"
+      },
+      "actions": {
+        "grantAdmin": "管理者権限の付与",
+        "revokeAdmin": "管理者権限の解除",
+        "delete": "ユーザー削除"
+      },
+      "loading": "読み込み中..."
+    },
+    "customRegistration": {
+      "title": "カスタムパッケージ登録管理",
+      "subtitle": "カスタムサービスパッケージの登録リクエストを追跡および処理",
+      "exportExcel": "Excelにエクスポート",
+      "stats": {
+        "total": "登録総数",
+        "processed": "処理済み",
+        "unprocessed": "未処理"
+      },
+      "searchPlaceholder": "メール、電話番号、名前、会社で検索...",
+      "filter": {
+        "all": "すべて",
+        "processed": "処理済み",
+        "unprocessed": "未処理"
+      },
+      "table": {
+        "id": "ID",
+        "user": "登録者",
+        "contact": "連絡先",
+        "company": "会社",
+        "config": "構成",
+        "note": "メモ",
+        "time": "時間",
+        "status": "ステータス",
+        "noData": "一致するデータがありません",
+        "noCompany": "なし",
+        "cpu": "CPU",
+        "ram": "RAM",
+        "storage": "ストレージ",
+        "bandwidth": "帯域幅"
+      },
+      "footer": "{{current}} / {{total}} 登録を表示",
+      "loading": "データ読み込み中...",
+      "export": {
+        "phone": "電話番号",
+        "detail": "詳細",
+        "createdAt": "登録日",
+        "createdBy": "作成者",
+        "notAvailable": "なし",
+        "sheetName": "カスタム登録履歴",
+        "system": "システム"
+      }
+    },
+    "packages": {
+      "createPackage": {
+        "title": {
+          "create": "新しいパッケージを作成",
+          "edit": "パッケージを編集"
+        },
+        "form": {
+          "packageName": "パッケージ名",
+          "packageNamePlaceholder": "例：Starter 1",
+          "category": "カテゴリ",
+          "categoryOptions": {
+            "starter": "Starter",
+            "professional": "Professional",
+            "enterprise": "Enterprise",
+            "ai": "AI-GPU",
+            "custom": "Custom"
+          },
+          "description": "説明",
+          "descriptionPlaceholder": "サービスパッケージの説明",
+          "price": "価格 ($)",
+          "period": "期間",
+          "periodOptions": {
+            "month": "月",
+            "year": "年"
+          },
+          "popularPackage": "人気パッケージ",
+          "features": "機能",
+          "featurePlaceholder": "例：4 vCPU",
+          "addFeature": "機能を追加"
+        },
+        "buttons": {
+          "cancel": "キャンセル",
+          "create": "パッケージを作成",
+          "update": "更新"
+        },
+        "validation": {
+          "error": "エラー",
+          "fillAllFields": "すべての必要な情報を入力してください"
+        }
+      },
+      "management": {
+        "title": "パッケージ管理",
+        "subtitle": "クラウドサービスパッケージの作成、編集、管理",
+        "createNewPackage": "新しいパッケージを作成",
+        "searchPlaceholder": "サービスパッケージを検索...",
+        "filter": {
+          "allCategories": "すべてのカテゴリ",
+          "starter": "Starter",
+          "professional": "Professional",
+          "enterprise": "Enterprise",
+          "ai": "AI-GPU",
+          "custom": "Custom"
+        },
+        "categories": {
+          "starter": "Starter",
+          "professional": "Professional",
+          "enterprise": "Enterprise",
+          "ai": "AI-GPU",
+          "custom": "Custom"
+        },
+        "table": {
+          "servicePackage": "サービスパッケージ",
+          "category": "カテゴリ",
+          "price": "価格",
+          "description": "説明",
+          "features": "機能",
+          "status": "ステータス",
+          "actions": "操作",
+          "moreFeatures": "その他の機能",
+          "popular": "人気",
+          "noPackagesFound": "サービスパッケージが見つかりません",
+          "active": "アクティブ",
+          "inactive": "非アクティブ"
+        },
+        "toast": {
+          "createSuccess": "成功",
+          "createSuccessDesc": "パッケージが正常に作成されました",
+          "updateSuccess": "成功",
+          "updateSuccessDesc": "パッケージが正常に更新されました",
+          "deleteSuccess": "成功",
+          "deleteSuccessDesc": "パッケージが正常に削除されました"
+        }
+      }
+    },
+    "subscriptions": {
+      "title": "サブスクリプション管理",
+      "backButton": "戻る",
+      "searchPlaceholder": "ユーザー名、メール、パッケージ名、IDで検索...",
+      "filterByStatus": "ステータスでフィルター",
+      "confirmDelete": "このサブスクリプションを削除してもよろしいですか？",
+      "filter": {
+        "allStatus": "すべてのステータス"
+      },
+      "status": {
+        "active": "アクティブ",
+        "pending": "保留中",
+        "inactive": "非アクティブ",
+        "expired": "期限切れ",
+        "suspended": "一時停止",
+        "cancelled": "キャンセル済み"
+      },
+      "stats": {
+        "total": "総サブスクリプション数",
+        "pending": "保留中",
+        "active": "アクティブ",
+        "expired": "期限切れ",
+        "cancelled": "キャンセル済み"
+      },
+      "table": {
+        "title": "サブスクリプション一覧",
+        "showing": "{{from}} - {{to}} / {{total}} 件を表示",
+        "noData": "サブスクリプションが見つかりません",
+        "id": "ID",
+        "user": "ユーザー",
+        "package": "パッケージ",
+        "vmInfo": "VM 情報",
+        "noPublicIp": "パブリックIPなし",
+        "notConfigured": "未設定",
+        "startDate": "開始日",
+        "endDate": "終了日",
+        "status": "ステータス",
+        "autoRenew": "自動更新",
+        "price": "価格",
+        "createdAt": "作成日",
+        "actions": "操作",
+        "yes": "はい",
+        "no": "いいえ",
+        "recordsPerPage": "1ページあたりの件数:",
+        "goTo": "ページへ移動:",
+        "pageOf": "{{current}} / {{total}} ページ"
+      },
+      "actions": {
+        "viewDetail": "詳細を表示",
+        "edit": "編集",
+        "delete": "削除"
+      },
+      "toast": {
+        "success": "成功",
+        "error": "エラー",
+        "info": "情報",
+        "loadError": "サブスクリプションリストを読み込めません",
+        "deleteSuccess": "サブスクリプションが正常に削除されました",
+        "deleteError": "サブスクリプションを削除できません",
+        "deleteWithVmSuccess": "サブスクリプションとVMが正常に削除されました。",
+        "deleteVmOnlySuccess": "VMが削除されました。サブスクリプションは有効です。",
+        "deleteVmOnlyError": "VMを削除できません",
+        "stopVmSuccess": "VMが正常に停止されました。",
+        "stopVmError": "VMを停止できません",
+        "startVmSuccess": "VMが正常に起動されました。",
+        "startVmError": "VMを起動できません",
+        "editInDevelopment": "編集機能は開発中です"
+      },
+      "confirmDialog": {
+        "deleteSub": {
+          "title": "サブスクリプション削除の確認",
+          "description": "このサブスクリプションを削除しますか？この操作は取り消せません。"
+        },
+        "deleteWithVm": {
+          "title": "サブスクリプションとVM削除の確認",
+          "description": "サブスクリプションと仮想マシン(VM)をすべて削除しますか？この操作は取り消せません。"
+        },
+        "deleteVmOnly": {
+          "title": "VM削除の確認",
+          "description": "仮想マシン(VM)のみ削除しますか？サブスクリプションは有効ですが、新しいVMを設定する必要があります。"
+        },
+        "stopVm": {
+          "title": "VM停止の確認",
+          "description": "このVMを停止しますか？"
+        },
+        "startVm": {
+          "title": "VM起動の確認",
+          "description": "このVMを起動しますか？"
+        },
+        "cancel": "キャンセル",
+        "confirm": "確認"
+      }
+    },
+    "analytics": {
+      "title": "アナリティクスダッシュボード",
+      "subtitle": "ウェブサイトのトラフィックと訪問者の統計",
+      "dateRange": {
+        "last7Days": "過去7日間",
+        "last30Days": "過去30日間",
+        "last90Days": "過去90日間",
+        "refresh": "更新"
+      },
+      "summary": {
+        "totalPageViews": "総ページビュー",
+        "totalPageViewsDesc": "選択期間のページビュー",
+        "uniqueUsers": "ユニークユーザー",
+        "uniqueUsersDesc": "サイトのユニーク訪問者",
+        "bounceRate": "直帰率",
+        "bounceRateDesc": "インタラクションなしで離脱した訪問者",
+        "avgLoadTime": "平均ロード時間",
+        "avgLoadTimeDesc": "平均ページロード時間"
+      },
+      "charts": {
+        "pageViewsOverTime": "時間別ページビュー",
+        "topPages": "人気ページ",
+        "userEvents": "ユーザーイベント",
+        "allEvents": "すべてのイベント",
+        "googleAnalytics": "Google Analytics統合",
+        "googleAnalyticsDesc": "このダッシュボードはウェブサイトの分析データを表示します。Google Analyticsトラッキングを有効にするには:",
+        "gaStep1": ".env.localファイルにNEXT_PUBLIC_GA_MEASUREMENT_IDとしてGoogle Analytics測定IDを設定してください",
+        "gaStep2": "変更をデプロイしてGoogle Analyticsトラッキングを有効化してください",
+        "gaStep3": "Google Analyticsコンソールで詳細な分析を確認してください"
+      },
+      "loading": "アナリティクスを読み込み中...",
+      "error": "エラー",
+      "retry": "再試行",
+      "noData": "データがありません",
+      "noPageData": "ページデータがありません",
+      "noEventData": "イベントデータがありません"
+    },
+    "bandwidth": {
+      "title": "帯域幅モニター",
+      "subtitle": "VM別月次エグレス (VnicBytesOut) を追跡 — Partnerプランに毎月10 TB無料含む",
+      "loading": "帯域幅データを読み込み中...",
+      "refresh": "更新",
+      "month": {
+        "label": "月:",
+        "current": "(今月)"
+      },
+      "summary": {
+        "totalVMs": "総VM数",
+        "overLimit": "制限超過",
+        "nearLimit": "制限近傍",
+        "totalEgress": "総エグレス",
+        "average": "平均"
+      },
+      "filter": {
+        "label": "フィルター:",
+        "all": "すべて",
+        "over": "制限超過",
+        "near": "警告",
+        "normal": "正常"
+      },
+      "sort": {
+        "label": "並び替え:",
+        "usage": "使用量",
+        "name": "VM名",
+        "user": "ユーザー"
+      },
+      "status": {
+        "overLimit": "制限超過",
+        "warning": "警告",
+        "normal": "正常",
+        "error": "エラー"
+      },
+      "source": {
+        "oci": "リアルタイム (OCI)",
+        "archived": "アーカイブ済み",
+        "none": "データなし"
+      },
+      "info": {
+        "text": "VnicBytesOut (oci_vcn ネームスペース) を追跡 — 各VMのVNICから送信されたバイト数。OCI Partnerプランには毎月10 TBの無料エグレスが含まれます。"
+      },
+      "details": {
+        "egress": "エグレス (課金)",
+        "ingress": "イングレス (無料)",
+        "remaining": "残量",
+        "exceeded": "超過",
+        "package": "パッケージ",
+        "company": "会社",
+        "dataSource": "データソース"
+      },
+      "warning": {
+        "overLimitTitle": "警告: エグレス制限超過！",
+        "overLimitMessage": "このVMは10 GB無料エグレス制限を{{exceeded}} TB超過しました。追加料金が発生する可能性があります。",
+        "nearLimitTitle": "警告: エグレス制限に近づいています！",
+        "nearLimitMessage": "このVMはエグレス帯域幅の{{usage}}%を使用しています。制限まで{{remaining}} TB残っています。",
+        "errorMessage": "帯域幅データを取得できません: {{error}}"
+      },
+      "noVms": "現在のフィルターに一致するVMがありません"
+    },
+    "compartment": {
+      "title": "コンパートメント管理",
+      "subtitle": "OCIテナンシのコンパートメント一覧",
+      "refresh": "更新",
+      "loading": "コンパートメントを読み込み中...",
+      "noCompartments": "コンパートメントがありません",
+      "noDescription": "説明なし",
+      "createdAt": "作成日",
+      "deleteButton": "コンパートメントを削除",
+      "dialog": {
+        "title": "コンパートメント削除の確認",
+        "description1": "コンパートメントを削除しますか",
+        "description2": "?",
+        "warning": "⚠️ この操作はコンパートメント内のすべてのリソースを削除します:",
+        "items": {
+          "vms": "すべてのVMインスタンス",
+          "vcns": "すべてのVCN（仮想クラウドネットワーク）",
+          "subnets": "すべてのサブネット",
+          "gateways": "すべてのインターネットゲートウェイ",
+          "routes": "すべてのルートテーブル"
+        },
+        "irreversible": "この操作は取り消せません！",
+        "deleting": "削除中...",
+        "confirmButton": "削除を確認",
+        "cancelButton": "キャンセル"
+      },
+      "toast": {
+        "loadError": "コンパートメントリストを読み込めません: {{message}}",
+        "deleteSuccess": "コンパートメント\"{{name}}\"と内部のすべてのリソースが削除されました",
+        "deleteError": "コンパートメントを削除できません: {{message}}"
+      }
+    },
+    "costs": {
+      "title": "コスト & クレジット",
+      "subtitle": "すべてのユーザーの財務概要",
+      "back": "戻る",
+      "refresh": "更新",
+      "loading": "コストデータを読み込み中...",
+      "summary": {
+        "totalBalance": "総残高",
+        "totalBalanceDesc": "すべてのユーザーウォレットの合計",
+        "totalDeposited": "総入金額",
+        "totalDepositedDesc": "すべての入金取引の累計",
+        "totalSpent": "総使用額",
+        "totalSpentDesc": "すべての控除取引の累計",
+        "users": "ユーザー数",
+        "usersDesc": "アクティブなウォレットを持つユーザー"
+      },
+      "timeBreakdown": {
+        "title": "時間別統計",
+        "monthly": "月別",
+        "yearly": "年別"
+      },
+      "months": {
+        "jan": "1月", "feb": "2月", "mar": "3月",
+        "apr": "4月", "may": "5月", "jun": "6月",
+        "jul": "7月", "aug": "8月", "sep": "9月",
+        "oct": "10月", "nov": "11月", "dec": "12月"
+      },
+      "table": {
+        "month": "月",
+        "year": "年",
+        "deposited": "入金",
+        "spent": "使用",
+        "difference": "差額"
+      },
+      "perUser": {
+        "title": "ユーザー別詳細",
+        "searchPlaceholder": "メールまたは名前で検索...",
+        "user": "ユーザー",
+        "currentBalance": "現在の残高",
+        "totalDeposited": "総入金",
+        "totalSpent": "総使用",
+        "status": "ステータス",
+        "low": "低",
+        "normal": "通常",
+        "noUser": "ユーザーが見つかりません"
+      }
+    },
+    "loginHistory": {
+      "title": "ログイン履歴",
+      "subtitle": "すべての管理者ログインアクティビティを追跡・監視",
+      "stats": {
+        "totalLogins": "総ログイン数",
+        "last30Days": "過去30日間",
+        "successRate": "成功率",
+        "successful": "{{count}}回成功",
+        "failedAttempts": "失敗試行",
+        "locked": "ロック: {{count}}",
+        "uniqueDevices": "ユニークデバイス",
+        "countries": "{{count}}カ国"
+      },
+      "suspicious": {
+        "alert": "⚠️ {{count}}件の不審なログイン試行が検出されました",
+        "failedFrom": "{{date}}に{{ip}}からログイン失敗",
+        "more": "... さらに{{count}}件"
+      },
+      "filters": {
+        "status": "ステータス",
+        "all": "すべて",
+        "success": "成功",
+        "failed": "失敗",
+        "locked": "ロック",
+        "fromDate": "開始日",
+        "toDate": "終了日",
+        "sortBy": "並び替え",
+        "loginTime": "ログイン時間",
+        "username": "ユーザー名",
+        "statusSort": "ステータス",
+        "refresh": "更新",
+        "loading": "読み込み中..."
+      },
+      "showing": "{{total}}件中{{from}}～{{to}}件を表示",
+      "export": "CSVエクスポート",
+      "exportSuccess": "ログイン履歴をCSVにエクスポートしました",
+      "exportError": "ログイン履歴のエクスポートに失敗しました",
+      "table": {
+        "account": "アカウント",
+        "loginTime": "ログイン時間",
+        "status": "ステータス",
+        "ip": "IPアドレス",
+        "location": "場所",
+        "browser": "ブラウザ",
+        "os": "OS",
+        "device": "デバイス",
+        "duration": "時間",
+        "newDevice": "新しいデバイス"
+      },
+      "noRecords": "ログイン記録がありません",
+      "loading": "読み込み中...",
+      "active": "アクティブ",
+      "new": "新規",
+      "known": "既知",
+      "pagination": {
+        "recordsPerPage": "1ページあたりの件数:",
+        "page": "{{current}} / {{total}} ページ",
+        "prev": "前へ",
+        "next": "次へ"
+      }
+    },
+    "payments": {
+      "title": "支払い管理",
+      "subtitle": "すべての支払い取引の一覧",
+      "refresh": "更新",
+      "summary": {
+        "total": "総支払い",
+        "pending": "保留中",
+        "expired": "期限切れ",
+        "success": "成功"
+      },
+      "list": {
+        "title": "支払いリスト ({{count}})",
+        "searchPlaceholder": "取引コード、メール、名前で検索..."
+      },
+      "table": {
+        "transactionCode": "取引コード",
+        "subscriptionId": "サブスクリプションID",
+        "user": "ユーザー",
+        "amount": "金額",
+        "type": "種類",
+        "method": "方法",
+        "status": "ステータス",
+        "createdAt": "作成日",
+        "actions": "アクション"
+      },
+      "status": {
+        "success": "成功",
+        "pending": "保留中",
+        "failed": "失敗",
+        "expired": "期限切れ",
+        "deleted": "削除済み"
+      },
+      "paymentType": {
+        "deposit": "入金",
+        "subscription": "サブスクリプション"
+      },
+      "actions": {
+        "accept": "承認",
+        "processing": "処理中...",
+        "completed": "完了",
+        "failed": "失敗",
+        "expired": "期限切れ",
+        "deleted": "削除済み"
+      },
+      "pagination": {
+        "info": "{{current}} / {{total}} ページ — 合計{{count}}件"
+      },
+      "confirm": {
+        "title": "支払い承認の確認",
+        "description": "この支払いを承認しますか？サブスクリプションを有効化するか、ユーザーに資金を追加します。",
+        "confirm": "確認",
+        "cancel": "キャンセル"
+      },
+      "loading": "データを読み込み中...",
+      "noPayments": "支払いが見つかりません",
+      "toast": {
+        "acceptSuccess": "支払いが正常に承認されました！",
+        "acceptError": "支払いエラー",
+        "acceptErrorDesc": "支払い承認中にエラーが発生しました"
+      }
+    },
+    "supportTickets": {
+      "title": "サポートリクエスト管理",
+      "subtitle": "ユーザーからのサポートリクエストを追跡・処理",
+      "refresh": "更新",
+      "stats": {
+        "total": "総リクエスト",
+        "open": "オープン",
+        "inProgress": "処理中",
+        "resolved": "解決済み",
+        "urgent": "緊急"
+      },
+      "filters": {
+        "searchPlaceholder": "タイトル、メール、名前で検索...",
+        "status": "ステータス",
+        "priority": "優先度",
+        "allStatus": "すべてのステータス",
+        "allPriority": "すべての優先度"
+      },
+      "status": {
+        "open": "オープン",
+        "inProgress": "処理中",
+        "resolved": "解決済み",
+        "closed": "クローズ"
+      },
+      "priority": {
+        "low": "低",
+        "medium": "中",
+        "high": "高",
+        "urgent": "緊急"
+      },
+      "services": {
+        "cloud": "クラウドサーバー",
+        "storage": "オブジェクトストレージ",
+        "network": "ネットワーク / VPN",
+        "billing": "請求",
+        "account": "アカウント",
+        "other": "その他"
+      },
+      "table": {
+        "title": "リクエスト ({{count}})",
+        "id": "#",
+        "titleHeader": "タイトル / 顧客",
+        "service": "サービス",
+        "status": "ステータス",
+        "priority": "優先度",
+        "date": "提出日",
+        "actions": "アクション",
+        "noData": "リクエストがありません"
+      },
+      "detail": {
+        "phone": "電話",
+        "address": "住所",
+        "content": "リクエスト内容",
+        "attachments": "添付ファイル",
+        "statusLabel": "ステータス",
+        "priorityLabel": "優先度",
+        "resolvedAt": "解決日時",
+        "adminNote": "メモ / 顧客への返答",
+        "adminNotePlaceholder": "顧客への返答を入力... (顧客がこの内容を見ます)",
+        "save": "返答を保存",
+        "saving": "保存中..."
+      },
+      "delete": {
+        "title": "サポートリクエスト削除の確認",
+        "description": "このサポートリクエストを削除しますか？この操作は取り消せません。",
+        "confirm": "削除",
+        "cancel": "キャンセル"
+      },
+      "toast": {
+        "loadError": "サポートリクエストリストを読み込めません",
+        "updated": "更新しました",
+        "updateSuccess": "チケットが正常に更新されました",
+        "deleted": "チケットを削除しました",
+        "error": "エラー"
+      }
+    },
+    "paymentsTitle": "支払い管理",
+    "paymentsDesc": "支払いの表示と承認",
+    "paymentsStats": "支払い管理",
+    "loginHistoryTitle": "ログイン履歴",
+    "loginHistoryDesc": "管理者ログインアクティビティの追跡",
+    "loginHistoryStats": "セキュリティ監査",
+    "compartmentTitle": "コンパートメント管理",
+    "compartmentDesc": "OCIのコンパートメントの表示と削除",
+    "compartmentStats": "OCIリソース",
+    "analyticsTitle": "アナリティクス",
+    "analyticsDesc": "ページビューとユーザーインタラクション統計の表示",
+    "analyticsStats": "ウェブサイト分析",
+    "bandwidthTitle": "帯域幅モニター",
+    "bandwidthDesc": "すべての仮想マシンの帯域幅を監視 (制限10TB)",
+    "bandwidthStats": "帯域幅モニター",
+    "supportTicketsTitle": "サポートリクエスト",
+    "supportTicketsDesc": "ユーザーからのサポートリクエストを追跡・処理",
+    "supportTicketsStats": "サポートチケット",
+    "costsTitle": "コスト & クレジット",
+    "costsDesc": "ユーザー別、月別、年別の総残高、入金・使用額",
+    "costsStats": "コスト & クレジット概要",
+    "users": {
+      "editDialog": {
+        "title": "ユーザー情報の編集 #{{id}}",
+        "description": "ユーザーの詳細情報を更新してください。\"変更を保存\"をクリックして適用してください。",
+        "lastName": "姓",
+        "firstName": "名",
+        "email": "メールアドレス",
+        "phone": "電話番号",
+        "backupEmail": "バックアップメール",
+        "company": "会社",
+        "address": "住所",
+        "idCard": "身分証明書番号",
+        "gender": "性別",
+        "genderPlaceholder": "性別を選択",
+        "male": "男性",
+        "female": "女性",
+        "other": "その他",
+        "role": "役割",
+        "statusLabel": "ステータス",
+        "active": "アクティブ",
+        "locked": "ロック",
+        "cancel": "キャンセル",
+        "save": "変更を保存",
+        "saving": "保存中..."
+      },
+      "deleteDialog": {
+        "title": "ユーザー削除の確認",
+        "description": "このユーザーを削除しますか？この操作は取り消せません。",
+        "confirm": "削除",
+        "cancel": "キャンセル"
+      },
+      "pagination": {
+        "info": "{{current}} / {{total}} ページ — 合計{{count}}人"
+      },
+      "toast": {
+        "updateSuccess": "ユーザー情報が正常に更新されました",
+        "updateError": "ユーザー情報を更新できません",
+        "deleteSuccess": "ユーザーが正常に削除されました",
+        "deleteError": "ユーザーを削除できません"
+      },
+      "export": {
+        "fullName": "フルネーム",
+        "phone": "電話番号",
+        "company": "会社",
+        "role": "役割",
+        "status": "ステータス",
+        "createdAt": "作成日",
+        "updatedAt": "更新日",
+        "notAvailable": "なし",
+        "sheetName": "ユーザーリスト",
+        "active": "アクティブ",
+        "locked": "ロック"
+      }
+    },
+    "packagesExtra": {
+      "dialog": {
+        "deleteTitle": "サービスパッケージ削除の確認",
+        "deleteDesc": "このパッケージを削除しますか？この操作は取り消せません。",
+        "cancel": "キャンセル",
+        "delete": "削除"
+      },
+      "table": {
+        "package": "パッケージ",
+        "type": "種類",
+        "price": "価格",
+        "specs": "仕様",
+        "features": "機能",
+        "status": "ステータス",
+        "actions": "アクション"
+      },
+      "createForm": {
+        "priceUSD": "価格 (USD / 月)",
+        "priceVND": "価格 (VND / 月)",
+        "storage": "ストレージ",
+        "storagePlaceholder": "例: 80 GB SSD",
+        "bandwidthLabel": "帯域幅",
+        "bandwidthPlaceholder": "例: 1 TB",
+        "feature": "機能 / メモ",
+        "featurePlaceholder": "追加機能またはメモ...",
+        "isActive": "アクティブ (ユーザーに表示)",
+        "saving": "保存中..."
+      }
+    }
+  },
+  "homepage": {
+    "hero": {
+      "title": "ベトナムをリードするOracleクラウドソリューション",
+      "subtitle": "ベトナムの公式Oracleパートナー",
+      "description": "Oracle Cloud Infrastructure（OCI）を使用した包括的なクラウドコンピューティングソリューションを提供し、コストの最適化とパフォーマンスの向上を支援します。",
+      "getStarted": "今すぐ始める",
+      "dashboard": "ダッシュボードを表示",
+      "contact": "相談の連絡",
+      "viewPricing": "構成と価格を表示",
+      "imageAlt": "Oracleクラウドダッシュボード",
+      "features": {
+        "security": {
+          "title": "絶対的なセキュリティ",
+          "description": "99.9%のアップタイム"
+        },
+        "performance": {
+          "title": "高性能",
+          "description": "優れた速度"
+        },
+        "global": {
+          "title": "グローバル",
+          "description": "36以上のデータセンター"
+        }
+      },
+      "trustIndicators": {
+        "customers": "顧客",
+        "uptime": "アップタイム",
+        "support": "サポート"
+      },
+      "floatingElements": {
+        "costSaving": "コストを40%削減",
+        "quickDeploy": "24時間以内にデプロイ"
+      }
+    },
+    "services": {
+      "title": "サービス",
+      "subtitle": "包括的なクラウドソリューション",
+      "description": "データベースからAIまで、ビジネスのデジタル変革のあらゆるニーズに対応するクラウドサービスを提供します。",
+      "keyFeatures": "主な機能：",
+      "serviceList": {
+        "database": {
+          "title": "Oracleデータベースクラウド",
+          "description": "高性能で絶対的なセキュリティを備えた自己管理型Oracleデータベース",
+          "features": ["自律型データベース", "リアルアプリケーションクラスタ", "データガード", "高度なセキュリティ"]
+        },
+        "compute": {
+          "title": "コンピュートクラウド",
+          "description": "ビジネスニーズに応じた柔軟な仮想サーバー構成",
+          "features": ["ベアメタル", "仮想マシン", "コンテナエンジン", "ファンクション"]
+        },
+        "storage": {
+          "title": "ストレージソリューション",
+          "description": "ブロックストレージからオブジェクトストレージまで多様なストレージソリューション",
+          "features": ["ブロックボリューム", "オブジェクトストレージ", "ファイルストレージ", "アーカイブストレージ"]
+        },
+        "networking": {
+          "title": "ネットワーキング",
+          "description": "低遅延かつ高帯域幅のグローバルネットワークインフラ",
+          "features": ["仮想クラウドネットワーク", "ロードバランサー", "VPN接続", "ファストコネクト"]
+        },
+        "security": {
+          "title": "セキュリティとアイデンティティ",
+          "description": "高度なアイデンティティおよびアクセス管理を備えた多層セキュリティ",
+          "features": ["アイデンティティ管理", "キー管理", "ウェブアプリケーションファイアウォール", "セキュリティゾーン"]
+        },
+        "analytics": {
+          "title": "分析とAI",
+          "description": "統合された機械学習によるインテリジェントなデータ分析",
+          "features": ["分析クラウド", "データサイエンス", "機械学習", "ビッグデータサービス"]
+        }
+      },
+      "benefits": {
+        "fastDeploy": {
+          "title": "迅速なデプロイ",
+          "description": "数分で設定完了"
+        },
+        "globalCoverage": {
+          "title": "グローバルカバレッジ",
+          "description": "36以上のデータセンター"
+        },
+        "enterpriseSecurity": {
+          "title": "エンタープライズセキュリティ",
+          "description": "国際基準に準拠"
+        },
+        "costOptimization": {
+          "title": "コスト最適化",
+          "description": "最大40%削減"
+        }
+      }
+    },
+    "pricing": {
+      "title": "価格",
+      "subtitle": "あらゆる規模のビジネスに適したサービスパッケージ",
+      "description": "ベトナム市場で最も競争力のある価格で提供される、柔軟でスケーラブルなOracleクラウドサービスパッケージ。",
+      "plans": {
+        "starter": "スタンダード",
+        "professional": "プレミアム",
+        "enterprise": "エンタープライズ",
+        "ai": "AI-GPU",
+        "custom": "カスタム"
+      },
+      "buttons": {
+        "viewDetails": "詳細を表示",
+        "hideDetails": "非表示",
+        "showDetails": "表示",
+        "packages": "パッケージ",
+        "selectPlan": "このプランを選択",
+        "contactConsult": "相談の連絡",
+        "close": "閉じる"
+      },
+      "tooltips": {
+        "exchangeRate": "価格は現在の為替レートに基づいて計算されます。",
+        "todayRate": "今日のレート："
+      },
+      "sections": {
+        "selectSuitable": "あなたに最適なパッケージを選択",
+        "moreFeatures": "その他の機能"
+      },
+      "auth": {
+        "loginRequired": "ログインしてください",
+        "loginToRegister": "カスタムパッケージ登録のためにログインしてください"
+      },
+      "additionalInfo": {
+        "support247": "すべてのパッケージには24時間年中無休の技術サポートと99.9%のアップタイム保証が含まれます",
+        "noSetupFee": "設定費用なし",
+        "cancelAnytime": "いつでもキャンセル可能",
+        "flexiblePayment": "柔軟な支払いオプション",
+        "freeConsult": "無料相談",
+        "hotlineSupport": "サポートホットライン："
+      }
+    },
+    "form": {
+      "customRegistration": {
+        "title": "カスタムパッケージ登録",
+        "description": "最適なサービスパッケージを提案するために、詳細情報を入力してください。",
+        "userName": "ユーザー名",
+        "email": "メール",
+        "phoneNumber": "電話番号",
+        "company": "会社名",
+        "configRequirements": "構成要件",
+        "cpu": "CPU",
+        "ram": "RAM",
+        "storage": "ストレージ",
+        "bandwidth": "帯域幅",
+        "additionalNotes": "追加メモ",
+        "placeholders": {
+          "userName": "名前を入力",
+          "email": "example@company.com",
+          "phoneNumber": "0987654321",
+          "company": "ABCカンパニー",
+          "cpu": "例：4コア、Intel Xeon",
+          "ram": "例：16GB、32GB",
+          "storage": "例：500GB SSD、1TB HDD",
+          "bandwidth": "例：100Mbps、1Gbps",
+          "additionalNotes": "特別な要件、デプロイスケジュール、想定予算などを記載..."
+        },
+        "validation": {
+          "userNameMin": "ユーザー名は2文字以上である必要があります",
+          "emailInvalid": "無効なメールアドレスです",
+          "phoneNumberMin": "電話番号は10桁以上である必要があります",
+          "phoneNumberMax": "電話番号は20桁を超えることはできません",
+          "cpuRequired": "CPU情報を入力してください",
+          "ramRequired": "RAM情報を入力してください"
+        },
+        "buttons": {
+          "cancel": "キャンセル",
+          "register": "登録"
+        },
+        "success": {
+          "title": "登録成功！",
+          "description": "できるだけ早くご連絡いたします。"
+        },
+        "error": {
+          "title": "エラーが発生しました",
+          "description": "後でもう一度お試しいただくか、サポートにご連絡ください。"
+        }
+      }
+    }
+  },
+  "pricing": {
+    "loginRequired": "パッケージ登録のためにログインしてください",
+    "plans": {
+      "starter": {
+        "1": {
+          "description": "2 vCPU、1GB RAM、20GB SSDストレージ"
+        },
+        "2": {
+          "description": "2 vCPU、2GB RAM、40GB SSDストレージ"
+        },
+        "3": {
+          "description": "4 vCPU、4GB RAM、80GB SSDストレージ"
+        },
+        "4": {
+          "description": "4 vCPU、8GB RAM、80GB SSDストレージ"
+        },
+        "5": {
+          "description": "8 vCPU、8GB RAM、100GB SSDストレージ"
+        }
+      },
+      "professional": {
+        "1": {
+          "description": "4 vCPU、6GB RAM、100GB SSDストレージ"
+        },
+        "2": {
+          "description": "6 vCPU、8GB RAM、150GB SSDストレージ"
+        },
+        "3": {
+          "description": "8 vCPU、10GB RAM、150GB SSDストレージ"
+        },
+        "4": {
+          "description": "8 vCPU、12GB RAM、150GB SSDストレージ"
+        },
+        "5": {
+          "description": "8 vCPU、16GB RAM、200GB SSDストレージ"
+        },
+        "6": {
+          "description": "8 vCPU、32GB RAM、200GB SSDストレージ"
+        }
+      },
+      "enterprise": {
+        "1": {
+          "description": "10 vCPU、16GB RAM、250GB SSDストレージ"
+        },
+        "2": {
+          "description": "12 vCPU、16GB RAM、250GB SSDストレージ"
+        },
+        "3": {
+          "description": "12 vCPU、18GB RAM、500GB SSDストレージ"
+        },
+        "4": {
+          "description": "16 vCPU、32GB RAM、500GB SSDストレージ"
+        },
+        "5": {
+          "description": "16 vCPU、32GB RAM、1024GB SSDストレージ"
+        },
+        "6": {
+          "description": "24 vCPU、32GB RAM、1024GB SSDストレージ"
+        },
+        "7": {
+          "description": "36 vCPU、64GB RAM、1024GB SSDストレージ"
+        },
+        "8": {
+          "description": "48 vCPU、128GB RAM、1024GB SSDストレージ"
+        },
+        "9": {
+          "description": "相談を受けるためにこのパッケージを登録する必要すらありません。ホットラインに直接お電話ください！"
+        }
+      },
+      "ai": {
+        "1": {
+          "description": "1 GPU P100、16GB RAM、1024 GB"
+        },
+        "2": {
+          "description": "1 GPU A10、24GB RAM、1024 GB"
+        },
+        "3": {
+          "description": "2 GPU P100、32GB RAM、1024 GB"
+        },
+        "4": {
+          "description": "2 GPU A10、48GB RAM、1024GB"
+        }
+      },
+      "custom": {
+        "description": "企業要件に合わせたカスタムソリューション",
+        "price": "お問い合わせ",
+        "features": {
+          "flexible": "柔軟な構成",
+          "integration": "専用システム統合",
+          "consulting": "詳細なアーキテクチャコンサルティング",
+          "onsite": "オンサイト導入サポート"
+        }
+      }
+    },
+    "categories": {
+      "starter": {
+        "description": "小規模企業に適しています"
+      },
+      "professional": {
+        "description": "中規模企業に人気の選択"
+      },
+      "enterprise": {
+        "description": "大企業向けの包括的ソリューション"
+      },
+      "ai": {
+        "description": "クラウドでLLMモデルをデプロイ"
+      }
+    }
+  },
+  "header": {
+    "home": "ホーム",
+    "services": "サービス",
+    "pricing": "価格",
+    "support": "サポート",
+    "contact": "連絡",
+    "login": "ログイン",
+    "register": "登録",
+    "hello": "こんにちは",
+    "hotline": "ホットライン: 0707.806.860",
+    "profile": "プロフィール",
+    "settings": "設定",
+    "logout": "ログアウト",
+    "logoTitle": "Oracleクラウドベトナム",
+    "logoSubtitle": "公式パートナー",
+    "languageLabel": "言語",
+    "admin": "管理者",
+    "packageManagement": "マイクラウド",
+    "supportRequest": "サポートリクエスト"
+  },
+  "footer": {
+    "companyName": "Oracleクラウドベトナム",
+    "officialPartner": "公式パートナー",
+    "companyDescription": "ベトナムの公式Oracleパートナーとして、10年以上の経験を基に企業向けの先進的なクラウドコンピューティングソリューションを提供します。",
+    "services": "サービス",
+    "serviceList": {
+      "database": "Oracleデータベースクラウド",
+      "compute": "コンピュートクラウド",
+      "storage": "ストレージソリューション",
+      "networking": "ネットワーキング",
+      "security": "セキュリティとアイデンティティ",
+      "analytics": "分析とAI"
+    },
+    "support": "サポート",
+    "supportList": {
+      "docs": "技術ドキュメント",
+      "videos": "ガイド動画",
+      "forum": "コミュニティフォーラム",
+      "ticket": "サポートチケット",
+      "training": "トレーニングと認証",
+      "api": "APIドキュメント"
+    },
+    "contact": "連絡",
+    "companyFull": "国際サイバーセキュリティ株式会社 - ICS",
+    "office": "オフィス：ハノイ市ディンコン、大キム新都市エリアTT3-5",
+    "phone": "電話：0931.487.231",
+    "hotline": "ホットライン：0707.806.860",
+    "email": "メール：info@icss.com.vn",
+    "website": "www.icss.com.vn",
+    "newsletter": "ニュースレター購読",
+    "newsletterPlaceholder": "あなたのメールアドレス",
+    "newsletterButton": "購読",
+    "privacy": "プライバシーポリシー",
+    "terms": "利用規約",
+    "sla": "SLA",
+    "sitemap": "サイトマップ",
+    "copyright": "© 2024 Oracleクラウドベトナム。全権利を留保。"
+  },
+  "unauthorized": {
+    "title": "このページにアクセスする権限がありません",
+    "description": "アクセス権限を確認するか、エラーだと思われる場合は管理者にご連絡ください。"
+  },
+  "common": {
+    "loading": "読み込み中...",
+    "logoutSuccess": "ログアウト成功！",
+    "error": "エラー"
+  },
+  "checkout": {
+    "title": "チェックアウト",
+    "backButton": "戻る",
+    "success": {
+      "title": "支払い成功！",
+      "desc": "サービスパッケージの購読ありがとうございます。確認メールと使用ガイドをあなたのメールアドレスに送信しました。",
+      "configBtn": "サービス構成ガイドを見る",
+      "manageBtn": "購読パッケージ管理",
+      "homeBtn": "ホームに戻る",
+      "note": "注意：5分以内にメールを受信しない場合は、迷惑メールフォルダを確認するか、弊社にご連絡ください。"
+    },
+    "packageInfo": "サービスパッケージ情報",
+    "packageName": "パッケージ名",
+    "description": "説明",
+    "packageType": "パッケージタイプ",
+    "features": "含まれる機能",
+    "totalAmount": "合計金額",
+    "paymentQR": "QRで支払い",
+    "scanQR": "バンキングアプリでQRコードをスキャンして支払い",
+    "bankName": "銀行",
+    "accountNumber": "口座番号",
+    "amount": "金額",
+    "content": "内容",
+    "copyInfo": "送金情報コピー",
+    "copiedSuccess": "送金情報が正常にコピーされました",
+    "note": "注意：システムがサービスを自動的に有効化するには、正確な内容で送金してください。",
+    "contactSupport": "サポートに連絡",
+    "support247": "24時間年中無休の技術サポート",
+    "noSetupFee": "設定費用なし",
+    "uptimeGuarantee": "99.9%アップタイム保証",
+    "flexiblePayment": "柔軟な支払いオプション",
+    "creatingQR": "QR作成中...",
+    "paidSuccessRedirect": "支払い成功！リダイレクト中...",
+    "checkingPayment": "支払い確認中...",
+    "transferContentExact": "送金内容は正確である必要があります",
+    "paymentId": "支払いID",
+    "autoConfirmNote": "送金が成功するとシステムが自動的に確認します。",
+    "monthsSubscription": "登録月数",
+    "months": "ヶ月",
+    "forMonths": "({{n}}ヶ月)"
+  },
+  "login": {
+    "title": "ログイン",
+    "subtitle": "お帰りなさい！続行するにはログインしてください。",
+    "email": "メールアドレス",
+    "emailPlaceholder": "メールアドレスを入力",
+    "password": "パスワード",
+    "passwordPlaceholder": "パスワードを入力",
+    "loginButton": "ログイン",
+    "loggingIn": "ログイン中...",
+    "forgotPassword": "パスワードをお忘れですか？",
+    "noAccount": "アカウントをお持ちでないですか？",
+    "registerNow": "今すぐ登録",
+    "or": "または",
+    "loginWithGoogle": "Googleでログイン",
+    "googleLoginComingSoon": "Googleログインは近日公開予定です。",
+    "fillTestData": "テストデータを入力 (test@gmail.com / 123123)",
+    "validationEmailRequired": "メールアドレスを入力してください",
+    "validationEmailInvalid": "無効なメールアドレスです",
+    "validationPasswordRequired": "パスワードを入力してください",
+    "validationPasswordMinLength": "パスワードは{{length}}文字以上で入力してください",
+    "successEmailVerified": "メールの確認が完了しました！ログインしてください。",
+    "successPasswordReset": "パスワードが正常にリセットされました！新しいパスワードでログインしてください。",
+    "errorInvalidCredentials": "メールアドレスまたはパスワードが正しくありません。ログイン情報を確認してください。",
+    "errorEmailAlreadyExists": "このメールアドレスはすでに登録されています。別のメールアドレスを使用するかログインしてください。",
+    "errorDefault": "ログインに失敗しました。もう一度お試しください。"
+  },
+  "profile": {
+    "title": "プロフィール情報",
+    "subtitle": "アカウント情報を管理します",
+    "loadingUser": "ユーザー情報を読み込み中...",
+    "userBadge": "ユーザー",
+    "id": "ID",
+    "createdAt": "作成日",
+    "updatedAt": "最終更新",
+    "editInfo": "情報編集",
+    "editDescription": "個人情報を更新します",
+    "updateSuccess": "情報が正常に更新されました！",
+    "updateFailed": "情報の更新に失敗しました",
+    "firstName": "名前",
+    "lastName": "姓",
+    "email": "メールアドレス",
+    "emailDescription": "メールアドレスはログインと通知の受信に使用されます",
+    "fullName": "フルネーム",
+    "phoneNumber": "電話番号",
+    "company": "会社",
+    "gender": "性別",
+    "genderMale": "男性",
+    "genderFemale": "女性",
+    "genderOther": "その他",
+    "idCard": "身分証番号",
+    "backupEmail": "サブメール",
+    "address": "住所",
+    "notProvided": "未提供",
+    "accountStatus": "アカウントステータス",
+    "accountActive": "有効",
+    "accountInactive": "無効",
+    "adminBadge": "管理者",
+    "sections": {
+      "basicInfo": "基本情報",
+      "contactInfo": "連絡先情報",
+      "personalDetails": "個人詳細",
+      "security": "セキュリティ"
+    },
+    "tabs": {
+      "profile": "プロフィール",
+      "security": "セキュリティ"
+    },
+    "editDialogTitle": "プロフィール編集",
+    "editDialogDesc": "個人情報を更新してください。完了したら保存をクリックしてください。",
+    "cancel": "キャンセル",
+    "saving": "保存中...",
+    "saveChanges": "変更を保存",
+    "edit": "編集",
+    "changePassword": "パスワード変更",
+    "changePasswordDescription": "アカウントのセキュリティのためにパスワードを更新してください",
+    "changePasswordButton": "パスワード変更",
+    "changePasswordDialogTitle": "パスワード変更",
+    "changePasswordDialogDesc": "現在のパスワードと新しいパスワードを入力してください。2つのパスワードは6文字以上必要です。",
+    "currentPassword": "現在のパスワード",
+    "newPassword": "新しいパスワード",
+    "confirmNewPassword": "新しいパスワードの確認",
+    "changePasswordSuccess": "パスワードを変更しました！",
+    "changePasswordFailed": "パスワードの変更に失敗しました",
+    "passwordsNotMatch": "パスワードが一致しません",
+    "changingPassword": "変更中...",
+    "avatarUploadSuccess": "アバターを更新しました",
+    "avatarUploadError": "アバターの更新に失敗しました",
+    "avatarSizeError": "ファイルサイズは5MB以下にしてください",
+    "avatarTypeError": "画像ファイルを選択してください",
+    "validation": {
+      "firstNameRequired": "名前の入力が必要です",
+      "firstNameMax": "名前は50文字以内で入力してください",
+      "lastNameRequired": "姓の入力が必要です",
+      "lastNameMax": "姓は50文字以内で入力してください",
+      "emailRequired": "メールアドレスの入力が必要です",
+      "emailInvalid": "無効なメールアドレスです",
+      "phoneInvalid": "電話番号の形式が正しくありません",
+      "backupEmailInvalid": "サブメールの形式が正しくありません",
+      "idCardInvalid": "身分証番号の形式が正しくありません",
+      "currentPasswordRequired": "現在のパスワードを入力してください",
+      "newPasswordMin": "新しいパスワードは6文字以上入力してください",
+      "confirmPasswordRequired": "新しいパスワードを確認してください",
+      "passwordSameAsCurrent": "新しいパスワードは現在のパスワードと異なる必要があります"
+    }
+  },
+  "packageDetail": {
+    "title": "デバイス負荷状態の表示",
+    "subtitle": "クラウドパッケージのパフォーマンスを監視・管理",
+    "loading": {
+      "subscription": "サブスクリプション情報を読み込み中..."
+    },
+    "error": {
+      "notFound": "サブスクリプションが見つかりません"
+    },
+    "buttons": {
+      "back": "戻る"
+    },
+    "status": {
+      "active": "アクティブ",
+      "inactive": "非アクティブ",
+      "expired": "期限切れ",
+      "suspended": "一時停止",
+      "cancelled": "キャンセル済み",
+      "pending": "保留中"
+    },
+    "serverDetails": {
+      "title": "サーバー詳細",
+      "demoData": "デモデータ",
+      "status": "ステータス",
+      "on": "オン",
+      "refresh": "更新",
+      "hostname": "ドメイン/ホスト名",
+      "username": "ユーザー名",
+      "password": "パスワード",
+      "ip": "IPアドレス",
+      "uptime": "稼働時間",
+      "days": "日"
+    },
+    "controls": {
+      "vmName": "VM名：",
+      "time": "時間：",
+      "theme": "テーマ：",
+      "showPerformance": "パフォーマンス使用状況を表示",
+      "timeOptions": {
+        "oneHour": "1時間前",
+        "sixHours": "6時間前",
+        "twentyFourHours": "24時間前",
+        "sevenDays": "7日前"
+      },
+      "themeOptions": {
+        "light": "ライト",
+        "dark": "ダーク"
+      }
+    },
+    "charts": {
+      "cpuUsage": "CPU使用率 (%)",
+      "memoryUsage": "メモリ使用率 (%)"
+    },
+    "packageInfo": {
+      "title": "パッケージ情報",
+      "packageName": "パッケージ名",
+      "vmName": "VM名",
+      "cpu": "CPU",
+      "memory": "メモリ",
+      "storage": "ストレージ",
+      "bandwidth": "帯域幅",
+      "feature": "機能",
+      "ipAddress": "IPアドレス",
+      "subscriber": "利用者",
+      "email": "メール",
+      "startDate": "開始日",
+      "endDate": "終了日",
+      "autoRenew": "自動更新",
+      "monthlyCost": "月額費用",
+      "yes": "はい",
+      "no": "いいえ"
+    },
+    "actions": {
+      "title": "パッケージ管理",
+      "startVM": "VM開始",
+      "pauseVM": "VM一時停止",
+      "restartVM": "VM再起動",
+      "createBackup": "バックアップ作成",
+      "console": "コンソール",
+      "changeOS": "OS変更/再インストール",
+      "deletePackage": "パッケージ削除",
+      "configurateVM": "VM設定"
+    },
+    "billing": {
+      "title": "請求情報",
+      "createdDate": "作成日",
+      "nextBilling": "次回請求",
+      "monthlyCost": "月額費用"
+    },
+    "vmInfoTitle": "お客様の仮想マシン情報",
+    "toast": {
+      "error": "エラー",
+      "loadError": "サブスクリプション情報を読み込めません",
+      "vmNotConfigured": "VMが構成されていません",
+      "vmNotConfiguredDesc": "先にVMを構成してください",
+      "vmActionSuccess": "成功",
+      "vmActionSuccessDesc": "VMコマンドを正常に送信しました",
+      "vmActionFailed": "操作失敗",
+      "vmActionFailedDesc": "VM操作に失敗しました",
+      "deleteVmSuccess": "VMを正常に削除しました",
+      "deleteVmSuccessDesc": "VMが削除されました。サブスクリプションは有効のままです。",
+      "deleteVmFailed": "VM削除失敗",
+      "deleteVmFailedDesc": "後で再試するか、サポートにお問い合わせください。",
+      "deleteSuccess": "削除成功",
+      "deleteSuccessDesc": "サブスクリプションとVMが完全に削除されました",
+      "deleteError": "サブスクリプションの削除エラー"
+    },
+    "confirmDialog": {
+      "cancel": "キャンセル",
+      "confirm": "確認",
+      "deleteVmOnly": {
+        "title": "サブスクリプションのVMを削除",
+        "description": "サブスクリプションは有効のままですが、仮想マシンは削除されます。サービスを続けるには新しいVMを構成する必要があります。"
+      },
+      "deleteSubscription": {
+        "title": "サブスクリプションの削除を確認",
+        "description": "この操作は、Oracle Cloud上のサブスクリプションと仮想マシン(VM)を永久に削除します。関連するすべてのデータが削除され、復元できません。削除前に重要なデータをバックアップしてください。"
+      }
+    },
+    "vmNotConfigured": {
+      "message1": "VMはまだ構成されていません。VMを構成してサーバーの詳細を確認してください。",
+      "message2": "VMが構成されていません。まずVMを構成してください。",
+      "message3": "VM構成後にグラフが利用可能になります",
+      "message4": "VMが実行中の場合、グラフが利用可能です",
+      "label": "VMはまだ構成されていません",
+      "deleteButton": "VMを削除（サブスクリプションを保持）"
+    }
+  },
+  "support": {
+    "title": "サポートリクエスト",
+    "subtitle": "技術的なサポートリクエストを送信して、迅速な回答を受け取る",
+    "submit": "サポートリクエストを送信",
+    "submitting": "送信中...",
+    "uploadingFiles": "ファイルをアップロード中...",
+    "attachmentsLabel": "添付ファイル",
+    "files": {
+      "tooMany": "添付できるファイルは最大 {{max}} 個まで",
+      "tooLarge": "ファイルが {{maxMB}}MB の制限を超えています",
+      "limits": "最大 {{max}} ファイル · 各 ≤ {{maxMB}}MB · 画像、PDF、Word、テキスト"
+    },
+    "submitSuccess": "リクエストが正常に送信されました！",
+    "submitSuccessDesc": "できるだけ早く返答します",
+    "submitError": "リクエストの送信に失敗しました",
+    "fields": {
+      "title": "件名",
+      "titlePlaceholder": "問題を簡単に説明してください",
+      "name": "お客様名",
+      "namePlaceholder": "氏名",
+      "email": "メール",
+      "emailPlaceholder": "連絡先メール",
+      "phone": "電話番号",
+      "phonePlaceholder": "連絡先電話番号",
+      "address": "住所",
+      "addressPlaceholder": "住所",
+      "service": "サービス",
+      "servicePlaceholder": "サービスを選択",
+      "content": "内容",
+      "contentPlaceholder": "発生している問題を詳しく説明してください...",
+      "attachments": "添付ファイル",
+      "attachmentsPlaceholder": "ファイルをドラッグ＆ドロップまたは",
+      "attachmentsBrowse": "パソコンから選択"
+    },
+    "services": {
+      "cloud": "クラウドサーバー",
+      "storage": "オブジェクトストレージ",
+      "network": "ネットワーク / VPN",
+      "billing": "請求",
+      "account": "アカウント",
+      "other": "その他"
+    },
+    "myTickets": "マイチケット",
+    "myTicketsSubtitle": "提出したリクエストのステータスをトラッキング",
+    "noTickets": "サポートリクエストはまだありません",
+    "loadingTickets": "リクエストを読み込み中...",
+    "fetchErrorTitle": "データを読み込めません",
+    "retryBtn": "再試する",
+    "emptyTitle": "リクエストはありません",
+    "emptySubtitle": "リクエストはここに表示されます",
+    "ticketSubmittedOn": "送信",
+    "statusLabel": "ステータス:",
+    "resolvedAt": "解決:",
+    "serviceLabel": "サービス:",
+    "requestContent": "リクエスト内容:",
+    "adminReplyTitle": "サポートチームからの返信:",
+    "waitingReply": "リクエストを処理中です。サポートチームからの返信をお待ちください。",
+    "hasReply": "返信あり",
+    "formNote": "問題を正確に把握できるよう、すべての情報を入力してください",
+    "status": {
+      "open": "オープン",
+      "in_progress": "処理中",
+      "resolved": "解決済み",
+      "closed": "クローズ"
+    },
+    "validation": {
+      "titleMin": "タイトルは最創2文字以上必要です",
+      "nameMin": "名前を入力してください",
+      "emailInvalid": "メールアドレスが無効です",
+      "contentMin": "内容は最切10文字以上必要です"
+    },
+    "priority": {
+      "low": "低",
+      "medium": "中",
+      "high": "高",
+      "urgent": "緊急"
+    }
+  },
+  "adminSupport": {
+    "title": "サポートチケット管理",
+    "subtitle": "ユーザーからのサポートリクエストを追跡・処理",
+    "totalTickets": "合計チケット",
+    "openTickets": "オープン",
+    "inProgressTickets": "処理中",
+    "resolvedTickets": "解決済み",
+    "updateSuccess": "更新しました",
+    "updateError": "更新失敗",
+    "deleteConfirm": "このチケットを削除してもよろしいですか？",
+    "adminNote": "管理者メモ",
+    "adminNotePlaceholder": "処理メモを入力..."
+  },
+  "walletSidebar": {
+    "title": "マイアカウント",
+    "subtitle": "クラウドと支払いの管理",
+    "myCloud": "マイクラウド",
+    "myCloudDesc": "購入済みパッケージの管理",
+    "paymentManagement": "支払い管理",
+    "paymentManagementDesc": "取引履歴を見る",
+    "needHelp": "お気軽にご相談?",
+    "contactSupport": "サポートに連絡",
+    "account": "アカウント"
+  },
+  "paymentHistory": {
+    "title": "取引履歴",
+    "loading": "取引履歴を読み込み中...",
+    "totalDeposit": "累計チャージ額",
+    "totalPaid": "合計支払金額",
+    "depositCount": "チャージ回数",
+    "paymentCount": "支払い回数",
+    "packagesBought": "購入済みパッケージ",
+    "processing": "処理中",
+    "filterTitle": "フィルターと検索",
+    "exportExcel": "Excelエクスポート",
+    "searchPlaceholder": "IDみは取引コードで検索...",
+    "allStatus": "全ステータス",
+    "statusSuccess": "成功",
+    "statusPending": "処理中",
+    "statusFailed": "失敗",
+    "allTypes": "全取引タイプ",
+    "deposit": "チャージ",
+    "subscriptionPayment": "パッケージ支払い",
+    "advancedFilter": "高度なフィルター",
+    "transactionHistory": "取引履歴 ({{count}}件)",
+    "noTransactions": "取引が見つかりません",
+    "months": "ヶ月",
+    "viewDetail": "詳細を見る",
+    "viewDetailDesc": "取引詳細 {{code}}",
+    "viewPaymentDetail": "支払い詳細を見る",
+    "paymentDetailError": "支払い情報を読み込めませんでした",
+    "exportSuccess": "Excelエクスポート成功",
+    "exportSuccessDesc": "{{count}}件の取引をエクスポートしました",
+    "exportError": "Excelエクスポートエラー",
+    "exportErrorDesc": "Excelファイルをエクスポートできませんでした。再試行してください。",
+    "loadError": "エラー",
+    "loadErrorDesc": "取引履歴を読み込めませんでした",
+    "depositDescription": "アカウントへのチャージ",
+    "payment": "支払い",
+    "unknown": "不明",
+    "transaction": "取引",
+    "accountBalance": "アカウント残高",
+    "qrCode": "QRコード",
+    "bankTransfer": "銀行振込",
+    "excelSummary": "合計: {{count}}件の取引",
+    "showing": "{{total}}件中{{count}}件表示",
+    "prevPage": "前のページ",
+    "nextPage": "次のページ",
+    "labels": {
+      "id": "ID",
+      "ref": "Ref",
+      "balance": "取引後の残高",
+      "subscriptionId": "サブ ID"
+    },
+    "types": {
+      "deposit": "チャージ",
+      "subscriptionPayment": "パッケージ支払い",
+      "autoRenewal": "自動更新",
+      "manualRenewal": "手動更新",
+      "default": "取引"
+    },
+    "excel": {
+      "sheetName": "ウォレット取引履歴",
+      "filePrefix": "wallet-transaction-history",
+      "no": "No.",
+      "transactionType": "取引タイプ",
+      "amountVnd": "金額 (VND)",
+      "balanceAfterVnd": "取引後残高 (VND)",
+      "referenceCode": "参照支払いコード",
+      "transactionId": "取引ID",
+      "time": "時間"
+    },
+    "detail": {
+      "title": "取引詳細",
+      "amount": "金額",
+      "balanceAfter": "取引後残高",
+      "paymentId": "支払いID",
+      "subscriptionId": "サブスクリプションID",
+      "transactionCode": "取引コード",
+      "paymentMethod": "支払い方法",
+      "description": "説明",
+      "package": "サービスプラン",
+      "createdAt": "作成日時",
+      "updatedAt": "最終更新",
+      "close": "閉じる",
+      "copied": "コピーしました"
+    },
+    "paymentDetail": {
+      "title": "支払い詳細",
+      "amount": "金額",
+      "type": "支払い種別",
+      "method": "支払い方法",
+      "transactionCode": "取引コード",
+      "subscriptionId": "サブスクリプションID",
+      "package": "サービスプラン",
+      "description": "内容",
+      "time": "時刻",
+      "close": "閉じる",
+      "statuses": {
+        "pending": "処理中",
+        "success": "成功",
+        "failed": "失敗",
+        "expired": "期限切れ"
+      },
+      "methods": {
+        "sepayQr": "SePay QR",
+        "accountBalance": "口座残高",
+        "bankTransfer": "銀行振込"
+      },
+      "types": {
+        "deposit": "チャージ",
+        "subscription": "プラン登録"
+      }
+    }
+  },
+  "balanceDisplay": {
+    "label": "残高:",
+    "addFunds": "チャージ",
+    "loading": "読み込み中...",
+    "error": "残高を読み込めません",
+    "refresh": "残高を更新"
+  },
+  "subscriptionCheckout": {
+    "title": "サブスクリプション支払い",
+    "back": "戻る",
+    "transactionInfo": "取引情報",
+    "transactionType": "取引タイプ：",
+    "subscriptionRegistration": "サブスクリプション登録",
+    "paymentMethodLabel": "支払方法：",
+    "bankTransfer": "銀行振込",
+    "subscriptionIdLabel": "サブスクリプションID：",
+    "paymentAmount": "支払金額：",
+    "timeLeft": "残り時間：",
+    "expireWarning": "この取引は上記の時間で期限切れになります。期限前に支払いを完了してください。",
+    "transactionCode": "取引コード：",
+    "autoConfirm": "支払いが確認されると取引は自動的に完了します。",
+    "benefit1": "サブスクリプションはすぐに有効になります",
+    "benefit2": "手数料なし",
+    "benefit3": "24時間365日サポート",
+    "benefit4": "安全な暗号化取引",
+    "scanQR": "QRコードで支払い",
+    "loadingPaymentInfo": "支払い情報を読み込み中...",
+    "paymentSuccessRedirect": "✅ 支払い成功！リダイレクト中...",
+    "checkingPayment": "支払いを確認中...",
+    "scanQRDesc": "銀行アプリでQRコードをスキャンして支払い",
+    "bankLabel": "銀行：",
+    "accountNumberLabel": "口座番号：",
+    "accountHolderLabel": "口座名義：",
+    "amountLabel": "金額：",
+    "contentLabel": "内容：",
+    "copyTransferInfo": "振込情報をコピー",
+    "importantNote": "重要なお知らせ：",
+    "importantNoteDesc": "正確な金額と正確な内容で送金してください。システムが自動的に取引を確認できます。",
+    "contactSupport": "サポートに連絡",
+    "alreadyTransferred": "すでに転送済み",
+    "invalidInfo": "無効な情報",
+    "invalidInfoDesc": "支払い情報が見つかりません。再試行してください。",
+    "backHome": "ホームに戻る",
+    "copiedTransferInfo": "振込情報をコピーしました",
+    "paymentSuccess": "支払い成功！",
+    "subscriptionActivated": "サブスクリプションが有効になりました。",
+    "qrReadyToast": "QR準備完了",
+    "qrReadyToastDesc": "QRコードをスキャンするか、以下の情報で手動振込してください。",
+    "alreadyTransferredToast": "ありがとうございます！",
+    "alreadyTransferredToastDesc": "お支払いを承りました。振込確認後、取引は自動的に確認されます。"
+  },
+  "cloudConfig": {
+    "title": "VMインスタンスの設定",
+    "subscriptionLabel": "サブスクリプションID: {{id}}",
+    "back": "パッケージ管理に戻る",
+    "vmDetails": "VMインスタンス詳細",
+    "vmInstanceName": "VMインスタンス名",
+    "vmNameNote": "VM名はメールアドレスに基づいて自動生成されます。形式：",
+    "notificationSettings": "通知設定",
+    "emailLabel": "メールアドレス * (SSHキーはこちらに送信されます)",
+    "emailNote": "SSHプライベートキーがこのメールアドレスに送信されます。大切に保管してください。",
+    "vmShape": "VMシェイプ *",
+    "vmShapeNote": "まずVMシェイプを選択してください - OSオプションは互換性に応じてフィルタリングされます",
+    "recommended": "推奨",
+    "armCapacityLimited": "⚠️ ARM容量制限",
+    "armCapacityNote": "A1.Flex (ARM)インスタンスは大阪リージョンで容量が制限されています。容量の問題で設定に失敗した場合は、後で再試行するか、可用性の高いx86シェイプ (E2.1.Micro, E3.Flex) に切り替えてください。",
+    "armImageNote": "注意: ARMイメージ (🔷) はA1.Flexのみ対応です。x86イメージ (🔵) はE2、E3、E4、Standardシェイプ対応です。",
+    "operatingSystem": "オペレーティングシステム",
+    "showingCompatible": "{{shape}}対応イメージを表示中",
+    "selectOS": "オペレーティングシステムを選択 *",
+    "versions": "バージョン",
+    "searchVersion": "バージョンを検索...",
+    "noImagesFound": "イメージが見つかりません",
+    "loadingOsImages": "OSイメージを読み込み中...",
+    "configSummary": "設定概要",
+    "osLabel": "オペレーティングシステム",
+    "notSelected": "未選択",
+    "vmShapeLabel": "VMシェイプ",
+    "ocpus": "OCPU数",
+    "memory": "メモリ",
+    "bootVolume": "ブートボリューム",
+    "notificationEmail": "通知メール",
+    "notSpecified": "未指定",
+    "allFieldsCompleted": "全ての必須フィールドが入力されました",
+    "incompleteFields": "全ての必須フィールドを入力してください：",
+    "needOS": "オペレーティングシステムを選択",
+    "needOSVersion": "OSバージョンを選択",
+    "needEmail": "アカウントにメールアドレスが見つかりません",
+    "configureVM": "VMを設定",
+    "configuring": "設定中...",
+    "cancelBtn": "キャンセル",
+    "confirmTitle": "OSの再インストールを確認",
+    "confirmDesc": "古いVMと全てのデータ、インストール済みソフトウェアが失われます。よろしいですか？",
+    "confirmCancel": "キャンセル",
+    "confirmOk": "確認",
+    "creatingVM": "VMインスタンスを作成中",
+    "creatingVMDesc": "仮想マシンを設定しています...",
+    "provisionStep1": "パーティションとネットワークを設定中",
+    "provisionStep2": "コンピュートインスタンスを起動中",
+    "provisionStep3": "ネットワークとセキュリティを設定中",
+    "provisionStep4": "アクセス資格情報を準備中",
+    "timeEstimate": "2～5分かかる場合があります",
+    "doNotClose": "⚠️ このウィンドウを閉じたりナビゲートしないでください",
+    "loadingSubscription": "サブスクリプション詳細を読み込み中...",
+    "subscriptionNotFound": "サブスクリプションが見つかりません",
+    "subscriptionNotFoundBtn": "パッケージ管理に戻る",
+    "validationError": "バリデーションエラー",
+    "validationErrorDesc": "全ての必須フィールドに有効な値を入力してください",
+    "configSuccess": "成功",
+    "armCapacityUnavailable": "ARM容量は利用できません",
+    "capacityUnavailable": "容量は利用できません",
+    "configFailed": "設定に失敗しました"
+  },
+  "addFunds": {
+    "title": "アカウントにチャージ",
+    "back": "戻る",
+    "selectPaymentMethod": "支払方法を選択",
+    "enterAmount": "チャージ金額を入力",
+    "amountLabel": "金額 (VND)",
+    "amountPlaceholder": "金額を入力...",
+    "amountDisplay": "金額：",
+    "quickAmounts": "または素早い金額を選択",
+    "processing": "処理中...",
+    "confirm": "{{amount}} VNDをチャージする",
+    "comingSoon": "近日公開",
+    "noteTitle": "注意：",
+    "noteMin": "最小チャージ金額：10,000 VND",
+    "noteMax": "最大チャージ金額：100,000,000 VND",
+    "noteCredit": "支払い確認後にチャージがアカウントに反映されます",
+    "errorMin": "最小チャージ金額は10,000 VNDです",
+    "errorMax": "最大チャージ金額は100,000,000 VNDです",
+    "errorSelectMethod": "支払方法を選択してください",
+    "errorMethodUnavailable": "この支払方法は現在利用できません",
+    "errorLogin": "続けるにはログインしてください",
+    "errorGeneral": "エラー",
+    "successTitle": "成功",
+    "successDesc": "チャージリクエストが作成されました。支払いページに移動中...",
+    "methods": {
+      "momo": { "name": "MoMoウォレット", "description": "MoMo電子ウォレットで支払い" },
+      "card": { "name": "国際カード", "description": "Visa、Mastercard、JCB" },
+      "bank_transfer": { "name": "銀行振込", "description": "QRコードをスキャンまたは手動振込" }
+    }
+  },
+  "pricingModal": {
+    "title": "お支払い方法を選択",
+    "subtitle": "{{planName}} プランに適したお支払い方法をお選びください",
+    "accountBalance": "アカウント残高から引き落とし",
+    "accountBalanceDesc": "アカウントの利用可能残高を使用して支払い",
+    "currentBalance": "現在の残高",
+    "addFundsBtn": "チャージ",
+    "instantPayment": "即時支払い",
+    "noFees": "取引手数料なし",
+    "directPayment": "直接支払い",
+    "directPaymentDesc": "銀行振込またはQRコードで支払い",
+    "monthsLabel": "サブスクリプション月数",
+    "totalDeduction": "ウォレットからの合計引き落とし",
+    "totalPayment": "合計支払額",
+    "perMonthCalc": "{{price}} × {{months}} ヶ月",
+    "termsPrefix": "私は",
+    "termsLink": "利用規約",
+    "termsSuffix": "（OracleCloud Vietnam）を読み、同意します。",
+    "closeBtn": "閉じる",
+    "confirmBtn": "確認",
+    "processing": "処理中...",
+    "errorTitle": "エラー",
+    "errorSelectMethod": "お支払い方法を選択してください",
+    "errorMonths": "月数は 1 から 24 の間で指定してください",
+    "insufficientBalanceTitle": "残高不足",
+    "insufficientBalanceDesc": "残高が不足しています。チャージしてください。",
+    "successTitle": "登録成功！",
+    "successDesc": "{{planName}} プランの登録が完了しました。アカウントから料金が引き落とされました。",
+    "errorGeneral": "エラーが発生しました。再試行してください。"
+  },
+  "register": {
+    "title": "アカウント登録",
+    "subtitle": "新しいアカウントを作成してサービスの利用を始めてください",
+    "firstName": "姓",
+    "firstNamePlaceholder": "山田",
+    "lastName": "名",
+    "lastNamePlaceholder": "太郎",
+    "email": "メールアドレス",
+    "emailPlaceholder": "your@email.com",
+    "password": "パスワード",
+    "passwordPlaceholder": "\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7",
+    "confirmPassword": "パスワード確認",
+    "confirmPasswordPlaceholder": "\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7",
+    "registerButton": "登録",
+    "registering": "登録中...",
+    "or": "または",
+    "registerWithGoogle": "Googleで登録",
+    "googleComingSoon": "Google登録機能は近日公開予定です",
+    "haveAccount": "すでにアカウントをお持ちですか？",
+    "loginNow": "今すぐログイン",
+    "validation": {
+      "firstNameRequired": "姓を入力してください",
+      "firstNameMaxLength": "姓は50文字以下で入力してください",
+      "lastNameRequired": "名を入力してください",
+      "lastNameMaxLength": "名は50文字以下で入力してください",
+      "emailRequired": "メールアドレスを入力してください",
+      "emailInvalid": "無効なメールアドレスです",
+      "passwordMinLength": "パスワードは6文字以上で入力してください",
+      "passwordMaxLength": "パスワードは100文字以下で入力してください",
+      "confirmPasswordRequired": "パスワードを確認してください",
+      "passwordsMismatch": "パスワードが一致しません"
+    },
+    "errorEmailAlreadyExists": "このメールアドレスはすでに登録されています。別のメールアドレスを使用するかログインしてください。",
+    "errorDefault": "登録に失敗しました。もう一度お試しください。"
+  },
+  "verifyOtp": {
+    "title": "メール認証",
+    "unverifiedWarning": "⚠️ アカウント未確認",
+    "otpSentToEmail": "OTPがメールアドレスに送信されました",
+    "pleaseEnterOtp": "アカウントを認証するためにOTPを入力してください",
+    "enterCodeSentTo": "次のアドレスに送信された6桁の確認コードを入力してください",
+    "codeInstruction": "メールから6桁のコードを入力してください",
+    "verifyButton": "メールを確認",
+    "verifying": "確認中...",
+    "didntReceiveCode": "コードを受け取っていませんか？",
+    "sending": "送信中...",
+    "resendIn": "{{time}}秒後に再送信",
+    "resendCode": "コードを再送信",
+    "securityNote": "🔒 このコードは10分後に期限切れになります。誰とも共有しないでください。",
+    "errorInvalidOtp": "無効なOTPコードです。もう一度確認してください。",
+    "errorIncomplete": "6桁のコードを完全に入力してください",
+    "status": {
+      "sending": "確認コードを送信中...",
+      "sentTitle": "確認コードを送信しました！",
+      "sentCheckEmail": "メールを確認してください: {{email}}",
+      "verifyingCode": "コードを確認中...",
+      "successMessage": "メール確認に成功しました！",
+      "errorTitle": "確認に失敗しました",
+      "resendAvailableIn": "{{time}}秒後に再送信可能"
+    }
+  },
+  "forgotPassword": {
+    "recoverEmail": {
+      "title": "パスワードをお忘れですか",
+      "subtitle": "パスワードリセット用のOTPを受け取るためにメールアドレスを入力してください",
+      "emailLabel": "メールアドレス",
+      "emailPlaceholder": "example@email.com",
+      "submitButton": "OTPを送信",
+      "sending": "送信中...",
+      "rememberPassword": "パスワードを思い出しましたか？",
+      "loginLink": "ログイン",
+      "validation": {
+        "emailRequired": "メールアドレスを入力してください",
+        "emailInvalid": "無効なメールアドレスです"
+      }
+    },
+    "otpConfirm": {
+      "title": "OTP認証",
+      "subtitle": "メールアドレスに送信された6桁のOTPを入力してください：",
+      "submitButton": "OTPを確認",
+      "verifying": "認証中...",
+      "resend": "OTPを再送信",
+      "resendCountdown": "{{countdown}}秒後に再送信",
+      "backToLogin": "\u2190 ログインに戻る",
+      "validation": {
+        "otpRequired": "6桁のOTPをすべて入力してください"
+      }
+    }
+  },
+  "addFundsPayment": {
+    "title": "アカウントへのチャージ",
+    "back": "戻る",
+    "invalidInfo": "無効な情報",
+    "invalidInfoDesc": "決済情報が見つかりません。もう一度お試しください。",
+    "backToAddFunds": "チャージページに戻る",
+    "transactionInfo": "取引情報",
+    "transactionType": "取引種別:",
+    "addFundsType": "チャージ",
+    "paymentMethodLabel": "支払い方法:",
+    "bankTransfer": "銀行振込",
+    "depositAmount": "チャージ金額:",
+    "timeLeft": "残り時間:",
+    "expireWarning": "上記の時間後に取引は期限切れとなります。期限前に支払いを完了してください。",
+    "transactionCode": "取引コード:",
+    "autoConfirm": "入金確認後、取引は自動的に確認されます。",
+    "benefit1": "チャージはすぐにアカウントに反映されます",
+    "benefit2": "手数料無料",
+    "benefit3": "24時間サポート",
+    "benefit4": "暗号化されたセキュア取引",
+    "scanQR": "QRコードをスキャンして支払い",
+    "loadingPaymentInfo": "決済情報読み込み中...",
+    "paymentSuccessRedirect": "\u2705 チャージ成功！リダイレクト中...",
+    "checkingPayment": "決済確認中...",
+    "scanQRDesc": "バンキングアプリでQRコードをスキャンして支払ってください",
+    "bankLabel": "銀行:",
+    "accountNumberLabel": "口座番号:",
+    "accountHolderLabel": "口座名義:",
+    "amountLabel": "金額:",
+    "contentLabel": "内容:",
+    "copyTransferInfo": "振込情報をコピー",
+    "importantNote": "重要なお知らせ:",
+    "importantNoteDesc": "システムが自動的に取引を確認できるよう、正確な金額と振込内容を入力してください。",
+    "contactSupport": "サポートに連絡",
+    "alreadyTransferred": "振込済み",
+    "alreadyTransferredToast": "ありがとうございます！",
+    "alreadyTransferredToastDesc": "お支払いを承りました。振込確認後、取引は自動的に確認されます。",
+    "copiedTransferInfo": "振込情報をコピーしました",
+    "paymentSuccess": "チャージ成功！",
+    "paymentSuccessDesc": "残高がアカウントに追加されました。",
+    "successWithAmount": "{{amount}} の入金がアカウントに正常に反映されました。",
+    "loading": "読み込み中...",
+    "qrReadyToast": "QR準備完了",
+    "qrReadyToastDesc": "QRコードをスキャンするか、以下の情報で手動振込してください。",
+    "transferInfo": "銀行: {{bank}}\n口座番号: {{account}}\n金額: {{amount}} VND\n内容: {{content}}"
+  }
+}

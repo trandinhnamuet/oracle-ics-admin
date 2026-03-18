@@ -1,0 +1,2023 @@
+{
+  "packageManagement": {
+    "title": "구독 패키지 관리",
+    "subtitle": "사용 중인 서비스 패키지를 추적하고 관리하세요",
+    "searchPlaceholder": "패키지 이름, 이메일로 검색...",
+    "status": "상태",
+    "type": "패키지 유형",
+    "filter": {
+      "all": "전체",
+      "active": "활성",
+      "inactive": "비활성"
+    },
+    "stats": {
+      "total": "총 패키지 수",
+      "active": "활성",
+      "inactive": "비활성",
+      "revenue": "월 수익"
+    },
+    "table": {
+      "title": "구독 패키지 목록 ({{count}})",
+      "packageName": "패키지 이름",
+      "type": "유형",
+      "paidAmount": "지불 금액",
+      "createdAt": "구독 날짜",
+      "updatedAt": "마지막 업데이트",
+      "status": "상태",
+      "actions": "작업",
+      "noMatch": "일치하는 패키지를 찾을 수 없습니다",
+      "noPackage": "아직 구독 패키지가 없습니다",
+      "customPackage": "맞춤 패키지",
+      "active": "활성",
+      "inactive": "비활성",
+      "pending": "대기 중",
+      "suspended": "일시정지",
+      "cancelled": "취소됨",
+      "expired": "만료됨",
+      "pauseTitle": "패키지 일시 중지",
+      "activateTitle": "패키지 활성화",
+      "deleteTitle": "패키지 삭제"
+    },
+    "confirmDialog": {
+      "cancel": "취소",
+      "confirm": "확인",
+      "deleteSubscription": {
+        "title": "구독 삭제 확인",
+        "description": "이 작업은 Oracle Cloud의 구독과 가상 머신(VM)을 영구적으로 삭제합니다. 관련된 모든 데이터가 삭제되며 복원할 수 없습니다. 삭제 전에 중요한 데이터를 백업하세요."
+      },
+      "stopVm": {
+        "title": "VM 중지 확인",
+        "description": "이 VM을 중지하시겠습니까?"
+      },
+      "startVm": {
+        "title": "VM 시작 확인",
+        "description": "이 VM을 시작하시겠습니까?"
+      },
+      "renewSubscription": {
+        "title": "구독 갱신 확인",
+        "description": "\"{{packageName}}\" 패키지를 갱신하시겠습니까? {{cost}}가 지갑에서 차감됩니다."
+      }
+    },
+    "toast": {
+      "loadingList": "구독 목록 로드 중...",
+      "vmNotConfigured": "VM이 구성되지 않았습니다",
+      "vmStopSent": "VM 중지 명령이 전송되었습니다",
+      "vmStartSent": "VM 시작 명령이 전송되었습니다",
+      "vmActionPending": "완료 시 상태가 자동으로 업데이트됩니다.",
+      "vmStopError": "VM 중지 오류",
+      "vmStartError": "VM 시작 오류",
+      "renewSuccess": "구독 갱신 성공!",
+      "renewSuccessDesc": "구독이 활성화되었고 VM이 시작되었습니다.",
+      "renewFailed": "갱신 실패",
+      "renewInsufficientFunds": "갱신하기에 지갑 잔액이 부족합니다. 충전해 주세요.",
+      "renewError": "구독 갱신 중 오류가 발생했습니다",
+      "deleteSuccess": "구독과 VM이 성공적으로 삭제되었습니다!",
+      "deleteError": "구독 삭제 중 오류가 발생했습니다"
+    },
+    "notConfigured": "구성되지 않음",
+    "tooltip": {
+      "stopVm": "VM 중지 (Stop)",
+      "startVm": "VM 시작 (Start)",
+      "stopping": "VM 중지 중...",
+      "starting": "VM 시작 중...",
+      "transitioning": "VM이 전환 상태입니다",
+      "renewSubscription": "구독 갱신"
+    },
+    "fetchError": {
+      "title": "오류",
+      "system": "구독 목록 로드 중 시스템 오류. 나중에 다시 시도하세요.",
+      "network": "구독 목록을 로드할 수 없습니다. 네트워크 연결을 확인하세요."
+    }
+  },
+  "contactInfo": {
+    "heroTitle": "문의하기",
+    "heroDesc": "베트남 공식 Oracle 파트너, 24/7 지원 준비 완료",
+    "companyInfo": "회사 정보",
+    "companyName": "국제 사이버 보안 주식회사 - ICS",
+    "officeHanoi": "하노이 사무소",
+    "officeAddress": "하노이 딘콩 대김 신도시 TT3-5",
+    "contactInfo": "연락처 정보",
+    "phoneHotline": "전화 및 핫라인",
+    "email": "이메일",
+    "website": "웹사이트",
+    "mapTitle": "지도상의 위치",
+    "mapDesc": "저희 사무소로 가는 길 찾기",
+    "learnMore": "저희에 대해 더 알아보기 →",
+    "openInMaps": "지도에서 열기"
+  },
+  "dashboard": {
+    "title": "시스템 관리",
+    "user": {
+      "title": "사용자 관리",
+      "desc": "사용자 계정을 보고, 수정하고, 관리하세요",
+      "stats": "총 {{count}} 사용자"
+    },
+    "customRegistration": {
+      "title": "맞춤 패키지 등록",
+      "desc": "맞춤 서비스 패키지 등록 요청 관리",
+      "stats": "{{count}} 새로운 요청"
+    },
+    "access": "액세스"
+  },
+  "admin": {
+    "title": "관리자 대시보드",
+    "userTitle": "사용자 관리",
+    "userDesc": "사용자 계정 보기, 편집 및 관리",
+    "userStats": "총 {{count}}명 사용자",
+    "customRegTitle": "맞춤 패키지 신청 관리",
+    "customRegDesc": "맞춤 패키지 신청 요청 추적 및 처리",
+    "customRegStats": "{{count}}건 신규 요청",
+    "access": "액세스",
+    "packagesTitle": "클라우드 패키지 관리",
+    "packagesDesc": "클라우드 서비스 패키지 생성, 편집 및 관리",
+    "packagesStats": "총: {{count}}개 패키지",
+    "subscriptionsTitle": "서비스 구독 관리",
+    "subscriptionsDesc": "사용자가 구독한 서비스 패키지(구독) 보기 및 관리",
+    "subscriptionsStats": "사용자가 구독한 서비스 패키지(구독) 보기 및 관리",
+    "user": {
+      "title": "사용자 관리",
+      "subtitle": "시스템 내 사용자 계정 관리",
+      "exportExcel": "Excel로 내보내기",
+      "searchPlaceholder": "이메일, 이름, 회사로 검색...",
+      "stats": {
+        "total": "총 사용자 수",
+        "active": "활성",
+        "inactive": "잠김"
+      },
+      "table": {
+        "id": "ID",
+        "email": "이메일",
+        "name": "전체 이름",
+        "phone": "전화번호",
+        "company": "회사",
+        "role": "역할",
+        "status": "상태",
+        "createdAt": "생성 날짜",
+        "updatedAt": "업데이트 날짜",
+        "actions": "작업",
+        "noUserFound": "사용자를 찾을 수 없습니다",
+        "noUser": "아직 사용자가 없습니다",
+        "noData": "데이터 없음",
+        "admin": "관리자",
+        "customer": "고객",
+        "active": "활성",
+        "inactive": "잠김"
+      },
+      "actions": {
+        "grantAdmin": "관리자 권한 부여",
+        "revokeAdmin": "관리자 권한 해제",
+        "delete": "사용자 삭제"
+      },
+      "loading": "로딩 중..."
+    },
+    "customRegistration": {
+      "title": "맞춤 패키지 등록 관리",
+      "subtitle": "맞춤 서비스 패키지 등록 요청을 추적하고 처리하세요",
+      "exportExcel": "Excel로 내보내기",
+      "stats": {
+        "total": "총 등록 수",
+        "processed": "처리됨",
+        "unprocessed": "미처리"
+      },
+      "searchPlaceholder": "이메일, 전화번호, 이름, 회사로 검색...",
+      "filter": {
+        "all": "전체",
+        "processed": "처리됨",
+        "unprocessed": "미처리"
+      },
+      "table": {
+        "id": "ID",
+        "user": "등록자",
+        "contact": "연락처",
+        "company": "회사",
+        "config": "구성",
+        "note": "메모",
+        "time": "시간",
+        "status": "상태",
+        "noData": "일치하는 데이터 없음",
+        "noCompany": "없음",
+        "cpu": "CPU",
+        "ram": "RAM",
+        "storage": "저장소",
+        "bandwidth": "대역폭"
+      },
+      "footer": "{{current}} / {{total}} 등록 표시",
+      "loading": "데이터 로딩 중...",
+      "export": {
+        "phone": "전화번호",
+        "detail": "세부 정보",
+        "createdAt": "등록일",
+        "createdBy": "작성자",
+        "notAvailable": "없음",
+        "sheetName": "커스텀 등록 목록",
+        "system": "시스템"
+      }
+    },
+    "packages": {
+      "createPackage": {
+        "title": {
+          "create": "새 패키지 생성",
+          "edit": "패키지 편집"
+        },
+        "form": {
+          "packageName": "패키지 이름",
+          "packageNamePlaceholder": "예: Starter 1",
+          "category": "카테고리",
+          "categoryOptions": {
+            "starter": "Starter",
+            "professional": "Professional",
+            "enterprise": "Enterprise",
+            "ai": "AI-GPU",
+            "custom": "Custom"
+          },
+          "description": "설명",
+          "descriptionPlaceholder": "서비스 패키지 설명",
+          "price": "가격 ($)",
+          "period": "기간",
+          "periodOptions": {
+            "month": "월",
+            "year": "년"
+          },
+          "popularPackage": "인기 패키지",
+          "features": "기능",
+          "featurePlaceholder": "예: 4 vCPU",
+          "addFeature": "기능 추가"
+        },
+        "buttons": {
+          "cancel": "취소",
+          "create": "패키지 생성",
+          "update": "업데이트"
+        },
+        "validation": {
+          "error": "오류",
+          "fillAllFields": "모든 필수 정보를 입력해주세요"
+        }
+      },
+      "management": {
+        "title": "패키지 관리",
+        "subtitle": "클라우드 서비스 패키지 생성, 편집 및 관리",
+        "createNewPackage": "새 패키지 생성",
+        "searchPlaceholder": "서비스 패키지 검색...",
+        "filter": {
+          "allCategories": "모든 카테고리",
+          "starter": "Starter",
+          "professional": "Professional",
+          "enterprise": "Enterprise",
+          "ai": "AI-GPU",
+          "custom": "Custom"
+        },
+        "categories": {
+          "starter": "Starter",
+          "professional": "Professional",
+          "enterprise": "Enterprise",
+          "ai": "AI-GPU",
+          "custom": "Custom"
+        },
+        "table": {
+          "servicePackage": "서비스 패키지",
+          "category": "카테고리",
+          "price": "가격",
+          "description": "설명",
+          "features": "기능",
+          "status": "상태",
+          "actions": "작업",
+          "moreFeatures": "더 많은 기능",
+          "popular": "인기",
+          "noPackagesFound": "서비스 패키지를 찾을 수 없습니다",
+          "active": "활성",
+          "inactive": "비활성"
+        },
+        "toast": {
+          "createSuccess": "성공",
+          "createSuccessDesc": "패키지가 성공적으로 생성되었습니다",
+          "updateSuccess": "성공",
+          "updateSuccessDesc": "패키지가 성공적으로 업데이트되었습니다",
+          "deleteSuccess": "성공",
+          "deleteSuccessDesc": "패키지가 성공적으로 삭제되었습니다"
+        }
+      }
+    },
+    "subscriptions": {
+      "title": "구독 관리",
+      "backButton": "뒤로 가기",
+      "searchPlaceholder": "사용자 이름, 이메일, 패키지 이름, ID로 검색...",
+      "filterByStatus": "상태별 필터",
+      "confirmDelete": "이 구독을 삭제하시겠습니까?",
+      "filter": {
+        "allStatus": "모든 상태"
+      },
+      "status": {
+        "active": "활성",
+        "pending": "대기 중",
+        "inactive": "비활성",
+        "expired": "만료됨",
+        "suspended": "일시 중단됨",
+        "cancelled": "취소됨"
+      },
+      "stats": {
+        "total": "총 구독 수",
+        "pending": "대기 중",
+        "active": "활성",
+        "expired": "만료됨",
+        "cancelled": "취소됨"
+      },
+      "table": {
+        "title": "구독 목록",
+        "showing": "{{from}} - {{to}} / {{total}} 구독 표시",
+        "noData": "구독을 찾을 수 없습니다",
+        "id": "ID",
+        "user": "사용자",
+        "package": "패키지",
+        "vmInfo": "VM 정보",
+        "noPublicIp": "공용 IP 없음",
+        "notConfigured": "구성되지 않음",
+        "startDate": "시작 날짜",
+        "endDate": "종료 날짜",
+        "status": "상태",
+        "autoRenew": "자동 갱신",
+        "price": "가격",
+        "createdAt": "생성 날짜",
+        "actions": "작업",
+        "yes": "예",
+        "no": "아니오",
+        "recordsPerPage": "페이지당 항목 수:",
+        "goTo": "페이지로 이동:",
+        "pageOf": "{{current}} / {{total}} 페이지"
+      },
+      "actions": {
+        "viewDetail": "세부 정보 보기",
+        "edit": "편집",
+        "delete": "삭제"
+      },
+      "toast": {
+        "success": "성공",
+        "error": "오류",
+        "info": "정보",
+        "loadError": "구독 목록을 로드할 수 없습니다",
+        "deleteSuccess": "구독이 성공적으로 삭제되었습니다",
+        "deleteError": "구독을 삭제할 수 없습니다",
+        "deleteWithVmSuccess": "구독 및 VM이 성공적으로 삭제되었습니다.",
+        "deleteVmOnlySuccess": "VM이 삭제되었습니다. 구독은 여전히 유효합니다.",
+        "deleteVmOnlyError": "VM을 삭제할 수 없습니다",
+        "stopVmSuccess": "VM이 성공적으로 중지되었습니다.",
+        "stopVmError": "VM을 중지할 수 없습니다",
+        "startVmSuccess": "VM이 성공적으로 시작되었습니다.",
+        "startVmError": "VM을 시작할 수 없습니다",
+        "editInDevelopment": "편집 기능이 개발 중입니다"
+      },
+      "confirmDialog": {
+        "deleteSub": {
+          "title": "구독 삭제 확인",
+          "description": "이 구독을 삭제하시겠습니까? 이 작업은 취소할 수 없습니다."
+        },
+        "deleteWithVm": {
+          "title": "구독 및 VM 삭제 확인",
+          "description": "구독 및 가상 머신(VM)을 모두 삭제하시겠습니까? 이 작업은 취소할 수 없습니다."
+        },
+        "deleteVmOnly": {
+          "title": "VM 삭제 확인",
+          "description": "가상 머신(VM)만 삭제하시겠습니까? 구독은 유효하지만 새 VM을 설정해야 합니다."
+        },
+        "stopVm": {
+          "title": "VM 중지 확인",
+          "description": "이 VM을 중지하시겠습니까?"
+        },
+        "startVm": {
+          "title": "VM 시작 확인",
+          "description": "이 VM을 시작하시겠습니까?"
+        },
+        "cancel": "취소",
+        "confirm": "확인"
+      }
+    },
+    "analytics": {
+      "title": "분석 대시보드",
+      "subtitle": "웹사이트 트래픽 및 방문자 통계",
+      "dateRange": {
+        "last7Days": "지난 7일",
+        "last30Days": "지난 30일",
+        "last90Days": "지난 90일",
+        "refresh": "새로고침"
+      },
+      "summary": {
+        "totalPageViews": "총 페이지 뷰",
+        "totalPageViewsDesc": "선택한 기간의 페이지 뷰",
+        "uniqueUsers": "고유 사용자",
+        "uniqueUsersDesc": "사이트의 고유 방문자",
+        "bounceRate": "이탈률",
+        "bounceRateDesc": "상호작용 없이 떠난 방문자",
+        "avgLoadTime": "평균 로딩 시간",
+        "avgLoadTimeDesc": "평균 페이지 로딩 시간"
+      },
+      "charts": {
+        "pageViewsOverTime": "시간별 페이지 뷰",
+        "topPages": "인기 페이지",
+        "userEvents": "사용자 이벤트",
+        "allEvents": "모든 이벤트",
+        "googleAnalytics": "Google Analytics 통합",
+        "googleAnalyticsDesc": "이 대시보드는 웹사이트의 분석 데이터를 표시합니다. Google Analytics 추적을 활성화하려면:",
+        "gaStep1": ".env.local 파일에서 NEXT_PUBLIC_GA_MEASUREMENT_ID로 Google Analytics 측정 ID를 설정하세요",
+        "gaStep2": "변경 사항을 배포하여 Google Analytics 추적을 활성화하세요",
+        "gaStep3": "Google Analytics 콘솔에서 자세한 분석을 확인하세요"
+      },
+      "loading": "분석 데이터 로딩 중...",
+      "error": "오류",
+      "retry": "재시도",
+      "noData": "데이터 없음",
+      "noPageData": "페이지 데이터 없음",
+      "noEventData": "이벤트 데이터 없음"
+    },
+    "bandwidth": {
+      "title": "대역폭 모니터",
+      "subtitle": "VM별 월간 에그레스 (VnicBytesOut) 추적 — Partner 플랜에 월 10 TB 무료 포함",
+      "loading": "대역폭 데이터 로딩 중...",
+      "refresh": "새로고침",
+      "month": {
+        "label": "월:",
+        "current": "(현재)"
+      },
+      "summary": {
+        "totalVMs": "총 VM",
+        "overLimit": "한도 초과",
+        "nearLimit": "한도 근접",
+        "totalEgress": "총 에그레스",
+        "average": "평균"
+      },
+      "filter": {
+        "label": "필터:",
+        "all": "전체",
+        "over": "한도 초과",
+        "near": "경고",
+        "normal": "정상"
+      },
+      "sort": {
+        "label": "정렬:",
+        "usage": "사용량",
+        "name": "VM 이름",
+        "user": "사용자"
+      },
+      "status": {
+        "overLimit": "한도 초과",
+        "warning": "경고",
+        "normal": "정상",
+        "error": "오류"
+      },
+      "source": {
+        "oci": "실시간 (OCI)",
+        "archived": "보관됨",
+        "none": "데이터 없음"
+      },
+      "info": {
+        "text": "VnicBytesOut (oci_vcn 네임스페이스) 추적 — 각 VM의 VNIC에서 송신된 바이트 수. OCI Partner 플랜에는 월 10 TB 무료 에그레스가 포함됩니다."
+      },
+      "details": {
+        "egress": "에그레스 (과금)",
+        "ingress": "인그레스 (무료)",
+        "remaining": "남은 용량",
+        "exceeded": "초과",
+        "package": "패키지",
+        "company": "회사",
+        "dataSource": "데이터 소스"
+      },
+      "warning": {
+        "overLimitTitle": "경고: 에그레스 한도 초과!",
+        "overLimitMessage": "이 VM은 10 TB 무료 에그레스 한도를 {{exceeded}} TB 초과했습니다. 추가 요금이 발생할 수 있습니다.",
+        "nearLimitTitle": "경고: 에그레스 한도 근접!",
+        "nearLimitMessage": "이 VM은 에그레스 대역폭의 {{usage}}%를 사용했습니다. 한도까지 {{remaining}} TB 남았습니다.",
+        "errorMessage": "대역폭 데이터를 가져올 수 없습니다: {{error}}"
+      },
+      "noVms": "현재 필터와 일치하는 VM이 없습니다"
+    },
+    "compartment": {
+      "title": "컴파트먼트 관리",
+      "subtitle": "OCI 테넌시의 컴파트먼트 목록",
+      "refresh": "새로고침",
+      "loading": "컴파트먼트 로딩 중...",
+      "noCompartments": "컴파트먼트 없음",
+      "noDescription": "설명 없음",
+      "createdAt": "생성일",
+      "deleteButton": "컴파트먼트 삭제",
+      "dialog": {
+        "title": "컴파트먼트 삭제 확인",
+        "description1": "컴파트먼트를 삭제하시겠습니까",
+        "description2": "?",
+        "warning": "⚠️ 이 작업은 컴파트먼트 내의 모든 리소스를 삭제합니다:",
+        "items": {
+          "vms": "모든 VM 인스턴스",
+          "vcns": "모든 VCN(가상 클라우드 네트워크)",
+          "subnets": "모든 서브넷",
+          "gateways": "모든 인터넷 게이트웨이",
+          "routes": "모든 라우트 테이블"
+        },
+        "irreversible": "이 작업은 취소할 수 없습니다!",
+        "deleting": "삭제 중...",
+        "confirmButton": "삭제 확인",
+        "cancelButton": "취소"
+      },
+      "toast": {
+        "loadError": "컴파트먼트 목록을 로드할 수 없습니다: {{message}}",
+        "deleteSuccess": "컴파트먼트 \"{{name}}\" 및 내부의 모든 리소스가 삭제되었습니다",
+        "deleteError": "컴파트먼트를 삭제할 수 없습니다: {{message}}"
+      }
+    },
+    "costs": {
+      "title": "비용 & 크레딧",
+      "subtitle": "모든 사용자의 재무 개요",
+      "back": "뒤로",
+      "refresh": "새로고침",
+      "loading": "비용 데이터 로딩 중...",
+      "summary": {
+        "totalBalance": "총 잔여 잔액",
+        "totalBalanceDesc": "모든 사용자 지갑 합계",
+        "totalDeposited": "총 충전액",
+        "totalDepositedDesc": "모든 충전 거래 누계",
+        "totalSpent": "총 사용액",
+        "totalSpentDesc": "모든 차감 거래 누계",
+        "users": "사용자 수",
+        "usersDesc": "활성 지갑이 있는 사용자"
+      },
+      "timeBreakdown": {
+        "title": "시간별 통계",
+        "monthly": "월별",
+        "yearly": "연별"
+      },
+      "months": {
+        "jan": "1월", "feb": "2월", "mar": "3월",
+        "apr": "4월", "may": "5월", "jun": "6월",
+        "jul": "7월", "aug": "8월", "sep": "9월",
+        "oct": "10월", "nov": "11월", "dec": "12월"
+      },
+      "table": {
+        "month": "월",
+        "year": "연도",
+        "deposited": "충전",
+        "spent": "사용",
+        "difference": "차이"
+      },
+      "perUser": {
+        "title": "사용자별 상세",
+        "searchPlaceholder": "이메일 또는 이름 검색...",
+        "user": "사용자",
+        "currentBalance": "현재 잔액",
+        "totalDeposited": "총 충전",
+        "totalSpent": "총 사용",
+        "status": "상태",
+        "low": "낮음",
+        "normal": "정상",
+        "noUser": "사용자를 찾을 수 없습니다"
+      }
+    },
+    "loginHistory": {
+      "title": "로그인 기록",
+      "subtitle": "모든 관리자 로그인 활동 추적 및 모니터링",
+      "stats": {
+        "totalLogins": "총 로그인",
+        "last30Days": "지난 30일",
+        "successRate": "성공률",
+        "successful": "{{count}}회 성공",
+        "failedAttempts": "실패 시도",
+        "locked": "잠김: {{count}}",
+        "uniqueDevices": "고유 장치",
+        "countries": "{{count}}개 국가"
+      },
+      "suspicious": {
+        "alert": "⚠️ {{count}}건의 의심스러운 로그인 시도가 감지되었습니다",
+        "failedFrom": "{{date}}에 {{ip}}에서 로그인 실패",
+        "more": "... 그리고 {{count}}건 더"
+      },
+      "filters": {
+        "status": "상태",
+        "all": "전체",
+        "success": "성공",
+        "failed": "실패",
+        "locked": "잠김",
+        "fromDate": "시작일",
+        "toDate": "종료일",
+        "sortBy": "정렬 기준",
+        "loginTime": "로그인 시간",
+        "username": "사용자명",
+        "statusSort": "상태",
+        "refresh": "새로고침",
+        "loading": "로딩 중..."
+      },
+      "showing": "{{total}}개 중 {{from}}~{{to}} 표시",
+      "export": "CSV 내보내기",
+      "exportSuccess": "로그인 기록이 CSV로 내보내기 되었습니다",
+      "exportError": "로그인 기록 내보내기 실패",
+      "table": {
+        "account": "계정",
+        "loginTime": "로그인 시간",
+        "status": "상태",
+        "ip": "IP 주소",
+        "location": "위치",
+        "browser": "브라우저",
+        "os": "OS",
+        "device": "장치",
+        "duration": "시간",
+        "newDevice": "새 장치"
+      },
+      "noRecords": "로그인 기록이 없습니다",
+      "loading": "로딩 중...",
+      "active": "활성",
+      "new": "새로운",
+      "known": "알려진",
+      "pagination": {
+        "recordsPerPage": "페이지당 레코드:",
+        "page": "{{current}} / {{total}} 페이지",
+        "prev": "이전",
+        "next": "다음"
+      }
+    },
+    "payments": {
+      "title": "결제 관리",
+      "subtitle": "모든 결제 거래 목록",
+      "refresh": "새로고침",
+      "summary": {
+        "total": "총 결제",
+        "pending": "대기 중",
+        "expired": "만료됨",
+        "success": "성공"
+      },
+      "list": {
+        "title": "결제 목록 ({{count}})",
+        "searchPlaceholder": "거래 코드, 이메일, 이름으로 검색..."
+      },
+      "table": {
+        "transactionCode": "거래 코드",
+        "subscriptionId": "구독 ID",
+        "user": "사용자",
+        "amount": "금액",
+        "type": "유형",
+        "method": "방법",
+        "status": "상태",
+        "createdAt": "생성일",
+        "actions": "작업"
+      },
+      "status": {
+        "success": "성공",
+        "pending": "대기 중",
+        "failed": "실패",
+        "expired": "만료됨",
+        "deleted": "삭제됨"
+      },
+      "paymentType": {
+        "deposit": "충전",
+        "subscription": "구독"
+      },
+      "actions": {
+        "accept": "수락",
+        "processing": "처리 중...",
+        "completed": "완료됨",
+        "failed": "실패",
+        "expired": "만료됨",
+        "deleted": "삭제됨"
+      },
+      "pagination": {
+        "info": "{{current}} / {{total}} 페이지 — 총 {{count}}건"
+      },
+      "confirm": {
+        "title": "결제 수락 확인",
+        "description": "이 결제를 수락하시겠습니까? 구독을 활성화하거나 사용자에게 자금을 추가합니다.",
+        "confirm": "확인",
+        "cancel": "취소"
+      },
+      "loading": "데이터 로딩 중...",
+      "noPayments": "결제 내역이 없습니다",
+      "toast": {
+        "acceptSuccess": "결제가 성공적으로 수락되었습니다!",
+        "acceptError": "결제 오류",
+        "acceptErrorDesc": "결제 수락 중 오류가 발생했습니다"
+      }
+    },
+    "supportTickets": {
+      "title": "지원 요청 관리",
+      "subtitle": "사용자의 지원 요청 추적 및 처리",
+      "refresh": "새로고침",
+      "stats": {
+        "total": "총 요청",
+        "open": "열림",
+        "inProgress": "처리 중",
+        "resolved": "해결됨",
+        "urgent": "긴급"
+      },
+      "filters": {
+        "searchPlaceholder": "제목, 이메일, 이름으로 검색...",
+        "status": "상태",
+        "priority": "우선순위",
+        "allStatus": "모든 상태",
+        "allPriority": "모든 우선순위"
+      },
+      "status": {
+        "open": "열림",
+        "inProgress": "처리 중",
+        "resolved": "해결됨",
+        "closed": "닫힘"
+      },
+      "priority": {
+        "low": "낮음",
+        "medium": "보통",
+        "high": "높음",
+        "urgent": "긴급"
+      },
+      "services": {
+        "cloud": "클라우드 서버",
+        "storage": "오브젝트 스토리지",
+        "network": "네트워크 / VPN",
+        "billing": "청구",
+        "account": "계정",
+        "other": "기타"
+      },
+      "table": {
+        "title": "요청 ({{count}})",
+        "id": "#",
+        "titleHeader": "제목 / 고객",
+        "service": "서비스",
+        "status": "상태",
+        "priority": "우선순위",
+        "date": "제출일",
+        "actions": "작업",
+        "noData": "요청이 없습니다"
+      },
+      "detail": {
+        "phone": "전화",
+        "address": "주소",
+        "content": "요청 내용",
+        "attachments": "첸부 파일",
+        "statusLabel": "상태",
+        "priorityLabel": "우선순위",
+        "resolvedAt": "해결 시간",
+        "adminNote": "메모 / 고객에 대한 응답",
+        "adminNotePlaceholder": "고객에 대한 응답 입력... (고객이 이 내용을 볼 것입니다)",
+        "save": "응답 저장",
+        "saving": "저장 중..."
+      },
+      "delete": {
+        "title": "지원 요청 삭제 확인",
+        "description": "이 지원 요청을 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.",
+        "confirm": "삭제",
+        "cancel": "취소"
+      },
+      "toast": {
+        "loadError": "지원 요청 목록을 로드할 수 없습니다",
+        "updated": "업데이트됨",
+        "updateSuccess": "티켓이 성공적으로 업데이트되었습니다",
+        "deleted": "티켓 삭제됨",
+        "error": "오류"
+      }
+    },
+    "paymentsTitle": "결제 관리",
+    "paymentsDesc": "결제 보기 및 수락",
+    "paymentsStats": "결제 관리",
+    "loginHistoryTitle": "로그인 기록",
+    "loginHistoryDesc": "관리자 로그인 활동 추적",
+    "loginHistoryStats": "보안 감사",
+    "compartmentTitle": "컴파트먼트 관리",
+    "compartmentDesc": "OCI의 컴파트먼트 보기 및 삭제",
+    "compartmentStats": "OCI 리소스",
+    "analyticsTitle": "분석",
+    "analyticsDesc": "페이지 뷰 및 사용자 상호작용 통계 보기",
+    "analyticsStats": "웹사이트 분석",
+    "bandwidthTitle": "대역폭 모니터",
+    "bandwidthDesc": "모든 가상 머신의 대역폭 모니터링 (한도 10TB)",
+    "bandwidthStats": "대역폭 모니터",
+    "supportTicketsTitle": "지원 요청",
+    "supportTicketsDesc": "사용자의 지원 요청 추적 및 처리",
+    "supportTicketsStats": "지원 티켓",
+    "costsTitle": "비용 & 크레딧",
+    "costsDesc": "사용자별, 월별, 연별 총 잔액, 충전 및 사용 금액",
+    "costsStats": "비용 & 크레딧 개요",
+    "users": {
+      "editDialog": {
+        "title": "사용자 정보 편집 #{{id}}",
+        "description": "사용자의 상세 정보를 업데이트하세요. \"변경 사항 저장\"을 클릭하여 적용하세요.",
+        "lastName": "성",
+        "firstName": "이름",
+        "email": "이메일",
+        "phone": "전화번호",
+        "backupEmail": "백업 이메일",
+        "company": "회사",
+        "address": "주소",
+        "idCard": "신분증 번호",
+        "gender": "성별",
+        "genderPlaceholder": "성별 선택",
+        "male": "남성",
+        "female": "여성",
+        "other": "기타",
+        "role": "역할",
+        "statusLabel": "상태",
+        "active": "활성",
+        "locked": "잠김",
+        "cancel": "취소",
+        "save": "변경 사항 저장",
+        "saving": "저장 중..."
+      },
+      "deleteDialog": {
+        "title": "사용자 삭제 확인",
+        "description": "이 사용자를 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.",
+        "confirm": "삭제",
+        "cancel": "취소"
+      },
+      "pagination": {
+        "info": "{{current}} / {{total}} 페이지 — 총 {{count}}명"
+      },
+      "toast": {
+        "updateSuccess": "사용자 정보가 성공적으로 업데이트되었습니다",
+        "updateError": "사용자 정보를 업데이트할 수 없습니다",
+        "deleteSuccess": "사용자가 성공적으로 삭제되었습니다",
+        "deleteError": "사용자를 삭제할 수 없습니다"
+      },
+      "export": {
+        "fullName": "이름",
+        "phone": "전화번호",
+        "company": "회사",
+        "role": "역할",
+        "status": "상태",
+        "createdAt": "생성일",
+        "updatedAt": "수정일",
+        "notAvailable": "없음",
+        "sheetName": "사용자 목록",
+        "active": "활성",
+        "locked": "잠김"
+      }
+    },
+    "packagesExtra": {
+      "dialog": {
+        "deleteTitle": "서비스 패키지 삭제 확인",
+        "deleteDesc": "이 패키지를 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.",
+        "cancel": "취소",
+        "delete": "삭제"
+      },
+      "table": {
+        "package": "패키지",
+        "type": "유형",
+        "price": "가격",
+        "specs": "사양",
+        "features": "기능",
+        "status": "상태",
+        "actions": "작업"
+      },
+      "createForm": {
+        "priceUSD": "가격 (USD / 월)",
+        "priceVND": "가격 (VND / 월)",
+        "storage": "스토리지",
+        "storagePlaceholder": "예: 80 GB SSD",
+        "bandwidthLabel": "대역폭",
+        "bandwidthPlaceholder": "예: 1 TB",
+        "feature": "기능 / 메모",
+        "featurePlaceholder": "추가 기능 또는 메모...",
+        "isActive": "활성 (사용자에게 표시)",
+        "saving": "저장 중..."
+      }
+    }
+  },
+  "homepage": {
+    "hero": {
+      "title": "베트남 최고의 Oracle 클라우드 솔루션",
+      "subtitle": "베트남 공식 Oracle 파트너",
+      "description": "우리는 Oracle Cloud Infrastructure(OCI)를 통해 비용을 최적화하고 성능을 향상시키는 포괄적인 클라우드 컴퓨팅 솔루션을 제공합니다.",
+      "getStarted": "지금 시작하기",
+      "dashboard": "대시보드 보기",
+      "contact": "상담 문의",
+      "viewPricing": "구성 및 가격 보기",
+      "imageAlt": "Oracle 클라우드 대시보드",
+      "features": {
+        "security": {
+          "title": "절대적인 보안",
+          "description": "99.9% 가동 시간"
+        },
+        "performance": {
+          "title": "고성능",
+          "description": "탁월한 속도"
+        },
+        "global": {
+          "title": "글로벌",
+          "description": "36+ 데이터 센터"
+        }
+      },
+      "trustIndicators": {
+        "customers": "고객",
+        "uptime": "가동 시간",
+        "support": "지원"
+      },
+      "floatingElements": {
+        "costSaving": "비용 40% 절감",
+        "quickDeploy": "24시간 이내 배포"
+      }
+    },
+    "services": {
+      "title": "서비스",
+      "subtitle": "포괄적인 클라우드 솔루션",
+      "description": "데이터베이스부터 AI까지, 우리는 기업의 디지털 전환 요구를 충족하는 모든 클라우드 서비스를 제공합니다.",
+      "keyFeatures": "주요 기능:",
+      "serviceList": {
+        "database": {
+          "title": "Oracle 데이터베이스 클라우드",
+          "description": "고성능 및 절대적인 보안을 제공하는 자가 관리 Oracle 데이터베이스",
+          "features": ["자율 데이터베이스", "실시간 애플리케이션 클러스터", "데이터 가드", "고급 보안"]
+        },
+        "compute": {
+          "title": "컴퓨트 클라우드",
+          "description": "기업 요구에 맞춘 유연한 가상 서버 구성",
+          "features": ["베어 메탈", "가상 머신", "컨테이너 엔진", "함수"]
+        },
+        "storage": {
+          "title": "저장소 솔루션",
+          "description": "블록 저장소에서 객체 저장소까지 다양한 저장소 솔루션",
+          "features": ["블록 볼륨", "객체 저장소", "파일 저장소", "아카이브 저장소"]
+        },
+        "networking": {
+          "title": "네트워킹",
+          "description": "낮은 지연 시간과 높은 대역폭의 글로벌 네트워크 인프라",
+          "features": ["가상 클라우드 네트워크", "로드 밸런서", "VPN 연결", "패스트커넥트"]
+        },
+        "security": {
+          "title": "보안 및 신원",
+          "description": "고급 신원 및 접근 관리를 포함한 다층 보안",
+          "features": ["신원 관리", "키 관리", "웹 애플리케이션 방화벽", "보안 존"]
+        },
+        "analytics": {
+          "title": "분석 및 AI",
+          "description": "통합된 머신 러닝을 활용한 지능형 데이터 분석",
+          "features": ["분석 클라우드", "데이터 사이언스", "머신 러닝", "빅 데이터 서비스"]
+        }
+      },
+      "benefits": {
+        "fastDeploy": {
+          "title": "빠른 배포",
+          "description": "몇 분 내 설정 완료"
+        },
+        "globalCoverage": {
+          "title": "글로벌 커버리지",
+          "description": "36+ 데이터 센터"
+        },
+        "enterpriseSecurity": {
+          "title": "엔터프라이즈 보안",
+          "description": "국제 표준 준수"
+        },
+        "costOptimization": {
+          "title": "비용 최적화",
+          "description": "최대 40% 절감"
+        }
+      }
+    },
+    "pricing": {
+      "title": "가격",
+      "subtitle": "모든 규모의 기업에 적합한 서비스 패키지",
+      "description": "베트남 시장에서 가장 경쟁력 있는 가격으로 제공되는 유연하고 확장 가능한 Oracle 클라우드 서비스 패키지",
+      "plans": {
+        "starter": "표준",
+        "professional": "프리미엄",
+        "enterprise": "엔터프라이즈",
+        "ai": "AI-GPU",
+        "custom": "맞춤"
+      },
+      "buttons": {
+        "viewDetails": "세부 정보 보기",
+        "hideDetails": "숨기기",
+        "showDetails": "보기",
+        "packages": "패키지",
+        "selectPlan": "이 패키지 선택",
+        "contactConsult": "상담 문의",
+        "close": "닫기"
+      },
+      "tooltips": {
+        "exchangeRate": "가격은 현재 환율을 기준으로 계산됩니다.",
+        "todayRate": "오늘의 환율:"
+      },
+      "sections": {
+        "selectSuitable": "가장 적합한 패키지 선택",
+        "moreFeatures": "추가 기능"
+      },
+      "auth": {
+        "loginRequired": "로그인하세요",
+        "loginToRegister": "맞춤 패키지 등록을 위해 로그인하세요"
+      },
+      "additionalInfo": {
+        "support247": "모든 패키지에는 24/7 기술 지원 및 99.9% 가동 시간 보장이 포함됩니다",
+        "noSetupFee": "설정 비용 없음",
+        "cancelAnytime": "언제든지 취소 가능",
+        "flexiblePayment": "유연한 결제 옵션",
+        "freeConsult": "무료 상담",
+        "hotlineSupport": "지원 핫라인:"
+      }
+    },
+    "form": {
+      "customRegistration": {
+        "title": "맞춤 패키지 등록",
+        "description": "가장 적합한 서비스 패키지를 추천받기 위해 자세한 정보를 입력하세요.",
+        "userName": "사용자 이름",
+        "email": "이메일",
+        "phoneNumber": "전화번호",
+        "company": "회사 이름",
+        "configRequirements": "구성 요구 사항",
+        "cpu": "CPU",
+        "ram": "RAM",
+        "storage": "저장소",
+        "bandwidth": "대역폭",
+        "additionalNotes": "추가 메모",
+        "placeholders": {
+          "userName": "이름을 입력하세요",
+          "email": "example@company.com",
+          "phoneNumber": "0987654321",
+          "company": "ABC 회사",
+          "cpu": "예: 4코어, Intel Xeon",
+          "ram": "예: 16GB, 32GB",
+          "storage": "예: 500GB SSD, 1TB HDD",
+          "bandwidth": "예: 100Mbps, 1Gbps",
+          "additionalNotes": "특별 요구 사항, 배포 일정, 예상 예산 등을 설명..."
+        },
+        "validation": {
+          "userNameMin": "사용자 이름은 최소 2자 이상이어야 합니다",
+          "emailInvalid": "유효하지 않은 이메일입니다",
+          "phoneNumberMin": "전화번호는 최소 10자리여야 합니다",
+          "phoneNumberMax": "전화번호는 20자를 초과할 수 없습니다",
+          "cpuRequired": "CPU 정보를 입력하세요",
+          "ramRequired": "RAM 정보를 입력하세요"
+        },
+        "buttons": {
+          "cancel": "취소",
+          "register": "등록"
+        },
+        "success": {
+          "title": "등록 성공!",
+          "description": "최대한 빨리 연락드리겠습니다."
+        },
+        "error": {
+          "title": "오류 발생",
+          "description": "나중에 다시 시도하거나 지원팀에 문의하세요."
+        }
+      }
+    }
+  },
+  "pricing": {
+    "loginRequired": "패키지 등록을 위해 로그인하세요",
+    "plans": {
+      "starter": {
+        "1": {
+          "description": "2 vCPU, 1GB RAM, 20GB SSD 저장소"
+        },
+        "2": {
+          "description": "2 vCPU, 2GB RAM, 40GB SSD 저장소"
+        },
+        "3": {
+          "description": "4 vCPU, 4GB RAM, 80GB SSD 저장소"
+        },
+        "4": {
+          "description": "4 vCPU, 8GB RAM, 80GB SSD 저장소"
+        },
+        "5": {
+          "description": "8 vCPU, 8GB RAM, 100GB SSD 저장소"
+        }
+      },
+      "professional": {
+        "1": {
+          "description": "4 vCPU, 6GB RAM, 100GB SSD 저장소"
+        },
+        "2": {
+          "description": "6 vCPU, 8GB RAM, 150GB SSD 저장소"
+        },
+        "3": {
+          "description": "8 vCPU, 10GB RAM, 150GB SSD 저장소"
+        },
+        "4": {
+          "description": "8 vCPU, 12GB RAM, 150GB SSD 저장소"
+        },
+        "5": {
+          "description": "8 vCPU, 16GB RAM, 200GB SSD 저장소"
+        },
+        "6": {
+          "description": "8 vCPU, 32GB RAM, 200GB SSD 저장소"
+        }
+      },
+      "enterprise": {
+        "1": {
+          "description": "10 vCPU, 16GB RAM, 250GB SSD 저장소"
+        },
+        "2": {
+          "description": "12 vCPU, 16GB RAM, 250GB SSD 저장소"
+        },
+        "3": {
+          "description": "12 vCPU, 18GB RAM, 500GB SSD 저장소"
+        },
+        "4": {
+          "description": "16 vCPU, 32GB RAM, 500GB SSD 저장소"
+        },
+        "5": {
+          "description": "16 vCPU, 32GB RAM, 1024GB SSD 저장소"
+        },
+        "6": {
+          "description": "24 vCPU, 32GB RAM, 1024GB SSD 저장소"
+        },
+        "7": {
+          "description": "36 vCPU, 64GB RAM, 1024GB SSD 저장소"
+        },
+        "8": {
+          "description": "48 vCPU, 128GB RAM, 1024GB SSD 저장소"
+        },
+        "9": {
+          "description": "상담을 받기 위해 이 패키지를 등록할 필요도 없습니다. 핫라인으로 바로 전화하세요!"
+        }
+      },
+      "ai": {
+        "1": {
+          "description": "1 GPU P100, 16GB RAM, 1024 GB"
+        },
+        "2": {
+          "description": "1 GPU A10, 24GB RAM, 1024 GB"
+        },
+        "3": {
+          "description": "2 GPU P100, 32GB RAM, 1024 GB"
+        },
+        "4": {
+          "description": "2 GPU A10, 48GB RAM, 1024GB"
+        }
+      },
+      "custom": {
+        "description": "기업 요구사항에 맞춘 맞춤형 솔루션",
+        "price": "문의하기",
+        "features": {
+          "flexible": "유연한 구성",
+          "integration": "전용 시스템 통합",
+          "consulting": "심화 아키텍처 컨설팅",
+          "onsite": "현장 배포 지원"
+        }
+      }
+    },
+    "categories": {
+      "starter": {
+        "description": "소규모 기업에 적합"
+      },
+      "professional": {
+        "description": "중견기업의 인기 선택"
+      },
+      "enterprise": {
+        "description": "대기업을 위한 종합 솔루션"
+      },
+      "ai": {
+        "description": "클라우드에서 LLM 모델 배포"
+      }
+    }
+  },
+  "header": {
+    "home": "홈",
+    "services": "서비스",
+    "pricing": "가격",
+    "support": "지원",
+    "contact": "문의",
+    "login": "로그인",
+    "register": "등록",
+    "hello": "안녕하세요",
+    "hotline": "핫라인: 0707.806.860",
+    "profile": "프로필",
+    "settings": "설정",
+    "logout": "로그아웃",
+    "logoTitle": "Oracle 클라우드 베트남",
+    "logoSubtitle": "공식 파트너",
+    "languageLabel": "언어",
+    "admin": "관리자",
+    "packageManagement": "내 클라우드",
+    "supportRequest": "지원 요청"
+  },
+  "footer": {
+    "companyName": "Oracle 클라우드 베트남",
+    "officialPartner": "공식 파트너",
+    "companyDescription": "베트남 공식 Oracle 파트너로, 10년 이상의 경험을 바탕으로 기업을 위한 선도적인 클라우드 컴퓨팅 솔루션을 제공합니다.",
+    "services": "서비스",
+    "serviceList": {
+      "database": "Oracle 데이터베이스 클라우드",
+      "compute": "컴퓨트 클라우드",
+      "storage": "저장소 솔루션",
+      "networking": "네트워킹",
+      "security": "보안 및 신원",
+      "analytics": "분석 및 AI"
+    },
+    "support": "지원",
+    "supportList": {
+      "docs": "기술 문서",
+      "videos": "가이드 동영상",
+      "forum": "커뮤니티 포럼",
+      "ticket": "지원 티켓",
+      "training": "교육 및 인증",
+      "api": "API 문서"
+    },
+    "contact": "문의",
+    "companyFull": "국제 사이버 보안 주식회사 - ICS",
+    "office": "사무소: 하노이 딘콩 대김 신도시 TT3-5",
+    "phone": "전화: 0931.487.231",
+    "hotline": "핫라인: 0707.806.860",
+    "email": "이메일: info@icss.com.vn",
+    "website": "www.icss.com.vn",
+    "newsletter": "뉴스레터 구독",
+    "newsletterPlaceholder": "당신의 이메일",
+    "newsletterButton": "구독",
+    "privacy": "개인정보 보호정책",
+    "terms": "이용 약관",
+    "sla": "SLA",
+    "sitemap": "사이트맵",
+    "copyright": "© 2024 Oracle 클라우드 베트남. 모든 권리 보유."
+  },
+  "unauthorized": {
+    "title": "이 페이지에 접근할 권한이 없습니다",
+    "description": "액세스 권한을 확인하거나 오류라고 생각되면 관리자에게 문의하세요."
+  },
+  "common": {
+    "loading": "로딩 중...",
+    "logoutSuccess": "로그아웃 성공!",
+    "error": "오류"
+  },
+  "checkout": {
+    "title": "결제",
+    "backButton": "뒤로",
+    "success": {
+      "title": "결제 성공!",
+      "desc": "서비스 패키지 구독에 감사드립니다. 확인 이메일과 사용 안내를 귀하의 이메일 주소로 보냈습니다.",
+      "configBtn": "패키지 구성 보기",
+      "manageBtn": "구독 패키지 관리",
+      "homeBtn": "홈으로 돌아가기",
+      "note": "참고: 5분 이내에 이메일을 받지 못한 경우 스팸 폴더를 확인하거나 저희에게 연락주세요."
+    },
+    "packageInfo": "서비스 패키지 정보",
+    "packageName": "패키지 이름",
+    "description": "설명",
+    "packageType": "패키지 유형",
+    "features": "포함된 기능",
+    "totalAmount": "총 금액",
+    "paymentQR": "QR로 결제",
+    "scanQR": "뱅킹 앱으로 QR 코드를 스캔하여 결제하세요",
+    "bankName": "은행",
+    "accountNumber": "계좌 번호",
+    "amount": "금액",
+    "content": "내용",
+    "copyInfo": "송금 정보 복사",
+    "copiedSuccess": "송금 정보가 성공적으로 복사되었습니다",
+    "note": "참고: 시스템이 서비스를 자동으로 활성화하려면 정확한 내용으로 송금하세요.",
+    "contactSupport": "지원 문의",
+    "support247": "24/7 기술 지원",
+    "noSetupFee": "설정 비용 없음",
+    "uptimeGuarantee": "99.9% 가동 시간 보장",
+    "flexiblePayment": "유연한 결제 옵션",
+    "creatingQR": "QR 생성 중...",
+    "paidSuccessRedirect": "결제 성공! 리디렉션 중...",
+    "checkingPayment": "결제 확인 중...",
+    "transferContentExact": "송금 내용은 정확해야 합니다",
+    "paymentId": "결제 ID",
+    "autoConfirmNote": "송금이 성공하면 시스템이 자동으로 확인합니다.",
+    "monthsSubscription": "구독 개월 수",
+    "months": "개월",
+    "forMonths": "({{n}}개월)"
+  },
+  "login": {
+    "title": "로그인",
+    "subtitle": "다시 오신 것을 환영합니다! 계속하려면 로그인하세요.",
+    "email": "이메일",
+    "emailPlaceholder": "이메일을 입력하세요",
+    "password": "비밀번호",
+    "passwordPlaceholder": "비밀번호를 입력하세요",
+    "loginButton": "로그인",
+    "loggingIn": "로그인 중...",
+    "forgotPassword": "비밀번호를 잊으셨나요?",
+    "noAccount": "계정이 없으신가요?",
+    "registerNow": "지금 가입하기",
+    "or": "또는",
+    "loginWithGoogle": "Google로 로그인",
+    "googleLoginComingSoon": "Google 로그인 기능이 곧 제공됩니다.",
+    "fillTestData": "테스트 데이터 입력 (test@gmail.com / 123123)",
+    "validationEmailRequired": "이메일을 입력하세요",
+    "validationEmailInvalid": "유효하지 않은 이메일입니다",
+    "validationPasswordRequired": "비밀번호를 입력하세요",
+    "validationPasswordMinLength": "비밀번호는 최소 {{length}}자 이상이어야 합니다",
+    "successEmailVerified": "이메일 인증이 완료되었습니다! 로그인해 주세요.",
+    "successPasswordReset": "비밀번호가 성공적으로 재설정되었습니다! 새 비밀번호로 로그인해 주세요.",
+    "errorInvalidCredentials": "이메일 또는 비밀번호가 잘못되었습니다. 로그인 정보를 확인해 주세요.",
+    "errorEmailAlreadyExists": "이 이메일은 이미 등록되어 있습니다. 다른 이메일을 사용하거나 로그인해 주세요.",
+    "errorDefault": "로그인 실패. 다시 시도해 주세요."
+  },
+  "profile": {
+    "title": "프로필 정보",
+    "subtitle": "계정 정보를 관리하세요",
+    "loadingUser": "사용자 정보를 로딩 중...",
+    "userBadge": "사용자",
+    "id": "ID",
+    "createdAt": "생성 날짜",
+    "updatedAt": "마지막 업데이트",
+    "editInfo": "정보 편집",
+    "editDescription": "개인 정보를 업데이트하세요",
+    "updateSuccess": "정보가 성공적으로 업데이트되었습니다!",
+    "updateFailed": "정보 업데이트에 실패했습니다",
+    "firstName": "이름",
+    "lastName": "성씨",
+    "email": "이메일",
+    "emailDescription": "이메일은 로그인 및 알림 수신에 사용됩니다",
+    "fullName": "전체 이름",
+    "phoneNumber": "전화번호",
+    "company": "회사",
+    "gender": "성별",
+    "genderMale": "남성",
+    "genderFemale": "여성",
+    "genderOther": "기타",
+    "idCard": "신분증 번호",
+    "backupEmail": "백업 이메일",
+    "address": "주소",
+    "notProvided": "제공되지 않음",
+    "accountStatus": "계정 상태",
+    "accountActive": "활성",
+    "accountInactive": "비활성",
+    "adminBadge": "관리자",
+    "sections": {
+      "basicInfo": "기본 정보",
+      "contactInfo": "연락정보",
+      "personalDetails": "개인 세부 정보",
+      "security": "보안"
+    },
+    "tabs": {
+      "profile": "프로필",
+      "security": "보안"
+    },
+    "editDialogTitle": "프로필 편집",
+    "editDialogDesc": "개인 정보를 업데이트하세요. 완료 후 저장을 클릭하세요.",
+    "cancel": "취소",
+    "saving": "저장 중...",
+    "saveChanges": "변경 사항 저장",
+    "edit": "편집",
+    "changePassword": "비밀번호 변경",
+    "changePasswordDescription": "계정 보안을 위해 비밀번호를 업데이트하세요",
+    "changePasswordButton": "비밀번호 변경",
+    "changePasswordDialogTitle": "비밀번호 변경",
+    "changePasswordDialogDesc": "현재 비밀번호와 새 비밀번호를 입력하세요. 비밀번호는 6자 이상이어야 합니다.",
+    "currentPassword": "현재 비밀번호",
+    "newPassword": "새 비밀번호",
+    "confirmNewPassword": "새 비밀번호 확인",
+    "changePasswordSuccess": "비밀번호가 변경되었습니다!",
+    "changePasswordFailed": "비밀번호 변경에 실패했습니다",
+    "passwordsNotMatch": "비밀번호가 일치하지 않습니다",
+    "changingPassword": "변경 중...",
+    "avatarUploadSuccess": "아바타가 업데이트되었습니다",
+    "avatarUploadError": "아바타 업데이트에 실패했습니다",
+    "avatarSizeError": "파일 크기는 5MB를 초과할 수 없습니다",
+    "avatarTypeError": "이미지 파일을 선택해주세요",
+    "validation": {
+      "firstNameRequired": "이름을 입력해주세요",
+      "firstNameMax": "이름은 50자를 초과할 수 없습니다",
+      "lastNameRequired": "성씨를 입력해주세요",
+      "lastNameMax": "성씨는 50자를 초과할 수 없습니다",
+      "emailRequired": "이메일을 입력해주세요",
+      "emailInvalid": "유효하지 않은 이메일 주소입니다",
+      "phoneInvalid": "전화번호 형식이 올바르지 않습니다",
+      "backupEmailInvalid": "백업 이메일 형식이 올바르지 않습니다",
+      "idCardInvalid": "신분증 번호 형식이 올바르지 않습니다",
+      "currentPasswordRequired": "현재 비밀번호를 입력해주세요",
+      "newPasswordMin": "새 비밀번호는 6자 이상이어야 합니다",
+      "confirmPasswordRequired": "새 비밀번호를 확인해주세요",
+      "passwordSameAsCurrent": "새 비밀번호는 현재 비밀번호와 달라야 합니다"
+    }
+  },
+  "packageDetail": {
+    "title": "디바이스 로드 상태 표시",
+    "subtitle": "클라우드 패키지 성능을 모니터링하고 관리",
+    "loading": {
+      "subscription": "구독 정보를 로드하는 중..."
+    },
+    "error": {
+      "notFound": "구독을 찾을 수 없습니다"
+    },
+    "buttons": {
+      "back": "뒤로"
+    },
+    "status": {
+      "active": "활성",
+      "inactive": "비활성",
+      "expired": "만료됨",
+      "suspended": "일시정지",
+      "cancelled": "취소됨",
+      "pending": "대기 중"
+    },
+    "serverDetails": {
+      "title": "서버 세부정보",
+      "demoData": "데모 데이터",
+      "status": "상태",
+      "on": "켜짐",
+      "refresh": "새로고침",
+      "hostname": "도메인/호스트명",
+      "username": "사용자명",
+      "password": "비밀번호",
+      "ip": "IP 주소",
+      "uptime": "가동 시간",
+      "days": "일"
+    },
+    "controls": {
+      "vmName": "VM 이름:",
+      "time": "시간:",
+      "theme": "테마:",
+      "showPerformance": "성능 사용량 표시",
+      "timeOptions": {
+        "oneHour": "1시간 전",
+        "sixHours": "6시간 전",
+        "twentyFourHours": "24시간 전",
+        "sevenDays": "7일 전"
+      },
+      "themeOptions": {
+        "light": "라이트",
+        "dark": "다크"
+      }
+    },
+    "charts": {
+      "cpuUsage": "CPU 사용률 (%)",
+      "memoryUsage": "메모리 사용률 (%)"
+    },
+    "packageInfo": {
+      "title": "패키지 정보",
+      "packageName": "패키지 이름",
+      "vmName": "VM 이름",
+      "cpu": "CPU",
+      "memory": "메모리",
+      "storage": "스토리지",
+      "bandwidth": "대역폭",
+      "feature": "기능",
+      "ipAddress": "IP 주소",
+      "subscriber": "구독자",
+      "email": "이메일",
+      "startDate": "시작일",
+      "endDate": "종료일",
+      "autoRenew": "자동 갱신",
+      "monthlyCost": "월 비용",
+      "yes": "예",
+      "no": "아니오"
+    },
+    "actions": {
+      "title": "패키지 관리",
+      "startVM": "VM 시작",
+      "pauseVM": "VM 일시정지",
+      "restartVM": "VM 재시작",
+      "createBackup": "백업 생성",
+      "console": "콘솔",
+      "changeOS": "OS 변경/재설치",
+      "deletePackage": "패키지 삭제",
+      "configurateVM": "VM 구성"
+    },
+    "billing": {
+      "title": "청구 정보",
+      "createdDate": "생성일",
+      "nextBilling": "다음 청구",
+      "monthlyCost": "월 비용"
+    },
+    "vmInfoTitle": "가상 머신 정보",
+    "toast": {
+      "error": "오류",
+      "loadError": "구독 정보를 로드할 수 없습니다",
+      "vmNotConfigured": "VM이 구성되지 않았습니다",
+      "vmNotConfiguredDesc": "VM을 먼저 구성해 주세요",
+      "vmActionSuccess": "성공",
+      "vmActionSuccessDesc": "VM 명령이 성공적으로 전송되었습니다",
+      "vmActionFailed": "작업 실패",
+      "vmActionFailedDesc": "VM 작업을 실패했습니다",
+      "deleteVmSuccess": "VM 삭제 성공",
+      "deleteVmSuccessDesc": "VM이 삭제되었습니다. 구독은 여전히 활성 상태입니다.",
+      "deleteVmFailed": "VM 삭제 실패",
+      "deleteVmFailedDesc": "나중에 다시 시도하거나 지원팀에 문의하세요.",
+      "deleteSuccess": "삭제 성공",
+      "deleteSuccessDesc": "구독과 VM이 완전히 제거되었습니다",
+      "deleteError": "구독 삭제 오류"
+    },
+    "confirmDialog": {
+      "cancel": "취소",
+      "confirm": "확인",
+      "deleteVmOnly": {
+        "title": "구독의 VM 삭제",
+        "description": "구독은 여전히 유효하지만 가상 머신이 삭제됩니다. 서비스를 계속 사용하려면 새 VM을 구성해야 합니다."
+      },
+      "deleteSubscription": {
+        "title": "구독 삭제 확인",
+        "description": "이 작업은 Oracle Cloud의 구독과 가상 머신(VM)을 영구적으로 삭제합니다. 관련된 모든 데이터가 삭제되며 복원할 수 없습니다. 삭제 전에 중요한 데이터를 백업하세요."
+      }
+    },
+    "vmNotConfigured": {
+      "message1": "VM이 아직 구성되지 않았습니다. VM을 구성하여 서버 세부 정보를 확인하세요.",
+      "message2": "VM이 구성되지 않았습니다. 먼저 VM을 구성하세요.",
+      "message3": "VM 구성 후 차트를 사용할 수 있습니다",
+      "message4": "VM이 실행 중일 때 차트를 사용할 수 있습니다",
+      "label": "VM이 아직 구성되지 않았습니다",
+      "deleteButton": "VM 삭제 (구독 유지)"
+    }
+  },
+  "support": {
+    "title": "지원 요청",
+    "subtitle": "기술 지원 요청을 제출하고 빠른 응답을 받으세요",
+    "submit": "지원 요청 제출",
+    "submitting": "제출 중...",
+    "uploadingFiles": "파일 업로드 중...",
+    "attachmentsLabel": "첨부 파일",
+    "files": {
+      "tooMany": "최대 {{max}}개의 파일만 첨부할 수 있습니다",
+      "tooLarge": "파일이 {{maxMB}}MB 제한을 초과합니다",
+      "limits": "최대 {{max}}개 파일 · 각 ≤ {{maxMB}}MB · 이미지, PDF, Word, 텍스트"
+    },
+    "submitSuccess": "요청이 성공적으로 제출되었습니다!",
+    "submitSuccessDesc": "가능한 빨리 답변 드리겠습니다",
+    "submitError": "요청 제출 실패",
+    "fields": {
+      "title": "제목",
+      "titlePlaceholder": "문제를 간략히 설명해주세요",
+      "name": "고객명",
+      "namePlaceholder": "성명",
+      "email": "이메일",
+      "emailPlaceholder": "연락처 이메일",
+      "phone": "전화번호",
+      "phonePlaceholder": "연락처 전화번호",
+      "address": "주소",
+      "addressPlaceholder": "주소",
+      "service": "서비스",
+      "servicePlaceholder": "서비스 선택",
+      "content": "내용",
+      "contentPlaceholder": "겪고 있는 문제를 자세히 설명해주세요...",
+      "attachments": "첨부 파일",
+      "attachmentsPlaceholder": "파일을 여기에 끌어 놓거나",
+      "attachmentsBrowse": "컴퓨터에서 찾아보기"
+    },
+    "services": {
+      "cloud": "클라우드 서버",
+      "storage": "오브젝트 스토리지",
+      "network": "네트워크 / VPN",
+      "billing": "청구",
+      "account": "계정",
+      "other": "기타"
+    },
+    "myTickets": "내 티켓",
+    "myTicketsSubtitle": "제출한 요청의 상태 추적",
+    "noTickets": "아직 지원 요청이 없습니다",
+    "loadingTickets": "요청을 불러오는 중...",
+    "fetchErrorTitle": "데이터를 불러올 수 없습니다",
+    "retryBtn": "다시 시도",
+    "emptyTitle": "요청이 없습니다",
+    "emptySubtitle": "요청사항이 여기에 표시됩니다",
+    "ticketSubmittedOn": "제출",
+    "statusLabel": "상태:",
+    "resolvedAt": "해결:",
+    "serviceLabel": "서비스:",
+    "requestContent": "요청 내용:",
+    "adminReplyTitle": "지원팀 답변:",
+    "waitingReply": "요청을 처리 중임니다. 지원팀의 답변을 기다려 주세요.",
+    "hasReply": "답변 있음",
+    "formNote": "문제를 정확하게 파악할 수 있도록 모든 정보를 입력해 주세요",
+    "status": {
+      "open": "열림",
+      "in_progress": "처리 중",
+      "resolved": "해결됨",
+      "closed": "닫힘"
+    },
+    "validation": {
+      "titleMin": "제목은 최소 5자 이상이어야 합니다",
+      "nameMin": "이름을 입력해 주세요",
+      "emailInvalid": "유효하지 않은 이메일 주소",
+      "contentMin": "내용은 최소 10자 이상이어야 합니다"
+    },
+    "priority": {
+      "low": "낮음",
+      "medium": "보통",
+      "high": "높음",
+      "urgent": "긴급"
+    }
+  },
+  "adminSupport": {
+    "title": "지원 티켓 관리",
+    "subtitle": "사용자의 지원 요청 추적 및 처리",
+    "totalTickets": "전체 티켓",
+    "openTickets": "열림",
+    "inProgressTickets": "처리 중",
+    "resolvedTickets": "해결됨",
+    "updateSuccess": "업데이트 성공",
+    "updateError": "업데이트 실패",
+    "deleteConfirm": "이 티켓을 삭제하시겠습니까?",
+    "adminNote": "관리자 메모",
+    "adminNotePlaceholder": "처리 메모 입력..."
+  },
+  "walletSidebar": {
+    "title": "내 계정",
+    "subtitle": "클라우드 및 결제 관리",
+    "myCloud": "내 클라우드",
+    "myCloudDesc": "구매한 패키지 관리",
+    "paymentManagement": "결제 관리",
+    "paymentManagementDesc": "거래 내역 보기",
+    "needHelp": "도움이 필요하신가요?",
+    "contactSupport": "지원팀 연락",
+    "account": "계정"
+  },
+  "paymentHistory": {
+    "title": "거래 내역",
+    "loading": "거래 내역을 불러오는 중...",
+    "totalDeposit": "총 충전 금액",
+    "totalPaid": "조 결제 금액",
+    "depositCount": "충전 횟수",
+    "paymentCount": "결제 횟수",
+    "packagesBought": "구매한 패키지",
+    "processing": "처리 중",
+    "filterTitle": "필터 및 검색",
+    "exportExcel": "Excel 내보내기",
+    "searchPlaceholder": "ID 또는 거래 코드로 검색...",
+    "allStatus": "모든 상태",
+    "statusSuccess": "성공",
+    "statusPending": "처리 중",
+    "statusFailed": "실패",
+    "allTypes": "모든 거래 유형",
+    "deposit": "충전",
+    "subscriptionPayment": "패키지 결제",
+    "advancedFilter": "고급 필터",
+    "transactionHistory": "거래 내역 ({{count}}건)",
+    "noTransactions": "거래 기록이 없습니다",
+    "months": "개월",
+    "viewDetail": "상세 보기",
+    "viewDetailDesc": "거래 상세 {{code}}",
+    "viewPaymentDetail": "결제 상세 보기",
+    "paymentDetailError": "결제 정보를 불러올 수 없습니다",
+    "exportSuccess": "Excel 내보내기 성공",
+    "exportSuccessDesc": "{{count}}건의 거래를 내보냈습니다",
+    "exportError": "Excel 내보내기 오류",
+    "exportErrorDesc": "Excel 파일을 내보낼 수 없습니다. 다시 시도해주세요.",
+    "loadError": "오류",
+    "loadErrorDesc": "거래 내역을 불러올 수 없습니다",
+    "depositDescription": "계정에 충전",
+    "payment": "결제",
+    "unknown": "알 수 없음",
+    "transaction": "거래",
+    "accountBalance": "계정 잔액",
+    "qrCode": "QR 코드",
+    "bankTransfer": "계좌 이체",
+    "excelSummary": "조계: {{count}}건의 거래",
+    "showing": "{{total}}업무 중 {{count}}건 표시",
+    "prevPage": "이전",
+    "nextPage": "다음",
+    "labels": {
+      "id": "ID",
+      "ref": "Ref",
+      "balance": "거래 후 잔액",
+      "subscriptionId": "구독 ID"
+    },
+    "types": {
+      "deposit": "충전",
+      "subscriptionPayment": "패키지 결제",
+      "autoRenewal": "자동 갱신",
+      "manualRenewal": "수동 갱신",
+      "default": "거래"
+    },
+    "excel": {
+      "sheetName": "지갑 거래 내역",
+      "filePrefix": "wallet-transaction-history",
+      "no": "번호",
+      "transactionType": "거래 유형",
+      "amountVnd": "금액 (VND)",
+      "balanceAfterVnd": "거래 후 잔액 (VND)",
+      "referenceCode": "참조 결제 코드",
+      "transactionId": "거래 ID",
+      "time": "시간"
+    },
+    "detail": {
+      "title": "거래 상세 정보",
+      "amount": "금액",
+      "balanceAfter": "거래 후 잔액",
+      "paymentId": "결제 ID",
+      "subscriptionId": "구독 ID",
+      "transactionCode": "거래 코드",
+      "paymentMethod": "결제 수단",
+      "description": "설명",
+      "package": "서비스 패키지",
+      "createdAt": "생성 시간",
+      "updatedAt": "마지막 업데이트",
+      "close": "닫기",
+      "copied": "복사됨"
+    },
+    "paymentDetail": {
+      "title": "결제 상세",
+      "amount": "금액",
+      "type": "결제 유형",
+      "method": "결제 수단",
+      "transactionCode": "거래 코드",
+      "subscriptionId": "구독 ID",
+      "package": "서비스 패키지",
+      "description": "내용",
+      "time": "시간",
+      "close": "닫기",
+      "statuses": {
+        "pending": "대기 중",
+        "success": "성공",
+        "failed": "실패",
+        "expired": "만료"
+      },
+      "methods": {
+        "sepayQr": "SePay QR",
+        "accountBalance": "계정 잔액",
+        "bankTransfer": "계좌 이체"
+      },
+      "types": {
+        "deposit": "충전",
+        "subscription": "구독 패키지"
+      }
+    }
+  },
+  "balanceDisplay": {
+    "label": "잔액:",
+    "addFunds": "충전",
+    "loading": "로드 중...",
+    "error": "잔액을 불러올 수 없습니다",
+    "refresh": "잔액 새로고침"
+  },
+  "subscriptionCheckout": {
+    "title": "구독 결제",
+    "back": "뒤로",
+    "transactionInfo": "거래 정보",
+    "transactionType": "거래 유형:",
+    "subscriptionRegistration": "구독 등록",
+    "paymentMethodLabel": "결제 방법:",
+    "bankTransfer": "계좌 이체",
+    "subscriptionIdLabel": "구독 ID:",
+    "paymentAmount": "결제 금액:",
+    "timeLeft": "남은 시간:",
+    "expireWarning": "이 거래는 위의 시간에 만료됩니다. 만료 전에 결제를 완료해주세요.",
+    "transactionCode": "거래 코드:",
+    "autoConfirm": "결제가 확인되면 거래가 자동으로 완료됩니다.",
+    "benefit1": "구독이 즉시 활성화됩니다",
+    "benefit2": "수수료 없음",
+    "benefit3": "24/7 지원",
+    "benefit4": "안전한 암호화 거래",
+    "scanQR": "QR 코드로 결제",
+    "loadingPaymentInfo": "결제 정보를 불러오는 중...",
+    "paymentSuccessRedirect": "✅ 결제 성공! 이동 중...",
+    "checkingPayment": "결제 확인 중...",
+    "scanQRDesc": "은행 앱으로 QR 코드를 스캔하여 결제",
+    "bankLabel": "은행:",
+    "accountNumberLabel": "계좌번호:",
+    "accountHolderLabel": "계좌 명의:",
+    "amountLabel": "금액:",
+    "contentLabel": "내용:",
+    "copyTransferInfo": "이체 정보 복사",
+    "importantNote": "중요 안내:",
+    "importantNoteDesc": "정확한 금액과 정확한 내용으로 이체해야 시스템이 자동으로 거래를 확인할 수 있습니다.",
+    "contactSupport": "지원팀 연락",
+    "alreadyTransferred": "이미 송금함",
+    "invalidInfo": "유효하지 않은 정보",
+    "invalidInfoDesc": "결제 정보를 찾을 수 없습니다. 다시 시도해주세요.",
+    "backHome": "홈으로 돌아가기",
+    "copiedTransferInfo": "이체 정보가 복사되었습니다",
+    "paymentSuccess": "결제 성공!",
+    "subscriptionActivated": "구독이 활성화되었습니다.",
+    "qrReadyToast": "QR 코드 준비 완료",
+    "qrReadyToastDesc": "QR 코드를 스캔하거나 아래 정보로 수동 이체하세요.",
+    "alreadyTransferredToast": "감사합니다!",
+    "alreadyTransferredToastDesc": "결제를 접수했습니다. 이체 확인 후 거래가 자동으로 확인됩니다."
+  },
+  "cloudConfig": {
+    "title": "VM 인스턴스 구성",
+    "subscriptionLabel": "구독 ID: {{id}}",
+    "back": "패키지 관리로 돌아가기",
+    "vmDetails": "VM 인스턴스 세부 정보",
+    "vmInstanceName": "VM 인스턴스 이름",
+    "vmNameNote": "VM 이름은 이메일 주소를 기반으로 자동 생성됩니다. 형식:",
+    "notificationSettings": "알림 설정",
+    "emailLabel": "이메일 주소 * (SSH 키가 여기로 전송됩니다)",
+    "emailNote": "SSH 개인 키가 이 이메일 주소로 전송됩니다. 안전하게 보관하세요.",
+    "vmShape": "VM 형태 *",
+    "vmShapeNote": "먼저 VM 형태를 선택하세요 - OS 옵션은 호환성에 따라 필터링됩니다",
+    "recommended": "추천",
+    "armCapacityLimited": "⚠️ ARM 용량 제한",
+    "armCapacityNote": "A1.Flex (ARM) 인스턴스는 오사카 지역에서 용량이 제한되어 있습니다. 용량 문제로 구성에 실패한 경우 나중에 다시 시도하거나 가용성이 높은 x86 형태 (E2.1.Micro, E3.Flex)로 전환하세요.",
+    "armImageNote": "주의: ARM 이미지 (🔷)는 A1.Flex 전용이며, x86 이미지 (🔵)는 E2, E3, E4, Standard 형태에 적용됩니다.",
+    "operatingSystem": "운영 체제",
+    "showingCompatible": "{{shape}}와 호환되는 이미지 표시 중",
+    "selectOS": "운영 체제 선택 *",
+    "versions": "버전",
+    "searchVersion": "버전 검색...",
+    "noImagesFound": "이미지를 찾을 수 없습니다",
+    "loadingOsImages": "OS 이미지를 불러오는 중...",
+    "configSummary": "구성 요약",
+    "osLabel": "운영 체제",
+    "notSelected": "선택되지 않음",
+    "vmShapeLabel": "VM 형태",
+    "ocpus": "OCPU 수",
+    "memory": "메모리",
+    "bootVolume": "부트 볼륨",
+    "notificationEmail": "알림 이메일",
+    "notSpecified": "지정되지 않음",
+    "allFieldsCompleted": "모든 필수 필드가 완료되었습니다",
+    "incompleteFields": "모든 필수 필드를 입력해주세요:",
+    "needOS": "운영 체제 선택",
+    "needOSVersion": "OS 버전 선택",
+    "needEmail": "계정에서 이메일 주소를 찾을 수 없습니다",
+    "configureVM": "VM 구성",
+    "configuring": "구성 중...",
+    "cancelBtn": "취소",
+    "confirmTitle": "OS 재설치 확인",
+    "confirmDesc": "기존 VM과 모든 데이터 및 설치된 소프트웨어가 손실됩니다. 확인하시겠습니까?",
+    "confirmCancel": "취소",
+    "confirmOk": "확인",
+    "creatingVM": "VM 인스턴스 생성 중",
+    "creatingVMDesc": "가상 머신을 구성하는 중...",
+    "provisionStep1": "파티션 및 네트워크 구성 중",
+    "provisionStep2": "컴퓨팅 인스턴스 시작 중",
+    "provisionStep3": "네트워크 및 보안 구성 중",
+    "provisionStep4": "액세스 자격 증명 준비 중",
+    "timeEstimate": "2-5분 정도 소요될 수 있습니다",
+    "doNotClose": "⚠️ 이 창을 닫거나 이동하지 마세요",
+    "loadingSubscription": "구독 세부 정보를 불러오는 중...",
+    "subscriptionNotFound": "구독을 찾을 수 없습니다",
+    "subscriptionNotFoundBtn": "패키지 관리로 돌아가기",
+    "validationError": "유효성 검사 오류",
+    "validationErrorDesc": "모든 필수 필드에 유효한 값을 입력해주세요",
+    "configSuccess": "성공",
+    "armCapacityUnavailable": "ARM 용량을 사용할 수 없습니다",
+    "capacityUnavailable": "용량을 사용할 수 없습니다",
+    "configFailed": "구성 실패"
+  },
+  "addFunds": {
+    "title": "계정에 충전",
+    "back": "뒤로",
+    "selectPaymentMethod": "결제 방법 선택",
+    "enterAmount": "충전 금액 입력",
+    "amountLabel": "금액 (VND)",
+    "amountPlaceholder": "금액 입력...",
+    "amountDisplay": "금액:",
+    "quickAmounts": "또는 빠른 금액 선택",
+    "processing": "처리 중...",
+    "confirm": "{{amount}} VND 충전 확인",
+    "comingSoon": "출시 예정",
+    "noteTitle": "참고:",
+    "noteMin": "최소 충전 금액: 10,000 VND",
+    "noteMax": "최대 충전 금액: 100,000,000 VND",
+    "noteCredit": "결제 확인 후 충전이 계정에 반영됩니다",
+    "errorMin": "최소 충전 금액은 10,000 VND입니다",
+    "errorMax": "최대 충전 금액은 100,000,000 VND입니다",
+    "errorSelectMethod": "결제 방법을 선택해주세요",
+    "errorMethodUnavailable": "이 결제 방법은 현재 사용할 수 없습니다",
+    "errorLogin": "계속하려면 로그인해주세요",
+    "errorGeneral": "오류",
+    "successTitle": "성공",
+    "successDesc": "충전 요청이 생성되었습니다. 결제 페이지로 이동 중...",
+    "methods": {
+      "momo": { "name": "MoMo 지갑", "description": "MoMo 전자지갑으로 결제" },
+      "card": { "name": "국제 카드", "description": "Visa, Mastercard, JCB" },
+      "bank_transfer": { "name": "계좌 이체", "description": "QR 코드 스캔 또는 수동 이체" }
+    }
+  },
+  "pricingModal": {
+    "title": "결제 방법 선택",
+    "subtitle": "{{planName}} 플랜에 적합한 결제 방법을 선택하세요",
+    "accountBalance": "계정 잔액 차감",
+    "accountBalanceDesc": "계정의 사용 가능한 잔액으로 결제",
+    "currentBalance": "현재 잔액",
+    "addFundsBtn": "충전",
+    "instantPayment": "즉시 결제",
+    "noFees": "거래 수수료 없음",
+    "directPayment": "직접 결제",
+    "directPaymentDesc": "은행 이체 또는 QR 코드로 결제",
+    "monthsLabel": "구독 개월 수",
+    "totalDeduction": "지갑에서 차감될 총액",
+    "totalPayment": "총 결제 금액",
+    "perMonthCalc": "{{price}} × {{months}} 개월",
+    "termsPrefix": "나는",
+    "termsLink": "이용약관",
+    "termsSuffix": "（OracleCloud Vietnam）을 읽고 동의합니다.",
+    "closeBtn": "닫기",
+    "confirmBtn": "확인",
+    "processing": "처리 중...",
+    "errorTitle": "오류",
+    "errorSelectMethod": "결제 방법을 선택해 주세요",
+    "errorMonths": "개월 수는 1~24 사이여야 합니다",
+    "insufficientBalanceTitle": "잔액 부족",
+    "insufficientBalanceDesc": "잔액이 부족합니다. 충전해 주세요.",
+    "successTitle": "등록 성공!",
+    "successDesc": "{{planName}} 플랜 등록이 완료되었습니다. 계정에서 금액이 차감되었습니다.",
+    "errorGeneral": "오류가 발생했습니다. 다시 시도해 주세요."
+  },
+  "register": {
+    "title": "계정 등록",
+    "subtitle": "새 계정을 만들어 서비스 이용을 시작하세요",
+    "firstName": "성",
+    "firstNamePlaceholder": "홍",
+    "lastName": "이름",
+    "lastNamePlaceholder": "길동",
+    "email": "이메일",
+    "emailPlaceholder": "your@email.com",
+    "password": "비밀번호",
+    "passwordPlaceholder": "\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7",
+    "confirmPassword": "비밀번호 확인",
+    "confirmPasswordPlaceholder": "\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7",
+    "registerButton": "등록",
+    "registering": "등록 중...",
+    "or": "또는",
+    "registerWithGoogle": "Google로 등록",
+    "googleComingSoon": "Google 등록 기능은 곳 제공될 예정입니다",
+    "haveAccount": "이미 계정이 있으신가요?",
+    "loginNow": "지금 로그인",
+    "validation": {
+      "firstNameRequired": "성을 입력하세요",
+      "firstNameMaxLength": "성은 50자를 초과할 수 없습니다",
+      "lastNameRequired": "이름을 입력하세요",
+      "lastNameMaxLength": "이름은 50자를 초과할 수 없습니다",
+      "emailRequired": "이메일을 입력하세요",
+      "emailInvalid": "유효하지 않은 이메일입니다",
+      "passwordMinLength": "비밀번호는 최소 6자 이상이어야 합니다",
+      "passwordMaxLength": "비밀번호는 100자를 초과할 수 없습니다",
+      "confirmPasswordRequired": "비밀번호를 확인해주세요",
+      "passwordsMismatch": "비밀번호가 일치하지 않습니다"
+    },
+    "errorEmailAlreadyExists": "이 이메일은 이미 등록되어 있습니다. 다른 이메일을 사용하거나 로그인해 주세요.",
+    "errorDefault": "등록 실패. 다시 시도해 주세요."
+  },
+  "verifyOtp": {
+    "title": "이메일 인증",
+    "unverifiedWarning": "⚠️ 계정 미인증",
+    "otpSentToEmail": "OTP가 이메일로 전송되었습니다",
+    "pleaseEnterOtp": "계정 인증을 위해 OTP를 입력해 주세요",
+    "enterCodeSentTo": "다음 주소로 전송된 6자리 인증 코드를 입력하세요",
+    "codeInstruction": "이메일에서 6자리 코드를 입력하세요",
+    "verifyButton": "이메일 인증",
+    "verifying": "인증 중...",
+    "didntReceiveCode": "코드를 받지 못하셨나요?",
+    "sending": "전송 중...",
+    "resendIn": "{{time}}초 후 재전송",
+    "resendCode": "코드 재전송",
+    "securityNote": "🔒 이 코드는 10분 후 만료됩니다. 누구에게도 공유하지 마세요.",
+    "errorInvalidOtp": "잘못된 OTP 코드입니다. 다시 확인해 주세요.",
+    "errorIncomplete": "6자리 코드를 완전히 입력해 주세요",
+    "status": {
+      "sending": "인증 코드 전송 중...",
+      "sentTitle": "인증 코드 전송 완료!",
+      "sentCheckEmail": "이메일을 확인하세요: {{email}}",
+      "verifyingCode": "코드 인증 중...",
+      "successMessage": "이메일 인증 성공!",
+      "errorTitle": "인증 실패",
+      "resendAvailableIn": "{{time}}초 후 재전송 가능"
+    }
+  },
+  "forgotPassword": {
+    "recoverEmail": {
+      "title": "비밀번호 찾기",
+      "subtitle": "비밀번호 재설정 OTP를 받으려면 이메일을 입력하세요",
+      "emailLabel": "이메일",
+      "emailPlaceholder": "example@email.com",
+      "submitButton": "OTP 전송",
+      "sending": "전송 중...",
+      "rememberPassword": "비밀번호가 기억나시나요?",
+      "loginLink": "로그인",
+      "validation": {
+        "emailRequired": "이메일을 입력하세요",
+        "emailInvalid": "유효하지 않은 이메일입니다"
+      }
+    },
+    "otpConfirm": {
+      "title": "OTP 인증",
+      "subtitle": "이메일로 전송된 6자리 OTP를 입력하세요:",
+      "submitButton": "OTP 확인",
+      "verifying": "인증 중...",
+      "resend": "OTP 재전송",
+      "resendCountdown": "{{countdown}}초 후 재전송",
+      "backToLogin": "\u2190 로그인으로 돌아가기",
+      "validation": {
+        "otpRequired": "6자리 OTP를 모두 입력해주세요"
+      }
+    }
+  },
+  "addFundsPayment": {
+    "title": "계정 충전",
+    "back": "뒤로",
+    "invalidInfo": "잘못된 정보",
+    "invalidInfoDesc": "결제 정보를 찾을 수 없습니다. 다시 시도하세요.",
+    "backToAddFunds": "충전 페이지로 돌아가기",
+    "transactionInfo": "거래 정보",
+    "transactionType": "거래 유형:",
+    "addFundsType": "충전",
+    "paymentMethodLabel": "결제 수단:",
+    "bankTransfer": "계좌이체",
+    "depositAmount": "충전 금액:",
+    "timeLeft": "남은 시간:",
+    "expireWarning": "거래는 위 시간 이후 만료됩니다. 만료 전에 결제를 완료하세요.",
+    "transactionCode": "거래 코드:",
+    "autoConfirm": "입금 확인 후 거래가 자동으로 확인됩니다.",
+    "benefit1": "충전금은 즉시 계정에 반영됩니다",
+    "benefit2": "거래 수수료 없음",
+    "benefit3": "24/7 지원",
+    "benefit4": "암호화된 보안 거래",
+    "scanQR": "QR 코드 스캔하여 결제",
+    "loadingPaymentInfo": "결제 정보 로딩 중...",
+    "paymentSuccessRedirect": "\u2705 충전 성공! 리다이렉트 중...",
+    "checkingPayment": "결제 확인 중...",
+    "scanQRDesc": "뱅킹 앱으로 QR 코드를 스캔하여 결제하세요",
+    "bankLabel": "은행:",
+    "accountNumberLabel": "계좌번호:",
+    "accountHolderLabel": "예금주:",
+    "amountLabel": "금액:",
+    "contentLabel": "내용:",
+    "copyTransferInfo": "이체 정보 복사",
+    "importantNote": "중요 안내:",
+    "importantNoteDesc": "시스템이 거래를 자동으로 확인할 수 있도록 정확한 금액과 이체 내용을 입력하세요.",
+    "contactSupport": "고객 지원 문의",
+    "alreadyTransferred": "이미 이체했습니다",
+    "alreadyTransferredToast": "감사합니다!",
+    "alreadyTransferredToastDesc": "결제를 접수했습니다. 이체 확인 후 거래가 자동으로 확인됩니다.",
+    "copiedTransferInfo": "이체 정보가 복사되었습니다",
+    "paymentSuccess": "충전 성공!",
+    "paymentSuccessDesc": "잔액이 계정에 추가되었습니다.",
+    "successWithAmount": "{{amount}}이(가) 계정에 성공적으로 충전되었습니다.",
+    "loading": "로딩 중...",
+    "qrReadyToast": "QR 준비 완료",
+    "qrReadyToastDesc": "QR 코드를 스캔하거나 아래 정보로 수동 이체하세요.",
+    "transferInfo": "은행: {{bank}}\n계좌번호: {{account}}\n금액: {{amount}} VND\n내용: {{content}}"
+  }
+}

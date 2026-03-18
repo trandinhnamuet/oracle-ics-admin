@@ -1,0 +1,179 @@
+# Oracle ICS - Backend JWT Auth Setup Notes
+
+## Đã cài đặt các package:
+- @nestjs/jwt, @nestjs/passport, passport, passport-jwt, passport-local, bcryptjs, cookie-parser, class-validator, class-transformer
+- Các package type cho dev: @types/passport-jwt, @types/passport-local, @types/bcryptjs, @types/cookie-parser
+
+## Đã thêm các file sau:
+
+### src/entities/user.entity.ts
+- Định nghĩa entity User cho bảng users trong database.
+
+### src/auth/dto/auth.dto.ts
+- Định nghĩa DTO cho login và register (LoginDto, RegisterDto).
+
+### src/auth/auth.service.ts
+- Xử lý logic đăng ký, đăng nhập, xác thực user, mã hóa mật khẩu, sinh JWT.
+
+### src/auth/jwt.strategy.ts
+- Passport strategy cho xác thực JWT, lấy token từ header hoặc cookie.
+
+### src/auth/jwt-auth.guard.ts
+- Guard bảo vệ các route cần xác thực JWT.
+
+### src/auth/auth.controller.ts
+- Định nghĩa các endpoint: /auth/register, /auth/login, /auth/logout, /auth/profile. Đăng nhập/đăng ký trả về JWT qua cookie.
+
+### src/auth/auth.module.ts
+- Module tổng hợp các thành phần authentication.
+
+### src/migrations/1694339500000-CreateUsersTable.ts
+- Migration tạo bảng users.
+
+## Đã cập nhật:
+- main.ts: Thêm cookie-parser, validation pipe, enable CORS cho frontend.
+- app.module.ts: Import AuthModule, cấu hình TypeORM cho autoLoadEntities.
+
+## Tác dụng:
+- Cho phép đăng ký, đăng nhập, xác thực JWT, lưu token vào cookie HTTP-only, bảo vệ các route cần đăng nhập.
+- Đã chuẩn bị migration tạo bảng users để lưu thông tin người dùng.
+
+---
+
+# Oracle ICS - Frontend Authentication Setup Notes
+
+## Đã cài đặt các package frontend:
+- zustand: State management cho auth
+- js-cookie, @types/js-cookie: Quản lý cookies
+- axios: HTTP client cho API calls
+- react-hook-form, @hookform/resolvers, zod: Form validation
+- @tanstack/react-query: Data fetching (đã cài nhưng chưa dùng)
+
+## Đã tạo các file frontend:
+
+### hooks/use-auth-store.ts
+- Zustand store quản lý state authentication
+- State: user, token, isLoading, error, isAuthenticated
+- Actions: login, logout, setUser, setToken, initAuth
+- Persist user info trong localStorage, token trong cookies
+
+### lib/auth-api.ts
+- Service gọi API backend cho authentication
+- Axios instance với interceptors tự động attach token
+- Functions: login, register, getCurrentUser, logout, googleLogin, forgotPassword, resetPassword
+- Auto redirect khi token hết hạn (401)
+
+### app/login/page.tsx
+- Trang đăng nhập với form validation (react-hook-form + zod)
+- UI: email, password, show/hide password, Google login button
+- Link đến trang đăng ký và quên mật khẩu
+- Auto redirect về returnUrl sau login thành công
+
+### app/register/page.tsx
+- Trang đăng ký với form validation 
+- UI: firstName, lastName, email, password, confirmPassword
+- Validation: confirm password phải khớp
+- Google signup button, link đến trang đăng nhập
+- Auto login sau đăng ký thành công
+
+### app/profile/page.tsx
+- Trang thông tin cá nhân (protected route)
+- Hiển thị: avatar, user info, created/updated date
+- Form chỉnh sửa thông tin với validation
+- Sử dụng withAuth HOC để bảo vệ
+
+### components/header.tsx
+- Cập nhật header với auth logic
+- Hiển thị SimpleDropdown khi đã đăng nhập
+- Buttons đăng nhập/đăng ký khi chưa authenticate
+- Mobile menu support
+
+### components/ui/simple-dropdown.tsx
+- Custom dropdown component thay thế Radix UI
+- Click to toggle, click outside to close
+- Menu items: Thông tin cá nhân, Cài đặt, Đăng xuất
+- Dark mode support, responsive
+
+### components/auth/with-auth.tsx
+- HOC (Higher-Order Component) bảo vệ components
+- Options: requireAuth, redirectTo, fallback
+- Hook useAuth cho auth logic
+- Functions: hasPermission, ProtectedContent component
+
+### components/providers/auth-provider.tsx
+- Global auth provider wrap toàn bộ app
+- Auto initialize auth khi app khởi động
+- Fetch user data nếu có token nhưng chưa có user info
+
+### middleware.ts
+- Next.js middleware bảo vệ routes
+- Protected routes: /profile, /dashboard, /settings, /admin
+- Guest-only routes: /login, /register
+- Auto redirect với returnUrl
+
+### components/hero-section.tsx
+- Cập nhật CTA button dựa trên auth status
+- "Đăng nhập ngay" khi chưa auth
+- "Quản lý tài khoản" khi đã auth
+
+### app/layout.tsx
+- Wrap app với AuthProvider
+- Cập nhật metadata cho Oracle Cloud Vietnam
+
+### .env.local
+- NEXT_PUBLIC_API_URL=http://localhost:3001
+
+## Tính năng đã hoàn thành:
+
+### 🔐 Authentication Flow:
+- Đăng ký tài khoản mới
+- Đăng nhập với email/password  
+- Tự động lưu JWT token vào HTTP-only cookies
+- Auto fetch user info khi có token
+- Đăng xuất và clear token/user data
+
+### 🛡️ Route Protection:
+- Middleware bảo vệ protected routes
+- withAuth HOC bảo vệ components
+- Auto redirect đến login với returnUrl
+- Guest-only routes (login/register) redirect khi đã auth
+
+### 🎨 UI/UX:
+- Form validation với error messages
+- Loading states during API calls
+- Success/error alerts
+- Responsive design cho mobile/desktop
+- Dark mode support
+
+### 🔒 Security:
+- JWT token trong HTTP-only cookies
+- Auto logout khi token hết hạn
+- CSRF protection với SameSite cookies
+- Input validation và sanitization
+
+### 📱 Features:
+- Profile page với edit form
+- Header dropdown menu
+- Mobile menu support
+- Hero section CTA tùy theo auth status
+
+## API Endpoints sử dụng:
+- POST /auth/login: Đăng nhập
+- POST /auth/register: Đăng ký
+- GET /auth/profile: Lấy thông tin user
+- POST /auth/logout: Đăng xuất
+- POST /auth/google: Google OAuth (planned)
+
+## Cách test:
+1. Chạy backend: cd oracle-ics-backend && npm run start:dev
+2. Chạy frontend: cd oracle-ics-frontend && npm run dev
+3. Truy cập http://localhost:3001
+4. Test đăng ký → đăng nhập → profile → đăng xuất
+
+## Trạng thái hiện tại:
+- ✅ Frontend auth system hoàn chỉnh
+- ✅ Dropdown menu header hoạt động
+- ✅ Protected routes working
+- ✅ Form validation working
+- 🔄 Cần test với backend thật
+- 📋 TODO: Google OAuth integration

@@ -1,0 +1,2016 @@
+{
+  "packageManagement": {
+    "title": "Cloud của tôi",
+    "subtitle": "Theo dõi và quản lý các gói dịch vụ đang sử dụng",
+    "searchPlaceholder": "Tìm kiếm theo tên gói, email...",
+    "status": "Trạng thái",
+    "type": "Loại gói",
+    "filter": {
+      "all": "Tất cả",
+      "active": "Hoạt động",
+      "inactive": "Không hoạt động"
+    },
+    "stats": {
+      "total": "Tổng số gói",
+      "active": "Đang hoạt động",
+      "inactive": "Không hoạt động",
+      "revenue": "Doanh thu/tháng"
+    },
+    "table": {
+      "title": "Danh sách gói đăng ký ({{count}})",
+      "packageName": "Tên gói",
+      "type": "Loại",
+      "paidAmount": "Số tiền đã trả",
+      "createdAt": "Ngày đăng ký",
+      "updatedAt": "Cập nhật lần cuối",
+      "status": "Trạng thái",
+      "actions": "Thao tác",
+      "noMatch": "Không tìm thấy gói nào phù hợp",
+      "noPackage": "Chưa có gói đăng ký nào",
+      "customPackage": "Gói tùy chỉnh",
+      "active": "Hoạt động",
+      "inactive": "Không hoạt động",
+      "pending": "Đang chờ",
+      "suspended": "Tạm dừng", 
+      "cancelled": "Đã hủy",
+      "expired": "Hết hạn",
+      "pauseTitle": "Tạm dừng gói",
+      "activateTitle": "Kích hoạt gói",
+      "deleteTitle": "Xóa gói"
+    },
+    "confirmDialog": {
+      "cancel": "Hủy",
+      "confirm": "Xác nhận",
+      "deleteSubscription": {
+        "title": "Xác nhận xóa subscription",
+        "description": "Hành động này sẽ XÓA HOÀN TOÀN subscription và máy ảo (VM) trên Oracle Cloud. Tất cả dữ liệu liên quan sẽ bị xóa và KHÔNG THỂ KHÔI PHỤC. Vui lòng backup dữ liệu quan trọng trước khi xóa."
+      },
+      "stopVm": {
+        "title": "Xác nhận dừng VM",
+        "description": "Bạn có chắc chắn muốn dừng VM này không?"
+      },
+      "startVm": {
+        "title": "Xác nhận khởi động VM",
+        "description": "Bạn có chắc chắn muốn khởi động VM này không?"
+      },
+      "renewSubscription": {
+        "title": "Xác nhận gia hạn subscription",
+        "description": "Bạn có chắc chắn muốn gia hạn gói \"{{packageName}}\"? {{cost}} sẽ được trừ từ ví của bạn."
+      }
+    },
+    "toast": {
+      "loadingList": "Đang tải danh sách subscription...",
+      "vmNotConfigured": "VM chưa được cấu hình",
+      "vmStopSent": "Đã gửi lệnh dừng VM",
+      "vmStartSent": "Đã gửi lệnh khởi động VM",
+      "vmActionPending": "Trạng thái sẽ tự động cập nhật khi hoàn thành.",
+      "vmStopError": "Lỗi khi dừng VM",
+      "vmStartError": "Lỗi khi khởi động VM",
+      "renewSuccess": "Gia hạn subscription thành công!",
+      "renewSuccessDesc": "Subscription của bạn đã được kích hoạt và VM đã được khởi động.",
+      "renewFailed": "Gia hạn thất bại",
+      "renewInsufficientFunds": "Bạn không đủ tiền trong tài khoản để gia hạn, xin hãy nạp thêm.",
+      "renewError": "Có lỗi xảy ra khi gia hạn subscription",
+      "deleteSuccess": "Đã xóa subscription và VM thành công!",
+      "deleteError": "Có lỗi xảy ra khi xóa subscription"
+    },
+    "notConfigured": "Chưa cấu hình",
+    "tooltip": {
+      "stopVm": "Dừng VM (Stop)",
+      "startVm": "Khởi động VM (Start)",
+      "stopping": "VM đang dừng...",
+      "starting": "VM đang khởi động...",
+      "transitioning": "VM đang trong trạng thái chuyển đổi",
+      "renewSubscription": "Gia hạn subscription"
+    },
+    "fetchError": {
+      "title": "Lỗi",
+      "system": "Lỗi hệ thống khi tải danh sách subscription. Vui lòng thử lại sau.",
+      "network": "Không thể tải danh sách subscription. Vui lòng kiểm tra kết nối mạng."
+    }
+  },
+  "contactInfo": {
+    "heroTitle": "Liên hệ với chúng tôi",
+    "heroDesc": "Đối tác chính thức của Oracle tại Việt Nam, sẵn sàng hỗ trợ bạn 24/7",
+    "companyInfo": "Thông tin công ty",
+    "companyName": "CÔNG TY CỔ PHẦN AN NINH MẠNG QUỐC TẾ - ICS",
+    "officeHanoi": "Văn phòng Hà Nội",
+    "officeAddress": "TT3-5 Khu đô thị Đại Kim mới, Định Công, Hà Nội",
+    "contactInfo": "Thông tin liên hệ",
+    "phoneHotline": "Điện thoại & Hotline",
+    "email": "Email",
+    "website": "Website",
+    "mapTitle": "Vị trí trên bản đồ",
+    "mapDesc": "Tìm đường đến văn phòng của chúng tôi",
+    "learnMore": "Tìm hiểu thêm về chúng tôi →",
+    "openInMaps": "Mở trong Maps"
+  },
+  "dashboard": {
+    "title": "Quản lý hệ thống",
+    "user": {
+      "title": "Quản lý người dùng",
+      "desc": "Xem, chỉnh sửa và quản lý tài khoản người dùng",
+      "stats": "Tổng {{count}} người dùng"
+    },
+    "customRegistration": {
+      "title": "Đăng ký gói tùy chỉnh",
+      "desc": "Quản lý các yêu cầu đăng ký gói dịch vụ tùy chỉnh",
+      "stats": "{{count}} yêu cầu mới"
+    },
+    "access": "Truy cập"
+  },
+  "admin": {
+    "title": "Bảng điều khiển quản trị",
+    "userTitle": "Quản lý người dùng",
+    "userDesc": "Xem, chỉnh sửa và quản lý tài khoản người dùng",
+    "userStats": "Tổng {{count}} người dùng",
+    "customRegTitle": "Quản lý đăng ký gói tùy chỉnh",
+    "customRegDesc": "Theo dõi và xử lý các yêu cầu đăng ký gói dịch vụ tùy chỉnh",
+    "customRegStats": "{{count}} yêu cầu mới",
+    "access": "Truy cập",
+    "packagesTitle": "Quản lý các Cloud Package",
+    "packagesDesc": "Tạo, chỉnh sửa và quản lý các gói dịch vụ cloud",
+    "packagesStats": "Tổng: {{count}} gói",
+    "subscriptionsTitle": "Quản lý đăng ký dịch vụ",
+    "subscriptionsDesc": "Xem và quản lý các gói người dùng đã đăng ký (subscription)",
+    "subscriptionsStats": "Xem và quản lý các gói người dùng đã đăng ký (subscription)",
+    "user": {
+      "title": "Quản lý người dùng",
+      "subtitle": "Quản lý tài khoản người dùng trong hệ thống",
+      "exportExcel": "Xuất Excel",
+      "searchPlaceholder": "Tìm kiếm theo email, tên, công ty...",
+      "stats": {
+        "total": "Tổng số người dùng",
+        "active": "Đang hoạt động",
+        "inactive": "Đã khóa"
+      },
+      "table": {
+        "id": "ID",
+        "email": "Email",
+        "name": "Họ tên",
+        "phone": "Số điện thoại",
+        "company": "Công ty",
+        "role": "Vai trò",
+        "status": "Trạng thái",
+        "createdAt": "Ngày tạo",
+        "updatedAt": "Ngày cập nhật",
+        "actions": "Thao tác",
+        "noUserFound": "Không tìm thấy người dùng nào",
+        "noUser": "Chưa có người dùng nào",
+        "noData": "Chưa có",
+        "admin": "Admin",
+        "customer": "Customer",
+        "active": "Hoạt động",
+        "inactive": "Khóa"
+      },
+      "actions": {
+        "grantAdmin": "Cấp quyền admin",
+        "revokeAdmin": "Bỏ quyền admin",
+        "delete": "Xóa người dùng"
+      },
+      "loading": "Đang tải..."
+    },
+    "customRegistration": {
+      "title": "Quản lý đăng ký gói tùy chỉnh",
+      "subtitle": "Theo dõi và xử lý các yêu cầu đăng ký gói dịch vụ tùy chỉnh",
+      "exportExcel": "Xuất Excel",
+      "stats": {
+        "total": "Tổng đăng ký",
+        "processed": "Đã xử lý",
+        "unprocessed": "Chưa xử lý"
+      },
+      "searchPlaceholder": "Tìm kiếm theo email, số điện thoại, tên, công ty...",
+      "filter": {
+        "all": "Tất cả",
+        "processed": "Đã xử lý",
+        "unprocessed": "Chưa xử lý"
+      },
+      "table": {
+        "id": "ID",
+        "user": "Người đăng ký",
+        "contact": "Liên hệ",
+        "company": "Công ty",
+        "config": "Cấu hình",
+        "note": "Ghi chú",
+        "time": "Thời gian",
+        "status": "Trạng thái",
+        "noData": "Không có dữ liệu phù hợp",
+        "noCompany": "Không có",
+        "cpu": "CPU",
+        "ram": "RAM",
+        "storage": "Storage",
+        "bandwidth": "Bandwidth"
+      },
+      "footer": "Hiển thị {{current}} / {{total}} đăng ký",
+      "loading": "Đang tải dữ liệu...",
+      "export": {
+        "phone": "Số điện thoại",
+        "detail": "Chi tiết",
+        "createdAt": "Ngày đăng ký",
+        "createdBy": "Người tạo",
+        "notAvailable": "Chưa có",
+        "sheetName": "Đăng ký gói Custom",
+        "system": "Hệ thống"
+      }
+    },
+    "packages": {
+      "createPackage": {
+        "title": {
+          "create": "Tạo gói mới",
+          "edit": "Chỉnh sửa gói"
+        },
+        "form": {
+          "packageName": "Tên gói",
+          "packageNamePlaceholder": "VD: Starter 1",
+          "category": "Danh mục",
+          "categoryOptions": {
+            "starter": "Starter",
+            "professional": "Professional",
+            "enterprise": "Enterprise",
+            "ai": "AI-GPU",
+            "custom": "Custom"
+          },
+          "description": "Mô tả",
+          "descriptionPlaceholder": "Mô tả gói dịch vụ",
+          "price": "Giá ($)",
+          "period": "Kỳ hạn",
+          "periodOptions": {
+            "month": "tháng",
+            "year": "năm"
+          },
+          "popularPackage": "Gói phổ biến",
+          "features": "Tính năng",
+          "featurePlaceholder": "VD: 4 vCPU",
+          "addFeature": "Thêm tính năng"
+        },
+        "buttons": {
+          "cancel": "Hủy",
+          "create": "Tạo gói",
+          "update": "Cập nhật"
+        },
+        "validation": {
+          "error": "Lỗi",
+          "fillAllFields": "Vui lòng điền đầy đủ thông tin"
+        }
+      },
+      "management": {
+        "title": "Quản lý gói dịch vụ",
+        "subtitle": "Tạo, chỉnh sửa và quản lý các gói dịch vụ cloud",
+        "createNewPackage": "Tạo gói mới",
+        "searchPlaceholder": "Tìm kiếm gói dịch vụ...",
+        "filter": {
+          "allCategories": "Tất cả danh mục",
+          "starter": "Starter",
+          "professional": "Professional",
+          "enterprise": "Enterprise",
+          "ai": "AI-GPU",
+          "custom": "Custom"
+        },
+        "categories": {
+          "starter": "Starter",
+          "professional": "Professional",
+          "enterprise": "Enterprise",
+          "ai": "AI-GPU",
+          "custom": "Custom"
+        },
+        "table": {
+          "servicePackage": "Gói dịch vụ",
+          "category": "Danh mục",
+          "price": "Giá",
+          "description": "Mô tả",
+          "features": "Tính năng",
+          "status": "Trạng thái",
+          "actions": "Thao tác",
+          "moreFeatures": "tính năng khác",
+          "popular": "Phổ biến",
+          "noPackagesFound": "Không tìm thấy gói dịch vụ nào",
+          "active": "Đang hoạt động",
+          "inactive": "Không hoạt động"
+        },
+        "toast": {
+          "createSuccess": "Thành công",
+          "createSuccessDesc": "Tạo gói mới thành công",
+          "updateSuccess": "Thành công",
+          "updateSuccessDesc": "Cập nhật gói thành công",
+          "deleteSuccess": "Thành công",
+          "deleteSuccessDesc": "Xóa gói thành công"
+        }
+      }
+    },
+    "subscriptions": {
+      "title": "Quản lý đăng ký dịch vụ",
+      "backButton": "Quay lại",
+      "searchPlaceholder": "Tìm kiếm theo tên người dùng, email, tên gói, ID...",
+      "filterByStatus": "Lọc theo trạng thái",
+      "confirmDelete": "Bạn có chắc chắn muốn xóa subscription này?",
+      "filter": {
+        "allStatus": "Tất cả trạng thái"
+      },
+      "status": {
+        "active": "Đang hoạt động",
+        "pending": "Đang chờ",
+        "inactive": "Không hoạt động",
+        "expired": "Hết hạn",
+        "suspended": "Tạm dừng",
+        "cancelled": "Đã hủy"
+      },
+      "stats": {
+        "total": "Tổng đăng ký",
+        "pending": "Đang chờ",
+        "active": "Đang hoạt động",
+        "expired": "Hết hạn",
+        "cancelled": "Đã hủy"
+      },
+      "table": {
+        "title": "Danh sách đăng ký dịch vụ",
+        "showing": "Hiển thị {{from}} - {{to}} / {{total}} đăng ký",
+        "noData": "Không tìm thấy đăng ký nào",
+        "id": "ID",
+        "user": "Người dùng",
+        "package": "Gói dịch vụ",
+        "vmInfo": "Thông tin VM",
+        "noPublicIp": "Không có IP công khai",
+        "notConfigured": "Chưa cấu hình",
+        "startDate": "Ngày bắt đầu",
+        "endDate": "Ngày kết thúc",
+        "status": "Trạng thái",
+        "autoRenew": "Tự động gia hạn",
+        "price": "Giá",
+        "createdAt": "Ngày tạo",
+        "actions": "Hành động",
+        "yes": "Có",
+        "no": "Không",
+        "recordsPerPage": "Số hàng mỗi trang:",
+        "goTo": "Đến trang:",
+        "pageOf": "Trang {{current}} / {{total}}"
+      },
+      "actions": {
+        "viewDetail": "Xem chi tiết",
+        "edit": "Chỉnh sửa",
+        "delete": "Xóa"
+      },
+      "toast": {
+        "success": "Thành công",
+        "error": "Lỗi",
+        "info": "Thông báo",
+        "loadError": "Không thể tải danh sách đăng ký dịch vụ",
+        "deleteSuccess": "Đã xóa subscription thành công",
+        "deleteError": "Không thể xóa subscription",
+        "deleteWithVmSuccess": "Đã xóa subscription và VM thành công.",
+        "deleteVmOnlySuccess": "Đã xóa VM. Subscription vẫn còn hiệu lực.",
+        "deleteVmOnlyError": "Không thể xóa VM",
+        "stopVmSuccess": "Đã dừng VM thành công.",
+        "stopVmError": "Không thể dừng VM",
+        "startVmSuccess": "Đã khởi động VM thành công.",
+        "startVmError": "Không thể khởi động VM",
+        "editInDevelopment": "Chức năng chỉnh sửa đang được phát triển"
+      },
+      "confirmDialog": {
+        "deleteSub": {
+          "title": "Xác nhận xóa subscription",
+          "description": "Bạn có chắc chắn muốn xóa subscription này? Hành động này không thể hoàn tác."
+        },
+        "deleteWithVm": {
+          "title": "Xác nhận xóa subscription và VM",
+          "description": "Xóa toàn bộ subscription và máy ảo (VM)? Hành động này không thể hoàn tác."
+        },
+        "deleteVmOnly": {
+          "title": "Xác nhận xóa VM",
+          "description": "Chỉ xóa máy ảo (VM)? Subscription vẫn còn hiệu lực nhưng cần cấu hình VM mới."
+        },
+        "stopVm": {
+          "title": "Xác nhận dừng VM",
+          "description": "Bạn có chắc chắn muốn dừng VM này không?"
+        },
+        "startVm": {
+          "title": "Xác nhận khởi động VM",
+          "description": "Bạn có chắc chắn muốn khởi động VM này không?"
+        },
+        "cancel": "Hủy",
+        "confirm": "Xác nhận"
+      }
+    },
+    "analytics": {
+      "title": "Analytics Dashboard",
+      "subtitle": "Thống kê lượt truy cập và tương tác người dùng trên trang web",
+      "dateRange": {
+        "last7Days": "7 ngày qua",
+        "last30Days": "30 ngày qua",
+        "last90Days": "90 ngày qua",
+        "refresh": "Làm mới"
+      },
+      "summary": {
+        "totalPageViews": "Tổng lượt xem trang",
+        "totalPageViewsDesc": "Lượt xem trang trong khoảng thời gian đã chọn",
+        "uniqueUsers": "Người dùng duy nhất",
+        "uniqueUsersDesc": "Khách truy cập duy nhất vào trang web",
+        "bounceRate": "Tỷ lệ thoát",
+        "bounceRateDesc": "Khách rời trang không tương tác",
+        "avgLoadTime": "Thời gian tải trung bình",
+        "avgLoadTimeDesc": "Thời gian tải trang trung bình"
+      },
+      "charts": {
+        "pageViewsOverTime": "Lượt xem trang theo thời gian",
+        "topPages": "Trang hàng đầu",
+        "userEvents": "Sự kiện người dùng",
+        "allEvents": "Tất cả sự kiện",
+        "googleAnalytics": "Tích hợp Google Analytics",
+        "googleAnalyticsDesc": "Bảng điều khiển này hiển thị dữ liệu phân tích từ trang web của bạn. Để bật theo dõi Google Analytics:",
+        "gaStep1": "Đặt ID đo lường Google Analytics trong tệp .env.local là NEXT_PUBLIC_GA_MEASUREMENT_ID",
+        "gaStep2": "Triển khai thay đổi để kích hoạt theo dõi Google Analytics",
+        "gaStep3": "Xem phân tích chi tiết trong bảng điều khiển Google Analytics của bạn"
+      },
+      "loading": "Đang tải dữ liệu analytics...",
+      "error": "Lỗi",
+      "retry": "Thử lại",
+      "noData": "Không có dữ liệu",
+      "noPageData": "Không có dữ liệu trang",
+      "noEventData": "Không có dữ liệu sự kiện"
+    },
+    "bandwidth": {
+      "title": "Giám sát Băng thông",
+      "subtitle": "Theo dõi lưu lượng egress và ingress hàng tháng của từng VM. Gói partner OCI bao gồm 10 TB egress/tháng miễn phí.",
+      "loading": "Đang tải dữ liệu băng thông...",
+      "refresh": "Làm mới",
+      "month": {
+        "label": "Tháng:",
+        "current": "(Hiện tại)"
+      },
+      "summary": {
+        "totalVMs": "Tổng số VM",
+        "vmsWithData": "VM có dữ liệu",
+        "totalEgress": "Tổng Egress",
+        "totalIngress": "Tổng Ingress"
+      },
+      "filter": {
+        "searchPlaceholder": "Tìm theo tên VM, email hoặc IP..."
+      },
+      "sort": {
+        "label": "Sắp xếp:",
+        "usage": "Mức sử dụng",
+        "name": "Tên VM",
+        "user": "Người dùng"
+      },
+      "status": {
+        "live": "Trực tiếp",
+        "archived": "Lưu trữ",
+        "noData": "Không có dữ liệu",
+        "error": "Lỗi"
+      },
+      "source": {
+        "oci": "Trực tiếp (OCI)",
+        "archived": "Lưu trữ",
+        "none": "Không có dữ liệu"
+      },
+      "info": {
+        "text": "Theo dõi VnicBytesOut (egress) và VnicBytesIn (ingress) của từng VM qua OCI Monitoring. Gói partner OCI bao gồm 10 TB egress/tháng miễn phí."
+      },
+      "details": {
+        "egress": "Egress (Tính phí)",
+        "ingress": "Ingress (Miễn phí)",
+        "package": "Gói dịch vụ",
+        "company": "Công ty",
+        "dataSource": "Nguồn dữ liệu"
+      },
+      "compartment": {
+        "vms": "VM",
+        "withData": "có dữ liệu"
+      },
+      "warning": {
+        "errorMessage": "Không thể lấy dữ liệu băng thông: {{error}}"
+      },
+      "noVms": "Không có VM nào phù hợp với bộ lọc hiện tại"
+    },
+    "compartment": {
+      "title": "Quản lý Compartments",
+      "subtitle": "Danh sách compartments trong OCI tenancy",
+      "refresh": "Làm mới",
+      "loading": "Đang tải compartments...",
+      "noCompartments": "Không có compartment nào",
+      "noDescription": "Không có mô tả",
+      "createdAt": "Ngày tạo",
+      "deleteButton": "Xóa Compartment",
+      "dialog": {
+        "title": "Xác nhận xóa Compartment",
+        "description1": "Bạn có chắc chắn muốn xóa compartment",
+        "description2": "?",
+        "warning": "⚠️ Hành động này sẽ XÓA TẤT CẢ tài nguyên bên trong compartment bao gồm:",
+        "items": {
+          "vms": "Tất cả VM instances",
+          "vcns": "Tất cả VCNs (Virtual Cloud Networks)",
+          "subnets": "Tất cả Subnets",
+          "gateways": "Tất cả Internet Gateways",
+          "routes": "Tất cả Route Tables"
+        },
+        "irreversible": "Hành động này KHÔNG THỂ hoàn tác!",
+        "deleting": "Đang xóa...",
+        "confirmButton": "Xác nhận Xóa",
+        "cancelButton": "Hủy"
+      },
+      "toast": {
+        "loadError": "Không thể tải danh sách compartments: {{message}}",
+        "deleteSuccess": "Đã xóa compartment \"{{name}}\" và tất cả tài nguyên bên trong",
+        "deleteError": "Không thể xóa compartment: {{message}}"
+      }
+    },
+    "costs": {
+      "title": "Chi phí & Credit",
+      "subtitle": "Tổng quan tài chính tất cả người dùng",
+      "back": "Quay lại",
+      "refresh": "Làm mới",
+      "loading": "Đang tải dữ liệu chi phí...",
+      "summary": {
+        "totalBalance": "Tổng số dư còn lại",
+        "totalBalanceDesc": "Tổng hợp tất cả ví người dùng",
+        "totalDeposited": "Tổng tiền đã nạp",
+        "totalDepositedDesc": "Luỹ kế từ tất cả giao dịch nạp tiền",
+        "totalSpent": "Tổng tiền đã dùng",
+        "totalSpentDesc": "Luỹ kế từ tất cả giao dịch trừ tiền",
+        "users": "Số người dùng",
+        "usersDesc": "Người dùng có ví đang hoạt động"
+      },
+      "timeBreakdown": {
+        "title": "Thống kê theo thời gian",
+        "monthly": "Theo tháng",
+        "yearly": "Theo năm"
+      },
+      "months": {
+        "jan": "Tháng 1", "feb": "Tháng 2", "mar": "Tháng 3",
+        "apr": "Tháng 4", "may": "Tháng 5", "jun": "Tháng 6",
+        "jul": "Tháng 7", "aug": "Tháng 8", "sep": "Tháng 9",
+        "oct": "Tháng 10", "nov": "Tháng 11", "dec": "Tháng 12"
+      },
+      "table": {
+        "month": "Tháng",
+        "year": "Năm",
+        "deposited": "Tiền nạp",
+        "spent": "Tiền dùng",
+        "difference": "Chênh lệch"
+      },
+      "perUser": {
+        "title": "Chi tiết theo người dùng",
+        "searchPlaceholder": "Tìm kiếm email hoặc tên...",
+        "user": "Người dùng",
+        "currentBalance": "Số dư hiện tại",
+        "totalDeposited": "Tổng nạp",
+        "totalSpent": "Tổng chi",
+        "status": "Trạng thái",
+        "low": "Thấp",
+        "normal": "Bình thường",
+        "noUser": "Không tìm thấy người dùng nào"
+      }
+    },
+    "loginHistory": {
+      "title": "Lịch sử Đăng nhập",
+      "subtitle": "Theo dõi và giám sát tất cả hoạt động đăng nhập của admin",
+      "stats": {
+        "totalLogins": "Tổng lượt đăng nhập",
+        "last30Days": "30 ngày qua",
+        "successRate": "Tỷ lệ thành công",
+        "successful": "{{count}} thành công",
+        "failedAttempts": "Lần thất bại",
+        "locked": "Khóa: {{count}}",
+        "uniqueDevices": "Thiết bị duy nhất",
+        "countries": "{{count}} quốc gia"
+      },
+      "suspicious": {
+        "alert": "⚠️ Phát hiện {{count}} lần đăng nhập đáng ngờ",
+        "failedFrom": "Đăng nhập thất bại từ {{ip}} vào {{date}}",
+        "more": "... và {{count}} lần nữa"
+      },
+      "filters": {
+        "status": "Trạng thái",
+        "all": "Tất cả",
+        "success": "Thành công",
+        "failed": "Thất bại",
+        "locked": "Bị khóa",
+        "fromDate": "Từ ngày",
+        "toDate": "Đến ngày",
+        "sortBy": "Sắp xếp theo",
+        "loginTime": "Thời gian đăng nhập",
+        "username": "Tên đăng nhập",
+        "statusSort": "Trạng thái",
+        "refresh": "Làm mới",
+        "loading": "Đang tải..."
+      },
+      "showing": "Hiển thị {{from}} đến {{to}} trong số {{total}} bản ghi",
+      "export": "Xuất CSV",
+      "exportSuccess": "Đã xuất lịch sử đăng nhập ra CSV",
+      "exportError": "Không thể xuất lịch sử đăng nhập",
+      "table": {
+        "account": "Tài khoản",
+        "loginTime": "Thời gian đăng nhập",
+        "status": "Trạng thái",
+        "ip": "Địa chỉ IP",
+        "location": "Vị trí",
+        "browser": "Trình duyệt",
+        "os": "Hệ điều hành",
+        "device": "Thiết bị",
+        "duration": "Thời lượng",
+        "newDevice": "Thiết bị mới"
+      },
+      "noRecords": "Không có bản ghi đăng nhập nào",
+      "loading": "Đang tải...",
+      "active": "Đang hoạt động",
+      "new": "Mới",
+      "known": "Đã biết",
+      "pagination": {
+        "recordsPerPage": "Số bản ghi mỗi trang:",
+        "page": "Trang {{current}} / {{total}}",
+        "prev": "Trước",
+        "next": "Tiếp"
+      }
+    },
+    "payments": {
+      "title": "Quản lý Thanh toán",
+      "subtitle": "Danh sách tất cả giao dịch thanh toán",
+      "refresh": "Làm mới",
+      "summary": {
+        "total": "Tổng thanh toán",
+        "pending": "Đang chờ",
+        "expired": "Quá hạn",
+        "success": "Thành công"
+      },
+      "list": {
+        "title": "Danh sách thanh toán ({{count}})",
+        "searchPlaceholder": "Tìm theo mã giao dịch, email, tên..."
+      },
+      "table": {
+        "transactionCode": "Mã giao dịch",
+        "subscriptionId": "Subscription ID",
+        "user": "Người dùng",
+        "amount": "Số tiền",
+        "type": "Loại",
+        "method": "Phương thức",
+        "status": "Trạng thái",
+        "createdAt": "Ngày tạo",
+        "actions": "Hành động"
+      },
+      "status": {
+        "success": "Thành công",
+        "pending": "Đang chờ",
+        "failed": "Thất bại",
+        "expired": "Quá hạn",
+        "deleted": "Đã xóa"
+      },
+      "paymentType": {
+        "deposit": "Nạp tiền",
+        "subscription": "Subscription"
+      },
+      "actions": {
+        "accept": "Chấp nhận",
+        "processing": "Đang xử lý...",
+        "completed": "Đã hoàn thành",
+        "failed": "Thất bại",
+        "expired": "Quá hạn",
+        "deleted": "Đã xóa"
+      },
+      "pagination": {
+        "info": "Trang {{current}} / {{total}} — Tổng {{count}} giao dịch"
+      },
+      "confirm": {
+        "title": "Xác nhận chấp nhận thanh toán",
+        "description": "Bạn có chắc chắn muốn chấp nhận thanh toán này? Hành động này sẽ kích hoạt subscription hoặc nạp tiền cho người dùng.",
+        "confirm": "Xác nhận",
+        "cancel": "Hủy"
+      },
+      "loading": "Đang tải dữ liệu...",
+      "noPayments": "Không có giao dịch nào",
+      "toast": {
+        "acceptSuccess": "Thanh toán đã được chấp nhận thành công!",
+        "acceptError": "Lỗi thanh toán",
+        "acceptErrorDesc": "Đã xảy ra lỗi khi chấp nhận thanh toán"
+      }
+    },
+    "supportTickets": {
+      "title": "Quản lý Yêu cầu Hỗ trợ",
+      "subtitle": "Theo dõi và xử lý yêu cầu hỗ trợ từ người dùng",
+      "refresh": "Làm mới",
+      "stats": {
+        "total": "Tổng yêu cầu",
+        "open": "Mở",
+        "inProgress": "Đang xử lý",
+        "resolved": "Đã giải quyết",
+        "urgent": "Khẩn cấp"
+      },
+      "filters": {
+        "searchPlaceholder": "Tìm theo tiêu đề, email, tên...",
+        "status": "Trạng thái",
+        "priority": "Ưu tiên",
+        "allStatus": "Tất cả trạng thái",
+        "allPriority": "Tất cả mức độ"
+      },
+      "status": {
+        "open": "Mở",
+        "inProgress": "Đang xử lý",
+        "resolved": "Đã giải quyết",
+        "closed": "Đóng"
+      },
+      "priority": {
+        "low": "Thấp",
+        "medium": "Trung bình",
+        "high": "Cao",
+        "urgent": "Khẩn cấp"
+      },
+      "services": {
+        "cloud": "Cloud Server",
+        "storage": "Object Storage",
+        "network": "Network / VPN",
+        "billing": "Thanh toán",
+        "account": "Tài khoản",
+        "other": "Khác"
+      },
+      "table": {
+        "title": "Yêu cầu ({{count}})",
+        "id": "#",
+        "titleHeader": "Tiêu đề / Khách hàng",
+        "service": "Dịch vụ",
+        "status": "Trạng thái",
+        "priority": "Ưu tiên",
+        "date": "Ngày gửi",
+        "actions": "Hành động",
+        "noData": "Không có yêu cầu nào"
+      },
+      "detail": {
+        "phone": "Điện thoại",
+        "address": "Địa chỉ",
+        "content": "Nội dung yêu cầu",
+        "attachments": "Tệp đính kèm",
+        "statusLabel": "Trạng thái",
+        "priorityLabel": "Mức độ ưu tiên",
+        "resolvedAt": "Đã giải quyết lúc",
+        "adminNote": "Ghi chú / Phản hồi cho khách hàng",
+        "adminNotePlaceholder": "Nhập phản hồi cho khách hàng... (khách hàng sẽ thấy nội dung này)",
+        "save": "Lưu phản hồi",
+        "saving": "Đang lưu..."
+      },
+      "delete": {
+        "title": "Xác nhận xóa yêu cầu hỗ trợ",
+        "description": "Bạn có chắc chắn muốn xóa yêu cầu này? Hành động này không thể hoàn tác.",
+        "confirm": "Xóa",
+        "cancel": "Hủy"
+      },
+      "toast": {
+        "loadError": "Không thể tải danh sách yêu cầu",
+        "updated": "Đã cập nhật",
+        "updateSuccess": "Ticket đã được cập nhật thành công",
+        "deleted": "Đã xóa ticket",
+        "error": "Lỗi"
+      }
+    },
+    "paymentsTitle": "Quản lý Thanh toán",
+    "paymentsDesc": "Xem và chấp nhận thanh toán",
+    "paymentsStats": "Quản lý thanh toán",
+    "loginHistoryTitle": "Lịch sử Đăng nhập",
+    "loginHistoryDesc": "Theo dõi các hoạt động đăng nhập của admin",
+    "loginHistoryStats": "Kiểm tra bảo mật",
+    "compartmentTitle": "Quản lý Compartments",
+    "compartmentDesc": "Xem và xóa compartments trong OCI",
+    "compartmentStats": "Tài nguyên OCI",
+    "analyticsTitle": "Analytics",
+    "analyticsDesc": "Xem thống kê lượt truy cập và tương tác người dùng",
+    "analyticsStats": "Phân tích trang web",
+    "bandwidthTitle": "Giám sát Băng thông",
+    "bandwidthDesc": "Theo dõi băng thông của tất cả máy ảo (giới hạn 10TB)",
+    "bandwidthStats": "Giám sát băng thông",
+    "supportTicketsTitle": "Yêu cầu Hỗ trợ",
+    "supportTicketsDesc": "Theo dõi và xử lý yêu cầu hỗ trợ từ người dùng",
+    "supportTicketsStats": "Phiếu hỗ trợ",
+    "costsTitle": "Chi phí & Credit",
+    "costsDesc": "Tổng số dư, tiền nạp và tiền dùng của từng người dùng, tháng, năm",
+    "costsStats": "Tổng quan chi phí & credit",
+    "users": {
+      "editDialog": {
+        "title": "Chỉnh sửa thông tin người dùng #{{id}}",
+        "description": "Cập nhật thông tin chi tiết của người dùng. Nhấn \"Lưu thay đổi\" để áp dụng.",
+        "lastName": "Họ",
+        "firstName": "Tên",
+        "email": "Email",
+        "phone": "Số điện thoại",
+        "backupEmail": "Email dự phòng",
+        "company": "Công ty",
+        "address": "Địa chỉ",
+        "idCard": "Số CCCD / CMND",
+        "gender": "Giới tính",
+        "genderPlaceholder": "Chọn giới tính",
+        "male": "Nam",
+        "female": "Nữ",
+        "other": "Khác",
+        "role": "Vai trò",
+        "statusLabel": "Trạng thái",
+        "active": "Hoạt động",
+        "locked": "Bị khóa",
+        "cancel": "Hủy",
+        "save": "Lưu thay đổi",
+        "saving": "Đang lưu..."
+      },
+      "deleteDialog": {
+        "title": "Xác nhận xóa người dùng",
+        "description": "Bạn có chắc chắn muốn xóa người dùng này không? Hành động này không thể hoàn tác.",
+        "confirm": "Xóa",
+        "cancel": "Hủy"
+      },
+      "pagination": {
+        "info": "Trang {{current}} / {{total}} — Tổng {{count}} người dùng"
+      },
+      "toast": {
+        "updateSuccess": "Cập nhật thông tin người dùng thành công",
+        "updateError": "Không thể cập nhật thông tin người dùng",
+        "deleteSuccess": "Đã xóa người dùng thành công",
+        "deleteError": "Không thể xóa người dùng"
+      },
+      "export": {
+        "fullName": "Họ tên",
+        "phone": "Số điện thoại",
+        "company": "Công ty",
+        "role": "Vai trò",
+        "status": "Trạng thái",
+        "createdAt": "Ngày tạo",
+        "updatedAt": "Ngày cập nhật",
+        "notAvailable": "Chưa có",
+        "sheetName": "Danh sách người dùng",
+        "active": "Hoạt động",
+        "locked": "Khóa"
+      }
+    },
+    "packagesExtra": {
+      "dialog": {
+        "deleteTitle": "Xác nhận xóa gói dịch vụ",
+        "deleteDesc": "Bạn có chắc chắn muốn xóa gói này không? Hành động này không thể hoàn tác.",
+        "cancel": "Hủy",
+        "delete": "Xóa"
+      },
+      "table": {
+        "package": "Gói dịch vụ",
+        "type": "Loại",
+        "price": "Giá",
+        "specs": "Cấu hình",
+        "features": "Tính năng",
+        "status": "Trạng thái",
+        "actions": "Hành động"
+      },
+      "createForm": {
+        "priceUSD": "Giá (USD / tháng)",
+        "priceVND": "Giá (VND / tháng)",
+        "storage": "Lưu trữ",
+        "storagePlaceholder": "VD: 80 GB SSD",
+        "bandwidthLabel": "Băng thông",
+        "bandwidthPlaceholder": "VD: 1 TB",
+        "feature": "Tính năng / Ghi chú",
+        "featurePlaceholder": "Tính năng bổ sung hoặc ghi chú...",
+        "isActive": "Kích hoạt (hiển thị cho người dùng)",
+        "saving": "Đang lưu..."
+      }
+    }
+  },
+  "homepage": {
+    "hero": {
+      "title": "Giải pháp Oracle Cloud hàng đầu tại Việt Nam",
+      "subtitle": "Đối tác chính thức Oracle tại Việt Nam",
+      "description": "Chúng tôi cung cấp giải pháp cloud computing toàn diện với Oracle Cloud Infrastructure (OCI), giúp doanh nghiệp tối ưu hóa chi phí và nâng cao hiệu suất.",
+      "getStarted": "Bắt đầu ngay",
+      "dashboard": "Xem Dashboard",
+      "contact": "Liên hệ tư vấn",
+      "viewPricing": "Xem cấu hình và giá",
+      "imageAlt": "Oracle Cloud Dashboard",
+      "features": {
+        "security": {
+          "title": "Bảo mật tuyệt đối",
+          "description": "99.9% uptime"
+        },
+        "performance": {
+          "title": "Hiệu suất cao",
+          "description": "Tốc độ vượt trội"
+        },
+        "global": {
+          "title": "Toàn cầu",
+          "description": "36+ data centers"
+        }
+      },
+      "trustIndicators": {
+        "customers": "Khách hàng",
+        "uptime": "Uptime",
+        "support": "Hỗ trợ"
+      },
+      "floatingElements": {
+        "costSaving": "Tiết kiệm 40% chi phí",
+        "quickDeploy": "Triển khai trong 24h"
+      }
+    },
+    "services": {
+      "title": "Dịch vụ",
+      "subtitle": "Giải pháp Cloud toàn diện",
+      "description": "Từ cơ sở dữ liệu đến AI, chúng tôi cung cấp đầy đủ các dịch vụ cloud để đáp ứng mọi nhu cầu chuyển đổi số của doanh nghiệp.",
+      "keyFeatures": "Tính năng chính:",
+      "serviceList": {
+        "database": {
+          "title": "Oracle Database Cloud",
+          "description": "Cơ sở dữ liệu Oracle tự quản lý với hiệu suất cao và bảo mật tuyệt đối",
+          "features": ["Autonomous Database", "Real Application Clusters", "Data Guard", "Advanced Security"]
+        },
+        "compute": {
+          "title": "Compute Cloud",
+          "description": "Máy chủ ảo linh hoạt với cấu hình tùy chỉnh theo nhu cầu doanh nghiệp",
+          "features": ["Bare Metal", "Virtual Machines", "Container Engine", "Functions"]
+        },
+        "storage": {
+          "title": "Storage Solutions",
+          "description": "Giải pháp lưu trữ đa dạng từ block storage đến object storage",
+          "features": ["Block Volume", "Object Storage", "File Storage", "Archive Storage"]
+        },
+        "networking": {
+          "title": "Networking",
+          "description": "Hạ tầng mạng toàn cầu với độ trễ thấp và băng thông cao",
+          "features": ["Virtual Cloud Network", "Load Balancer", "VPN Connect", "FastConnect"]
+        },
+        "security": {
+          "title": "Security & Identity",
+          "description": "Bảo mật đa lớp với quản lý danh tính và truy cập tiên tiến",
+          "features": ["Identity Management", "Key Management", "Web Application Firewall", "Security Zones"]
+        },
+        "analytics": {
+          "title": "Analytics & AI",
+          "description": "Phân tích dữ liệu thông minh với machine learning tích hợp",
+          "features": ["Analytics Cloud", "Data Science", "Machine Learning", "Big Data Service"]
+        }
+      },
+      "benefits": {
+        "fastDeploy": {
+          "title": "Triển khai nhanh",
+          "description": "Khởi tạo trong vài phút"
+        },
+        "globalCoverage": {
+          "title": "Phủ sóng toàn cầu",
+          "description": "36+ data centers"
+        },
+        "enterpriseSecurity": {
+          "title": "Bảo mật enterprise",
+          "description": "Tuân thủ quốc tế"
+        },
+        "costOptimization": {
+          "title": "Tối ưu chi phí",
+          "description": "Tiết kiệm đến 40%"
+        }
+      }
+    },
+    "pricing": {
+      "title": "Bảng giá",
+      "subtitle": "Gói dịch vụ phù hợp với mọi quy mô doanh nghiệp",
+      "description": "Các gói dịch vụ Oracle Cloud linh hoạt, có thể mở rộng theo nhu cầu với mức giá cạnh tranh nhất thị trường Việt Nam.",
+      "plans": {
+        "starter": "Tiêu chuẩn",
+        "professional": "Cao cấp",
+        "enterprise": "Doanh nghiệp",
+        "ai": "AI-GPU",
+        "custom": "Tùy chỉnh"
+      },
+      "buttons": {
+        "viewDetails": "Xem chi tiết",
+        "hideDetails": "Ẩn",
+        "showDetails": "Xem",
+        "packages": "gói",
+        "selectPlan": "Chọn gói này",
+        "contactConsult": "Liên hệ tư vấn",
+        "close": "Đóng"
+      },
+      "tooltips": {
+        "exchangeRate": "Giá được tính theo tỉ giá thực tế.",
+        "todayRate": "Tỉ giá hôm nay:"
+      },
+      "sections": {
+        "selectSuitable": "Chọn gói phù hợp nhất cho bạn",
+        "moreFeatures": "tính năng khác"
+      },
+      "auth": {
+        "loginRequired": "Vui lòng đăng nhập",
+        "loginToRegister": "Xin hãy đăng nhập để đăng ký gói tùy chọn"
+      },
+      "additionalInfo": {
+        "support247": "Tất cả gói đều bao gồm hỗ trợ kỹ thuật 24/7 và đảm bảo uptime 99.9%",
+        "noSetupFee": "Không phí setup",
+        "cancelAnytime": "Hủy bất cứ lúc nào",
+        "flexiblePayment": "Thanh toán linh hoạt",
+        "freeConsult": "Tư vấn miễn phí",
+        "hotlineSupport": "Hotline hỗ trợ:"
+      }
+    },
+    "form": {
+      "customRegistration": {
+        "title": "Đăng ký gói tùy chỉnh",
+        "description": "Vui lòng điền thông tin chi tiết để chúng tôi tư vấn gói dịch vụ phù hợp nhất cho bạn.",
+        "userName": "Tên người dùng",
+        "email": "Email",
+        "phoneNumber": "Số điện thoại",
+        "company": "Tên công ty",
+        "configRequirements": "Yêu cầu cấu hình",
+        "cpu": "CPU",
+        "ram": "RAM",
+        "storage": "Bộ nhớ",
+        "bandwidth": "Đường truyền",
+        "additionalNotes": "Ghi chú thêm",
+        "placeholders": {
+          "userName": "Nhập tên của bạn",
+          "email": "example@company.com",
+          "phoneNumber": "0987654321",
+          "company": "Công ty ABC",
+          "cpu": "VD: 4 cores, Intel Xeon",
+          "ram": "VD: 16GB, 32GB",
+          "storage": "VD: 500GB SSD, 1TB HDD",
+          "bandwidth": "VD: 100Mbps, 1Gbps",
+          "additionalNotes": "Mô tả thêm về yêu cầu đặc biệt, thời gian triển khai, ngân sách dự kiến..."
+        },
+        "validation": {
+          "userNameMin": "Tên người dùng phải có ít nhất 2 ký tự",
+          "emailInvalid": "Email không hợp lệ",
+          "phoneNumberMin": "Số điện thoại phải có ít nhất 10 số",
+          "phoneNumberMax": "Số điện thoại không được quá 20 số",
+          "cpuRequired": "Vui lòng nhập thông tin CPU",
+          "ramRequired": "Vui lòng nhập thông tin RAM"
+        },
+        "buttons": {
+          "cancel": "Hủy",
+          "register": "Đăng ký"
+        },
+        "success": {
+          "title": "Đăng ký thành công!",
+          "description": "Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất."
+        },
+        "error": {
+          "title": "Có lỗi xảy ra",
+          "description": "Vui lòng thử lại sau hoặc liên hệ hỗ trợ."
+        }
+      }
+    }
+  },
+  "pricing": {
+    "loginRequired": "Vui lòng đăng nhập để đăng ký gói cloud",
+    "plans": {
+      "starter": {
+        "1": {
+          "description": "2 vCPU, 1GB RAM, 20GB SSD Storage"
+        },
+        "2": {
+          "description": "2 vCPU, 2GB RAM, 40GB SSD Storage"
+        },
+        "3": {
+          "description": "4 vCPU, 4GB RAM, 80GB SSD Storage"
+        },
+        "4": {
+          "description": "4 vCPU, 8GB RAM, 80GB SSD Storage"
+        },
+        "5": {
+          "description": "8 vCPU, 8GB RAM, 100GB SSD Storage"
+        }
+      },
+      "professional": {
+        "1": {
+          "description": "4 vCPU, 6GB RAM, 100GB SSD Storage"
+        },
+        "2": {
+          "description": "6 vCPU, 8GB RAM, 150GB SSD Storage"
+        },
+        "3": {
+          "description": "8 vCPU, 10GB RAM, 150GB SSD Storage"
+        },
+        "4": {
+          "description": "8 vCPU, 12GB RAM, 150GB SSD Storage"
+        },
+        "5": {
+          "description": "8 vCPU, 16GB RAM, 200GB SSD Storage"
+        },
+        "6": {
+          "description": "8 vCPU, 32GB RAM, 200GB SSD Storage"
+        }
+      },
+      "enterprise": {
+        "1": {
+          "description": "10 vCPU, 16GB RAM, 250GB SSD Storage"
+        },
+        "2": {
+          "description": "12 vCPU, 16GB RAM, 250GB SSD Storage"
+        },
+        "3": {
+          "description": "12 vCPU, 18GB RAM, 500GB SSD Storage"
+        },
+        "4": {
+          "description": "16 vCPU, 32GB RAM, 500GB SSD Storage"
+        },
+        "5": {
+          "description": "16 vCPU, 32GB RAM, 1024GB SSD Storage"
+        },
+        "6": {
+          "description": "24 vCPU, 32GB RAM, 1024GB SSD Storage"
+        },
+        "7": {
+          "description": "36 vCPU, 64GB RAM, 1024GB SSD Storage"
+        },
+        "8": {
+          "description": "48 vCPU, 128GB RAM, 1024GB SSD Storage"
+        },
+        "9": {
+          "description": "Bạn thậm chí không cần đăng ký gói này để được nhận tư vấn. Chỉ cần gọi thẳng tới hotline!"
+        }
+      },
+      "ai": {
+        "1": {
+          "description": "1 GPU P100, 16GB RAM, 1024 GB"
+        },
+        "2": {
+          "description": "1 GPU A10, 24GB RAM, 1024 GB"
+        },
+        "3": {
+          "description": "2 GPU P100, 32GB RAM, 1024 GB"
+        },
+        "4": {
+          "description": "2 GPU A10, 48GB RAM, 1024GB"
+        }
+      },
+      "custom": {
+        "description": "Giải pháp tùy chỉnh theo yêu cầu doanh nghiệp",
+        "price": "Liên hệ",
+        "features": {
+          "flexible": "Cấu hình linh hoạt",
+          "integration": "Tích hợp hệ thống riêng",
+          "consulting": "Tư vấn kiến trúc chuyên sâu",
+          "onsite": "Hỗ trợ triển khai tận nơi"
+        }
+      }
+    },
+    "categories": {
+      "starter": {
+        "description": "Phù hợp cho doanh nghiệp nhỏ"
+      },
+      "professional": {
+        "description": "Lựa chọn phổ biến cho doanh nghiệp vừa"
+      },
+      "enterprise": {
+        "description": "Giải pháp toàn diện cho doanh nghiệp lớn"
+      },
+      "ai": {
+        "description": "Triển khai model LLM của bạn trên cloud"
+      }
+    }
+  },
+  "header": {
+    "home": "Trang chủ",
+    "services": "Dịch vụ",
+    "pricing": "Bảng giá",
+    "support": "Hỗ trợ",
+    "contact": "Liên hệ",
+    "login": "Đăng nhập",
+    "register": "Đăng ký",
+    "hello": "Xin chào",
+    "hotline": "Hotline: 0707.806.860",
+    "profile": "Thông tin cá nhân",
+    "settings": "Cài đặt",
+    "logout": "Đăng xuất",
+    "logoTitle": "Oracle Cloud Vietnam",
+    "logoSubtitle": "Đối tác chính thức",
+    "languageLabel": "Ngôn ngữ",
+    "admin": "Quản trị",
+    "packageManagement": "Cloud của tôi",
+    "supportRequest": "Yêu cầu hỗ trợ"
+  },
+  "footer": {
+    "companyName": "Oracle Cloud Vietnam",
+    "officialPartner": "Đối tác chính thức",
+    "companyDescription": "Đối tác chính thức của Oracle tại Việt Nam, cung cấp giải pháp cloud computing hàng đầu cho doanh nghiệp với hơn 10 năm kinh nghiệm.",
+    "services": "Dịch vụ",
+    "serviceList": {
+      "database": "Oracle Database Cloud",
+      "compute": "Compute Cloud",
+      "storage": "Storage Solutions",
+      "networking": "Networking",
+      "security": "Security & Identity",
+      "analytics": "Analytics & AI"
+    },
+    "support": "Hỗ trợ",
+    "supportList": {
+      "docs": "Tài liệu kỹ thuật",
+      "videos": "Video hướng dẫn",
+      "forum": "Diễn đàn cộng đồng",
+      "ticket": "Ticket hỗ trợ",
+      "training": "Đào tạo & Chứng chỉ",
+      "api": "API Documentation"
+    },
+    "contact": "Liên hệ",
+    "companyFull": "CÔNG TY CỔ PHẦN AN NINH MẠNG QUỐC TẾ - ICS",
+    "office": "Văn phòng: TT3-5 Khu đô thị Đại Kim mới, Định Công, Hà Nội",
+    "phone": "Điện thoại: 0931.487.231",
+    "hotline": "Hotline: 0707.806.860",
+    "email": "E-mail: info@icss.com.vn",
+    "website": "www.icss.com.vn",
+    "newsletter": "Đăng ký nhận tin",
+    "newsletterPlaceholder": "Email của bạn",
+    "newsletterButton": "Đăng ký",
+    "privacy": "Chính sách bảo mật",
+    "terms": "Điều khoản sử dụng",
+    "sla": "SLA",
+    "sitemap": "Sitemap",
+    "copyright": "© 2024 Oracle Cloud Vietnam. Tất cả quyền được bảo lưu."
+  },
+  "unauthorized": {
+    "title": "Bạn không có quyền truy cập trang này",
+    "description": "Vui lòng kiểm tra lại quyền truy cập hoặc liên hệ quản trị viên nếu bạn nghĩ đây là nhầm lẫn."
+  },
+  "common": {
+    "loading": "Đang tải...",
+    "logoutSuccess": "Đăng xuất thành công!",
+    "error": "Lỗi"
+  },
+  "checkout": {
+    "title": "Thanh toán",
+    "backButton": "Quay lại",
+    "success": {
+      "title": "Thanh toán thành công!",
+      "desc": "Cảm ơn bạn đã đăng ký gói dịch vụ. Chúng tôi đã gửi email xác nhận và hướng dẫn sử dụng đến địa chỉ email của bạn.",
+      "configBtn": "Cài đặt cấu hình máy ảo",
+      "manageBtn": "Cloud của tôi",
+      "homeBtn": "Về trang chủ",
+      "note": "Lưu ý: Nếu bạn không nhận được email trong vòng 5 phút, vui lòng kiểm tra thư mục spam hoặc liên hệ với chúng tôi."
+    },
+    "packageInfo": "Thông tin gói dịch vụ",
+    "packageName": "Tên gói",
+    "description": "Mô tả",
+    "packageType": "Loại gói",
+    "features": "Tính năng bao gồm",
+    "totalAmount": "Tổng tiền",
+    "paymentQR": "Thanh toán qua QR",
+    "scanQR": "Quét mã QR bằng app ngân hàng để thanh toán",
+    "bankName": "Ngân hàng",
+    "accountNumber": "Số tài khoản",
+    "amount": "Số tiền",
+    "content": "Nội dung",
+    "copyInfo": "Sao chép thông tin chuyển khoản",
+    "copiedSuccess": "Đã sao chép thông tin chuyển khoản",
+    "note": "Lưu ý: Vui lòng chuyển khoản đúng nội dung để hệ thống tự động kích hoạt dịch vụ.",
+    "contactSupport": "Liên hệ hỗ trợ",
+    "support247": "Hỗ trợ kỹ thuật 24/7",
+    "noSetupFee": "Không phí setup",
+    "uptimeGuarantee": "Đảm bảo uptime 99.9%",
+    "flexiblePayment": "Thanh toán linh hoạt",
+    "creatingQR": "Đang tạo QR...",
+    "paidSuccessRedirect": "Thanh toán thành công! Đang chuyển hướng...",
+    "checkingPayment": "Đang kiểm tra thanh toán...",
+    "transferContentExact": "Nội dung chuyển khoản phải chính xác",
+    "paymentId": "Mã thanh toán",
+    "autoConfirmNote": "Hệ thống sẽ tự động xác nhận khi bạn chuyển khoản thành công.",
+    "monthsSubscription": "Số tháng đăng ký",
+    "months": "tháng",
+    "forMonths": "(cho {{n}} tháng)"
+  },
+  "login": {
+    "title": "Đăng nhập",
+    "subtitle": "Chào mừng bạn quay lại! Vui lòng đăng nhập để tiếp tục.",
+    "email": "Email",
+    "emailPlaceholder": "Nhập email của bạn",
+    "password": "Mật khẩu",
+    "passwordPlaceholder": "Nhập mật khẩu",
+    "loginButton": "Đăng nhập",
+    "loggingIn": "Đang đăng nhập...",
+    "forgotPassword": "Quên mật khẩu?",
+    "noAccount": "Chưa có tài khoản?",
+    "registerNow": "Đăng ký ngay",
+    "or": "Hoặc",
+    "loginWithGoogle": "Đăng nhập với Google",
+    "googleLoginComingSoon": "Tính năng Google Login sẽ sớm có mặt.",
+    "fillTestData": "Điền dữ liệu test (test@gmail.com / 123123)",
+    "validationEmailRequired": "Vui lòng nhập email",
+    "validationEmailInvalid": "Email không hợp lệ",
+    "validationPasswordRequired": "Vui lòng nhập mật khẩu",
+    "validationPasswordMinLength": "Mật khẩu phải có ít nhất {{length}} ký tự",
+    "successEmailVerified": "Email đã được xác thực thành công! Vui lòng đăng nhập.",
+    "successPasswordReset": "Đặt lại mật khẩu thành công! Vui lòng đăng nhập với mật khẩu mới.",
+    "errorInvalidCredentials": "Email hoặc mật khẩu không đúng. Vui lòng kiểm tra lại thông tin đăng nhập.",
+    "errorEmailAlreadyExists": "Email này đã được đăng ký. Vui lòng sử dụng email khác hoặc đăng nhập.",
+    "errorDefault": "Đăng nhập thất bại. Vui lòng thử lại."
+  },
+  "profile": {
+    "title": "Thông tin cá nhân",
+    "subtitle": "Quản lý thông tin tài khoản của bạn",
+    "loadingUser": "Đang tải thông tin người dùng...",
+    "userBadge": "Người dùng",
+    "adminBadge": "Quản trị viên",
+    "id": "ID",
+    "createdAt": "Ngày tạo",
+    "updatedAt": "Cập nhật cuối",
+    "editInfo": "Chỉnh sửa thông tin",
+    "editDescription": "Cập nhật thông tin cá nhân của bạn",
+    "editDialogTitle": "Chỉnh sửa hồ sơ",
+    "editDialogDesc": "Cập nhật thông tin cá nhân. Nhấn lưu khi hoàn tất.",
+    "updateSuccess": "Thông tin đã được cập nhật thành công!",
+    "updateFailed": "Cập nhật thông tin thất bại",
+    "firstName": "Họ",
+    "lastName": "Tên",
+    "fullName": "Họ tên",
+    "email": "Email",
+    "emailDescription": "Email được sử dụng để đăng nhập và nhận thông báo",
+    "phoneNumber": "Số điện thoại",
+    "company": "Công ty",
+    "gender": "Giới tính",
+    "genderMale": "Nam",
+    "genderFemale": "Nữ",
+    "genderOther": "Khác",
+    "idCard": "Số CCCD / CMND",
+    "backupEmail": "Email dự phòng",
+    "address": "Địa chỉ",
+    "notProvided": "Chưa cập nhật",
+    "accountStatus": "Trạng thái tài khoản",
+    "accountActive": "Đang hoạt động",
+    "accountInactive": "Không hoạt động",
+    "sections": {
+      "basicInfo": "Thông tin cơ bản",
+      "contactInfo": "Thông tin liên hệ",
+      "personalDetails": "Thông tin chi tiết",
+      "security": "Bảo mật"
+    },
+    "tabs": {
+      "profile": "Hồ sơ",
+      "security": "Bảo mật"
+    },
+    "cancel": "Hủy",
+    "saving": "Đang lưu...",
+    "saveChanges": "Lưu thay đổi",
+    "edit": "Chỉnh sửa",
+    "changePassword": "Đổi mật khẩu",
+    "changePasswordDescription": "Cập nhật mật khẩu để bảo mật tài khoản",
+    "changePasswordButton": "Đổi mật khẩu",
+    "changePasswordDialogTitle": "Đổi mật khẩu",
+    "changePasswordDialogDesc": "Nhập mật khẩu hiện tại và mật khẩu mới. Mật khẩu phải có ít nhất 6 ký tự.",
+    "currentPassword": "Mật khẩu hiện tại",
+    "newPassword": "Mật khẩu mới",
+    "confirmNewPassword": "Xác nhận mật khẩu mới",
+    "changePasswordSuccess": "Đổi mật khẩu thành công!",
+    "changePasswordFailed": "Đổi mật khẩu thất bại",
+    "passwordsNotMatch": "Mật khẩu xác nhận không khớp",
+    "changingPassword": "Đang đổi...",
+    "avatarUploadSuccess": "Cập nhật ảnh đại diện thành công",
+    "avatarUploadError": "Không thể cập nhật ảnh đại diện",
+    "avatarSizeError": "Kích thước file không được vượt quá 5MB",
+    "avatarTypeError": "Vui lòng chọn file ảnh",
+    "validation": {
+      "firstNameRequired": "Họ không được để trống",
+      "firstNameMax": "Họ không được quá 50 ký tự",
+      "lastNameRequired": "Tên không được để trống",
+      "lastNameMax": "Tên không được quá 50 ký tự",
+      "emailRequired": "Email không được để trống",
+      "emailInvalid": "Email không hợp lệ",
+      "phoneInvalid": "Số điện thoại không hợp lệ",
+      "backupEmailInvalid": "Email dự phòng không hợp lệ",
+      "idCardInvalid": "Số CCCD không hợp lệ (9 hoặc 12 số)",
+      "currentPasswordRequired": "Vui lòng nhập mật khẩu hiện tại",
+      "newPasswordMin": "Mật khẩu mới phải có ít nhất 6 ký tự",
+      "confirmPasswordRequired": "Vui lòng xác nhận mật khẩu mới",
+      "passwordSameAsCurrent": "Mật khẩu mới phải khác mật khẩu hiện tại"
+    }
+  },
+  "packageDetail": {
+    "title": "Hiển thị trạng thái tải thiết bị",
+    "subtitle": "Theo dõi và quản lý hiệu suất gói cloud của bạn",
+    "loading": {
+      "subscription": "Đang tải thông tin subscription..."
+    },
+    "error": {
+      "notFound": "Không tìm thấy subscription"
+    },
+    "buttons": {
+      "back": "Quay lại"
+    },
+    "status": {
+      "active": "Đang hoạt động",
+      "inactive": "Không hoạt động",
+      "expired": "Hết hạn", 
+      "suspended": "Tạm dừng",
+      "cancelled": "Đã hủy",
+      "pending": "Đang chờ"
+    },
+    "serverDetails": {
+      "title": "Chi tiết máy chủ",
+      "demoData": "Dữ liệu demo",
+      "status": "Trạng thái",
+      "on": "BẬT",
+      "refresh": "Làm mới lại",
+      "hostname": "Tên miền/ Hostname",
+      "username": "Tên đăng nhập",
+      "password": "Mật khẩu",
+      "ip": "IP",
+      "uptime": "Uptime",
+      "days": "Ngày"
+    },
+    "controls": {
+      "vmName": "Tên VM:",
+      "time": "Thời gian:",
+      "theme": "Giao diện:",
+      "showPerformance": "Hiển thị sử dụng hiệu suất",
+      "timeOptions": {
+        "oneHour": "1 tiếng trước",
+        "sixHours": "6 tiếng trước", 
+        "twentyFourHours": "24 tiếng trước",
+        "sevenDays": "7 ngày trước"
+      },
+      "themeOptions": {
+        "light": "Sáng",
+        "dark": "Tối"
+      }
+    },
+    "charts": {
+      "cpuUsage": "Sử dụng CPU (%)",
+      "memoryUsage": "Sử dụng bộ nhớ (%)"
+    },
+    "packageInfo": {
+      "title": "Thông tin gói",
+      "packageName": "Tên gói",
+      "vmName": "Tên VM",
+      "cpu": "CPU",
+      "memory": "Bộ nhớ",
+      "storage": "Lưu trữ",
+      "bandwidth": "Băng thông",
+      "feature": "Tính năng",
+      "ipAddress": "Địa chỉ IP",
+      "subscriber": "Người đăng ký",
+      "email": "Email",
+      "startDate": "Ngày bắt đầu",
+      "endDate": "Ngày kết thúc",
+      "autoRenew": "Tự động gia hạn",
+      "monthlyCost": "Chi phí hàng tháng",
+      "yes": "Có",
+      "no": "Không"
+    },
+    "actions": {
+      "title": "Quản lý gói",
+      "startVM": "Khởi động VM",
+      "pauseVM": "Tạm dừng VM", 
+      "restartVM": "Khởi động lại VM",
+      "createBackup": "Tạo bản sao lưu",
+      "console": "Console",
+      "changeOS": "Thay đổi/Cài đặt lại OS",
+      "deletePackage": "Xóa gói",
+      "configurateVM": "Cấu hình VM"
+    },
+    "billing": {
+      "title": "Thông tin thanh toán",
+      "createdDate": "Ngày tạo",
+      "nextBilling": "Thanh toán tiếp theo",
+      "monthlyCost": "Chi phí hàng tháng"
+    },
+    "vmInfoTitle": "Thông tin máy ảo của bạn",
+    "toast": {
+      "error": "Lỗi",
+      "loadError": "Không thể tải thông tin subscription",
+      "vmNotConfigured": "VM chưa được cấu hình",
+      "vmNotConfiguredDesc": "Vui lòng cấu hình VM trước",
+      "vmActionSuccess": "Thành công",
+      "vmActionSuccessDesc": "Lệnh VM đã được gửi thành công",
+      "vmActionFailed": "Thao tác thất bại",
+      "vmActionFailedDesc": "Không thể thực hiện hành động VM",
+      "deleteVmSuccess": "Xóa VM thành công",
+      "deleteVmSuccessDesc": "VM đã được xóa. Subscription vẫn còn hiệu lực.",
+      "deleteVmFailed": "Xóa VM thất bại",
+      "deleteVmFailedDesc": "Vui lòng thử lại sau hoặc liên hệ hỗ trợ.",
+      "deleteSuccess": "Xóa thành công",
+      "deleteSuccessDesc": "Subscription và VM đã được xóa hoàn toàn",
+      "deleteError": "Lỗi xóa subscription"
+    },
+    "confirmDialog": {
+      "cancel": "Hủy",
+      "confirm": "Xác nhận",
+      "deleteVmOnly": {
+        "title": "Xóa VM của subscription",
+        "description": "Subscription vẫn còn hiệu lực nhưng máy ảo sẽ bị xóa. Bạn cần cấu hình lại VM mới để tiếp tục sử dụng dịch vụ."
+      },
+      "deleteSubscription": {
+        "title": "Xác nhận xóa subscription",
+        "description": "Hành động này sẽ XÓA HOÀN TOÀN subscription và máy ảo (VM) trên Oracle Cloud. Tất cả dữ liệu liên quan sẽ bị xóa và KHÔNG THỂ KHÔI PHỤC. Vui lòng backup dữ liệu quan trọng trước khi xóa."
+      }
+    },
+    "vmNotConfigured": {
+      "message1": "VM chưa được cấu hình. Cấu hình VM của bạn để xem chi tiết máy chủ.",
+      "message2": "Chưa có VM được cấu hình. Vui lòng cấu hình VM trước.",
+      "message3": "Biểu đồ sẽ khả dụng sau khi cấu hình VM",
+      "message4": "Biểu đồ sẽ khả dụng khi VM đang chạy",
+      "label": "VM chưa được cấu hình",
+      "deleteButton": "Xóa VM (giữ nguyên subscription)"
+    }
+  },
+  "support": {
+    "title": "Yêu cầu hỗ trợ",
+    "subtitle": "Gửi yêu cầu hỗ trợ kỹ thuật và nhận phản hồi nhanh chóng",
+    "submit": "Gửi yêu cầu hỗ trợ",
+    "submitting": "Đang gửi...",
+    "uploadingFiles": "Đang tải file...",
+    "attachmentsLabel": "Tệp đính kèm",
+    "files": {
+      "tooMany": "Chỉ được đính kèm tối đa {{max}} file",
+      "tooLarge": "File vượt quá {{maxMB}}MB cho phép",
+      "limits": "Tối đa {{max}} file · mỗi file ≤ {{maxMB}}MB · Ảnh, PDF, Word, Text"
+    },
+    "submitSuccess": "Yêu cầu đã được gửi thành công!",
+    "submitSuccessDesc": "Chúng tôi sẽ phản hồi trong thời gian sớm nhất",
+    "submitError": "Gửi yêu cầu thất bại",
+    "fields": {
+      "title": "Tiêu đề",
+      "titlePlaceholder": "Mô tả ngắn gọn vấn đề của bạn",
+      "name": "Tên khách hàng",
+      "namePlaceholder": "Họ và tên",
+      "email": "Email",
+      "emailPlaceholder": "Email liên hệ",
+      "phone": "Số điện thoại",
+      "phonePlaceholder": "Số điện thoại liên hệ",
+      "address": "Địa chỉ",
+      "addressPlaceholder": "Địa chỉ của bạn",
+      "service": "Dịch vụ",
+      "servicePlaceholder": "Chọn dịch vụ",
+      "content": "Nội dung",
+      "contentPlaceholder": "Mô tả chi tiết vấn đề bạn đang gặp phải...",
+      "attachments": "Tệp đính kèm",
+      "attachmentsPlaceholder": "Kéo thả file vào đây hoặc",
+      "attachmentsBrowse": "chọn file từ máy tính"
+    },
+    "services": {
+      "cloud": "Cloud Server",
+      "storage": "Object Storage",
+      "network": "Network / VPN",
+      "billing": "Thanh toán",
+      "account": "Tài khoản",
+      "other": "Khác"
+    },
+    "myTickets": "Yêu cầu của tôi",
+    "myTicketsSubtitle": "Theo dõi trạng thái các yêu cầu đã gửi",
+    "noTickets": "Chưa có yêu cầu hỗ trợ nào",
+    "loadingTickets": "Đang tải yêu cầu của bạn...",
+    "fetchErrorTitle": "Không thể tải dữ liệu",
+    "retryBtn": "Thử lại",
+    "emptyTitle": "Chưa có yêu cầu nào",
+    "emptySubtitle": "Các yêu cầu của bạn sẽ hiển thị tại đây",
+    "ticketSubmittedOn": "Gửi",
+    "statusLabel": "Trạng thái:",
+    "resolvedAt": "Giải quyết:",
+    "serviceLabel": "Dịch vụ:",
+    "requestContent": "Nội dung yêu cầu:",
+    "adminReplyTitle": "Phản hồi từ bộ phận hỗ trợ:",
+    "waitingReply": "Chúng tôi đang xử lý yêu cầu của bạn. Vui lòng chờ phản hồi từ bộ phận hỗ trợ.",
+    "hasReply": "Có phản hồi",
+    "formNote": "Điền đầy đủ thông tin để chúng tôi hiểu rõ vấn đề của bạn",
+    "status": {
+      "open": "Đang mở",
+      "in_progress": "Đang xử lý",
+      "resolved": "Đã giải quyết",
+      "closed": "Đã đóng"
+    },
+    "validation": {
+      "titleMin": "Tiêu đề phải có ít nhất 5 ký tự",
+      "nameMin": "Vui lòng nhập tên",
+      "emailInvalid": "Email không hợp lệ",
+      "contentMin": "Nội dung phải có ít nhất 10 ký tự"
+    },
+    "priority": {
+      "low": "Thấp",
+      "medium": "Trung bình",
+      "high": "Cao",
+      "urgent": "Khẩn cấp"
+    }
+  },
+  "adminSupport": {
+    "title": "Quản lý Yêu cầu Hỗ trợ",
+    "subtitle": "Theo dõi và xử lý các yêu cầu hỗ trợ từ người dùng",
+    "totalTickets": "Tổng yêu cầu",
+    "openTickets": "Đang mở",
+    "inProgressTickets": "Đang xử lý",
+    "resolvedTickets": "Đã giải quyết",
+    "updateSuccess": "Cập nhật thành công",
+    "updateError": "Cập nhật thất bại",
+    "deleteConfirm": "Bạn chắc chắn muốn xóa yêu cầu này?",
+    "adminNote": "Ghi chú của admin",
+    "adminNotePlaceholder": "Nhập ghi chú xử lý..."
+  },
+  "walletSidebar": {
+    "title": "Tài khoản của tôi",
+    "subtitle": "Quản lý cloud và thanh toán",
+    "myCloud": "Cloud của tôi",
+    "myCloudDesc": "Quản lý gói đã mua",
+    "paymentManagement": "Quản lý thanh toán",
+    "paymentManagementDesc": "Xem lịch sử giao dịch",
+    "needHelp": "Cần giúp?",
+    "contactSupport": "Liên hệ support",
+    "account": "Tài khoản"
+  },
+  "paymentHistory": {
+    "title": "Lịch sử thanh toán",
+    "loading": "Đang tải lịch sử thanh toán...",
+    "totalDeposit": "Tổng đã nạp",
+    "totalPaid": "Tổng đã thanh toán",
+    "depositCount": "Số lần nạp tiền",
+    "paymentCount": "Số lần thanh toán",
+    "packagesBought": "Gói đã mua",
+    "processing": "Đang xử lý",
+    "filterTitle": "Bộ lọc và tìm kiếm",
+    "exportExcel": "Xuất Excel",
+    "searchPlaceholder": "Tìm kiếm theo ID hoặc mã giao dịch...",
+    "allStatus": "Tất cả trạng thái",
+    "statusSuccess": "Thành công",
+    "statusPending": "Đang xử lý",
+    "statusFailed": "Thất bại",
+    "allTypes": "Tất cả loại giao dịch",
+    "deposit": "Nạp tiền",
+    "subscriptionPayment": "Thanh toán gói",
+    "advancedFilter": "Lọc nâng cao",
+    "transactionHistory": "Lịch sử giao dịch ({{count}} giao dịch)",
+    "noTransactions": "Không tìm thấy giao dịch nào",
+    "months": "tháng",
+    "viewDetail": "Xem chi tiết",
+    "viewDetailDesc": "Chi tiết giao dịch {{code}}",
+    "viewPaymentDetail": "Xem chi tiết thanh toán",
+    "paymentDetailError": "Không thể tải thông tin thanh toán",
+    "exportSuccess": "Xuất Excel thành công",
+    "exportSuccessDesc": "Đã xuất {{count}} giao dịch",
+    "exportError": "Lỗi xuất Excel",
+    "exportErrorDesc": "Không thể xuất file Excel, vui lòng thử lại",
+    "loadError": "Lỗi",
+    "loadErrorDesc": "Không thể tải lịch sử thanh toán",
+    "depositDescription": "Nạp tiền vào tài khoản",
+    "payment": "Thanh toán",
+    "unknown": "Không xác định",
+    "transaction": "Giao dịch",
+    "accountBalance": "Số dư tài khoản",
+    "qrCode": "QR Code",
+    "bankTransfer": "Chuyển khoản",
+    "excelSummary": "Tổng cộng: {{count}} giao dịch",
+    "showing": "Hiển thị {{count}} trong tổng số {{total}} giao dịch",
+    "prevPage": "Trang trước",
+    "nextPage": "Trang sau",
+    "labels": {
+      "id": "ID",
+      "ref": "Ref",
+      "balance": "Số dư sau giao dịch",
+      "subscriptionId": "Sub ID"
+    },
+    "types": {
+      "deposit": "Nạp tiền",
+      "subscriptionPayment": "Thanh toán gói",
+      "autoRenewal": "Gia hạn tự động",
+      "manualRenewal": "Gia hạn thủ công",
+      "default": "Giao dịch"
+    },
+    "excel": {
+      "sheetName": "Lịch sử giao dịch ví",
+      "filePrefix": "lich-su-giao-dich",
+      "no": "STT",
+      "transactionType": "Loại giao dịch",
+      "amountVnd": "Số tiền (VND)",
+      "balanceAfterVnd": "Số dư sau GD (VND)",
+      "referenceCode": "Mã thanh toán tham chiếu",
+      "transactionId": "ID giao dịch",
+      "time": "Thời gian"
+    },
+    "detail": {
+      "title": "Chi tiết giao dịch",
+      "amount": "Số tiền",
+      "balanceAfter": "Số dư sau giao dịch",
+      "paymentId": "Mã thanh toán",
+      "subscriptionId": "Mã đăng ký",
+      "transactionCode": "Mã giao dịch",
+      "paymentMethod": "Phương thức thanh toán",
+      "description": "Mô tả",
+      "package": "Gói dịch vụ",
+      "createdAt": "Thời gian tạo",
+      "updatedAt": "Cập nhật lần cuối",
+      "close": "Đóng",
+      "copied": "Đã sao chép"
+    },
+    "paymentDetail": {
+      "title": "Chi tiết thanh toán",
+      "amount": "Số tiền",
+      "type": "Loại thanh toán",
+      "method": "Phương thức",
+      "transactionCode": "Mã giao dịch",
+      "subscriptionId": "Mã đăng ký",
+      "package": "Gói dịch vụ",
+      "description": "Nội dung",
+      "time": "Thời gian",
+      "close": "Đóng",
+      "statuses": {
+        "pending": "Chờ xử lý",
+        "success": "Thành công",
+        "failed": "Thất bại",
+        "expired": "Hết hạn"
+      },
+      "methods": {
+        "sepayQr": "QR SePay",
+        "accountBalance": "Số dư tài khoản",
+        "bankTransfer": "Chuyển khoản"
+      },
+      "types": {
+        "deposit": "Nạp tiền",
+        "subscription": "Đăng ký gói"
+      }
+    }
+  },
+  "balanceDisplay": {
+    "label": "Số dư:",
+    "addFunds": "Nạp tiền",
+    "loading": "Đang tải...",
+    "error": "Không thể tải số dư",
+    "refresh": "Làm mới số dư"
+  },
+  "subscriptionCheckout": {
+    "title": "Thanh toán Subscription",
+    "back": "Quay lại",
+    "transactionInfo": "Thông tin giao dịch",
+    "transactionType": "Loại giao dịch:",
+    "subscriptionRegistration": "Đăng ký Subscription",
+    "paymentMethodLabel": "Phương thức:",
+    "bankTransfer": "Chuyển khoản ngân hàng",
+    "subscriptionIdLabel": "Subscription ID:",
+    "paymentAmount": "Số tiền thanh toán:",
+    "timeLeft": "Thời gian còn lại:",
+    "expireWarning": "Giao dịch sẽ hết hạn sau thời gian trên. Vui lòng hoàn tất thanh toán trước khi hết hạn.",
+    "transactionCode": "Mã giao dịch:",
+    "autoConfirm": "Giao dịch sẽ được xác nhận tự động sau khi nhận được tiền.",
+    "benefit1": "Subscription sẽ được kích hoạt ngay lập tức",
+    "benefit2": "Không có phí giao dịch",
+    "benefit3": "Hỗ trợ 24/7",
+    "benefit4": "Giao dịch được mã hóa bảo mật",
+    "scanQR": "Quét QR để thanh toán",
+    "loadingPaymentInfo": "Đang tải thông tin thanh toán...",
+    "paymentSuccessRedirect": "✅ Thanh toán thành công! Đang chuyển hướng...",
+    "checkingPayment": "Đang kiểm tra thanh toán...",
+    "scanQRDesc": "Quét mã QR bằng app ngân hàng để thanh toán",
+    "bankLabel": "Ngân hàng:",
+    "accountNumberLabel": "Số tài khoản:",
+    "accountHolderLabel": "Chủ tài khoản:",
+    "amountLabel": "Số tiền:",
+    "contentLabel": "Nội dung:",
+    "copyTransferInfo": "Sao chép thông tin chuyển khoản",
+    "importantNote": "Lưu ý quan trọng:",
+    "importantNoteDesc": "Vui lòng chuyển khoản đúng số tiền và đúng nội dung để hệ thống có thể tự động xác nhận giao dịch.",
+    "contactSupport": "Liên hệ hỗ trợ",
+    "alreadyTransferred": "Đã chuyển khoản",
+    "invalidInfo": "Thông tin không hợp lệ",
+    "invalidInfoDesc": "Không tìm thấy thông tin thanh toán. Vui lòng thử lại.",
+    "backHome": "Quay lại trang chủ",
+    "copiedTransferInfo": "Đã sao chép thông tin chuyển khoản",
+    "paymentSuccess": "Thanh toán thành công!",
+    "subscriptionActivated": "Subscription đã được kích hoạt.",
+    "qrReadyToast": "QR sẵn sàng",
+    "qrReadyToastDesc": "Vui lòng quét mã QR hoặc chuyển khoản thủ công theo thông tin bên dưới.",
+    "alreadyTransferredToast": "Cảm ơn bạn!",
+    "alreadyTransferredToastDesc": "Chúng tôi đã ghi nhận thanh toán của bạn. Giao dịch sẽ được xác nhận tự động khi nhận được tiền chuyển khoản."
+  },
+  "cloudConfig": {
+    "title": "Cấu hình VM Instance",
+    "subscriptionLabel": "Subscription: {{id}}",
+    "back": "Quay lại Quản lý gói",
+    "vmDetails": "Chi tiết VM Instance",
+    "vmInstanceName": "Tên VM Instance",
+    "vmNameNote": "Tên VM sẽ được tự động tạo dựa trên địa chỉ email của bạn theo định dạng:",
+    "notificationSettings": "Cài đặt thông báo",
+    "emailLabel": "Địa chỉ Email * (Khóa SSH sẽ được gửi đến đây)",
+    "emailNote": "Khóa SSH riêng tư của bạn sẽ được gửi đến địa chỉ email này. Hãy giữ bí mật.",
+    "vmShape": "VM Shape *",
+    "vmShapeNote": "Chọn VM shape trước - Tùy chọn OS sẽ được lọc theo tương thích",
+    "recommended": "Được đề xuất",
+    "armCapacityLimited": "⚠️ Năng lực ARM Hạn chế",
+    "armCapacityNote": "Các instance A1.Flex (ARM) thường có năng lực hạn chế ở khu vực Singapore. Nếu quá trình cung cấp thất bại do năng lực, vui lòng thử lại sau hoặc chuyển sang các shape x86 (E2.1.Micro, E3.Flex) có tính khả dụng tốt hơn.",
+    "armImageNote": "Lưu ý: Image ARM (🔷) chỉ hoạt động với A1.Flex. Image x86 (🔵) hoạt động với các shape E2, E3, E4, Standard.",
+    "operatingSystem": "Hệ điều hành",
+    "showingCompatible": "Hiển thị image tương thích với {{shape}}",
+    "selectOS": "Chọn Hệ điều hành *",
+    "versions": "phiên bản",
+    "searchVersion": "Tìm kiếm phiên bản...",
+    "noImagesFound": "Không tìm thấy image",
+    "loadingOsImages": "Đang tải OS images...",
+    "configSummary": "Tóm tắt cấu hình",
+    "osLabel": "Hệ điều hành",
+    "notSelected": "Chưa chọn",
+    "vmShapeLabel": "VM Shape",
+    "ocpus": "OCPUs",
+    "memory": "Bộ nhớ",
+    "bootVolume": "Dung lượng boot",
+    "notificationEmail": "Email thông báo",
+    "notSpecified": "Chưa cung cấp",
+    "allFieldsCompleted": "Đã điền đầy đủ các trường bắt buộc",
+    "incompleteFields": "Vui lòng điền đầy đủ các trường bắt buộc:",
+    "needOS": "Chọn Hệ điều hành",
+    "needOSVersion": "Chọn phiên bản OS",
+    "needEmail": "Không tìm thấy địa chỉ email trên tài khoản",
+    "configureVM": "Cấu hình VM",
+    "configuring": "Đang cấu hình...",
+    "cancelBtn": "Hủy",
+    "confirmTitle": "Xác nhận cài lại OS",
+    "confirmDesc": "VM cũ cùng toàn bộ data và phần mềm đã cài sẽ mất. Bạn có chắc chắn?",
+    "confirmCancel": "Hủy",
+    "confirmOk": "Xác nhận",
+    "creatingVM": "Đang tạo VM Instance",
+    "creatingVMDesc": "Máy ảo của bạn đang được cung cấp...",
+    "provisionStep1": "Cung cấp compartment và mạng",
+    "provisionStep2": "Khởi chạy compute instance",
+    "provisionStep3": "Cấu hình mạng và bảo mật",
+    "provisionStep4": "Chuẩn bị thông tin xác thực truy cập",
+    "timeEstimate": "Có thể mất 2-5 phút",
+    "doNotClose": "⚠️ Vui lòng không đóng cửa sổ này hoặc điều hướng đi",
+    "loadingSubscription": "Đang tải thông tin subscription...",
+    "subscriptionNotFound": "Không tìm thấy subscription",
+    "subscriptionNotFoundBtn": "Quay lại Quản lý gói",
+    "validationError": "Lỗi xác thực",
+    "validationErrorDesc": "Vui lòng điền đầy đủ tất cả các trường bắt buộc với giá trị hợp lệ",
+    "configSuccess": "Thành công",
+    "armCapacityUnavailable": "Không có năng lực ARM",
+    "capacityUnavailable": "Không có năng lực",
+    "configFailed": "Cấu hình thất bại"
+  },
+  "addFunds": {
+    "title": "Nạp tiền vào tài khoản",
+    "back": "Quay lại",
+    "selectPaymentMethod": "Chọn phương thức thanh toán",
+    "enterAmount": "Nhập số tiền muốn nạp",
+    "amountLabel": "Số tiền (VND)",
+    "amountPlaceholder": "Nhập số tiền...",
+    "amountDisplay": "Số tiền:",
+    "quickAmounts": "Hoặc chọn mức nạp nhanh",
+    "processing": "Đang xử lý...",
+    "confirm": "Xác nhận nạp {{amount}} VND",
+    "comingSoon": "Sắp có",
+    "noteTitle": "Lưu ý:",
+    "noteMin": "Số tiền nạp tối thiểu: 10,000 VND",
+    "noteMax": "Số tiền nạp tối đa: 100,000,000 VND",
+    "noteCredit": "Tiền nạp sẽ được cộng vào tài khoản sau khi xác nhận thanh toán",
+    "errorMin": "Số tiền nạp tối thiểu là 10,000 VND",
+    "errorMax": "Số tiền nạp tối đa là 100,000,000 VND",
+    "errorSelectMethod": "Vui lòng chọn phương thức thanh toán",
+    "errorMethodUnavailable": "Phương thức thanh toán này chưa khả dụng",
+    "errorLogin": "Vui lòng đăng nhập để tiếp tục",
+    "errorGeneral": "Lỗi",
+    "successTitle": "Thành công",
+    "successDesc": "Đã tạo lệnh nạp tiền, đang chuyển đến trang thanh toán...",
+    "methods": {
+      "momo": { "name": "Ví MoMo", "description": "Thanh toán qua ví điện tử MoMo" },
+      "card": { "name": "Thẻ thanh toán quốc tế", "description": "Visa, Mastercard, JCB" },
+      "bank_transfer": { "name": "Chuyển khoản ngân hàng", "description": "Quét QR Code hoặc chuyển khoản thủ công" }
+    }
+  },
+  "pricingModal": {
+    "title": "Chọn phương thức thanh toán",
+    "subtitle": "Chọn cách thức thanh toán phù hợp cho gói {{planName}}",
+    "accountBalance": "Trừ tiền tài khoản",
+    "accountBalanceDesc": "Sử dụng số dư có sẵn trong tài khoản để thanh toán",
+    "currentBalance": "Số dư hiện tại",
+    "addFundsBtn": "Nạp tiền",
+    "instantPayment": "Thanh toán ngay lập tức",
+    "noFees": "Không phí giao dịch",
+    "directPayment": "Thanh toán trực tiếp",
+    "directPaymentDesc": "Thanh toán qua chuyển khoản ngân hàng hoặc QR code",
+    "monthsLabel": "Số tháng đăng ký",
+    "totalDeduction": "Tổng trừ từ ví",
+    "totalPayment": "Tổng thanh toán",
+    "perMonthCalc": "{{price}} × {{months}} tháng",
+    "termsPrefix": "Tôi đã đọc và đồng ý với",
+    "termsLink": "điều khoản sử dụng",
+    "termsSuffix": "của OracleCloud Vietnam.",
+    "closeBtn": "Đóng",
+    "confirmBtn": "Xác nhận",
+    "processing": "Đang xử lý...",
+    "errorTitle": "Lỗi",
+    "errorSelectMethod": "Vui lòng chọn phương thức thanh toán",
+    "errorMonths": "Số tháng phải từ 1 đến 24",
+    "insufficientBalanceTitle": "Số dư không đủ",
+    "insufficientBalanceDesc": "Số dư của bạn không đủ, hãy nạp thêm.",
+    "successTitle": "Đăng ký thành công!",
+    "successDesc": "Đã đăng ký gói {{planName}} thành công. Tiền đã được trừ từ tài khoản.",
+    "errorGeneral": "Có lỗi xảy ra, vui lòng thử lại."
+  },
+  "register": {
+    "title": "Đăng ký tài khoản",
+    "subtitle": "Tạo tài khoản mới để bắt đầu sử dụng dịch vụ",
+    "firstName": "Họ",
+    "firstNamePlaceholder": "Nguyễn",
+    "lastName": "Tên",
+    "lastNamePlaceholder": "Văn A",
+    "email": "Email",
+    "emailPlaceholder": "your@email.com",
+    "password": "Mật khẩu",
+    "passwordPlaceholder": "\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7",
+    "confirmPassword": "Xác nhận mật khẩu",
+    "confirmPasswordPlaceholder": "\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7",
+    "registerButton": "Đăng ký",
+    "registering": "Đang đăng ký...",
+    "or": "Hoặc",
+    "registerWithGoogle": "Đăng ký bằng Google",
+    "googleComingSoon": "Tính năng đăng ký bằng Google sẽ được cập nhật sớm",
+    "haveAccount": "Đã có tài khoản?",
+    "loginNow": "Đăng nhập ngay",
+    "validation": {
+      "firstNameRequired": "Họ không được để trống",
+      "firstNameMaxLength": "Họ không được quá 50 ký tự",
+      "lastNameRequired": "Tên không được để trống",
+      "lastNameMaxLength": "Tên không được quá 50 ký tự",
+      "emailRequired": "Email không được để trống",
+      "emailInvalid": "Email không hợp lệ",
+      "passwordMinLength": "Mật khẩu phải có ít nhất 6 ký tự",
+      "passwordMaxLength": "Mật khẩu không được quá 100 ký tự",
+      "confirmPasswordRequired": "Vui lòng xác nhận mật khẩu",
+      "passwordsMismatch": "Mật khẩu xác nhận không khớp"
+    },
+    "errorEmailAlreadyExists": "Email này đã được đăng ký. Vui lòng sử dụng email khác hoặc đăng nhập.",
+    "errorDefault": "Đăng ký thất bại. Vui lòng thử lại."
+  },
+  "verifyOtp": {
+    "title": "Xác thực Email",
+    "unverifiedWarning": "⚠️ Tài khoản chưa xác thực",
+    "otpSentToEmail": "OTP đã được gửi về email của bạn",
+    "pleaseEnterOtp": "Vui lòng nhập OTP để xác thực tài khoản",
+    "enterCodeSentTo": "Nhập mã xác thực 6 số đã được gửi đến",
+    "codeInstruction": "Nhập mã 6 số từ email của bạn",
+    "verifyButton": "Xác thực Email",
+    "verifying": "Đang xác thực...",
+    "didntReceiveCode": "Chưa nhận được mã?",
+    "sending": "Đang gửi...",
+    "resendIn": "Gửi lại sau {{time}}s",
+    "resendCode": "Gửi lại mã",
+    "securityNote": "🔒 Mã này có hiệu lực trong 10 phút. Không chia sẻ với bất kỳ ai.",
+    "errorInvalidOtp": "Mã OTP không đúng. Vui lòng kiểm tra lại.",
+    "errorIncomplete": "Vui lòng nhập đầy đủ mã 6 số",
+    "status": {
+      "sending": "Đang gửi mã xác thực...",
+      "sentTitle": "Đã gửi mã xác thực!",
+      "sentCheckEmail": "Kiểm tra email của bạn: {{email}}",
+      "verifyingCode": "Đang xác thực mã...",
+      "successMessage": "Xác thực email thành công!",
+      "errorTitle": "Xác thực thất bại",
+      "resendAvailableIn": "Có thể gửi lại sau {{time}} giây"
+    }
+  },
+  "forgotPassword": {
+    "recoverEmail": {
+      "title": "Quên mật khẩu",
+      "subtitle": "Nhập email của bạn để nhận mã OTP đặt lại mật khẩu",
+      "emailLabel": "Email",
+      "emailPlaceholder": "example@email.com",
+      "submitButton": "Gửi mã OTP",
+      "sending": "Đang gửi...",
+      "rememberPassword": "Nhớ mật khẩu?",
+      "loginLink": "Đăng nhập",
+      "validation": {
+        "emailRequired": "Email là bắt buộc",
+        "emailInvalid": "Email không hợp lệ"
+      }
+    },
+    "otpConfirm": {
+      "title": "Xác thực OTP",
+      "subtitle": "Nhập mã OTP 6 số đã được gửi đến email:",
+      "submitButton": "Xác nhận OTP",
+      "verifying": "Đang xác thực...",
+      "resend": "Gửi lại mã OTP",
+      "resendCountdown": "Gửi lại mã sau {{countdown}}s",
+      "backToLogin": "\u2190 Quay lại đăng nhập",
+      "validation": {
+        "otpRequired": "Vui lòng nhập đầy đủ 6 số OTP"
+      }
+    }
+  },
+  "addFundsPayment": {
+    "title": "Nạp tiền vào tài khoản",
+    "back": "Quay lại",
+    "invalidInfo": "Thông tin không hợp lệ",
+    "invalidInfoDesc": "Không tìm thấy thông tin thanh toán. Vui lòng thử lại.",
+    "backToAddFunds": "Quay lại trang nạp tiền",
+    "transactionInfo": "Thông tin giao dịch",
+    "transactionType": "Loại giao dịch:",
+    "addFundsType": "Nạp tiền",
+    "paymentMethodLabel": "Phương thức:",
+    "bankTransfer": "Chuyển khoản ngân hàng",
+    "depositAmount": "Số tiền nạp:",
+    "timeLeft": "Thời gian còn lại:",
+    "expireWarning": "Giao dịch sẽ hết hạn sau thời gian trên. Vui lòng hoàn tất thanh toán trước khi hết hạn.",
+    "transactionCode": "Mã giao dịch:",
+    "autoConfirm": "Giao dịch sẽ được xác nhận tự động sau khi nhận được tiền.",
+    "benefit1": "Tiền nạp sẽ được cộng vào tài khoản ngay lập tức",
+    "benefit2": "Không có phí giao dịch",
+    "benefit3": "Hỗ trợ 24/7",
+    "benefit4": "Giao dịch được mã hóa bảo mật",
+    "scanQR": "Quét QR để thanh toán",
+    "loadingPaymentInfo": "Đang tải thông tin thanh toán...",
+    "paymentSuccessRedirect": "\u2705 Nạp tiền thành công! Đang chuyển hướng...",
+    "checkingPayment": "Đang kiểm tra thanh toán...",
+    "scanQRDesc": "Quét mã QR bằng app ngân hàng để thanh toán",
+    "bankLabel": "Ngân hàng:",
+    "accountNumberLabel": "Số tài khoản:",
+    "accountHolderLabel": "Chủ tài khoản:",
+    "amountLabel": "Số tiền:",
+    "contentLabel": "Nội dung:",
+    "copyTransferInfo": "Sao chép thông tin chuyển khoản",
+    "importantNote": "Lưu ý quan trọng:",
+    "importantNoteDesc": "Vui lòng chuyển khoản đúng số tiền và đúng nội dung để hệ thống có thể tự động xác nhận giao dịch.",
+    "contactSupport": "Liên hệ hỗ trợ",
+    "alreadyTransferred": "Tôi đã chuyển khoản",
+    "alreadyTransferredToast": "Cảm ơn bạn!",
+    "alreadyTransferredToastDesc": "Chúng tôi đã ghi nhận thanh toán của bạn. Giao dịch sẽ được xác nhận tự động khi nhận được tiền chuyển khoản.",
+    "copiedTransferInfo": "Đã sao chép thông tin chuyển khoản",
+    "paymentSuccess": "Nạp tiền thành công!",
+    "paymentSuccessDesc": "Tiền đã được cộng vào tài khoản của bạn.",
+    "successWithAmount": "Đã nạp tiền vào tài khoản số tiền {{amount}} thành công.",
+    "loading": "Đang tải...",
+    "qrReadyToast": "QR sẵn sàng",
+    "qrReadyToastDesc": "Vui lòng quét mã QR hoặc chuyển khoản thủ công theo thông tin bên dưới.",
+    "transferInfo": "Ngân hàng: {{bank}}\nSố tài khoản: {{account}}\nSố tiền: {{amount}} VND\nNội dung: {{content}}"
+  }
+}

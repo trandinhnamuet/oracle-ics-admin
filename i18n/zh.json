@@ -1,0 +1,2024 @@
+{
+  "packageManagement": {
+    "title": "订阅套餐管理",
+    "subtitle": "跟踪和管理您正在使用的服务套餐",
+    "searchPlaceholder": "按套餐名称、电子邮件搜索...",
+    "status": "状态",
+    "type": "套餐类型",
+    "filter": {
+      "all": "全部",
+      "active": "活跃",
+      "inactive": "非活跃"
+    },
+    "stats": {
+      "total": "总套餐数",
+      "active": "活跃",
+      "inactive": "非活跃",
+      "revenue": "月收入"
+    },
+    "table": {
+      "title": "订阅套餐列表 ({{count}})",
+      "packageName": "套餐名称",
+      "type": "类型",
+      "paidAmount": "已支付金额",
+      "createdAt": "订阅日期",
+      "updatedAt": "最后更新",
+      "status": "状态",
+      "actions": "操作",
+      "noMatch": "未找到匹配的套餐",
+      "noPackage": "暂无订阅套餐",
+      "customPackage": "自定义套餐",
+      "active": "活跃",
+      "inactive": "非活跃",
+      "pending": "待处理",
+      "suspended": "已暂停",
+      "cancelled": "已取消",
+      "expired": "已过期",
+      "pauseTitle": "暂停套餐",
+      "activateTitle": "激活套餐",
+      "deleteTitle": "删除套餐"
+    },
+    "confirmDialog": {
+      "cancel": "取消",
+      "confirm": "确认",
+      "deleteSubscription": {
+        "title": "确认删除订阅",
+        "description": "此操作将永久删除Oracle Cloud上的订阅和虚拟机(VM)。所有相关数据将被删除且无法恢复。删除前请备份重要数据。"
+      },
+      "stopVm": {
+        "title": "确认停止VM",
+        "description": "您确定要停止此VM吗？"
+      },
+      "startVm": {
+        "title": "确认启动VM",
+        "description": "您确定要启动此VM吗？"
+      },
+      "renewSubscription": {
+        "title": "确认续费订阅",
+        "description": "您确定要续费\"{{packageName}}\"套餐吗？将从您的钉包中扣除{{cost}}。"
+      }
+    },
+    "toast": {
+      "loadingList": "正在加载订阅列表...",
+      "vmNotConfigured": "VM未配置",
+      "vmStopSent": "已发送VM停止命令",
+      "vmStartSent": "已发送VM启动命令",
+      "vmActionPending": "完成后状态将自动更新。",
+      "vmStopError": "停止VM出错",
+      "vmStartError": "启动VM出错",
+      "renewSuccess": "订阅续费成功！",
+      "renewSuccessDesc": "您的订阅已激活，VM已启动。",
+      "renewFailed": "续费失败",
+      "renewInsufficientFunds": "账户余额不足，无法续费，请充值。",
+      "renewError": "续费订阅时出错",
+      "deleteSuccess": "订阅和VM已成功删除！",
+      "deleteError": "删除订阅时发生错误"
+    },
+    "notConfigured": "未配置",
+    "tooltip": {
+      "stopVm": "停止VM",
+      "startVm": "启动VM",
+      "stopping": "VM停止中...",
+      "starting": "VM启动中...",
+      "transitioning": "VM正在过渡状态",
+      "renewSubscription": "续费订阅"
+    },
+    "fetchError": {
+      "title": "错误",
+      "system": "加载订阅列表时出现系统错误。请稍后再试。",
+      "network": "无法加载订阅列表。请检查您的网络连接。"
+    }
+  },
+  "contactInfo": {
+    "heroTitle": "联系我们",
+    "heroDesc": "越南官方Oracle合作伙伴，随时为您提供24/7支持",
+    "companyInfo": "公司信息",
+    "companyName": "国际网络安全股份有限公司 - ICS",
+    "officeHanoi": "河内办公室",
+    "officeAddress": "河内市定功新大金城市区TT3-5",
+    "contactInfo": "联系方式",
+    "phoneHotline": "电话与热线",
+    "email": "电子邮件",
+    "website": "网站",
+    "mapTitle": "地图位置",
+    "mapDesc": "查找我们办公室的路线",
+    "learnMore": "了解更多关于我们 →",
+    "openInMaps": "在地图中打开"
+  },
+  "dashboard": {
+    "title": "系统管理",
+    "user": {
+      "title": "用户管理",
+      "desc": "查看、编辑和管理用户账户",
+      "stats": "共{{count}}个用户"
+    },
+    "customRegistration": {
+      "title": "自定义套餐注册",
+      "desc": "管理自定义服务套餐注册请求",
+      "stats": "{{count}}个新请求"
+    },
+    "access": "访问"
+  },
+  "admin": {
+    "title": "管理仪表盘",
+    "userTitle": "用户管理",
+    "userDesc": "查看、编辑和管理用户账户",
+    "userStats": "共{{count}}位用户",
+    "customRegTitle": "自定义套餐申请管理",
+    "customRegDesc": "跟踪和处理自定义套餐申请",
+    "customRegStats": "{{count}}条新申请",
+    "access": "访问",
+    "packagesTitle": "管理云包",
+    "packagesDesc": "创建、编辑和管理云服务包",
+    "packagesStats": "总计：{{count}}个包",
+    "subscriptionsTitle": "管理服务订阅",
+    "subscriptionsDesc": "查看和管理用户订阅的服务包（订阅）",
+    "subscriptionsStats": "查看和管理用户订阅的服务包（订阅）",
+    "user": {
+      "title": "用户管理",
+      "subtitle": "管理系统中的用户账户",
+      "exportExcel": "导出到Excel",
+      "searchPlaceholder": "按电子邮件、姓名、公司搜索...",
+      "stats": {
+        "total": "总用户数",
+        "active": "活跃",
+        "inactive": "已锁定"
+      },
+      "table": {
+        "id": "ID",
+        "email": "电子邮件",
+        "name": "全名",
+        "phone": "电话号码",
+        "company": "公司",
+        "role": "角色",
+        "status": "状态",
+        "createdAt": "创建日期",
+        "updatedAt": "更新日期",
+        "actions": "操作",
+        "noUserFound": "未找到用户",
+        "noUser": "暂无用户",
+        "noData": "暂无数据",
+        "admin": "管理员",
+        "customer": "客户",
+        "active": "活跃",
+        "inactive": "锁定"
+      },
+      "actions": {
+        "grantAdmin": "授予管理员权限",
+        "revokeAdmin": "撤销管理员权限",
+        "delete": "删除用户"
+      },
+      "loading": "加载中..."
+    },
+    "customRegistration": {
+      "title": "自定义套餐注册管理",
+      "subtitle": "跟踪和处理自定义服务套餐注册请求",
+      "exportExcel": "导出到Excel",
+      "stats": {
+        "total": "总注册数",
+        "processed": "已处理",
+        "unprocessed": "未处理"
+      },
+      "searchPlaceholder": "按电子邮件、电话号码、姓名、公司搜索...",
+      "filter": {
+        "all": "全部",
+        "processed": "已处理",
+        "unprocessed": "未处理"
+      },
+      "table": {
+        "id": "ID",
+        "user": "注册人",
+        "contact": "联系方式",
+        "company": "公司",
+        "config": "配置",
+        "note": "备注",
+        "time": "时间",
+        "status": "状态",
+        "noData": "无匹配数据",
+        "noCompany": "无",
+        "cpu": "CPU",
+        "ram": "内存",
+        "storage": "存储",
+        "bandwidth": "带宽"
+      },
+      "footer": "显示 {{current}} / {{total}} 注册",
+      "loading": "加载数据中...",
+      "export": {
+        "phone": "电话号码",
+        "detail": "详情",
+        "createdAt": "注册日期",
+        "createdBy": "创建人",
+        "notAvailable": "无",
+        "sheetName": "自定义注册列表",
+        "system": "系统"
+      }
+    },
+    "packages": {
+      "createPackage": {
+        "title": {
+          "create": "创建新套餐",
+          "edit": "编辑套餐"
+        },
+        "form": {
+          "packageName": "套餐名称",
+          "packageNamePlaceholder": "例如：Starter 1",
+          "category": "类别",
+          "categoryOptions": {
+            "starter": "Starter",
+            "professional": "Professional",
+            "enterprise": "Enterprise",
+            "ai": "AI-GPU",
+            "custom": "Custom"
+          },
+          "description": "描述",
+          "descriptionPlaceholder": "服务套餐描述",
+          "price": "价格 ($)",
+          "period": "周期",
+          "periodOptions": {
+            "month": "月",
+            "year": "年"
+          },
+          "popularPackage": "热门套餐",
+          "features": "功能",
+          "featurePlaceholder": "例如：4 vCPU",
+          "addFeature": "添加功能"
+        },
+        "buttons": {
+          "cancel": "取消",
+          "create": "创建套餐",
+          "update": "更新"
+        },
+        "validation": {
+          "error": "错误",
+          "fillAllFields": "请填写所有必需信息"
+        }
+      },
+      "management": {
+        "title": "套餐管理",
+        "subtitle": "创建、编辑和管理云服务套餐",
+        "createNewPackage": "创建新套餐",
+        "searchPlaceholder": "搜索服务套餐...",
+        "filter": {
+          "allCategories": "所有类别",
+          "starter": "Starter",
+          "professional": "Professional",
+          "enterprise": "Enterprise",
+          "ai": "AI-GPU",
+          "custom": "Custom"
+        },
+        "categories": {
+          "starter": "Starter",
+          "professional": "Professional",
+          "enterprise": "Enterprise",
+          "ai": "AI-GPU",
+          "custom": "Custom"
+        },
+        "table": {
+          "servicePackage": "服务套餐",
+          "category": "类别",
+          "price": "价格",
+          "description": "描述",
+          "features": "功能",
+          "status": "状态",
+          "actions": "操作",
+          "moreFeatures": "更多功能",
+          "popular": "热门",
+          "noPackagesFound": "未找到服务套餐",
+          "active": "活跃",
+          "inactive": "非活跃"
+        },
+        "toast": {
+          "createSuccess": "成功",
+          "createSuccessDesc": "套餐创建成功",
+          "updateSuccess": "成功",
+          "updateSuccessDesc": "套餐更新成功",
+          "deleteSuccess": "成功",
+          "deleteSuccessDesc": "套餐删除成功"
+        }
+      }
+    },
+    "subscriptions": {
+      "title": "订阅管理",
+      "backButton": "返回",
+      "searchPlaceholder": "按用户名、邮箱、套餐名称、ID搜索...",
+      "filterByStatus": "按状态筛选",
+      "confirmDelete": "您确定要删除此订阅吗？",
+      "filter": {
+        "allStatus": "所有状态"
+      },
+      "status": {
+        "active": "活跃",
+        "pending": "保留中",
+        "inactive": "非活跃",
+        "expired": "已过期",
+        "suspended": "已暂停",
+        "cancelled": "已取消"
+      },
+      "stats": {
+        "total": "总订阅数",
+        "pending": "保留中",
+        "active": "活跃",
+        "expired": "已过期",
+        "cancelled": "已取消"
+      },
+      "table": {
+        "title": "订阅列表",
+        "showing": "显示 {{from}} - {{to}} / {{total}} 个订阅",
+        "noData": "未找到订阅",
+        "id": "ID",
+        "user": "用户",
+        "package": "套餐",
+        "vmInfo": "虚拟机信息",
+        "noPublicIp": "无公网IP",
+        "notConfigured": "未配置",
+        "startDate": "开始日期",
+        "endDate": "结束日期",
+        "status": "状态",
+        "autoRenew": "自动续费",
+        "price": "价格",
+        "createdAt": "创建日期",
+        "actions": "操作",
+        "yes": "是",
+        "no": "否",
+        "recordsPerPage": "每页记录数:",
+        "goTo": "跳转到页:",
+        "pageOf": "第 {{current}} / {{total}} 页"
+      },
+      "actions": {
+        "viewDetail": "查看详情",
+        "edit": "编辑",
+        "delete": "删除"
+      },
+      "toast": {
+        "success": "成功",
+        "error": "错误",
+        "info": "信息",
+        "loadError": "无法加载订阅列表",
+        "deleteSuccess": "订阅删除成功",
+        "deleteError": "无法删除订阅",
+        "deleteWithVmSuccess": "订阅和VM删除成功。",
+        "deleteVmOnlySuccess": "VM已删除。订阅仍然有效。",
+        "deleteVmOnlyError": "无法删除VM",
+        "stopVmSuccess": "VM停止成功。",
+        "stopVmError": "无法停止VM",
+        "startVmSuccess": "VM启动成功。",
+        "startVmError": "无法启动VM",
+        "editInDevelopment": "编辑功能正在开发中"
+      },
+      "confirmDialog": {
+        "deleteSub": {
+          "title": "确认删除订阅",
+          "description": "您确定要删除此订阅吗？此操作无法撤销。"
+        },
+        "deleteWithVm": {
+          "title": "确认删除订阅和VM",
+          "description": "删除整个订阅和虚拟机(VM)？此操作无法撤销。"
+        },
+        "deleteVmOnly": {
+          "title": "确认删除VM",
+          "description": "仅删除虚拟机(VM)？订阅仍然有效，但需要配置新VM。"
+        },
+        "stopVm": {
+          "title": "确认停止VM",
+          "description": "您确定要停止此VM吗？"
+        },
+        "startVm": {
+          "title": "确认启动VM",
+          "description": "您确定要启动此VM吗？"
+        },
+        "cancel": "取消",
+        "confirm": "确认"
+      }
+    },
+    "analytics": {
+      "title": "分析仪表板",
+      "subtitle": "网站流量和访客统计",
+      "dateRange": {
+        "last7Days": "过去7天",
+        "last30Days": "过去30天",
+        "last90Days": "过去90天",
+        "refresh": "刷新"
+      },
+      "summary": {
+        "totalPageViews": "总页面浏览量",
+        "totalPageViewsDesc": "所选时间段的页面浏览量",
+        "uniqueUsers": "独立用户",
+        "uniqueUsersDesc": "网站的独立访客",
+        "bounceRate": "跳出率",
+        "bounceRateDesc": "未互动即离开的访客",
+        "avgLoadTime": "平均加载时间",
+        "avgLoadTimeDesc": "平均页面加载时间"
+      },
+      "charts": {
+        "pageViewsOverTime": "页面浏览量趋势",
+        "topPages": "热门页面",
+        "userEvents": "用户事件",
+        "allEvents": "所有事件",
+        "googleAnalytics": "Google Analytics集成",
+        "googleAnalyticsDesc": "此仪表板显示您网站的分析数据。要启用Google Analytics跟踪:",
+        "gaStep1": "在.env.local文件中将Google Analytics测量ID设置为NEXT_PUBLIC_GA_MEASUREMENT_ID",
+        "gaStep2": "部署更改以激活Google Analytics跟踪",
+        "gaStep3": "在Google Analytics控制台中查看详细分析"
+      },
+      "loading": "加载分析数据中...",
+      "error": "错误",
+      "retry": "重试",
+      "noData": "无数据",
+      "noPageData": "无页面数据",
+      "noEventData": "无事件数据"
+    },
+    "bandwidth": {
+      "title": "带宽监控",
+      "subtitle": "按月跟踪每台VM的出口流量 (VnicBytesOut) — Partner计划每月免费包含10 TB",
+      "loading": "加载带宽数据中...",
+      "refresh": "刷新",
+      "month": {
+        "label": "月份:",
+        "current": "(当前)"
+      },
+      "summary": {
+        "totalVMs": "VM总数",
+        "overLimit": "超出限制",
+        "nearLimit": "接近限制",
+        "totalEgress": "总出口流量",
+        "average": "平均值"
+      },
+      "filter": {
+        "label": "筛选:",
+        "all": "全部",
+        "over": "超出限制",
+        "near": "警告",
+        "normal": "正常"
+      },
+      "sort": {
+        "label": "排序:",
+        "usage": "使用量",
+        "name": "VM名称",
+        "user": "用户"
+      },
+      "status": {
+        "overLimit": "超出限制",
+        "warning": "警告",
+        "normal": "正常",
+        "error": "错误"
+      },
+      "source": {
+        "oci": "实时 (OCI)",
+        "archived": "已归档",
+        "none": "无数据"
+      },
+      "info": {
+        "text": "跟踪 VnicBytesOut (oci_vcn 命名空间) — 每台VM的VNIC出站字节数。OCI Partner计划每月包含10 TB免费出口流量。"
+      },
+      "details": {
+        "egress": "出口流量 (计费)",
+        "ingress": "入口流量 (免费)",
+        "remaining": "剩余",
+        "exceeded": "超出",
+        "package": "套餐",
+        "company": "公司",
+        "dataSource": "数据来源"
+      },
+      "warning": {
+        "overLimitTitle": "警告：出口流量限制已超出！",
+        "overLimitMessage": "此VM已超出10 TB免费出口流量限制 {{exceeded}} TB，可能产生额外费用。",
+        "nearLimitTitle": "警告：出口流量即将达到限制！",
+        "nearLimitMessage": "此VM已使用{{usage}}%出口带宽。距限制还有{{remaining}} TB。",
+        "errorMessage": "无法获取带宽数据: {{error}}"
+      },
+      "noVms": "没有VM符合当前筛选条件"
+    },
+    "compartment": {
+      "title": "分区管理",
+      "subtitle": "OCI租户中的分区列表",
+      "refresh": "刷新",
+      "loading": "加载分区中...",
+      "noCompartments": "无分区",
+      "noDescription": "无描述",
+      "createdAt": "创建日期",
+      "deleteButton": "删除分区",
+      "dialog": {
+        "title": "确认删除分区",
+        "description1": "您确定要删除分区",
+        "description2": "吗？",
+        "warning": "⚠️ 此操作将删除分区内的所有资源，包括:",
+        "items": {
+          "vms": "所有VM实例",
+          "vcns": "所有VCN（虚拟云网络）",
+          "subnets": "所有子网",
+          "gateways": "所有互联网网关",
+          "routes": "所有路由表"
+        },
+        "irreversible": "此操作无法撤销！",
+        "deleting": "删除中...",
+        "confirmButton": "确认删除",
+        "cancelButton": "取消"
+      },
+      "toast": {
+        "loadError": "无法加载分区列表: {{message}}",
+        "deleteSuccess": "已删除分区\"{{name}}\"及其内部所有资源",
+        "deleteError": "无法删除分区: {{message}}"
+      }
+    },
+    "costs": {
+      "title": "费用 & 积分",
+      "subtitle": "所有用户的财务概览",
+      "back": "返回",
+      "refresh": "刷新",
+      "loading": "加载费用数据中...",
+      "summary": {
+        "totalBalance": "总剩余余额",
+        "totalBalanceDesc": "所有用户钱包的总和",
+        "totalDeposited": "总充值金额",
+        "totalDepositedDesc": "所有充值交易的累计",
+        "totalSpent": "总消费金额",
+        "totalSpentDesc": "所有扣款交易的累计",
+        "users": "用户数量",
+        "usersDesc": "拥有活跃钱包的用户"
+      },
+      "timeBreakdown": {
+        "title": "按时间统计",
+        "monthly": "按月",
+        "yearly": "按年"
+      },
+      "months": {
+        "jan": "1月", "feb": "2月", "mar": "3月",
+        "apr": "4月", "may": "5月", "jun": "6月",
+        "jul": "7月", "aug": "8月", "sep": "9月",
+        "oct": "10月", "nov": "11月", "dec": "12月"
+      },
+      "table": {
+        "month": "月份",
+        "year": "年份",
+        "deposited": "充值",
+        "spent": "消费",
+        "difference": "差额"
+      },
+      "perUser": {
+        "title": "按用户明细",
+        "searchPlaceholder": "搜索邮箱或姓名...",
+        "user": "用户",
+        "currentBalance": "当前余额",
+        "totalDeposited": "总充值",
+        "totalSpent": "总消费",
+        "status": "状态",
+        "low": "低",
+        "normal": "正常",
+        "noUser": "未找到用户"
+      }
+    },
+    "loginHistory": {
+      "title": "登录历史",
+      "subtitle": "跟踪和监控所有管理员登录活动",
+      "stats": {
+        "totalLogins": "总登录次数",
+        "last30Days": "过去30天",
+        "successRate": "成功率",
+        "successful": "{{count}}次成功",
+        "failedAttempts": "失败次数",
+        "locked": "锁定: {{count}}",
+        "uniqueDevices": "独立设备",
+        "countries": "{{count}}个国家"
+      },
+      "suspicious": {
+        "alert": "⚠️ 检测到{{count}}次可疑登录尝试",
+        "failedFrom": "{{date}}从{{ip}}登录失败",
+        "more": "...还有{{count}}条"
+      },
+      "filters": {
+        "status": "状态",
+        "all": "全部",
+        "success": "成功",
+        "failed": "失败",
+        "locked": "已锁定",
+        "fromDate": "开始日期",
+        "toDate": "结束日期",
+        "sortBy": "排序方式",
+        "loginTime": "登录时间",
+        "username": "用户名",
+        "statusSort": "状态",
+        "refresh": "刷新",
+        "loading": "加载中..."
+      },
+      "showing": "显示第{{from}}至{{to}}条，共{{total}}条",
+      "export": "导出CSV",
+      "exportSuccess": "登录历史已导出为CSV",
+      "exportError": "导出登录历史失败",
+      "table": {
+        "account": "账户",
+        "loginTime": "登录时间",
+        "status": "状态",
+        "ip": "IP地址",
+        "location": "位置",
+        "browser": "浏览器",
+        "os": "系统",
+        "device": "设备",
+        "duration": "时长",
+        "newDevice": "新设备"
+      },
+      "noRecords": "无登录记录",
+      "loading": "加载中...",
+      "active": "活跃",
+      "new": "新",
+      "known": "已知",
+      "pagination": {
+        "recordsPerPage": "每页记录数:",
+        "page": "第{{current}} / {{total}}页",
+        "prev": "上一页",
+        "next": "下一页"
+      }
+    },
+    "payments": {
+      "title": "支付管理",
+      "subtitle": "所有支付交易列表",
+      "refresh": "刷新",
+      "summary": {
+        "total": "总支付",
+        "pending": "待处理",
+        "expired": "已过期",
+        "success": "成功"
+      },
+      "list": {
+        "title": "支付列表 ({{count}})",
+        "searchPlaceholder": "按交易码、邮箱、姓名搜索..."
+      },
+      "table": {
+        "transactionCode": "交易码",
+        "subscriptionId": "订阅ID",
+        "user": "用户",
+        "amount": "金额",
+        "type": "类型",
+        "method": "方式",
+        "status": "状态",
+        "createdAt": "创建日期",
+        "actions": "操作"
+      },
+      "status": {
+        "success": "成功",
+        "pending": "待处理",
+        "failed": "失败",
+        "expired": "已过期",
+        "deleted": "已删除"
+      },
+      "paymentType": {
+        "deposit": "充值",
+        "subscription": "订阅"
+      },
+      "actions": {
+        "accept": "接受",
+        "processing": "处理中...",
+        "completed": "已完成",
+        "failed": "失败",
+        "expired": "已过期",
+        "deleted": "已删除"
+      },
+      "pagination": {
+        "info": "第{{current}} / {{total}}页 — 共{{count}}笔"
+      },
+      "confirm": {
+        "title": "确认接受支付",
+        "description": "您确定要接受此支付吗？这将激活订阅或为用户添加资金。",
+        "confirm": "确认",
+        "cancel": "取消"
+      },
+      "loading": "加载数据中...",
+      "noPayments": "未找到支付记录",
+      "toast": {
+        "acceptSuccess": "支付已成功接受！",
+        "acceptError": "支付错误",
+        "acceptErrorDesc": "接受支付时发生错误"
+      }
+    },
+    "supportTickets": {
+      "title": "支持请求管理",
+      "subtitle": "跟踪和处理用户支持请求",
+      "refresh": "刷新",
+      "stats": {
+        "total": "总请求",
+        "open": "开放",
+        "inProgress": "处理中",
+        "resolved": "已解决",
+        "urgent": "紧急"
+      },
+      "filters": {
+        "searchPlaceholder": "按标题、邮箱、姓名搜索...",
+        "status": "状态",
+        "priority": "优先级",
+        "allStatus": "所有状态",
+        "allPriority": "所有优先级"
+      },
+      "status": {
+        "open": "开放",
+        "inProgress": "处理中",
+        "resolved": "已解决",
+        "closed": "已关闭"
+      },
+      "priority": {
+        "low": "低",
+        "medium": "中",
+        "high": "高",
+        "urgent": "紧急"
+      },
+      "services": {
+        "cloud": "云服务器",
+        "storage": "对象存储",
+        "network": "网络 / VPN",
+        "billing": "账单",
+        "account": "账户",
+        "other": "其他"
+      },
+      "table": {
+        "title": "请求 ({{count}})",
+        "id": "#",
+        "titleHeader": "标题 / 客户",
+        "service": "服务",
+        "status": "状态",
+        "priority": "优先级",
+        "date": "提交日期",
+        "actions": "操作",
+        "noData": "无请求"
+      },
+      "detail": {
+        "phone": "电话",
+        "address": "地址",
+        "content": "请求内容",
+        "attachments": "附件",
+        "statusLabel": "状态",
+        "priorityLabel": "优先级",
+        "resolvedAt": "解决时间",
+        "adminNote": "备注 / 客户回复",
+        "adminNotePlaceholder": "输入客户回复... (客户将看到此内容)",
+        "save": "保存回复",
+        "saving": "保存中..."
+      },
+      "delete": {
+        "title": "确认删除支持请求",
+        "description": "您确定要删除此支持请求吗？此操作无法撤销。",
+        "confirm": "删除",
+        "cancel": "取消"
+      },
+      "toast": {
+        "loadError": "无法加载支持请求列表",
+        "updated": "已更新",
+        "updateSuccess": "工单更新成功",
+        "deleted": "工单已删除",
+        "error": "错误"
+      }
+    },
+    "paymentsTitle": "支付管理",
+    "paymentsDesc": "查看和接受支付",
+    "paymentsStats": "支付管理",
+    "loginHistoryTitle": "登录历史",
+    "loginHistoryDesc": "跟踪管理员登录活动",
+    "loginHistoryStats": "安全审计",
+    "compartmentTitle": "分区管理",
+    "compartmentDesc": "查看和删除OCI中的分区",
+    "compartmentStats": "OCI资源",
+    "analyticsTitle": "分析",
+    "analyticsDesc": "查看页面浏览量和用户互动统计",
+    "analyticsStats": "网站分析",
+    "bandwidthTitle": "带宽监控",
+    "bandwidthDesc": "监控所有虚拟机的带宽（限制10TB）",
+    "bandwidthStats": "带宽监控",
+    "supportTicketsTitle": "支持请求",
+    "supportTicketsDesc": "跟踪和处理用户支持请求",
+    "supportTicketsStats": "支持工单",
+    "costsTitle": "费用 & 积分",
+    "costsDesc": "各用户、月份、年份的总余额、充值和消费额",
+    "costsStats": "费用 & 积分概览",
+    "users": {
+      "editDialog": {
+        "title": "编辑用户信息 #{{id}}",
+        "description": "更新用户的详细信息。点击\"保存更改\"以应用。",
+        "lastName": "姓",
+        "firstName": "名",
+        "email": "邮箱",
+        "phone": "电话号码",
+        "backupEmail": "备用邮箱",
+        "company": "公司",
+        "address": "地址",
+        "idCard": "身份证号",
+        "gender": "性别",
+        "genderPlaceholder": "选择性别",
+        "male": "男",
+        "female": "女",
+        "other": "其他",
+        "role": "角色",
+        "statusLabel": "状态",
+        "active": "活跃",
+        "locked": "已锁定",
+        "cancel": "取消",
+        "save": "保存更改",
+        "saving": "保存中..."
+      },
+      "deleteDialog": {
+        "title": "确认删除用户",
+        "description": "您确定要删除此用户吗？此操作无法撤销。",
+        "confirm": "删除",
+        "cancel": "取消"
+      },
+      "pagination": {
+        "info": "第{{current}} / {{total}}页 — 共{{count}}名用户"
+      },
+      "toast": {
+        "updateSuccess": "用户信息更新成功",
+        "updateError": "无法更新用户信息",
+        "deleteSuccess": "用户删除成功",
+        "deleteError": "无法删除用户"
+      },
+      "export": {
+        "fullName": "全名",
+        "phone": "电话号码",
+        "company": "公司",
+        "role": "角色",
+        "status": "状态",
+        "createdAt": "创建日期",
+        "updatedAt": "更新日期",
+        "notAvailable": "无",
+        "sheetName": "用户列表",
+        "active": "活跃",
+        "locked": "锁定"
+      }
+    },
+    "packagesExtra": {
+      "dialog": {
+        "deleteTitle": "确认删除服务套餐",
+        "deleteDesc": "您确定要删除此套餐吗？此操作无法撤销。",
+        "cancel": "取消",
+        "delete": "删除"
+      },
+      "table": {
+        "package": "套餐",
+        "type": "类型",
+        "price": "价格",
+        "specs": "规格",
+        "features": "功能",
+        "status": "状态",
+        "actions": "操作"
+      },
+      "createForm": {
+        "priceUSD": "价格 (USD / 月)",
+        "priceVND": "价格 (VND / 月)",
+        "storage": "存储",
+        "storagePlaceholder": "例如: 80 GB SSD",
+        "bandwidthLabel": "带宽",
+        "bandwidthPlaceholder": "例如: 1 TB",
+        "feature": "功能 / 备注",
+        "featurePlaceholder": "附加功能或备注...",
+        "isActive": "激活（对用户可见）",
+        "saving": "保存中..."
+      }
+    }
+  },
+  "homepage": {
+    "hero": {
+      "title": "越南领先的Oracle云解决方案",
+      "subtitle": "越南官方Oracle合作伙伴",
+      "description": "我们提供基于Oracle Cloud Infrastructure (OCI)的全面云计算解决方案，帮助企业优化成本并提升性能。",
+      "getStarted": "立即开始",
+      "dashboard": "查看仪表板",
+      "contact": "联系咨询",
+      "viewPricing": "查看配置和价格",
+      "imageAlt": "Oracle云仪表板",
+      "features": {
+        "security": {
+          "title": "绝对安全",
+          "description": "99.9%正常运行时间"
+        },
+        "performance": {
+          "title": "高性能",
+          "description": "卓越速度"
+        },
+        "global": {
+          "title": "全球化",
+          "description": "36+数据中心"
+        }
+      },
+      "trustIndicators": {
+        "customers": "客户",
+        "uptime": "正常运行时间",
+        "support": "支持"
+      },
+      "floatingElements": {
+        "costSaving": "节省40%成本",
+        "quickDeploy": "24小时内部署"
+      }
+    },
+    "services": {
+      "title": "服务",
+      "subtitle": "全面的云解决方案",
+      "description": "从数据库到人工智能，我们提供全方位的云服务，满足企业数字化转型的各种需求。",
+      "keyFeatures": "主要功能：",
+      "serviceList": {
+        "database": {
+          "title": "Oracle数据库云",
+          "description": "具有高性能和绝对安全的自管理Oracle数据库",
+          "features": ["自主数据库", "实时应用集群", "数据保护", "高级安全"]
+        },
+        "compute": {
+          "title": "计算云",
+          "description": "灵活的虚拟服务器，可根据企业需求自定义配置",
+          "features": ["裸金属", "虚拟机", "容器引擎", "函数"]
+        },
+        "storage": {
+          "title": "存储解决方案",
+          "description": "从块存储到对象存储的多样化存储解决方案",
+          "features": ["块存储", "对象存储", "文件存储", "归档存储"]
+        },
+        "networking": {
+          "title": "网络",
+          "description": "低延迟和高带宽的全球网络基础设施",
+          "features": ["虚拟云网络", "负载均衡器", "VPN连接", "快速连接"]
+        },
+        "security": {
+          "title": "安全与身份",
+          "description": "多层安全与高级身份和访问管理",
+          "features": ["身份管理", "密钥管理", "Web应用程序防火墙", "安全区域"]
+        },
+        "analytics": {
+          "title": "分析与人工智能",
+          "description": "集成机器学习智能数据分析",
+          "features": ["分析云", "数据科学", "机器学习", "大数据服务"]
+        }
+      },
+      "benefits": {
+        "fastDeploy": {
+          "title": "快速部署",
+          "description": "几分钟内完成设置"
+        },
+        "globalCoverage": {
+          "title": "全球覆盖",
+          "description": "36+数据中心"
+        },
+        "enterpriseSecurity": {
+          "title": "企业级安全",
+          "description": "符合国际标准"
+        },
+        "costOptimization": {
+          "title": "成本优化",
+          "description": "节省高达40%"
+        }
+      }
+    },
+    "pricing": {
+      "title": "定价",
+      "subtitle": "适合各种规模企业的服务套餐",
+      "description": "灵活且可扩展的Oracle云服务套餐，提供越南市场上最具竞争力的价格。",
+      "plans": {
+        "starter": "标准",
+        "professional": "高级",
+        "enterprise": "企业",
+        "ai": "AI-GPU",
+        "custom": "自定义"
+      },
+      "buttons": {
+        "viewDetails": "查看详情",
+        "hideDetails": "隐藏",
+        "showDetails": "显示",
+        "packages": "套餐",
+        "selectPlan": "选择此套餐",
+        "contactConsult": "联系咨询",
+        "close": "关闭"
+      },
+      "tooltips": {
+        "exchangeRate": "价格根据当前汇率计算。",
+        "todayRate": "今日汇率："
+      },
+      "sections": {
+        "selectSuitable": "选择最适合您的套餐",
+        "moreFeatures": "更多功能"
+      },
+      "auth": {
+        "loginRequired": "请登录",
+        "loginToRegister": "请登录以注册自定义套餐"
+      },
+      "additionalInfo": {
+        "support247": "所有套餐均包含24/7技术支持和99.9%正常运行时间保证",
+        "noSetupFee": "无设置费用",
+        "cancelAnytime": "随时取消",
+        "flexiblePayment": "灵活的支付选项",
+        "freeConsult": "免费咨询",
+        "hotlineSupport": "支持热线："
+      }
+    },
+    "form": {
+      "customRegistration": {
+        "title": "自定义套餐注册",
+        "description": "请填写详细信息，以便我们为您推荐最适合的服务套餐。",
+        "userName": "用户名",
+        "email": "电子邮件",
+        "phoneNumber": "电话号码",
+        "company": "公司名称",
+        "configRequirements": "配置要求",
+        "cpu": "CPU",
+        "ram": "内存",
+        "storage": "存储",
+        "bandwidth": "带宽",
+        "additionalNotes": "附加备注",
+        "placeholders": {
+          "userName": "输入您的姓名",
+          "email": "example@company.com",
+          "phoneNumber": "0987654321",
+          "company": "ABC公司",
+          "cpu": "例如：4核，Intel Xeon",
+          "ram": "例如：16GB，32GB",
+          "storage": "例如：500GB SSD，1TB HDD",
+          "bandwidth": "例如：100Mbps，1Gbps",
+          "additionalNotes": "描述特殊要求、部署时间、预计预算等..."
+        },
+        "validation": {
+          "userNameMin": "用户名至少2个字符",
+          "emailInvalid": "电子邮件无效",
+          "phoneNumberMin": "电话号码至少10位",
+          "phoneNumberMax": "电话号码不得超过20位",
+          "cpuRequired": "请输入CPU信息",
+          "ramRequired": "请输入内存信息"
+        },
+        "buttons": {
+          "cancel": "取消",
+          "register": "注册"
+        },
+        "success": {
+          "title": "注册成功！",
+          "description": "我们将尽快与您联系。"
+        },
+        "error": {
+          "title": "发生错误",
+          "description": "请稍后重试或联系支持。"
+        }
+      }
+    }
+  },
+  "pricing": {
+    "loginRequired": "请登录以注册套餐",
+    "plans": {
+      "starter": {
+        "1": {
+          "description": "2 vCPU，1GB 内存，20GB SSD 存储"
+        },
+        "2": {
+          "description": "2 vCPU，2GB 内存，40GB SSD 存储"
+        },
+        "3": {
+          "description": "4 vCPU，4GB 内存，80GB SSD 存储"
+        },
+        "4": {
+          "description": "4 vCPU，8GB 内存，80GB SSD 存储"
+        },
+        "5": {
+          "description": "8 vCPU，8GB 内存，100GB SSD 存储"
+        }
+      },
+      "professional": {
+        "1": {
+          "description": "4 vCPU，6GB 内存，100GB SSD 存储"
+        },
+        "2": {
+          "description": "6 vCPU，8GB 内存，150GB SSD 存储"
+        },
+        "3": {
+          "description": "8 vCPU，10GB 内存，150GB SSD 存储"
+        },
+        "4": {
+          "description": "8 vCPU，12GB 内存，150GB SSD 存储"
+        },
+        "5": {
+          "description": "8 vCPU，16GB 内存，200GB SSD 存储"
+        },
+        "6": {
+          "description": "8 vCPU，32GB 内存，200GB SSD 存储"
+        }
+      },
+      "enterprise": {
+        "1": {
+          "description": "10 vCPU，16GB 内存，250GB SSD 存储"
+        },
+        "2": {
+          "description": "12 vCPU，16GB 内存，250GB SSD 存储"
+        },
+        "3": {
+          "description": "12 vCPU，18GB 内存，500GB SSD 存储"
+        },
+        "4": {
+          "description": "16 vCPU，32GB 内存，500GB SSD 存储"
+        },
+        "5": {
+          "description": "16 vCPU，32GB 内存，1024GB SSD 存储"
+        },
+        "6": {
+          "description": "24 vCPU，32GB 内存，1024GB SSD 存储"
+        },
+        "7": {
+          "description": "36 vCPU，64GB 内存，1024GB SSD 存储"
+        },
+        "8": {
+          "description": "48 vCPU，128GB 内存，1024GB SSD 存储"
+        },
+        "9": {
+          "description": "您甚至不需要注册此套餐即可获得咨询。只需直接拨打热线！"
+        }
+      },
+      "ai": {
+        "1": {
+          "description": "1 GPU P100，16GB 内存，1024 GB"
+        },
+        "2": {
+          "description": "1 GPU A10，24GB 内存，1024 GB"
+        },
+        "3": {
+          "description": "2 GPU P100，32GB 内存，1024 GB"
+        },
+        "4": {
+          "description": "2 GPU A10，48GB 内存，1024GB"
+        }
+      },
+      "custom": {
+        "description": "根据企业要求定制的解决方案",
+        "price": "联系我们",
+        "features": {
+          "flexible": "灵活配置",
+          "integration": "私有系统集成",
+          "consulting": "深度架构咨询",
+          "onsite": "现场部署支持"
+        }
+      }
+    },
+    "categories": {
+      "starter": {
+        "description": "适合小型企业"
+      },
+      "professional": {
+        "description": "中型企业的热门选择"
+      },
+      "enterprise": {
+        "description": "大型企业的全面解决方案"
+      },
+      "ai": {
+        "description": "在云端部署您的LLM模型"
+      }
+    }
+  },
+  "header": {
+    "home": "首页",
+    "services": "服务",
+    "pricing": "定价",
+    "support": "支持",
+    "contact": "联系",
+    "login": "登录",
+    "register": "注册",
+    "hello": "你好",
+    "hotline": "热线: 0707.806.860",
+    "profile": "个人资料",
+    "settings": "设置",
+    "logout": "退出",
+    "logoTitle": "越南Oracle云",
+    "logoSubtitle": "官方合作伙伴",
+    "languageLabel": "语言",
+    "admin": "管理员",
+    "packageManagement": "我的云",
+    "supportRequest": "支持请求"
+    
+  },
+  "footer": {
+    "companyName": "越南Oracle云",
+    "officialPartner": "官方合作伙伴",
+    "companyDescription": "越南官方Oracle合作伙伴，为企业提供领先的云计算解决方案，拥有超过10年的经验。",
+    "services": "服务",
+    "serviceList": {
+      "database": "Oracle数据库云",
+      "compute": "计算云",
+      "storage": "存储解决方案",
+      "networking": "网络",
+      "security": "安全与身份",
+      "analytics": "分析与人工智能"
+    },
+    "support": "支持",
+    "supportList": {
+      "docs": "技术文档",
+      "videos": "指导视频",
+      "forum": "社区论坛",
+      "ticket": "支持工单",
+      "training": "培训与认证",
+      "api": "API文档"
+    },
+    "contact": "联系",
+    "companyFull": "国际网络安全股份有限公司 - ICS",
+    "office": "办公室：河内市定功新大金城市区TT3-5",
+    "phone": "电话：0931.487.231",
+    "hotline": "热线：0707.806.860",
+    "email": "电子邮件：info@icss.com.vn",
+    "website": "www.icss.com.vn",
+    "newsletter": "订阅新闻",
+    "newsletterPlaceholder": "您的电子邮件",
+    "newsletterButton": "订阅",
+    "privacy": "隐私政策",
+    "terms": "使用条款",
+    "sla": "服务级别协议",
+    "sitemap": "网站地图",
+    "copyright": "© 2024 越南Oracle云。保留所有权利。"
+  },
+  "unauthorized": {
+    "title": "您无权访问此页面",
+    "description": "请检查您的访问权限或联系管理员以确认是否为错误。"
+  },
+  "common": {
+    "loading": "加载中...",
+    "logoutSuccess": "退出成功！",
+    "error": "错误"
+  },
+  "checkout": {
+    "title": "结账",
+    "backButton": "返回",
+    "success": {
+      "title": "支付成功！",
+      "desc": "感谢您订阅服务套餐。我们已将确认电子邮件和使用说明发送到您的电子邮件地址。",
+      "configBtn": "配置虚拟机",
+      "manageBtn": "管理订阅套餐",
+      "homeBtn": "返回首页",
+      "note": "注意：如果您在5分钟内未收到电子邮件，请检查垃圾邮件文件夹或联系我们。"
+    },
+    "packageInfo": "服务套餐信息",
+    "packageName": "套餐名称",
+    "description": "描述",
+    "packageType": "套餐类型",
+    "features": "包含功能",
+    "totalAmount": "总金额",
+    "paymentQR": "通过QR支付",
+    "scanQR": "使用银行应用程序扫描QR码进行支付",
+    "bankName": "银行",
+    "accountNumber": "账户号码",
+    "amount": "金额",
+    "content": "内容",
+    "copyInfo": "复制转账信息",
+    "copiedSuccess": "成功复制转账信息",
+    "note": "注意：请确保转账内容准确，以便系统自动激活服务。",
+    "contactSupport": "联系支持",
+    "support247": "24/7技术支持",
+    "noSetupFee": "无设置费用",
+    "uptimeGuarantee": "99.9%正常运行时间保证",
+    "flexiblePayment": "灵活的支付选项",
+    "creatingQR": "正在创建QR码...",
+    "paidSuccessRedirect": "支付成功！正在重定向...",
+    "checkingPayment": "正在检查支付...",
+    "transferContentExact": "转账内容必须准确",
+    "paymentId": "支付ID",
+    "autoConfirmNote": "系统将在转账成功后自动确认。",
+    "monthsSubscription": "订阅月数",
+    "months": "个月",
+    "forMonths": "(共{{n}}个月)"
+  },
+  "login": {
+    "title": "登录",
+    "subtitle": "欢迎回来！请登录以继续。",
+    "email": "邮箱",
+    "emailPlaceholder": "请输入邮箱",
+    "password": "密码",
+    "passwordPlaceholder": "请输入密码",
+    "loginButton": "登录",
+    "loggingIn": "正在登录...",
+    "forgotPassword": "忘记密码？",
+    "noAccount": "还没有账号？",
+    "registerNow": "立即注册",
+    "or": "或",
+    "loginWithGoogle": "使用Google登录",
+    "googleLoginComingSoon": "Google登录功能即将上线。",
+    "fillTestData": "填充测试数据 (test@gmail.com / 123123)",
+    "validationEmailRequired": "请输入邮箱",
+    "validationEmailInvalid": "邮箱格式不正确",
+    "validationPasswordRequired": "请输入密码",
+    "validationPasswordMinLength": "密码至少为{{length}}个字符",
+    "successEmailVerified": "邮件验证成功！请登录。",
+    "successPasswordReset": "密码重置成功！请使用新密码登录。",
+    "errorInvalidCredentials": "邮箱或密码不正确，请检查您的登录信息。",
+    "errorEmailAlreadyExists": "此邮箱已被注册，请使用其他邮箱或登录。",
+    "errorDefault": "登录失败，请重试。"
+  },
+  "profile": {
+    "title": "个人资料",
+    "subtitle": "管理您的账户信息",
+    "loadingUser": "正在加载用户信息...",
+    "id": "ID",
+    "createdAt": "创建日期",
+    "updatedAt": "最后更新",
+    "editInfo": "编辑信息",
+    "editDescription": "更新您的个人信息",
+    "editDialogTitle": "编辑个人资料",
+    "editDialogDesc": "更新您的个人信息。完成后点击保存。",
+    "updateSuccess": "信息已成功更新！",
+    "updateFailed": "更新信息失败",
+    "firstName": "名字",
+    "lastName": "姓氏",
+    "fullName": "全名",
+    "email": "电子邮筱",
+    "emailDescription": "电子邮筱用于登录和接收通知",
+    "phoneNumber": "电话号码",
+    "company": "公司",
+    "gender": "性别",
+    "genderMale": "男",
+    "genderFemale": "女",
+    "genderOther": "其他",
+    "idCard": "身份证号码",
+    "backupEmail": "备用邮筱",
+    "address": "地址",
+    "notProvided": "未提供",
+    "accountStatus": "账户状态",
+    "accountActive": "活跃",
+    "accountInactive": "不活跃",
+    "adminBadge": "管理员",
+    "userBadge": "用户",
+    "sections": {
+      "basicInfo": "基本信息",
+      "contactInfo": "联系信息",
+      "personalDetails": "个人详情",
+      "security": "安全"
+    },
+    "tabs": {
+      "profile": "个人资料",
+      "security": "安全"
+    },
+    "cancel": "取消",
+    "saving": "正在保存...",
+    "saveChanges": "保存更改",
+    "edit": "编辑",
+    "changePassword": "修改密码",
+    "changePasswordDescription": "更新您的密码以保护账户安全",
+    "changePasswordButton": "修改密码",
+    "changePasswordDialogTitle": "修改密码",
+    "changePasswordDialogDesc": "请输入当前密码和新密码。密码必须至少6个字符。",
+    "currentPassword": "当前密码",
+    "newPassword": "新密码",
+    "confirmNewPassword": "确认新密码",
+    "changePasswordSuccess": "密码修改成功！",
+    "changePasswordFailed": "密码修改失败",
+    "passwordsNotMatch": "两次密码输入不一致",
+    "changingPassword": "修改中...",
+    "avatarUploadSuccess": "头像更新成功",
+    "avatarUploadError": "头像更新失败",
+    "avatarSizeError": "文件大小不能超过5MB",
+    "avatarTypeError": "请选择图片文件",
+    "validation": {
+      "firstNameRequired": "名字不能为空",
+      "firstNameMax": "名字不能超过50个字符",
+      "lastNameRequired": "姓氏不能为空",
+      "lastNameMax": "姓氏不能超过50个字符",
+      "emailRequired": "电子邮筱不能为空",
+      "emailInvalid": "电子邮筱格式不正确",
+      "phoneInvalid": "电话号码格式不正确",
+      "backupEmailInvalid": "备用邮筱格式不正确",
+      "idCardInvalid": "身份证号码格式不正确",
+      "currentPasswordRequired": "请输入当前密码",
+      "newPasswordMin": "新密码必须至少6个字符",
+      "confirmPasswordRequired": "请确认新密码",
+      "passwordSameAsCurrent": "新密码必须与当前密码不同"
+    }
+  },
+  "packageDetail": {
+    "title": "显示设备负载状态",
+    "subtitle": "监控和管理您的云包性能",
+    "loading": {
+      "subscription": "正在加载订阅信息..."
+    },
+    "error": {
+      "notFound": "未找到订阅"
+    },
+    "buttons": {
+      "back": "返回"
+    },
+    "status": {
+      "active": "活跃",
+      "inactive": "非活跃",
+      "expired": "已过期",
+      "suspended": "已暂停",
+      "cancelled": "已取消",
+      "pending": "待处理"
+    },
+    "serverDetails": {
+      "title": "服务器详情",
+      "demoData": "演示数据",
+      "status": "状态",
+      "on": "开启",
+      "refresh": "刷新",
+      "hostname": "域名/主机名",
+      "username": "用户名",
+      "password": "密码",
+      "ip": "IP地址",
+      "uptime": "运行时间",
+      "days": "天"
+    },
+    "controls": {
+      "vmName": "虚拟机名称：",
+      "time": "时间：",
+      "theme": "主题：",
+      "showPerformance": "显示性能使用情况",
+      "timeOptions": {
+        "oneHour": "1小时前",
+        "sixHours": "6小时前",
+        "twentyFourHours": "24小时前",
+        "sevenDays": "7天前"
+      },
+      "themeOptions": {
+        "light": "浅色",
+        "dark": "深色"
+      }
+    },
+    "charts": {
+      "cpuUsage": "CPU使用率 (%)",
+      "memoryUsage": "内存使用率 (%)"
+    },
+    "packageInfo": {
+      "title": "包信息",
+      "packageName": "包名称",
+      "vmName": "虚拟机名称",
+      "cpu": "CPU",
+      "memory": "内存",
+      "storage": "存储",
+      "bandwidth": "带宽",
+      "feature": "功能",
+      "ipAddress": "IP地址",
+      "subscriber": "订阅者",
+      "email": "邮箱",
+      "startDate": "开始日期",
+      "endDate": "结束日期",
+      "autoRenew": "自动续费",
+      "monthlyCost": "月费用",
+      "yes": "是",
+      "no": "否"
+    },
+    "actions": {
+      "title": "管理包",
+      "startVM": "启动虚拟机",
+      "pauseVM": "暂停虚拟机",
+      "restartVM": "重启虚拟机",
+      "createBackup": "创建备份",
+      "console": "控制台",
+      "changeOS": "更改/重装操作系统",
+      "deletePackage": "删除包",
+      "configurateVM": "配置虚拟机"
+    },
+    "billing": {
+      "title": "账单信息",
+      "createdDate": "创建日期",
+      "nextBilling": "下次账单",
+      "monthlyCost": "月费用"
+    },
+    "vmInfoTitle": "您的虚拟机信息",
+    "toast": {
+      "error": "错误",
+      "loadError": "无法加载订阅信息",
+      "vmNotConfigured": "VM未配置",
+      "vmNotConfiguredDesc": "请先配置VM",
+      "vmActionSuccess": "成功",
+      "vmActionSuccessDesc": "VM命令已成功发送",
+      "vmActionFailed": "操作失败",
+      "vmActionFailedDesc": "VM操作失败",
+      "deleteVmSuccess": "VM删除成功",
+      "deleteVmSuccessDesc": "VM已删除。订阅仍然有效。",
+      "deleteVmFailed": "VM删除失败",
+      "deleteVmFailedDesc": "请稍后再试或联系支持。",
+      "deleteSuccess": "删除成功",
+      "deleteSuccessDesc": "订阅和VM已完全删除",
+      "deleteError": "删除订阅出错"
+    },
+    "confirmDialog": {
+      "cancel": "取消",
+      "confirm": "确认",
+      "deleteVmOnly": {
+        "title": "删除订阅的VM",
+        "description": "订阅将保持有效但虚拟机将被删除。您需要配置新VM才能继续使用服务。"
+      },
+      "deleteSubscription": {
+        "title": "确认删除订阅",
+        "description": "此操作将永久删除Oracle Cloud上的订阅和虚拟机(VM)。所有相关数据将被删除且无法恢复。删除前请备份重要数据。"
+      }
+    },
+    "vmNotConfigured": {
+      "message1": "VM尚未配置。请配置您的VM以查看服务器详情。",
+      "message2": "未配置VM。请先配置您的VM。",
+      "message3": "VM配置后图表可用",
+      "message4": "VM运行时图表可用",
+      "label": "VM尚未配置",
+      "deleteButton": "删除VM（保留订阅）"
+    }
+  },
+  "support": {
+    "title": "支持请求",
+    "subtitle": "提交技术支持请求并快速获得回复",
+    "submit": "提交支持请求",
+    "submitting": "提交中...",
+    "uploadingFiles": "正在上传文件...",
+    "attachmentsLabel": "附件",
+    "files": {
+      "tooMany": "最多允许 {{max}} 个文件",
+      "tooLarge": "文件超过 {{maxMB}}MB 限制",
+      "limits": "最多 {{max}} 个文件 · 每个 ≤ {{maxMB}}MB · 图片、PDF、Word、文本"
+    },
+    "submitSuccess": "请求提交成功！",
+    "submitSuccessDesc": "我们将尽快回复",
+    "submitError": "请求提交失败",
+    "fields": {
+      "title": "主题",
+      "titlePlaceholder": "简要描述您的问题",
+      "name": "客户名称",
+      "namePlaceholder": "姓名",
+      "email": "邮箱",
+      "emailPlaceholder": "联系邮箱",
+      "phone": "电话号码",
+      "phonePlaceholder": "联系电话",
+      "address": "地址",
+      "addressPlaceholder": "您的地址",
+      "service": "服务",
+      "servicePlaceholder": "选择服务",
+      "content": "内容",
+      "contentPlaceholder": "详细描述您遇到的问题...",
+      "attachments": "附件",
+      "attachmentsPlaceholder": "拖放文件到此处或",
+      "attachmentsBrowse": "从电脑浏览"
+    },
+    "services": {
+      "cloud": "云服务器",
+      "storage": "对象存储",
+      "network": "网络 / VPN",
+      "billing": "账单",
+      "account": "账户",
+      "other": "其他"
+    },
+    "myTickets": "我的工单",
+    "myTicketsSubtitle": "跟踪已提交请求的状态",
+    "noTickets": "暂无支持请求",
+    "loadingTickets": "正在加载您的请求...",
+    "fetchErrorTitle": "无法加载数据",
+    "retryBtn": "重试",
+    "emptyTitle": "暂无请求",
+    "emptySubtitle": "您的请求将显示在此处",
+    "ticketSubmittedOn": "提交于",
+    "statusLabel": "状态:",
+    "resolvedAt": "解决于:",
+    "serviceLabel": "服务:",
+    "requestContent": "请求内容:",
+    "adminReplyTitle": "支持团队回复:",
+    "waitingReply": "我们正在处理您的请求。请等待支持团队的回复。",
+    "hasReply": "有回复",
+    "formNote": "请填写完整信息，以便我们清楚了解您的问题",
+    "status": {
+      "open": "开放",
+      "in_progress": "处理中",
+      "resolved": "已解决",
+      "closed": "已关闭"
+    },
+    "validation": {
+      "titleMin": "标题至少4字符以上",
+      "nameMin": "请输入您的姓名",
+      "emailInvalid": "无效的电子邮件地址",
+      "contentMin": "内容至少10字符以上"
+    },
+    "priority": {
+      "low": "低",
+      "medium": "中",
+      "high": "高",
+      "urgent": "紧急"
+    }
+  },
+  "adminSupport": {
+    "title": "支持工单管理",
+    "subtitle": "跟踪和处理用户的支持请求",
+    "totalTickets": "总工单",
+    "openTickets": "开放",
+    "inProgressTickets": "处理中",
+    "resolvedTickets": "已解决",
+    "updateSuccess": "更新成功",
+    "updateError": "更新失败",
+    "deleteConfirm": "确定要删除此工单吗？",
+    "adminNote": "管理员备注",
+    "adminNotePlaceholder": "输入处理备注..."
+  },
+  "walletSidebar": {
+    "title": "我的账户",
+    "subtitle": "管理云和付款",
+    "myCloud": "我的云",
+    "myCloudDesc": "管理已购套餐",
+    "paymentManagement": "付款管理",
+    "paymentManagementDesc": "查看交易历史",
+    "needHelp": "需要帮助?",
+    "contactSupport": "联系支持",
+    "account": "账户"
+  },
+  "paymentHistory": {
+    "title": "交易历史",
+    "loading": "正在加载交易历史...",
+    "totalDeposit": "累计充值",
+    "totalPaid": "总付款金额",
+    "depositCount": "充値次数",
+    "paymentCount": "支付次数",
+    "packagesBought": "已购套餐",
+    "processing": "处理中",
+    "filterTitle": "筛选和搜索",
+    "exportExcel": "导出Excel",
+    "searchPlaceholder": "按ID或交易码搜索...",
+    "allStatus": "所有状态",
+    "statusSuccess": "成功",
+    "statusPending": "处理中",
+    "statusFailed": "失败",
+    "allTypes": "所有交易类型",
+    "deposit": "充値",
+    "subscriptionPayment": "套餐付款",
+    "advancedFilter": "高级筛选",
+    "transactionHistory": "交易历史 ({{count}} 笔交易)",
+    "noTransactions": "未找到交易记录",
+    "months": "个月",
+    "viewDetail": "查看详情",
+    "viewDetailDesc": "交易详情 {{code}}",
+    "viewPaymentDetail": "查看支付详情",
+    "paymentDetailError": "无法加载支付信息",
+    "exportSuccess": "Excel导出成功",
+    "exportSuccessDesc": "已导出 {{count}} 笔交易",
+    "exportError": "Excel导出错误",
+    "exportErrorDesc": "无法导出Excel文件，请重试",
+    "loadError": "错误",
+    "loadErrorDesc": "无法加载交易历史",
+    "depositDescription": "充値到账户",
+    "payment": "付款",
+    "unknown": "未知",
+    "transaction": "交易",
+    "accountBalance": "账户余额",
+    "qrCode": "QR码",
+    "bankTransfer": "银行转账",
+    "excelSummary": "总计: {{count}} 笔交易",
+    "showing": "显示 {{total}} 中的 {{count}} 笔交易",
+    "prevPage": "上一页",
+    "nextPage": "下一页",
+    "labels": {
+      "id": "ID",
+      "ref": "Ref",
+      "balance": "交易后余额",
+      "subscriptionId": "订阅 ID"
+    },
+    "types": {
+      "deposit": "充值",
+      "subscriptionPayment": "套餐付款",
+      "autoRenewal": "自动续费",
+      "manualRenewal": "手动续费",
+      "default": "交易"
+    },
+    "excel": {
+      "sheetName": "钱包交易历史",
+      "filePrefix": "wallet-transaction-history",
+      "no": "序号",
+      "transactionType": "交易类型",
+      "amountVnd": "金额 (VND)",
+      "balanceAfterVnd": "交易后余额 (VND)",
+      "referenceCode": "参考支付码",
+      "transactionId": "交易 ID",
+      "time": "时间"
+    },
+    "detail": {
+      "title": "交易详情",
+      "amount": "金额",
+      "balanceAfter": "交易后余额",
+      "paymentId": "支付ID",
+      "subscriptionId": "订阅ID",
+      "transactionCode": "交易代码",
+      "paymentMethod": "支付方式",
+      "description": "描述",
+      "package": "服务套餐",
+      "createdAt": "创建时间",
+      "updatedAt": "最后更新",
+      "close": "关闭",
+      "copied": "已复制"
+    },
+    "paymentDetail": {
+      "title": "支付详情",
+      "amount": "金额",
+      "type": "支付类型",
+      "method": "支付方式",
+      "transactionCode": "交易代码",
+      "subscriptionId": "订阅ID",
+      "package": "服务套餐",
+      "description": "内容",
+      "time": "时间",
+      "close": "关闭",
+      "statuses": {
+        "pending": "待处理",
+        "success": "成功",
+        "failed": "失败",
+        "expired": "已过期"
+      },
+      "methods": {
+        "sepayQr": "SePay QR",
+        "accountBalance": "账户余额",
+        "bankTransfer": "银行转账"
+      },
+      "types": {
+        "deposit": "充値",
+        "subscription": "订阅套餐"
+      }
+    }
+  },
+  "balanceDisplay": {
+    "label": "余额:",
+    "addFunds": "充値",
+    "loading": "加载中...",
+    "error": "无法加载余额",
+    "refresh": "刷新余额"
+  },
+  "subscriptionCheckout": {
+    "title": "订阅付款",
+    "back": "返回",
+    "transactionInfo": "交易信息",
+    "transactionType": "交易类型：",
+    "subscriptionRegistration": "订阅注册",
+    "paymentMethodLabel": "支付方式：",
+    "bankTransfer": "银行转账",
+    "subscriptionIdLabel": "订阅ID：",
+    "paymentAmount": "付款金额：",
+    "timeLeft": "剩余时间：",
+    "expireWarning": "交易将在上述时间后过期。请在到期前完成付款。",
+    "transactionCode": "交易码：",
+    "autoConfirm": "收到付款后，交易将自动确认。",
+    "benefit1": "订阅将立即激活",
+    "benefit2": "无交易费用",
+    "benefit3": "24/7支持",
+    "benefit4": "安全加密交易",
+    "scanQR": "扫码付款",
+    "loadingPaymentInfo": "正在加载付款信息...",
+    "paymentSuccessRedirect": "✅ 支付成功！正在重定向...",
+    "checkingPayment": "正在检查付款...",
+    "scanQRDesc": "使用銀行应用程序扫描QR码进行支付",
+    "bankLabel": "銀行：",
+    "accountNumberLabel": "账户号码：",
+    "accountHolderLabel": "账户持有人：",
+    "amountLabel": "金额：",
+    "contentLabel": "内容：",
+    "copyTransferInfo": "复制转账信息",
+    "importantNote": "重要提示：",
+    "importantNoteDesc": "请转账正确的金额和正确的内容，以便系统可以自动确认交易。",
+    "contactSupport": "联系支持",
+    "alreadyTransferred": "已转账",
+    "invalidInfo": "信息无效",
+    "invalidInfoDesc": "找不到付款信息。请重试。",
+    "backHome": "返回首页",
+    "copiedTransferInfo": "已复制转账信息",
+    "paymentSuccess": "支付成功！",
+    "subscriptionActivated": "订阅已激活。",
+    "qrReadyToast": "QR码准备就绪",
+    "qrReadyToastDesc": "请扫描二维码，或使用以下信息手动转账。",
+    "alreadyTransferredToast": "感谢您！",
+    "alreadyTransferredToastDesc": "我们已记录您的付款，收到转账后交易将自动确认。"
+  },
+  "cloudConfig": {
+    "title": "配置VM实例",
+    "subscriptionLabel": "订阅ID: {{id}}",
+    "back": "返回套餐管理",
+    "vmDetails": "VM实例详情",
+    "vmInstanceName": "VM实例名称",
+    "vmNameNote": "VM名称将根据您的电子邮件地址自动生成，格式为：",
+    "notificationSettings": "通知设置",
+    "emailLabel": "电子邮件地址 * (SSH密钥将发送至此)",
+    "emailNote": "您的SSH私钥将发送到此电子邮件地址。请妥善保管。",
+    "vmShape": "VM规格 *",
+    "vmShapeNote": "首先选择VM规格 - OS选项将根据兼容性进行过滤",
+    "recommended": "推荐",
+    "armCapacityLimited": "⚠️ ARM容量有限",
+    "armCapacityNote": "A1.Flex (ARM) 实例在新加坡区域的容量通常有限。如果由于容量问题导致配置失败，请稍后重试或切换到可用性更好的x86规格 (E2.1.Micro, E3.Flex)。",
+    "armImageNote": "注意：ARM镜像 (🔷) 仅适用于A1.Flex。x86镜像 (🔵) 适用于E2、E3、E4、Standard规格。",
+    "operatingSystem": "操作系统",
+    "showingCompatible": "显示与 {{shape}} 兼容的镜像",
+    "selectOS": "选择操作系统 *",
+    "versions": "版本",
+    "searchVersion": "搜索版本...",
+    "noImagesFound": "未找到镜像",
+    "loadingOsImages": "正在加载OS镜像...",
+    "configSummary": "配置摘要",
+    "osLabel": "操作系统",
+    "notSelected": "未选择",
+    "vmShapeLabel": "VM规格",
+    "ocpus": "OCPUs",
+    "memory": "内存",
+    "bootVolume": "启动卷",
+    "notificationEmail": "通知邮件",
+    "notSpecified": "未指定",
+    "allFieldsCompleted": "所有必填字段已完成",
+    "incompleteFields": "请填写所有必填字段：",
+    "needOS": "选择操作系统",
+    "needOSVersion": "选择OS版本",
+    "needEmail": "账户上未找到电子邮件地址",
+    "configureVM": "配置VM",
+    "configuring": "配置中...",
+    "cancelBtn": "取消",
+    "confirmTitle": "确认重装操作系统",
+    "confirmDesc": "旧VM及所有数据和已安装软件将丢失。您确定吗？",
+    "confirmCancel": "取消",
+    "confirmOk": "确认",
+    "creatingVM": "正在创建 VM 实例",
+    "creatingVMDesc": "您的虚拟机正在配置中...",
+    "provisionStep1": "正在配置分区和网络",
+    "provisionStep2": "正在启动计算实例",
+    "provisionStep3": "正在配置网络和安全性",
+    "provisionStep4": "正在准备访问凭据",
+    "timeEstimate": "这可能需要2-5分钟",
+    "doNotClose": "⚠️ 请勿关闭此窗口或导航离开",
+    "loadingSubscription": "正在加载订阅详情...",
+    "subscriptionNotFound": "找不到订阅",
+    "subscriptionNotFoundBtn": "返回套餐管理",
+    "validationError": "验证错误",
+    "validationErrorDesc": "请为所有必填字段填写有效値",
+    "configSuccess": "成功",
+    "armCapacityUnavailable": "ARM容量不可用",
+    "capacityUnavailable": "容量不可用",
+    "configFailed": "配置失败"
+  },
+  "addFunds": {
+    "title": "充値到账户",
+    "back": "返回",
+    "selectPaymentMethod": "选择支付方式",
+    "enterAmount": "输入充値金额",
+    "amountLabel": "金额 (VND)",
+    "amountPlaceholder": "输入金额...",
+    "amountDisplay": "金额：",
+    "quickAmounts": "或选择快速金额",
+    "processing": "处理中...",
+    "confirm": "确认充値 {{amount}} VND",
+    "comingSoon": "即将推出",
+    "noteTitle": "注意：",
+    "noteMin": "最小充値金额：10,000 VND",
+    "noteMax": "最大充値金额：100,000,000 VND",
+    "noteCredit": "付款确认后充値将被计入账户",
+    "errorMin": "最小充値金额为10,000 VND",
+    "errorMax": "最大充値金额为100,000,000 VND",
+    "errorSelectMethod": "请选择支付方式",
+    "errorMethodUnavailable": "此支付方式暂不可用",
+    "errorLogin": "请登录以继续",
+    "errorGeneral": "错误",
+    "successTitle": "成功",
+    "successDesc": "充値请求已创建，正在跳转到支付页面...",
+    "methods": {
+      "momo": { "name": "MoMo钱包", "description": "通过MoMo电子钱包支付" },
+      "card": { "name": "国际支付卡", "description": "Visa、Mastercard、JCB" },
+      "bank_transfer": { "name": "银行转账", "description": "扫描QR码或手动转账" }
+    }
+  },
+  "pricingModal": {
+    "title": "选择支付方式",
+    "subtitle": "为 {{planName}} 套餐选择合适的支付方式",
+    "accountBalance": "账户余额扣款",
+    "accountBalanceDesc": "使用账户中的可用余额进行支付",
+    "currentBalance": "当前余额",
+    "addFundsBtn": "充值",
+    "instantPayment": "即时支付",
+    "noFees": "无手续费",
+    "directPayment": "直接付款",
+    "directPaymentDesc": "通过银行转账或QR码支付",
+    "monthsLabel": "订阅月数",
+    "totalDeduction": "钱包扣款总额",
+    "totalPayment": "总支付金额",
+    "perMonthCalc": "{{price}} × {{months}} 个月",
+    "termsPrefix": "我已阅读并同意",
+    "termsLink": "服务条款",
+    "termsSuffix": "（OracleCloud Vietnam）。",
+    "closeBtn": "关闭",
+    "confirmBtn": "确认",
+    "processing": "处理中...",
+    "errorTitle": "错误",
+    "errorSelectMethod": "请选择支付方式",
+    "errorMonths": "月数必须在 1 到 24 之间",
+    "insufficientBalanceTitle": "余额不足",
+    "insufficientBalanceDesc": "您的余额不足，请充值。",
+    "successTitle": "注册成功！",
+    "successDesc": "已成功注册 {{planName}} 套餐。费用已从账户中扣除。",
+    "errorGeneral": "发生错误，请重试。"
+  },
+  "register": {
+    "title": "创建账户",
+    "subtitle": "创建新账户以开始使用我们的服务",
+    "firstName": "姓",
+    "firstNamePlaceholder": "张",
+    "lastName": "名",
+    "lastNamePlaceholder": "三",
+    "email": "电子邮件",
+    "emailPlaceholder": "your@email.com",
+    "password": "密码",
+    "passwordPlaceholder": "\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7",
+    "confirmPassword": "确认密码",
+    "confirmPasswordPlaceholder": "\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7",
+    "registerButton": "注册",
+    "registering": "注册中...",
+    "or": "或",
+    "registerWithGoogle": "使用 Google 注册",
+    "googleComingSoon": "Google 注册功能即将推出",
+    "haveAccount": "已有账户？",
+    "loginNow": "立即登录",
+    "validation": {
+      "firstNameRequired": "姓不能为空",
+      "firstNameMaxLength": "姓不能超过50个字符",
+      "lastNameRequired": "名不能为空",
+      "lastNameMaxLength": "名不能超过50个字符",
+      "emailRequired": "电子邮件不能为空",
+      "emailInvalid": "电子邮件格式无效",
+      "passwordMinLength": "密码至少6个字符",
+      "passwordMaxLength": "密码不能超过100个字符",
+      "confirmPasswordRequired": "请确认您的密码",
+      "passwordsMismatch": "密码不一致"
+    },
+    "errorEmailAlreadyExists": "此邮箱已被注册，请使用其他邮箱或登录。",
+    "errorDefault": "注册失败，请重试。"
+  },
+  "verifyOtp": {
+    "title": "验证邮件",
+    "unverifiedWarning": "⚠️ 账户未验证",
+    "otpSentToEmail": "OTP 已发送至您的邮箱",
+    "pleaseEnterOtp": "请输入 OTP 以验证您的账户",
+    "enterCodeSentTo": "请输入发送至以下地址的6位验证码",
+    "codeInstruction": "请输入邮件中的6位验证码",
+    "verifyButton": "验证邮件",
+    "verifying": "验证中...",
+    "didntReceiveCode": "没有收到验证码？",
+    "sending": "发送中...",
+    "resendIn": "{{time}}秒后重新发送",
+    "resendCode": "重新发送验证码",
+    "securityNote": "🔒 此验证码 10 分钟后过期，请勿与任何人分享。",
+    "errorInvalidOtp": "OTP 验证码错误，请重新检查。",
+    "errorIncomplete": "请输入完整的6位验证码",
+    "status": {
+      "sending": "正在发送验证码...",
+      "sentTitle": "验证码已发送！",
+      "sentCheckEmail": "请检查您的邮件: {{email}}",
+      "verifyingCode": "正在验证...",
+      "successMessage": "邮件验证成功！",
+      "errorTitle": "验证失败",
+      "resendAvailableIn": "{{time}}秒后可重新发送"
+    }
+  },
+  "forgotPassword": {
+    "recoverEmail": {
+      "title": "忘记密码",
+      "subtitle": "请输入您的电子邮件以接收重置密码的OTP验证码",
+      "emailLabel": "电子邮件",
+      "emailPlaceholder": "example@email.com",
+      "submitButton": "发送OTP",
+      "sending": "发送中...",
+      "rememberPassword": "记起密码了？",
+      "loginLink": "登录",
+      "validation": {
+        "emailRequired": "电子邮件不能为空",
+        "emailInvalid": "电子邮件格式无效"
+      }
+    },
+    "otpConfirm": {
+      "title": "OTP 验证",
+      "subtitle": "请输入发送到您邮筱的6位OTP验证码：",
+      "submitButton": "确认OTP",
+      "verifying": "验证中...",
+      "resend": "重新发送OTP",
+      "resendCountdown": "{{countdown}}秒后重新发送",
+      "backToLogin": "\u2190 返回登录",
+      "validation": {
+        "otpRequired": "请输入完整的6位OTP验证码"
+      }
+    }
+  },
+  "addFundsPayment": {
+    "title": "账户充值",
+    "back": "返回",
+    "invalidInfo": "无效信息",
+    "invalidInfoDesc": "未找到支付信息，请重试。",
+    "backToAddFunds": "返回充值页面",
+    "transactionInfo": "交易信息",
+    "transactionType": "交易类型:",
+    "addFundsType": "充值",
+    "paymentMethodLabel": "支付方式:",
+    "bankTransfer": "银行转账",
+    "depositAmount": "充值金额:",
+    "timeLeft": "剩余时间:",
+    "expireWarning": "交易将在上述时间后过期，请在过期前完成付款。",
+    "transactionCode": "交易代码:",
+    "autoConfirm": "收到付款后，交易将自动确认。",
+    "benefit1": "充值将立即反映到您的账户",
+    "benefit2": "无手续费",
+    "benefit3": "7×24小时支持",
+    "benefit4": "加密安全交易",
+    "scanQR": "扫描二维码支付",
+    "loadingPaymentInfo": "加载支付信息中...",
+    "paymentSuccessRedirect": "\u2705 充值成功！正在跳转...",
+    "checkingPayment": "正在检查支付...",
+    "scanQRDesc": "使用银行APP扫描二维码进行支付",
+    "bankLabel": "银行:",
+    "accountNumberLabel": "账号:",
+    "accountHolderLabel": "账户名:",
+    "amountLabel": "金额:",
+    "contentLabel": "备注:",
+    "copyTransferInfo": "复制转账信息",
+    "importantNote": "重要提示:",
+    "importantNoteDesc": "请按照正确金额和转账内容进行转账，以便系统自动确认交易。",
+    "contactSupport": "联系支持",
+    "alreadyTransferred": "我已转账",
+    "alreadyTransferredToast": "感谢您！",
+    "alreadyTransferredToastDesc": "我们已记录您的付款，收到转账后交易将自动确认。",
+    "copiedTransferInfo": "转账信息已复制",
+    "paymentSuccess": "充值成功！",
+    "paymentSuccessDesc": "资金已添加到您的账户。",
+    "successWithAmount": "已成功向您的账户充值 {{amount}}。",
+    "loading": "加载中...",
+    "qrReadyToast": "QR码准备就绪",
+    "qrReadyToastDesc": "请扫描二维码，或使用以下信息手动转账。",
+    "transferInfo": "银行: {{bank}}\n账号: {{account}}\n金额: {{amount}} VND\n备注: {{content}}"
+  }
+}

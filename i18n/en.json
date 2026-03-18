@@ -1,0 +1,2017 @@
+{
+  "packageManagement": {
+    "title": "Subscription My Cloud",
+    "subtitle": "Track and manage your active service packages",
+    "searchPlaceholder": "Search by package name, email...",
+    "status": "Status",
+    "type": "Package Type",
+    "filter": {
+      "all": "All",
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "stats": {
+      "total": "Total Packages",
+      "active": "Active",
+      "inactive": "Inactive",
+      "revenue": "Revenue/Month"
+    },
+    "table": {
+      "title": "List of Subscription Packages ({{count}})",
+      "packageName": "Package Name",
+      "type": "Type",
+      "paidAmount": "Paid Amount",
+      "createdAt": "Subscription Date",
+      "updatedAt": "Last Updated",
+      "status": "Status",
+      "actions": "Actions",
+      "noMatch": "No matching packages found",
+      "noPackage": "No subscription packages yet",
+      "customPackage": "Custom Package",
+      "active": "Active",
+      "inactive": "Inactive",
+      "pending": "Pending",
+      "suspended": "Suspended",
+      "cancelled": "Cancelled", 
+      "expired": "Expired",
+      "pauseTitle": "Pause Package",
+      "activateTitle": "Activate Package",
+      "deleteTitle": "Delete Package"
+    },
+    "confirmDialog": {
+      "cancel": "Cancel",
+      "confirm": "Confirm",
+      "deleteSubscription": {
+        "title": "Confirm Delete Subscription",
+        "description": "This action will PERMANENTLY DELETE the subscription and the virtual machine (VM) on Oracle Cloud. All related data will be deleted and CANNOT BE RECOVERED. Please backup important data before deleting."
+      },
+      "stopVm": {
+        "title": "Confirm Stop VM",
+        "description": "Are you sure you want to stop this VM?"
+      },
+      "startVm": {
+        "title": "Confirm Start VM",
+        "description": "Are you sure you want to start this VM?"
+      },
+      "renewSubscription": {
+        "title": "Confirm Subscription Renewal",
+        "description": "Are you sure you want to renew the \"{{packageName}}\" package? {{cost}} will be deducted from your wallet."
+      }
+    },
+    "toast": {
+      "loadingList": "Loading subscription list...",
+      "vmNotConfigured": "VM not configured",
+      "vmStopSent": "Stop VM command sent",
+      "vmStartSent": "Start VM command sent",
+      "vmActionPending": "Status will update automatically when complete.",
+      "vmStopError": "Error stopping VM",
+      "vmStartError": "Error starting VM",
+      "renewSuccess": "Subscription renewed successfully!",
+      "renewSuccessDesc": "Your subscription is now active and your VM has been started.",
+      "renewFailed": "Renewal failed",
+      "renewInsufficientFunds": "You do not have enough balance to renew. Please top up your wallet.",
+      "renewError": "An error occurred while renewing the subscription",
+      "deleteSuccess": "Subscription and VM deleted successfully!",
+      "deleteError": "An error occurred while deleting the subscription"
+    },
+    "notConfigured": "Not Configured",
+    "tooltip": {
+      "stopVm": "Stop VM",
+      "startVm": "Start VM",
+      "stopping": "VM is stopping...",
+      "starting": "VM is starting...",
+      "transitioning": "VM is in transition state",
+      "renewSubscription": "Renew subscription"
+    },
+    "fetchError": {
+      "title": "Error",
+      "system": "System error loading subscription list. Please try again later.",
+      "network": "Unable to load subscription list. Please check your network connection."
+    }
+  },
+  "contactInfo": {
+    "heroTitle": "Contact Us",
+    "heroDesc": "Official Oracle partner in Vietnam, ready to support you 24/7",
+    "companyInfo": "Company Information",
+    "companyName": "INTERNATIONAL CYBERSECURITY JOINT STOCK COMPANY - ICS",
+    "officeHanoi": "Hanoi Office",
+    "officeAddress": "TT3-5 Dai Kim New Urban Area, Dinh Cong, Hanoi",
+    "contactInfo": "Contact Information",
+    "phoneHotline": "Phone & Hotline",
+    "email": "Email",
+    "website": "Website",
+    "mapTitle": "Location on Map",
+    "mapDesc": "Find directions to our office",
+    "learnMore": "Learn more about us →",
+    "openInMaps": "Open in Maps"
+  },
+  "dashboard": {
+    "title": "System Management",
+    "user": {
+      "title": "User Management",
+      "desc": "View, edit, and manage user accounts",
+      "stats": "Total {{count}} users"
+    },
+    "customRegistration": {
+      "title": "Custom Package Registration",
+      "desc": "Manage custom service package registration requests",
+      "stats": "{{count}} new requests"
+    },
+    "access": "Access"
+  },
+  "admin": {
+    "title": "Admin Dashboard",
+    "userTitle": "User Management",
+    "userDesc": "View, edit, and manage user accounts",
+    "userStats": "Total {{count}} users",
+    "customRegTitle": "Custom Package Registration",
+    "customRegDesc": "Track and process custom package registration requests",
+    "customRegStats": "{{count}} new requests",
+    "access": "Access",
+    "packagesTitle": "Manage Cloud Packages",
+    "packagesDesc": "Create, edit, and manage cloud service packages",
+    "packagesStats": "Total: {{count}} packages",
+    "subscriptionsTitle": "Manage Service Subscriptions",
+    "subscriptionsDesc": "View and manage user-subscribed service packages (subscriptions)",
+    "subscriptionsStats": "View and manage subscribed user plans (subscriptions)",
+    "user": {
+      "title": "User Management",
+      "subtitle": "Manage user accounts in the system",
+      "exportExcel": "Export to Excel",
+      "searchPlaceholder": "Search by email, name, company...",
+      "stats": {
+        "total": "Total Users",
+        "active": "Active",
+        "inactive": "Locked"
+      },
+      "table": {
+        "id": "ID",
+        "email": "Email",
+        "name": "Full Name",
+        "phone": "Phone Number",
+        "company": "Company",
+        "role": "Role",
+        "status": "Status",
+        "createdAt": "Created Date",
+        "updatedAt": "Updated Date",
+        "actions": "Actions",
+        "noUserFound": "No users found",
+        "noUser": "No users yet",
+        "noData": "No data",
+        "admin": "Admin",
+        "customer": "Customer",
+        "active": "Active",
+        "inactive": "Locked"
+      },
+      "actions": {
+        "grantAdmin": "Grant Admin Role",
+        "revokeAdmin": "Revoke Admin Role",
+        "delete": "Delete User"
+      },
+      "loading": "Loading..."
+    },
+    "customRegistration": {
+      "title": "Custom Package Registration Management",
+      "subtitle": "Track and process custom service package registration requests",
+      "exportExcel": "Export to Excel",
+      "stats": {
+        "total": "Total Registrations",
+        "processed": "Processed",
+        "unprocessed": "Unprocessed"
+      },
+      "searchPlaceholder": "Search by email, phone number, name, company...",
+      "filter": {
+        "all": "All",
+        "processed": "Processed",
+        "unprocessed": "Unprocessed"
+      },
+      "table": {
+        "id": "ID",
+        "user": "Registrant",
+        "contact": "Contact",
+        "company": "Company",
+        "config": "Configuration",
+        "note": "Note",
+        "time": "Time",
+        "status": "Status",
+        "noData": "No matching data",
+        "noCompany": "None",
+        "cpu": "CPU",
+        "ram": "RAM",
+        "storage": "Storage",
+        "bandwidth": "Bandwidth"
+      },
+      "footer": "Showing {{current}} / {{total}} registrations",
+      "loading": "Loading data...",
+      "export": {
+        "phone": "Phone Number",
+        "detail": "Details",
+        "createdAt": "Registration Date",
+        "createdBy": "Created By",
+        "notAvailable": "N/A",
+        "sheetName": "Custom Registrations",
+        "system": "System"
+      }
+    },
+    "packages": {
+      "createPackage": {
+        "title": {
+          "create": "Create New Package",
+          "edit": "Edit Package"
+        },
+        "form": {
+          "packageName": "Package Name",
+          "packageNamePlaceholder": "E.g: Starter 1",
+          "category": "Category",
+          "categoryOptions": {
+            "starter": "Starter",
+            "professional": "Professional",
+            "enterprise": "Enterprise",
+            "ai": "AI-GPU",
+            "custom": "Custom"
+          },
+          "description": "Description",
+          "descriptionPlaceholder": "Service package description",
+          "price": "Price ($)",
+          "period": "Period",
+          "periodOptions": {
+            "month": "month",
+            "year": "year"
+          },
+          "popularPackage": "Popular Package",
+          "features": "Features",
+          "featurePlaceholder": "E.g: 4 vCPU",
+          "addFeature": "Add Feature"
+        },
+        "buttons": {
+          "cancel": "Cancel",
+          "create": "Create Package",
+          "update": "Update"
+        },
+        "validation": {
+          "error": "Error",
+          "fillAllFields": "Please fill in all required information"
+        }
+      },
+      "management": {
+        "title": "Package Management",
+        "subtitle": "Create, edit, and manage cloud service packages",
+        "createNewPackage": "Create New Package",
+        "searchPlaceholder": "Search service packages...",
+        "filter": {
+          "allCategories": "All Categories",
+          "starter": "Starter",
+          "professional": "Professional",
+          "enterprise": "Enterprise",
+          "ai": "AI-GPU",
+          "custom": "Custom"
+        },
+        "categories": {
+          "starter": "Starter",
+          "professional": "Professional",
+          "enterprise": "Enterprise",
+          "ai": "AI-GPU",
+          "custom": "Custom"
+        },
+        "table": {
+          "servicePackage": "Service Package",
+          "category": "Category",
+          "price": "Price",
+          "description": "Description",
+          "features": "Features",
+          "status": "Status",
+          "actions": "Actions",
+          "moreFeatures": "more features",
+          "popular": "Popular",
+          "noPackagesFound": "No service packages found",
+          "active": "Active",
+          "inactive": "Inactive"
+        },
+        "toast": {
+          "createSuccess": "Success",
+          "createSuccessDesc": "Package created successfully",
+          "updateSuccess": "Success",
+          "updateSuccessDesc": "Package updated successfully",
+          "deleteSuccess": "Success",
+          "deleteSuccessDesc": "Package deleted successfully"
+        }
+      }
+    },
+    "subscriptions": {
+      "title": "Subscription Management",
+      "backButton": "Go Back",
+      "searchPlaceholder": "Search by username, email, package name, ID...",
+      "filterByStatus": "Filter by status",
+      "confirmDelete": "Are you sure you want to delete this subscription?",
+      "filter": {
+        "allStatus": "All Status"
+      },
+      "status": {
+        "active": "Active",
+        "pending": "Pending",
+        "inactive": "Inactive",
+        "expired": "Expired",
+        "suspended": "Suspended",
+        "cancelled": "Cancelled"
+      },
+      "stats": {
+        "total": "Total Subscriptions",
+        "pending": "Pending",
+        "active": "Active",
+        "expired": "Expired",
+        "cancelled": "Cancelled"
+      },
+      "table": {
+        "title": "Subscription List",
+        "showing": "Showing {{from}} - {{to}} of {{total}} subscriptions",
+        "noData": "No subscriptions found",
+        "id": "ID",
+        "user": "User",
+        "package": "Package",
+        "vmInfo": "VM Information",
+        "noPublicIp": "No public IP",
+        "notConfigured": "Not configured",
+        "startDate": "Start Date",
+        "endDate": "End Date",
+        "status": "Status",
+        "autoRenew": "Auto Renew",
+        "price": "Price",
+        "createdAt": "Created Date",
+        "actions": "Actions",
+        "yes": "Yes",
+        "no": "No",
+        "recordsPerPage": "Records per page:",
+        "goTo": "Go to page:",
+        "pageOf": "Page {{current}} of {{total}}"
+      },
+      "actions": {
+        "viewDetail": "View Details",
+        "edit": "Edit",
+        "delete": "Delete"
+      },
+      "toast": {
+        "success": "Success",
+        "error": "Error",
+        "info": "Information",
+        "loadError": "Unable to load subscription list",
+        "deleteSuccess": "Subscription deleted successfully",
+        "deleteError": "Unable to delete subscription",
+        "deleteWithVmSuccess": "Subscription and VM deleted successfully.",
+        "deleteVmOnlySuccess": "VM deleted. Subscription still valid.",
+        "deleteVmOnlyError": "Cannot delete VM",
+        "stopVmSuccess": "VM stopped successfully.",
+        "stopVmError": "Cannot stop VM",
+        "startVmSuccess": "VM started successfully.",
+        "startVmError": "Cannot start VM",
+        "editInDevelopment": "Edit functionality is under development"
+      },
+      "confirmDialog": {
+        "deleteSub": {
+          "title": "Confirm Delete Subscription",
+          "description": "Are you sure you want to delete this subscription? This action cannot be undone."
+        },
+        "deleteWithVm": {
+          "title": "Confirm Delete Subscription and VM",
+          "description": "Delete entire subscription and virtual machine (VM)? This action cannot be undone."
+        },
+        "deleteVmOnly": {
+          "title": "Confirm Delete VM",
+          "description": "Only delete the virtual machine (VM)? The subscription remains valid but you need to configure a new VM."
+        },
+        "stopVm": {
+          "title": "Confirm Stop VM",
+          "description": "Are you sure you want to stop this VM?"
+        },
+        "startVm": {
+          "title": "Confirm Start VM",
+          "description": "Are you sure you want to start this VM?"
+        },
+        "cancel": "Cancel",
+        "confirm": "Confirm"
+      }
+    },
+    "analytics": {
+      "title": "Analytics Dashboard",
+      "subtitle": "Website traffic and visitor statistics",
+      "dateRange": {
+        "last7Days": "Last 7 Days",
+        "last30Days": "Last 30 Days",
+        "last90Days": "Last 90 Days",
+        "refresh": "Refresh"
+      },
+      "summary": {
+        "totalPageViews": "Total Page Views",
+        "totalPageViewsDesc": "Page views over selected period",
+        "uniqueUsers": "Unique Users",
+        "uniqueUsersDesc": "Unique visitors to the site",
+        "bounceRate": "Bounce Rate",
+        "bounceRateDesc": "Visitors who left without interaction",
+        "avgLoadTime": "Avg Load Time",
+        "avgLoadTimeDesc": "Average page load time"
+      },
+      "charts": {
+        "pageViewsOverTime": "Page Views Over Time",
+        "topPages": "Top Pages",
+        "userEvents": "User Events",
+        "allEvents": "All Events",
+        "googleAnalytics": "Google Analytics Integration",
+        "googleAnalyticsDesc": "This dashboard displays analytics data from your website. To enable Google Analytics tracking:",
+        "gaStep1": "Set your Google Analytics Measurement ID in the .env.local file as NEXT_PUBLIC_GA_MEASUREMENT_ID",
+        "gaStep2": "Deploy the changes to make Google Analytics tracking active",
+        "gaStep3": "View detailed analytics in your Google Analytics console"
+      },
+      "loading": "Loading analytics...",
+      "error": "Error",
+      "retry": "Retry",
+      "noData": "No data available",
+      "noPageData": "No page data available",
+      "noEventData": "No event data available"
+    },
+    "bandwidth": {
+      "title": "Bandwidth Monitor",
+      "subtitle": "Track monthly egress and ingress per VM. OCI partner plan includes 10 TB/month egress free.",
+      "loading": "Loading bandwidth data...",
+      "refresh": "Refresh",
+      "month": {
+        "label": "Month:",
+        "current": "(Current)"
+      },
+      "summary": {
+        "totalVMs": "Total VMs",
+        "vmsWithData": "VMs with Data",
+        "totalEgress": "Total Egress",
+        "totalIngress": "Total Ingress"
+      },
+      "filter": {
+        "searchPlaceholder": "Search by VM name, email, or IP..."
+      },
+      "sort": {
+        "label": "Sort:",
+        "usage": "Usage",
+        "name": "VM Name",
+        "user": "User"
+      },
+      "status": {
+        "live": "Live",
+        "archived": "Archived",
+        "noData": "No Data",
+        "error": "Error"
+      },
+      "source": {
+        "oci": "Live (OCI)",
+        "archived": "Archived",
+        "none": "No data"
+      },
+      "info": {
+        "text": "Tracking VnicBytesOut (egress) and VnicBytesIn (ingress) per VM via OCI Monitoring. OCI partner plan includes 10 TB/month egress free."
+      },
+      "details": {
+        "egress": "Egress (Billed)",
+        "ingress": "Ingress (Free)",
+        "package": "Package",
+        "company": "Company",
+        "dataSource": "Source"
+      },
+      "compartment": {
+        "vms": "VMs",
+        "withData": "with data"
+      },
+      "warning": {
+        "errorMessage": "Cannot retrieve bandwidth data: {{error}}"
+      },
+      "noVms": "No VMs match the current filter"
+    },
+    "compartment": {
+      "title": "Compartment Management",
+      "subtitle": "List of compartments in OCI tenancy",
+      "refresh": "Refresh",
+      "loading": "Loading compartments...",
+      "noCompartments": "No compartments",
+      "noDescription": "No description",
+      "createdAt": "Created Date",
+      "deleteButton": "Delete Compartment",
+      "dialog": {
+        "title": "Confirm Delete Compartment",
+        "description1": "Are you sure you want to delete compartment",
+        "description2": "?",
+        "warning": "⚠️ This action will DELETE ALL resources inside the compartment including:",
+        "items": {
+          "vms": "All VM instances",
+          "vcns": "All VCNs (Virtual Cloud Networks)",
+          "subnets": "All Subnets",
+          "gateways": "All Internet Gateways",
+          "routes": "All Route Tables"
+        },
+        "irreversible": "This action CANNOT be undone!",
+        "deleting": "Deleting...",
+        "confirmButton": "Confirm Delete",
+        "cancelButton": "Cancel"
+      },
+      "toast": {
+        "loadError": "Cannot load compartment list: {{message}}",
+        "deleteSuccess": "Successfully deleted compartment \"{{name}}\" and all resources inside",
+        "deleteError": "Cannot delete compartment: {{message}}"
+      }
+    },
+    "costs": {
+      "title": "Costs & Credit",
+      "subtitle": "Financial overview for all users",
+      "back": "Go Back",
+      "refresh": "Refresh",
+      "loading": "Loading cost data...",
+      "summary": {
+        "totalBalance": "Total Remaining Balance",
+        "totalBalanceDesc": "Total of all user wallets",
+        "totalDeposited": "Total Deposited",
+        "totalDepositedDesc": "Cumulative from all deposit transactions",
+        "totalSpent": "Total Spent",
+        "totalSpentDesc": "Cumulative from all deduction transactions",
+        "users": "Number of Users",
+        "usersDesc": "Users with active wallets"
+      },
+      "timeBreakdown": {
+        "title": "Statistics by Time",
+        "monthly": "By Month",
+        "yearly": "By Year"
+      },
+      "months": {
+        "jan": "January", "feb": "February", "mar": "March",
+        "apr": "April", "may": "May", "jun": "June",
+        "jul": "July", "aug": "August", "sep": "September",
+        "oct": "October", "nov": "November", "dec": "December"
+      },
+      "table": {
+        "month": "Month",
+        "year": "Year",
+        "deposited": "Deposited",
+        "spent": "Spent",
+        "difference": "Difference"
+      },
+      "perUser": {
+        "title": "Details by User",
+        "searchPlaceholder": "Search email or name...",
+        "user": "User",
+        "currentBalance": "Current Balance",
+        "totalDeposited": "Total Deposited",
+        "totalSpent": "Total Spent",
+        "status": "Status",
+        "low": "Low",
+        "normal": "Normal",
+        "noUser": "No users found"
+      }
+    },
+    "loginHistory": {
+      "title": "Login History",
+      "subtitle": "Track and monitor all admin login activities",
+      "stats": {
+        "totalLogins": "Total Logins",
+        "last30Days": "Last 30 days",
+        "successRate": "Success Rate",
+        "successful": "{{count}} successful",
+        "failedAttempts": "Failed Attempts",
+        "locked": "Locked: {{count}}",
+        "uniqueDevices": "Unique Devices",
+        "countries": "{{count}} countries"
+      },
+      "suspicious": {
+        "alert": "⚠️ {{count}} suspicious login attempt(s) detected",
+        "failedFrom": "Failed login from {{ip}} on {{date}}",
+        "more": "... and {{count}} more"
+      },
+      "filters": {
+        "status": "Status",
+        "all": "All",
+        "success": "Success",
+        "failed": "Failed",
+        "locked": "Locked",
+        "fromDate": "From Date",
+        "toDate": "To Date",
+        "sortBy": "Sort By",
+        "loginTime": "Login Time",
+        "username": "Username",
+        "statusSort": "Status",
+        "refresh": "Refresh",
+        "loading": "Loading..."
+      },
+      "showing": "Showing {{from}} to {{to}} of {{total}} entries",
+      "export": "Export to CSV",
+      "exportSuccess": "Login history exported to CSV",
+      "exportError": "Failed to export login history",
+      "table": {
+        "account": "Account",
+        "loginTime": "Login Time",
+        "status": "Status",
+        "ip": "IP Address",
+        "location": "Location",
+        "browser": "Browser",
+        "os": "OS",
+        "device": "Device",
+        "duration": "Duration",
+        "newDevice": "New Device"
+      },
+      "noRecords": "No login records found",
+      "loading": "Loading...",
+      "active": "Active",
+      "new": "New",
+      "known": "Known",
+      "pagination": {
+        "recordsPerPage": "Records per page:",
+        "page": "Page {{current}} of {{total}}",
+        "prev": "Previous",
+        "next": "Next"
+      }
+    },
+    "payments": {
+      "title": "Payment Management",
+      "subtitle": "List of all payment transactions",
+      "refresh": "Refresh",
+      "summary": {
+        "total": "Total Payments",
+        "pending": "Pending",
+        "expired": "Expired",
+        "success": "Successful"
+      },
+      "list": {
+        "title": "Payment List ({{count}})",
+        "searchPlaceholder": "Search by transaction code, email, name..."
+      },
+      "table": {
+        "transactionCode": "Transaction Code",
+        "subscriptionId": "Subscription ID",
+        "user": "User",
+        "amount": "Amount",
+        "type": "Type",
+        "method": "Method",
+        "status": "Status",
+        "createdAt": "Created Date",
+        "actions": "Actions"
+      },
+      "status": {
+        "success": "Successful",
+        "pending": "Pending",
+        "failed": "Failed",
+        "expired": "Expired",
+        "deleted": "Deleted"
+      },
+      "paymentType": {
+        "deposit": "Deposit",
+        "subscription": "Subscription"
+      },
+      "actions": {
+        "accept": "Accept",
+        "processing": "Processing...",
+        "completed": "Completed",
+        "failed": "Failed",
+        "expired": "Expired",
+        "deleted": "Deleted"
+      },
+      "pagination": {
+        "info": "Page {{current}} / {{total}} — Total {{count}} transactions"
+      },
+      "confirm": {
+        "title": "Confirm Accept Payment",
+        "description": "Are you sure you want to accept this payment? This will activate a subscription or add funds for the user.",
+        "confirm": "Confirm",
+        "cancel": "Cancel"
+      },
+      "loading": "Loading data...",
+      "noPayments": "No payments found",
+      "toast": {
+        "acceptSuccess": "Payment accepted successfully!",
+        "acceptError": "Payment error",
+        "acceptErrorDesc": "An error occurred while accepting payment"
+      }
+    },
+    "supportTickets": {
+      "title": "Support Request Management",
+      "subtitle": "Track and handle support requests from users",
+      "refresh": "Refresh",
+      "stats": {
+        "total": "Total Requests",
+        "open": "Open",
+        "inProgress": "In Progress",
+        "resolved": "Resolved",
+        "urgent": "Urgent"
+      },
+      "filters": {
+        "searchPlaceholder": "Search by title, email, name...",
+        "status": "Status",
+        "priority": "Priority",
+        "allStatus": "All Statuses",
+        "allPriority": "All Priorities"
+      },
+      "status": {
+        "open": "Open",
+        "inProgress": "In Progress",
+        "resolved": "Resolved",
+        "closed": "Closed"
+      },
+      "priority": {
+        "low": "Low",
+        "medium": "Medium",
+        "high": "High",
+        "urgent": "Urgent"
+      },
+      "services": {
+        "cloud": "Cloud Server",
+        "storage": "Object Storage",
+        "network": "Network / VPN",
+        "billing": "Billing",
+        "account": "Account",
+        "other": "Other"
+      },
+      "table": {
+        "title": "Requests ({{count}})",
+        "id": "#",
+        "titleHeader": "Title / Customer",
+        "service": "Service",
+        "status": "Status",
+        "priority": "Priority",
+        "date": "Submitted Date",
+        "actions": "Actions",
+        "noData": "No requests found"
+      },
+      "detail": {
+        "phone": "Phone",
+        "address": "Address",
+        "content": "Request Content",
+        "attachments": "Attachments",
+        "statusLabel": "Status",
+        "priorityLabel": "Priority",
+        "resolvedAt": "Resolved At",
+        "adminNote": "Note / Response to customer",
+        "adminNotePlaceholder": "Enter response for customer... (customer will see this content)",
+        "save": "Save Response",
+        "saving": "Saving..."
+      },
+      "delete": {
+        "title": "Confirm Delete Support Request",
+        "description": "Are you sure you want to delete this support request? This action cannot be undone.",
+        "confirm": "Delete",
+        "cancel": "Cancel"
+      },
+      "toast": {
+        "loadError": "Cannot load support request list",
+        "updated": "Updated",
+        "updateSuccess": "Ticket updated successfully",
+        "deleted": "Ticket deleted",
+        "error": "Error"
+      }
+    },
+    "paymentsTitle": "Payment Management",
+    "paymentsDesc": "View and accept payments",
+    "paymentsStats": "Payment Management",
+    "loginHistoryTitle": "Login History",
+    "loginHistoryDesc": "Track admin login activities",
+    "loginHistoryStats": "Security Audit",
+    "compartmentTitle": "Manage Compartments",
+    "compartmentDesc": "View and delete compartments in OCI",
+    "compartmentStats": "OCI Resources",
+    "analyticsTitle": "Analytics",
+    "analyticsDesc": "View page view and user interaction statistics",
+    "analyticsStats": "Website Analytics",
+    "bandwidthTitle": "Bandwidth Monitor",
+    "bandwidthDesc": "Monitor bandwidth of all virtual machines (limit 10TB)",
+    "bandwidthStats": "Bandwidth Monitor",
+    "supportTicketsTitle": "Support Requests",
+    "supportTicketsDesc": "Track and handle support requests from users",
+    "supportTicketsStats": "Support Tickets",
+    "costsTitle": "Costs & Credit",
+    "costsDesc": "Total balance, deposited and spent amounts per user, month, year",
+    "costsStats": "Cost & Credit Overview",
+    "users": {
+      "editDialog": {
+        "title": "Edit User Information #{{id}}",
+        "description": "Update user's detailed information. Click \"Save Changes\" to apply.",
+        "lastName": "Last Name",
+        "firstName": "First Name",
+        "email": "Email",
+        "phone": "Phone Number",
+        "backupEmail": "Backup Email",
+        "company": "Company",
+        "address": "Address",
+        "idCard": "National ID",
+        "gender": "Gender",
+        "genderPlaceholder": "Select gender",
+        "male": "Male",
+        "female": "Female",
+        "other": "Other",
+        "role": "Role",
+        "statusLabel": "Status",
+        "active": "Active",
+        "locked": "Locked",
+        "cancel": "Cancel",
+        "save": "Save Changes",
+        "saving": "Saving..."
+      },
+      "deleteDialog": {
+        "title": "Confirm Delete User",
+        "description": "Are you sure you want to delete this user? This action cannot be undone.",
+        "confirm": "Delete",
+        "cancel": "Cancel"
+      },
+      "pagination": {
+        "info": "Page {{current}} / {{total}} — Total {{count}} users"
+      },
+      "toast": {
+        "updateSuccess": "User information updated successfully",
+        "updateError": "Cannot update user information",
+        "deleteSuccess": "User deleted successfully",
+        "deleteError": "Cannot delete user"
+      },
+      "export": {
+        "fullName": "Full Name",
+        "phone": "Phone Number",
+        "company": "Company",
+        "role": "Role",
+        "status": "Status",
+        "createdAt": "Created Date",
+        "updatedAt": "Updated Date",
+        "notAvailable": "N/A",
+        "sheetName": "Users List",
+        "active": "Active",
+        "locked": "Locked"
+      }
+    },
+    "packagesExtra": {
+      "dialog": {
+        "deleteTitle": "Confirm Delete Service Package",
+        "deleteDesc": "Are you sure you want to delete this package? This action cannot be undone.",
+        "cancel": "Cancel",
+        "delete": "Delete"
+      },
+      "table": {
+        "package": "Package",
+        "type": "Type",
+        "price": "Price",
+        "specs": "Specs",
+        "features": "Features",
+        "status": "Status",
+        "actions": "Actions"
+      },
+      "createForm": {
+        "priceUSD": "Price (USD / month)",
+        "priceVND": "Price (VND / month)",
+        "storage": "Storage",
+        "storagePlaceholder": "e.g. 80 GB SSD",
+        "bandwidthLabel": "Bandwidth",
+        "bandwidthPlaceholder": "e.g. 1 TB",
+        "feature": "Features / Notes",
+        "featurePlaceholder": "Additional features or notes...",
+        "isActive": "Active (visible to users)",
+        "saving": "Saving..."
+      }
+    }
+  },
+  "homepage": {
+    "hero": {
+      "title": "Leading Oracle Cloud Solutions in Vietnam",
+      "subtitle": "Official Oracle Partner in Vietnam",
+      "description": "We provide comprehensive cloud computing solutions with Oracle Cloud Infrastructure (OCI), helping businesses optimize costs and enhance performance.",
+      "getStarted": "Get Started",
+      "dashboard": "View Dashboard",
+      "contact": "Contact for Consultation",
+      "viewPricing": "View Configurations and Pricing",
+      "imageAlt": "Oracle Cloud Dashboard",
+      "features": {
+        "security": {
+          "title": "Absolute Security",
+          "description": "99.9% uptime"
+        },
+        "performance": {
+          "title": "High Performance",
+          "description": "Superior speed"
+        },
+        "global": {
+          "title": "Global",
+          "description": "36+ data centers"
+        }
+      },
+      "trustIndicators": {
+        "customers": "Customers",
+        "uptime": "Uptime",
+        "support": "Support"
+      },
+      "floatingElements": {
+        "costSaving": "Save 40% on costs",
+        "quickDeploy": "Deploy within 24 hours"
+      }
+    },
+    "services": {
+      "title": "Services",
+      "subtitle": "Comprehensive Cloud Solutions",
+      "description": "From databases to AI, we offer a full range of cloud services to meet all your business's digital transformation needs.",
+      "keyFeatures": "Key Features:",
+      "serviceList": {
+        "database": {
+          "title": "Oracle Database Cloud",
+          "description": "Self-managed Oracle database with high performance and absolute security",
+          "features": ["Autonomous Database", "Real Application Clusters", "Data Guard", "Advanced Security"]
+        },
+        "compute": {
+          "title": "Compute Cloud",
+          "description": "Flexible virtual servers with customizable configurations for business needs",
+          "features": ["Bare Metal", "Virtual Machines", "Container Engine", "Functions"]
+        },
+        "storage": {
+          "title": "Storage Solutions",
+          "description": "Diverse storage solutions from block storage to object storage",
+          "features": ["Block Volume", "Object Storage", "File Storage", "Archive Storage"]
+        },
+        "networking": {
+          "title": "Networking",
+          "description": "Global network infrastructure with low latency and high bandwidth",
+          "features": ["Virtual Cloud Network", "Load Balancer", "VPN Connect", "FastConnect"]
+        },
+        "security": {
+          "title": "Security & Identity",
+          "description": "Multi-layered security with advanced identity and access management",
+          "features": ["Identity Management", "Key Management", "Web Application Firewall", "Security Zones"]
+        },
+        "analytics": {
+          "title": "Analytics & AI",
+          "description": "Intelligent data analytics with integrated machine learning",
+          "features": ["Analytics Cloud", "Data Science", "Machine Learning", "Big Data Service"]
+        }
+      },
+      "benefits": {
+        "fastDeploy": {
+          "title": "Fast Deployment",
+          "description": "Setup in minutes"
+        },
+        "globalCoverage": {
+          "title": "Global Coverage",
+          "description": "36+ data centers"
+        },
+        "enterpriseSecurity": {
+          "title": "Enterprise Security",
+          "description": "International compliance"
+        },
+        "costOptimization": {
+          "title": "Cost Optimization",
+          "description": "Save up to 40%"
+        }
+      }
+    },
+    "pricing": {
+      "title": "Pricing",
+      "subtitle": "Service packages suitable for businesses of all sizes",
+      "description": "Flexible and scalable Oracle Cloud service packages with the most competitive pricing in the Vietnam market.",
+      "plans": {
+        "starter": "Standard",
+        "professional": "Premium",
+        "enterprise": "Enterprise",
+        "ai": "AI-GPU",
+        "custom": "Custom"
+      },
+      "buttons": {
+        "viewDetails": "View Details",
+        "hideDetails": "Hide",
+        "showDetails": "Show",
+        "packages": "packages",
+        "selectPlan": "Select This Plan",
+        "contactConsult": "Contact for Consultation",
+        "close": "Close"
+      },
+      "tooltips": {
+        "exchangeRate": "Prices are calculated based on the current exchange rate.",
+        "todayRate": "Today's rate:"
+      },
+      "sections": {
+        "selectSuitable": "Choose the most suitable package for you",
+        "moreFeatures": "more features"
+      },
+      "auth": {
+        "loginRequired": "Please log in",
+        "loginToRegister": "Please log in to register for a custom package"
+      },
+      "additionalInfo": {
+        "support247": "All packages include 24/7 technical support and a 99.9% uptime guarantee",
+        "noSetupFee": "No setup fee",
+        "cancelAnytime": "Cancel anytime",
+        "flexiblePayment": "Flexible payment options",
+        "freeConsult": "Free consultation",
+        "hotlineSupport": "Support hotline:"
+      }
+    },
+    "form": {
+      "customRegistration": {
+        "title": "Custom Package Registration",
+        "description": "Please fill in the details so we can recommend the most suitable service package for you.",
+        "userName": "Username",
+        "email": "Email",
+        "phoneNumber": "Phone Number",
+        "company": "Company Name",
+        "configRequirements": "Configuration Requirements",
+        "cpu": "CPU",
+        "ram": "RAM",
+        "storage": "Storage",
+        "bandwidth": "Bandwidth",
+        "additionalNotes": "Additional Notes",
+        "placeholders": {
+          "userName": "Enter your name",
+          "email": "example@company.com",
+          "phoneNumber": "0987654321",
+          "company": "ABC Company",
+          "cpu": "E.g., 4 cores, Intel Xeon",
+          "ram": "E.g., 16GB, 32GB",
+          "storage": "E.g., 500GB SSD, 1TB HDD",
+          "bandwidth": "E.g., 100Mbps, 1Gbps",
+          "additionalNotes": "Describe additional requirements, deployment timeline, estimated budget..."
+        },
+        "validation": {
+          "userNameMin": "Username must be at least 2 characters",
+          "emailInvalid": "Invalid email",
+          "phoneNumberMin": "Phone number must have at least 10 digits",
+          "phoneNumberMax": "Phone number must not exceed 20 digits",
+          "cpuRequired": "Please enter CPU information",
+          "ramRequired": "Please enter RAM information"
+        },
+        "buttons": {
+          "cancel": "Cancel",
+          "register": "Register"
+        },
+        "success": {
+          "title": "Registration Successful!",
+          "description": "We will contact you as soon as possible."
+        },
+        "error": {
+          "title": "An Error Occurred",
+          "description": "Please try again later or contact support."
+        }
+      }
+    }
+  },
+  "pricing": {
+    "loginRequired": "Please log in to register for a package", 
+    "plans": {
+      "starter": {
+        "1": {
+          "description": "2 vCPU, 1GB RAM, 20GB SSD Storage"
+        },
+        "2": {
+          "description": "2 vCPU, 2GB RAM, 40GB SSD Storage"
+        },
+        "3": {
+          "description": "4 vCPU, 4GB RAM, 80GB SSD Storage"
+        },
+        "4": {
+          "description": "4 vCPU, 8GB RAM, 80GB SSD Storage"
+        },
+        "5": {
+          "description": "8 vCPU, 8GB RAM, 100GB SSD Storage"
+        }
+      },
+      "professional": {
+        "1": {
+          "description": "4 vCPU, 6GB RAM, 100GB SSD Storage"
+        },
+        "2": {
+          "description": "6 vCPU, 8GB RAM, 150GB SSD Storage"
+        },
+        "3": {
+          "description": "8 vCPU, 10GB RAM, 150GB SSD Storage"
+        },
+        "4": {
+          "description": "8 vCPU, 12GB RAM, 150GB SSD Storage"
+        },
+        "5": {
+          "description": "8 vCPU, 16GB RAM, 200GB SSD Storage"
+        },
+        "6": {
+          "description": "8 vCPU, 32GB RAM, 200GB SSD Storage"
+        }
+      },
+      "enterprise": {
+        "1": {
+          "description": "10 vCPU, 16GB RAM, 250GB SSD Storage"
+        },
+        "2": {
+          "description": "12 vCPU, 16GB RAM, 250GB SSD Storage"
+        },
+        "3": {
+          "description": "12 vCPU, 18GB RAM, 500GB SSD Storage"
+        },
+        "4": {
+          "description": "16 vCPU, 32GB RAM, 500GB SSD Storage"
+        },
+        "5": {
+          "description": "16 vCPU, 32GB RAM, 1024GB SSD Storage"
+        },
+        "6": {
+          "description": "24 vCPU, 32GB RAM, 1024GB SSD Storage"
+        },
+        "7": {
+          "description": "36 vCPU, 64GB RAM, 1024GB SSD Storage"
+        },
+        "8": {
+          "description": "48 vCPU, 128GB RAM, 1024GB SSD Storage"
+        },
+        "9": {
+          "description": "You don't even need to register for this package to receive consultation. Just call the hotline directly!"
+        }
+      },
+      "ai": {
+        "1": {
+          "description": "1 GPU P100, 16GB RAM, 1024 GB"
+        },
+        "2": {
+          "description": "1 GPU A10, 24GB RAM, 1024 GB"
+        },
+        "3": {
+          "description": "2 GPU P100, 32GB RAM, 1024 GB"
+        },
+        "4": {
+          "description": "2 GPU A10, 48GB RAM, 1024GB"
+        }
+      },
+      "custom": {
+        "description": "Custom solution tailored to enterprise requirements",
+        "price": "Contact Us",
+        "features": {
+          "flexible": "Flexible configuration",
+          "integration": "Private system integration",
+          "consulting": "In-depth architecture consulting",
+          "onsite": "On-site deployment support"
+        }
+      }
+    },
+    "categories": {
+      "starter": {
+        "description": "Suitable for small businesses"
+      },
+      "professional": {
+        "description": "Popular choice for medium businesses"
+      },
+      "enterprise": {
+        "description": "Comprehensive solution for large enterprises"
+      },
+      "ai": {
+        "description": "Deploy your LLM models on the cloud"
+      }
+    }
+  },
+  "header": {
+    "home": "Home",
+    "services": "Services",
+    "pricing": "Pricing",
+    "support": "Support",
+    "contact": "Contact",
+    "login": "Login",
+    "register": "Register",
+    "hello": "Hello",
+    "hotline": "Hotline: 0707.806.860",
+    "profile": "Profile",
+    "settings": "Settings",
+    "logout": "Logout",
+    "logoTitle": "Oracle Cloud Vietnam",
+    "logoSubtitle": "Official Partner",
+    "languageLabel": "Language",
+    "admin": "Admin",
+    "packageManagement": "My Cloud",
+    "supportRequest": "Support Request"
+
+  },
+  "footer": {
+    "companyName": "Oracle Cloud Vietnam",
+    "officialPartner": "Official Partner",
+    "companyDescription": "Official Oracle partner in Vietnam, providing leading cloud computing solutions for businesses with over 10 years of experience.",
+    "services": "Services",
+    "serviceList": {
+      "database": "Oracle Database Cloud",
+      "compute": "Compute Cloud",
+      "storage": "Storage Solutions",
+      "networking": "Networking",
+      "security": "Security & Identity",
+      "analytics": "Analytics & AI"
+    },
+    "support": "Support",
+    "supportList": {
+      "docs": "Technical Documentation",
+      "videos": "Instructional Videos",
+      "forum": "Community Forum",
+      "ticket": "Support Ticket",
+      "training": "Training & Certification",
+      "api": "API Documentation"
+    },
+    "contact": "Contact",
+    "companyFull": "INTERNATIONAL CYBERSECURITY JOINT STOCK COMPANY - ICS",
+    "office": "Office: TT3-5 Dai Kim New Urban Area, Dinh Cong, Hanoi",
+    "phone": "Phone: 0931.487.231",
+    "hotline": "Hotline: 0707.806.860",
+    "email": "Email: info@icss.com.vn",
+    "website": "www.icss.com.vn",
+    "newsletter": "Subscribe to Newsletter",
+    "newsletterPlaceholder": "Your email",
+    "newsletterButton": "Subscribe",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use",
+    "sla": "SLA",
+    "sitemap": "Sitemap",
+    "copyright": "© 2024 Oracle Cloud Vietnam. All rights reserved."
+  },
+  "unauthorized": {
+    "title": "You do not have permission to access this page",
+    "description": "Please check your access rights or contact the administrator if you believe this is an error."
+  },
+  "common": {
+    "loading": "Loading...",
+    "logoutSuccess": "Logged out successfully!",
+    "error": "Error"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "backButton": "Back",
+    "success": {
+      "title": "Payment Successful!",
+      "desc": "Thank you for subscribing to the service package. We have sent a confirmation email and usage instructions to your email address.",
+      "configBtn": "Configure Virtual Machine",
+      "manageBtn": "Manage Subscribed Packages",
+      "homeBtn": "Back to Home",
+      "note": "Note: If you do not receive the email within 5 minutes, please check your spam folder or contact us."
+    },
+    "packageInfo": "Service Package Information",
+    "packageName": "Package Name",
+    "description": "Description",
+    "packageType": "Package Type",
+    "features": "Included Features",
+    "totalAmount": "Total Amount",
+    "paymentQR": "Pay via QR",
+    "scanQR": "Scan the QR code with your banking app to make payment",
+    "bankName": "Bank",
+    "accountNumber": "Account Number",
+    "amount": "Amount",
+    "content": "Content",
+    "copyInfo": "Copy transfer information",
+    "copiedSuccess": "Transfer information copied successfully",
+    "note": "Note: Please transfer with the exact content for the system to automatically activate the service.",
+    "contactSupport": "Contact Support",
+    "support247": "24/7 Technical Support",
+    "noSetupFee": "No setup fee",
+    "uptimeGuarantee": "99.9% uptime guarantee",
+    "flexiblePayment": "Flexible payment options",
+    "creatingQR": "Creating QR...",
+    "paidSuccessRedirect": "Payment successful! Redirecting...",
+    "checkingPayment": "Checking payment...",
+    "transferContentExact": "Transfer content must be exact",
+    "paymentId": "Payment ID",
+    "autoConfirmNote": "The system will automatically confirm once the transfer is successful.",
+    "monthsSubscription": "Subscription months",
+    "months": "month(s)",
+    "forMonths": "(for {{n}} month(s))"
+  },
+  "login": {
+    "title": "Login",
+    "subtitle": "Welcome back! Please sign in to continue.",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "loginButton": "Login",
+    "loggingIn": "Logging in...",
+    "forgotPassword": "Forgot password?",
+    "noAccount": "Don't have an account?",
+    "registerNow": "Register now",
+    "or": "Or",
+    "loginWithGoogle": "Login with Google",
+    "googleLoginComingSoon": "Google Login coming soon.",
+    "fillTestData": "Fill Test Data (test@gmail.com / 123123)",
+    "validationEmailRequired": "Please enter your email",
+    "validationEmailInvalid": "Invalid email address",
+    "validationPasswordRequired": "Please enter your password",
+    "validationPasswordMinLength": "Password must be at least {{length}} characters",
+    "successEmailVerified": "Email verified successfully! Please login.",
+    "successPasswordReset": "Password reset successfully! Please login with your new password.",
+    "errorInvalidCredentials": "Incorrect email or password. Please check your login information.",
+    "errorEmailAlreadyExists": "This email is already registered. Please use a different email or login.",
+    "errorDefault": "Login failed. Please try again."
+  },
+  "profile": {
+    "title": "Profile Information",
+    "subtitle": "Manage your account information",
+    "loadingUser": "Loading user information...",
+    "userBadge": "User",
+    "adminBadge": "Administrator",
+    "id": "ID",
+    "createdAt": "Created Date",
+    "updatedAt": "Last Updated",
+    "editInfo": "Edit Information",
+    "editDescription": "Update your personal information",
+    "editDialogTitle": "Edit Profile",
+    "editDialogDesc": "Update your personal information. Click save when done.",
+    "updateSuccess": "Information has been updated successfully!",
+    "updateFailed": "Failed to update information",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "fullName": "Full Name",
+    "email": "Email",
+    "emailDescription": "Email is used for login and receiving notifications",
+    "phoneNumber": "Phone Number",
+    "company": "Company",
+    "gender": "Gender",
+    "genderMale": "Male",
+    "genderFemale": "Female",
+    "genderOther": "Other",
+    "idCard": "ID Card / Passport",
+    "backupEmail": "Backup Email",
+    "address": "Address",
+    "notProvided": "Not provided",
+    "accountStatus": "Account Status",
+    "accountActive": "Active",
+    "accountInactive": "Inactive",
+    "sections": {
+      "basicInfo": "Basic Information",
+      "contactInfo": "Contact Information",
+      "personalDetails": "Personal Details",
+      "security": "Security"
+    },
+    "tabs": {
+      "profile": "Profile",
+      "security": "Security"
+    },
+    "cancel": "Cancel",
+    "saving": "Saving...",
+    "saveChanges": "Save Changes",
+    "edit": "Edit",
+    "changePassword": "Change Password",
+    "changePasswordDescription": "Update your password to secure your account",
+    "changePasswordButton": "Change Password",
+    "changePasswordDialogTitle": "Change Password",
+    "changePasswordDialogDesc": "Enter your current password and a new password. Password must be at least 6 characters.",
+    "currentPassword": "Current Password",
+    "newPassword": "New Password",
+    "confirmNewPassword": "Confirm New Password",
+    "changePasswordSuccess": "Password changed successfully!",
+    "changePasswordFailed": "Failed to change password",
+    "passwordsNotMatch": "Passwords do not match",
+    "changingPassword": "Changing...",
+    "avatarUploadSuccess": "Avatar updated successfully",
+    "avatarUploadError": "Failed to update avatar",
+    "avatarSizeError": "File size cannot exceed 5MB",
+    "avatarTypeError": "Please select an image file",
+    "validation": {
+      "firstNameRequired": "First name is required",
+      "firstNameMax": "First name cannot exceed 50 characters",
+      "lastNameRequired": "Last name is required",
+      "lastNameMax": "Last name cannot exceed 50 characters",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email address",
+      "phoneInvalid": "Invalid phone number",
+      "backupEmailInvalid": "Invalid backup email address",
+      "idCardInvalid": "Invalid ID card number (9 or 12 digits)",
+      "currentPasswordRequired": "Current password is required",
+      "newPasswordMin": "New password must be at least 6 characters",
+      "confirmPasswordRequired": "Please confirm your new password",
+      "passwordSameAsCurrent": "New password must be different from your current password"
+    }
+  },
+  "packageDetail": {
+    "title": "Display device load status",
+    "subtitle": "Monitor and manage your cloud package performance",
+    "loading": {
+      "subscription": "Loading subscription information..."
+    },
+    "error": {
+      "notFound": "Subscription not found"
+    },
+    "buttons": {
+      "back": "Back"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive",
+      "expired": "Expired",
+      "suspended": "Suspended", 
+      "cancelled": "Cancelled",
+      "pending": "Pending"
+    },
+    "serverDetails": {
+      "title": "Server details",
+      "demoData": "Demo data",
+      "status": "Status",
+      "on": "ON",
+      "refresh": "Refresh",
+      "hostname": "Domain/Hostname",
+      "username": "Username",
+      "password": "Password",
+      "ip": "IP",
+      "uptime": "Uptime",
+      "days": "Days"
+    },
+    "controls": {
+      "vmName": "VM Name:",
+      "time": "Time:",
+      "theme": "Theme:",
+      "showPerformance": "Show Performance Usage",
+      "timeOptions": {
+        "oneHour": "1 hour ago",
+        "sixHours": "6 hours ago",
+        "twentyFourHours": "24 hours ago", 
+        "sevenDays": "7 days ago"
+      },
+      "themeOptions": {
+        "light": "Light",
+        "dark": "Dark"
+      }
+    },
+    "charts": {
+      "cpuUsage": "CPU Usage (%)",
+      "memoryUsage": "Memory Usage (%)"
+    },
+    "packageInfo": {
+      "title": "Package Information",
+      "packageName": "Package Name",
+      "vmName": "VM Name",
+      "cpu": "CPU",
+      "memory": "Memory",
+      "storage": "Storage",
+      "bandwidth": "Bandwidth",
+      "feature": "Feature",
+      "ipAddress": "IP Address",
+      "subscriber": "Subscriber",
+      "email": "Email",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "autoRenew": "Auto Renew",
+      "monthlyCost": "Monthly Cost",
+      "yes": "Yes",
+      "no": "No"
+    },
+    "actions": {
+      "title": "Manage Package",
+      "startVM": "Start VM",
+      "pauseVM": "Pause VM",
+      "restartVM": "Restart VM", 
+      "createBackup": "Create Backup",
+      "console": "Console",
+      "changeOS": "Change/Reinstall OS",
+      "deletePackage": "Delete Package",
+      "configurateVM": "Configurate VM"
+    },
+    "billing": {
+      "title": "Billing Information",
+      "createdDate": "Created Date",
+      "nextBilling": "Next Billing",
+      "monthlyCost": "Monthly Cost"
+    },
+    "vmInfoTitle": "Your virtual machine information",
+    "toast": {
+      "error": "Error",
+      "loadError": "Unable to load subscription information",
+      "vmNotConfigured": "VM Not Configured",
+      "vmNotConfiguredDesc": "Please configure your VM first",
+      "vmActionSuccess": "Success",
+      "vmActionSuccessDesc": "VM command sent successfully",
+      "vmActionFailed": "Action Failed",
+      "vmActionFailedDesc": "Failed to perform VM action",
+      "deleteVmSuccess": "VM deleted successfully",
+      "deleteVmSuccessDesc": "VM has been deleted. Subscription remains active.",
+      "deleteVmFailed": "VM deletion failed",
+      "deleteVmFailedDesc": "Please try again or contact support.",
+      "deleteSuccess": "Deleted successfully",
+      "deleteSuccessDesc": "Subscription and VM have been completely removed",
+      "deleteError": "Error deleting subscription"
+    },
+    "confirmDialog": {
+      "cancel": "Cancel",
+      "confirm": "Confirm",
+      "deleteVmOnly": {
+        "title": "Delete VM of Subscription",
+        "description": "The subscription will remain active but the virtual machine will be deleted. You will need to configure a new VM to continue using the service."
+      },
+      "deleteSubscription": {
+        "title": "Confirm Delete Subscription",
+        "description": "This action will PERMANENTLY DELETE the subscription and the virtual machine (VM) on Oracle Cloud. All related data will be deleted and CANNOT BE RECOVERED. Please backup important data before deleting."
+      }
+    },
+    "vmNotConfigured": {
+      "message1": "VM not configured yet. Configure your VM to see server details.",
+      "message2": "No VM configured. Please configure your VM first.",
+      "message3": "Charts available after VM configuration",
+      "message4": "Charts available when VM is running",
+      "label": "VM not configured yet",
+      "deleteButton": "Delete VM (keep subscription)"
+    }
+  },
+  "support": {
+    "title": "Support Request",
+    "subtitle": "Submit a technical support request and receive a quick response",
+    "submit": "Submit Support Request",
+    "submitting": "Submitting...",
+    "uploadingFiles": "Uploading files...",
+    "attachmentsLabel": "Attachments",
+    "files": {
+      "tooMany": "Maximum {{max}} files allowed",
+      "tooLarge": "File exceeds {{maxMB}}MB limit",
+      "limits": "Max {{max}} files · each ≤ {{maxMB}}MB · Images, PDF, Word, Text"
+    },
+    "submitSuccess": "Request submitted successfully!",
+    "submitSuccessDesc": "We will respond as soon as possible",
+    "submitError": "Failed to submit request",
+    "fields": {
+      "title": "Subject",
+      "titlePlaceholder": "Briefly describe your issue",
+      "name": "Customer Name",
+      "namePlaceholder": "Full name",
+      "email": "Email",
+      "emailPlaceholder": "Contact email",
+      "phone": "Phone Number",
+      "phonePlaceholder": "Contact phone number",
+      "address": "Address",
+      "addressPlaceholder": "Your address",
+      "service": "Service",
+      "servicePlaceholder": "Select service",
+      "content": "Content",
+      "contentPlaceholder": "Describe the issue you are experiencing in detail...",
+      "attachments": "Attachments",
+      "attachmentsPlaceholder": "Drag & drop files here or",
+      "attachmentsBrowse": "browse from computer"
+    },
+    "services": {
+      "cloud": "Cloud Server",
+      "storage": "Object Storage",
+      "network": "Network / VPN",
+      "billing": "Billing",
+      "account": "Account",
+      "other": "Other"
+    },
+    "myTickets": "My Tickets",
+    "myTicketsSubtitle": "Track the status of submitted requests",
+    "noTickets": "No support requests yet",
+    "loadingTickets": "Loading your requests...",
+    "fetchErrorTitle": "Unable to load data",
+    "retryBtn": "Retry",
+    "emptyTitle": "No requests yet",
+    "emptySubtitle": "Your requests will appear here",
+    "ticketSubmittedOn": "Submitted",
+    "statusLabel": "Status:",
+    "resolvedAt": "Resolved:",
+    "serviceLabel": "Service:",
+    "requestContent": "Request content:",
+    "adminReplyTitle": "Response from support team:",
+    "waitingReply": "We are processing your request. Please wait for a response from the support team.",
+    "hasReply": "Has response",
+    "formNote": "Fill in all information so we can understand your issue clearly",
+    "status": {
+      "open": "Open",
+      "in_progress": "In Progress",
+      "resolved": "Resolved",
+      "closed": "Closed"
+    },
+    "validation": {
+      "titleMin": "Title must be at least 5 characters",
+      "nameMin": "Please enter your name",
+      "emailInvalid": "Invalid email address",
+      "contentMin": "Content must be at least 10 characters"
+    },
+    "priority": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High",
+      "urgent": "Urgent"
+    }
+  },
+  "adminSupport": {
+    "title": "Support Tickets Management",
+    "subtitle": "Track and handle support requests from users",
+    "totalTickets": "Total Tickets",
+    "openTickets": "Open",
+    "inProgressTickets": "In Progress",
+    "resolvedTickets": "Resolved",
+    "updateSuccess": "Updated successfully",
+    "updateError": "Update failed",
+    "deleteConfirm": "Are you sure you want to delete this ticket?",
+    "adminNote": "Admin Note",
+    "adminNotePlaceholder": "Enter processing note..."
+  },
+  "walletSidebar": {
+    "title": "My Account",
+    "subtitle": "Manage cloud and payments",
+    "myCloud": "My Cloud",
+    "myCloudDesc": "Manage purchased packages",
+    "paymentManagement": "Payment Management",
+    "paymentManagementDesc": "View transaction history",
+    "needHelp": "Need help?",
+    "contactSupport": "Contact support",
+    "account": "Account"
+  },
+  "paymentHistory": {
+    "title": "Payment History",
+    "loading": "Loading payment history...",
+    "totalDeposit": "Total Deposits",
+    "totalPaid": "Total Paid",
+    "depositCount": "Deposit Count",
+    "paymentCount": "Payment Count",
+    "packagesBought": "Packages Bought",
+    "processing": "Processing",
+    "filterTitle": "Filter and Search",
+    "exportExcel": "Export to Excel",
+    "searchPlaceholder": "Search by ID or transaction code...",
+    "allStatus": "All Status",
+    "statusSuccess": "Successful",
+    "statusPending": "Processing",
+    "statusFailed": "Failed",
+    "allTypes": "All Transaction Types",
+    "deposit": "Deposit",
+    "subscriptionPayment": "Package Payment",
+    "advancedFilter": "Advanced Filter",
+    "transactionHistory": "Transaction History ({{count}} transactions)",
+    "noTransactions": "No transactions found",
+    "months": "month(s)",
+    "viewDetail": "View Details",
+    "viewDetailDesc": "Transaction details {{code}}",
+    "viewPaymentDetail": "View Payment Detail",
+    "paymentDetailError": "Failed to load payment information",
+    "exportSuccess": "Excel Export Successful",
+    "exportSuccessDesc": "Exported {{count}} transactions",
+    "exportError": "Excel Export Error",
+    "exportErrorDesc": "Failed to export Excel file, please try again",
+    "loadError": "Error",
+    "loadErrorDesc": "Failed to load payment history",
+    "depositDescription": "Deposit to account",
+    "payment": "Payment",
+    "unknown": "Unknown",
+    "transaction": "Transaction",
+    "accountBalance": "Account Balance",
+    "qrCode": "QR Code",
+    "bankTransfer": "Bank Transfer",
+    "excelSummary": "Total: {{count}} transactions",
+    "showing": "Showing {{count}} of {{total}} transactions",
+    "prevPage": "Previous",
+    "nextPage": "Next",
+    "labels": {
+      "id": "ID",
+      "ref": "Ref",
+      "balance": "Balance after",
+      "subscriptionId": "Sub ID"
+    },
+    "types": {
+      "deposit": "Deposit",
+      "subscriptionPayment": "Package Payment",
+      "autoRenewal": "Auto Renewal",
+      "manualRenewal": "Manual Renewal",
+      "default": "Transaction"
+    },
+    "excel": {
+      "sheetName": "Wallet Transaction History",
+      "filePrefix": "wallet-transaction-history",
+      "no": "No.",
+      "transactionType": "Transaction Type",
+      "amountVnd": "Amount (VND)",
+      "balanceAfterVnd": "Balance After (VND)",
+      "referenceCode": "Reference Payment Code",
+      "transactionId": "Transaction ID",
+      "time": "Time"
+    },
+    "detail": {
+      "title": "Transaction Details",
+      "amount": "Amount",
+      "balanceAfter": "Balance after transaction",
+      "paymentId": "Payment ID",
+      "subscriptionId": "Subscription ID",
+      "transactionCode": "Transaction Code",
+      "paymentMethod": "Payment Method",
+      "description": "Description",
+      "package": "Service Package",
+      "createdAt": "Created At",
+      "updatedAt": "Last Updated",
+      "close": "Close",
+      "copied": "Copied"
+    },
+    "paymentDetail": {
+      "title": "Payment Detail",
+      "amount": "Amount",
+      "type": "Payment Type",
+      "method": "Method",
+      "transactionCode": "Transaction Code",
+      "subscriptionId": "Subscription ID",
+      "package": "Package",
+      "description": "Description",
+      "time": "Time",
+      "close": "Close",
+      "statuses": {
+        "pending": "Pending",
+        "success": "Success",
+        "failed": "Failed",
+        "expired": "Expired"
+      },
+      "methods": {
+        "sepayQr": "SePay QR",
+        "accountBalance": "Account Balance",
+        "bankTransfer": "Bank Transfer"
+      },
+      "types": {
+        "deposit": "Deposit",
+        "subscription": "Subscription"
+      }
+    }
+  },
+  "balanceDisplay": {
+    "label": "Balance:",
+    "addFunds": "Add Funds",
+    "loading": "Loading...",
+    "error": "Unable to load balance",
+    "refresh": "Refresh balance"
+  },
+  "subscriptionCheckout": {
+    "title": "Subscription Payment",
+    "back": "Back",
+    "transactionInfo": "Transaction Information",
+    "transactionType": "Transaction Type:",
+    "subscriptionRegistration": "Subscription Registration",
+    "paymentMethodLabel": "Payment Method:",
+    "bankTransfer": "Bank Transfer",
+    "subscriptionIdLabel": "Subscription ID:",
+    "paymentAmount": "Payment Amount:",
+    "timeLeft": "Time Remaining:",
+    "expireWarning": "The transaction will expire after the time above. Please complete payment before the expiration.",
+    "transactionCode": "Transaction Code:",
+    "autoConfirm": "The transaction will be automatically confirmed once payment is received.",
+    "benefit1": "Subscription will be activated immediately",
+    "benefit2": "No transaction fees",
+    "benefit3": "24/7 Support",
+    "benefit4": "Secure encrypted transactions",
+    "scanQR": "Scan QR to Pay",
+    "loadingPaymentInfo": "Loading payment information...",
+    "paymentSuccessRedirect": "✅ Payment Successful! Redirecting...",
+    "checkingPayment": "Checking payment...",
+    "scanQRDesc": "Scan the QR code with your banking app to pay",
+    "bankLabel": "Bank:",
+    "accountNumberLabel": "Account Number:",
+    "accountHolderLabel": "Account Holder:",
+    "amountLabel": "Amount:",
+    "contentLabel": "Content:",
+    "copyTransferInfo": "Copy Transfer Information",
+    "importantNote": "Important Note:",
+    "importantNoteDesc": "Please transfer the exact amount with the exact content so the system can automatically confirm the transaction.",
+    "contactSupport": "Contact Support",
+    "alreadyTransferred": "Already transferred",
+    "invalidInfo": "Invalid Information",
+    "invalidInfoDesc": "Payment information not found. Please try again.",
+    "backHome": "Back to Home",
+    "copiedTransferInfo": "Transfer information copied",
+    "paymentSuccess": "Payment Successful!",
+    "subscriptionActivated": "Subscription has been activated.",
+    "qrReadyToast": "QR Code Ready",
+    "qrReadyToastDesc": "Please scan the QR code or transfer manually using the information below.",
+    "alreadyTransferredToast": "Thank you!",
+    "alreadyTransferredToastDesc": "We have noted your payment. The transaction will be confirmed automatically once the transfer is received."
+  },
+  "cloudConfig": {
+    "title": "Configure VM Instance",
+    "subscriptionLabel": "Subscription: {{id}}",
+    "back": "Back to Package Management",
+    "vmDetails": "VM Instance Details",
+    "vmInstanceName": "VM Instance Name",
+    "vmNameNote": "VM name will be auto-generated based on your email address in format:",
+    "notificationSettings": "Notification Settings",
+    "emailLabel": "Email Address * (SSH keys will be sent here)",
+    "emailNote": "Your SSH private key will be sent to this email address. Please keep it secure.",
+    "vmShape": "VM Shape *",
+    "vmShapeNote": "Select VM shape first - OS options will be filtered by compatibility",
+    "recommended": "Recommended",
+    "armCapacityLimited": "⚠️ ARM Capacity Limited",
+    "armCapacityNote": "A1.Flex (ARM) instances often have limited capacity in Singapore region. If provisioning fails due to capacity, please try again later or switch to x86 shapes (E2.1.Micro, E3.Flex) which have better availability.",
+    "armImageNote": "Note: ARM images (🔷) only work with A1.Flex. x86 images (🔵) work with E2, E3, E4, Standard shapes.",
+    "operatingSystem": "Operating System",
+    "showingCompatible": "Showing compatible images for {{shape}}",
+    "selectOS": "Select Operating System *",
+    "versions": "version(s)",
+    "searchVersion": "Search version...",
+    "noImagesFound": "No images found",
+    "loadingOsImages": "Loading OS images...",
+    "configSummary": "Configuration Summary",
+    "osLabel": "Operating System",
+    "notSelected": "Not selected",
+    "vmShapeLabel": "VM Shape",
+    "ocpus": "OCPUs",
+    "memory": "Memory",
+    "bootVolume": "Boot Volume",
+    "notificationEmail": "Notification Email",
+    "notSpecified": "Not specified",
+    "allFieldsCompleted": "All required fields completed",
+    "incompleteFields": "Please complete all required fields:",
+    "needOS": "Select Operating System",
+    "needOSVersion": "Select OS Version",
+    "needEmail": "Email address not found on account",
+    "configureVM": "Configure VM",
+    "configuring": "Configuring...",
+    "cancelBtn": "Cancel",
+    "confirmTitle": "Confirm OS Reinstall",
+    "confirmDesc": "The old VM along with all data and installed software will be lost. Are you sure?",
+    "confirmCancel": "Cancel",
+    "confirmOk": "Confirm",
+    "creatingVM": "Creating Your VM Instance",
+    "creatingVMDesc": "Your virtual machine is being provisioned...",
+    "provisionStep1": "Provisioning compartment and network",
+    "provisionStep2": "Launching compute instance",
+    "provisionStep3": "Configuring networking and security",
+    "provisionStep4": "Preparing access credentials",
+    "timeEstimate": "This may take 2-5 minutes",
+    "doNotClose": "⚠️ Please do not close this window or navigate away",
+    "loadingSubscription": "Loading subscription details...",
+    "subscriptionNotFound": "Subscription not found",
+    "subscriptionNotFoundBtn": "Back to Package Management",
+    "validationError": "Validation Error",
+    "validationErrorDesc": "Please fill all required fields with valid values",
+    "configSuccess": "Success",
+    "armCapacityUnavailable": "ARM Capacity Unavailable",
+    "capacityUnavailable": "Capacity Unavailable",
+    "configFailed": "Configuration Failed"
+  },
+  "addFunds": {
+    "title": "Add Funds to Account",
+    "back": "Back",
+    "selectPaymentMethod": "Select Payment Method",
+    "enterAmount": "Enter amount to deposit",
+    "amountLabel": "Amount (VND)",
+    "amountPlaceholder": "Enter amount...",
+    "amountDisplay": "Amount:",
+    "quickAmounts": "Or select a quick amount",
+    "processing": "Processing...",
+    "confirm": "Confirm deposit {{amount}} VND",
+    "comingSoon": "Coming Soon",
+    "noteTitle": "Note:",
+    "noteMin": "Minimum deposit: 10,000 VND",
+    "noteMax": "Maximum deposit: 100,000,000 VND",
+    "noteCredit": "Funds will be credited to your account after payment confirmation",
+    "errorMin": "Minimum deposit amount is 10,000 VND",
+    "errorMax": "Maximum deposit amount is 100,000,000 VND",
+    "errorSelectMethod": "Please select a payment method",
+    "errorMethodUnavailable": "This payment method is not yet available",
+    "errorLogin": "Please log in to continue",
+    "errorGeneral": "Error",
+    "successTitle": "Success",
+    "successDesc": "Deposit request created, redirecting to payment page...",
+    "methods": {
+      "momo": { "name": "MoMo Wallet", "description": "Pay via MoMo e-wallet" },
+      "card": { "name": "International Card", "description": "Visa, Mastercard, JCB" },
+      "bank_transfer": { "name": "Bank Transfer", "description": "Scan QR Code or manual transfer" }
+    }
+  },
+  "pricingModal": {
+    "title": "Choose Payment Method",
+    "subtitle": "Choose the right payment method for the {{planName}} plan",
+    "accountBalance": "Account Balance Deduction",
+    "accountBalanceDesc": "Use available balance in your account to pay",
+    "currentBalance": "Current Balance",
+    "addFundsBtn": "Add Funds",
+    "instantPayment": "Instant payment",
+    "noFees": "No transaction fees",
+    "directPayment": "Direct Payment",
+    "directPaymentDesc": "Pay via bank transfer or QR code",
+    "monthsLabel": "Subscription months",
+    "totalDeduction": "Total deducted from wallet",
+    "totalPayment": "Total payment",
+    "perMonthCalc": "{{price}} × {{months}} months",
+    "termsPrefix": "I have read and agree to the",
+    "termsLink": "terms of service",
+    "termsSuffix": "of OracleCloud Vietnam.",
+    "closeBtn": "Close",
+    "confirmBtn": "Confirm",
+    "processing": "Processing...",
+    "errorTitle": "Error",
+    "errorSelectMethod": "Please select a payment method",
+    "errorMonths": "Months must be between 1 and 24",
+    "insufficientBalanceTitle": "Insufficient balance",
+    "insufficientBalanceDesc": "Your balance is insufficient, please top up.",
+    "successTitle": "Registration successful!",
+    "successDesc": "Successfully registered {{planName}} plan. Money has been deducted from account.",
+    "errorGeneral": "An error occurred, please try again."
+  },
+  "register": {
+    "title": "Create Account",
+    "subtitle": "Create a new account to start using our service",
+    "firstName": "First Name",
+    "firstNamePlaceholder": "First name",
+    "lastName": "Last Name",
+    "lastNamePlaceholder": "Last name",
+    "email": "Email",
+    "emailPlaceholder": "your@email.com",
+    "password": "Password",
+    "passwordPlaceholder": "\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7",
+    "registerButton": "Register",
+    "registering": "Registering...",
+    "or": "Or",
+    "registerWithGoogle": "Register with Google",
+    "googleComingSoon": "Google registration coming soon",
+    "haveAccount": "Already have an account?",
+    "loginNow": "Login now",
+    "validation": {
+      "firstNameRequired": "First name is required",
+      "firstNameMaxLength": "First name cannot exceed 50 characters",
+      "lastNameRequired": "Last name is required",
+      "lastNameMaxLength": "Last name cannot exceed 50 characters",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email",
+      "passwordMinLength": "Password must be at least 6 characters",
+      "passwordMaxLength": "Password cannot exceed 100 characters",
+      "confirmPasswordRequired": "Please confirm your password",
+      "passwordsMismatch": "Passwords do not match"
+    },
+    "errorEmailAlreadyExists": "This email is already registered. Please use a different email or login.",
+    "errorDefault": "Registration failed. Please try again."
+  },
+  "verifyOtp": {
+    "title": "Verify Email",
+    "unverifiedWarning": "⚠️ Account not verified",
+    "otpSentToEmail": "OTP has been sent to your email",
+    "pleaseEnterOtp": "Please enter OTP to verify your account",
+    "enterCodeSentTo": "Enter the 6-digit verification code sent to",
+    "codeInstruction": "Enter the 6-digit code from your email",
+    "verifyButton": "Verify Email",
+    "verifying": "Verifying...",
+    "didntReceiveCode": "Didn't receive the code?",
+    "sending": "Sending...",
+    "resendIn": "Resend in {{time}}s",
+    "resendCode": "Resend code",
+    "securityNote": "🔒 This code expires in 10 minutes. Don't share it with anyone.",
+    "errorInvalidOtp": "Invalid OTP code. Please check and try again.",
+    "errorIncomplete": "Please enter a complete 6-digit code",
+    "status": {
+      "sending": "Sending verification code...",
+      "sentTitle": "Verification code sent!",
+      "sentCheckEmail": "Check your email: {{email}}",
+      "verifyingCode": "Verifying code...",
+      "successMessage": "Email verified successfully!",
+      "errorTitle": "Verification failed",
+      "resendAvailableIn": "Resend available in {{time}} seconds"
+    }
+  },
+  "forgotPassword": {
+    "recoverEmail": {
+      "title": "Forgot Password",
+      "subtitle": "Enter your email to receive an OTP to reset your password",
+      "emailLabel": "Email",
+      "emailPlaceholder": "example@email.com",
+      "submitButton": "Send OTP",
+      "sending": "Sending...",
+      "rememberPassword": "Remember your password?",
+      "loginLink": "Login",
+      "validation": {
+        "emailRequired": "Email is required",
+        "emailInvalid": "Invalid email"
+      }
+    },
+    "otpConfirm": {
+      "title": "OTP Verification",
+      "subtitle": "Enter the 6-digit OTP sent to your email:",
+      "submitButton": "Confirm OTP",
+      "verifying": "Verifying...",
+      "resend": "Resend OTP",
+      "resendCountdown": "Resend after {{countdown}}s",
+      "backToLogin": "\u2190 Back to login",
+      "validation": {
+        "otpRequired": "Please enter all 6 OTP digits"
+      }
+    }
+  },
+  "addFundsPayment": {
+    "title": "Add Funds to Account",
+    "back": "Back",
+    "invalidInfo": "Invalid Information",
+    "invalidInfoDesc": "Payment information not found. Please try again.",
+    "backToAddFunds": "Back to Add Funds",
+    "transactionInfo": "Transaction Information",
+    "transactionType": "Transaction Type:",
+    "addFundsType": "Add Funds",
+    "paymentMethodLabel": "Payment Method:",
+    "bankTransfer": "Bank Transfer",
+    "depositAmount": "Deposit Amount:",
+    "timeLeft": "Time Remaining:",
+    "expireWarning": "The transaction will expire after the time above. Please complete payment before expiration.",
+    "transactionCode": "Transaction Code:",
+    "autoConfirm": "The transaction will be automatically confirmed once payment is received.",
+    "benefit1": "Funds will be credited to your account immediately",
+    "benefit2": "No transaction fees",
+    "benefit3": "24/7 Support",
+    "benefit4": "Secure encrypted transactions",
+    "scanQR": "Scan QR to Pay",
+    "loadingPaymentInfo": "Loading payment information...",
+    "paymentSuccessRedirect": "\u2705 Deposit Successful! Redirecting...",
+    "checkingPayment": "Checking payment...",
+    "scanQRDesc": "Scan the QR code with your banking app to pay",
+    "bankLabel": "Bank:",
+    "accountNumberLabel": "Account Number:",
+    "accountHolderLabel": "Account Holder:",
+    "amountLabel": "Amount:",
+    "contentLabel": "Content:",
+    "copyTransferInfo": "Copy Transfer Information",
+    "importantNote": "Important Note:",
+    "importantNoteDesc": "Please transfer the exact amount with the exact transfer content so the system can automatically confirm the transaction.",
+    "contactSupport": "Contact Support",
+    "alreadyTransferred": "I already transferred",
+    "alreadyTransferredToast": "Thank you!",
+    "alreadyTransferredToastDesc": "We have noted your payment. The transaction will be confirmed automatically once the transfer is received.",
+    "copiedTransferInfo": "Transfer information copied",
+    "paymentSuccess": "Deposit Successful!",
+    "paymentSuccessDesc": "Funds have been added to your account.",
+    "successWithAmount": "Funds of {{amount}} have been successfully added to your account.",
+    "loading": "Loading...",
+    "qrReadyToast": "QR Code Ready",
+    "qrReadyToastDesc": "Please scan the QR code or transfer manually using the information below.",
+    "transferInfo": "Bank: {{bank}}\nAccount: {{account}}\nAmount: {{amount}} VND\nContent: {{content}}"
+  }
+}

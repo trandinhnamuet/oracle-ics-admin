@@ -1,0 +1,264 @@
+03/09
+- Web công ty hiện tại là https://icss.com.vn/ làm bằng wordpress. Cần xây dựng lại để tăng tính bảo mật cho xứng là web cho 1 công ty bảo mật. Tham chiếu https://thdcybersecurity.com/ . 
+Nên làm thế nào, mất bao lâu để clone?
+
+- Cần làm các Card show các gói dịch vụ và giá, thông tin từng dịch vụ như ở trang https://viettelidc.com.vn/cloud-server. Làm được không, mất bao lâu.
+
+- Web cty cần kiểm tra robot trước khi cho vào.
+
+04-05/09
+- Clone web ICSS
+- Làm chức năng thanh toán
+- Đọc 3 file tài liệu về 3 mảng
+- Bắt đầu học về SOC trên Udemy anh Âu mới gửi
+- Làm Flipbook. Khó vl làm mãi mới xong: https://flipbook-puce.vercel.app/
+
+Todo: 
+- Clone bài viết từ Wordpress về. Làm chức năng thêm bài viết mới.
+- Hoàn thiện chức năng mua gói và thanh toán theo flow.
+- Đọc tài liệu Oracle mới gửi
+- Học SOC
+
+08/09
+- Viết module articles và lấy tất cả bài viết từ wordpress về
+- Tạo các trang râu ria và thêm vào để hoàn hiện trang chủ: liên hệ, về chúng tôi, đối tác, sản phẩm,...
+- Thêm trang chi tiết cho từng bài viết. Update NewsOverview.tsxx
+- Tạo thêm flipbook cho ics: https://flipbook-puce.vercel.app/ics
+
+09/09
+- Tạo UI cho trang bán cloud oracle: https://v0.app/chat/cloud-partner-ui-mKuJfdbPHCe
+- Chuyển mã UI trên từ Nextjs thành ReactJS: Thất bại -> Code Frontend = Nextjs luôn vậy
+
+
+Todo:
+- Làm chức năng đăng bài viết cho web icss
+- Làm hiệu ứng lọc khách hàng tại trang https://icss.com.vn/khach-hang/ theo kiểu https://www.3egreen.com/cooperation-case/
+- Khởi tạo Backend và hoàn thiện chức năng đăng nhập, xác thực
+
+10/09
+- ssh ics@192.168.1.15
+- pass: ics
+- Hoàn thành chức nang dang bai viet web icss
+- Khởi tạo Backend và hoàn thiện chức năng đăng nhập, xác thực
+- Nghiên cứu Sepay tích hợp thanh toán bang QR và API nhận thông báo da nhan tien. Viet tai lieu
+
+Todo: 
+- Thêm phương thức thanh toán bang thẻ VISA?
+- Học và take note để tạo bài giảng -> day cac ban khac
+
+
+- Tìm bài viết về các chủ đề anh Au gửi nhưng bang tieng anh. Viettelidc viet bang AI hay sao ma nhieu cau toi nghia qua. Nguoi viet chac chan khong co kien thuc ki thuat hoac khong hieu ve chu de minh dang viet
+- Bai viet: Đến năm 2030, 100% cơ quan, doanh nghiệp nhà nước sử dụng các dịch vụ điện toán đám mây. Vậy hiện tại các hệ thống thông tin, dịch vụ công nghệ thông tin của cơ quan nhà nước dang chay o dau? Server rieng hay VPS?
+- 100% cơ quan nhà nước ưu tiên triển khai các hệ thống thông tin, dịch vụ công nghệ thông tin mới trên nền tảng điện toán đám mây nếu đủ điều kiện. + 100% cơ sở dữ liệu quốc gia được triển khai trên nền tảng điện toán đám mây tại Trung tâm dữ liệu quốc gia.
+
+=> Trung tâm dữ lieu Quoc gia o dau, Chinh phu co cloud rieng luon ak?
+=> Khac gi bao 100% co quan nha nuoc chay cac he thong tren cloud cua chinh phu? Khác gì bảo 100% hệ thống thông tin, dịch vụ công nghệ thông tin của các cơ quan nhà nước phải chạy trên Trung tâm dữ liệu quốc gia?
+=> Ý là phần cứng thì cloud nhưng Database thì lưu ở Trung tâm dữ liệu quốc gia? Có khả thi không?
+
+
+Todo: 
+Làm trang dự an như https://cystack.net/vi/projects
+Lam lai UI trang gioi thieu cho dep nhu https://cystack.net/
+
+
+
+11/09
+- Sáng đi Cystack Nghe trao đổi về khóa đào tạo bảo mật và crypto bảo mật
+- Chiều làm tiếp đăng nhập xác thực (Nghiên cứu cơ chế trước) và setup để tên miền trỏ về server
+hrm.icss.com.vn
+intro.icss.com.vn
+oracle.icss.com.vn
+
+12/09
+- Sáng họp 2 tiếng. Còn lại tiếp tục setup server. Bị một số lỗi nên mất thời gian.
+- Chiều 2h cuối cùng cũng xử lý xong setup server và tên miền. Cài đặt chứng chỉ SSL cho trang web intro và hrm
+- Tiếp tục làm đăng nhập xác thực JWT
+
+15/09
+- Sáng nghỉ
+#Chiều: 
+- Hoàn thành danh sách bài viết, video và ảnh dự kiến sẽ làm
+- Viết bài So sánh VPS vs Cloud
+- Làm ảnh infographic so sánh VPS vs Cloud
+- Tạo page Facebook. Đăng bài.
+
+
+16/09
+- Sáng: Hoàn thiện bài viết và ảnh infographic. Đăng bài fb và intro.icss.com.vn
+- Chiều: Hoàn thành chức năng đăng nhập xác thực JWT (frontend)
+- Làm module upload và quản lý ảnh
+
+17/09
+- Sáng: Đi hội nghị Cyseex 2025
+- Chiều: Thêm chức năng đa ngôn ngữ và darkmode. Đổi màu chủ đạo cho trang web và icon.
+
+
+18/09:
+#Thiết kế chức năng
+- Yêu cầu: Có 3 gói Starter, Professional và Enterprise và 1 gói Custom. 
+>Gói custom thì liên hệ với ICS để đưa ra cấu hình mong muốn và để ICS kêu bên Oracle setup.
+>3 gói kia thì có 10 gói con. Label bên ngoài show giá của gói con thấp nhất. (Hoặc có thể show khoảng giá + 
+khoảng cấu hình). Click vào button để show thông tin chi tiết 10 gói nhỏ, mỗi gói nhỏ show tên Starter 1, Starter 2,...
+và giá, cấu hình, button mua. 
+
+>Khi mua sẽ call API oracle sẽ được transfer sau. Navigate tạm đến page mới show thông tin gói, note khách thanh
+toán xong sẽ được gửi mail, QR sepay thanh toán. Làm chức năng thanh toán.
+
+- Sáng: làm chức năng mỗi gói to có 10 gói nhỏ (UI)
+- Chiều: Thêm animation ẩn hiện dần dân
+- Họp tinxie bla blo
+- Triển khai web oracle lên vercel
+
+19/09
+
+- Sáng: làm Click button chọn gói tư vấn sẽ show popup form nhập thông tin khách và cấu hình máy gửi cho backend
+- Làm trang quản lý đăng ký gói custom
+- Làm trang quản lý user
+- Thêm animation hiện ra dần dần cho các màn mới làm: admin, user mng, registed packed mng, user custom package mng.
+
+- Thêm bảng user-package, package subcription. CRUD user-package.
+- Thêm màn thông báo đăng ký thành công.
+- Tích hợp thanh toán Sepay để nhận được thông báo khi thanh toán thành công: https://chatgpt.com/share/68cc65a7-2f68-800f-a206-0399c0d0aa0e
+
+- Chiều: Nghiên cứu dashboard data source infras it + business. Họp đến 3h30
+-  
+22/09
+- Cài server chày vẩy
+- Sửa 1 vài thứ của web dashboard:
+    - video ngan va phat luon nhu tai https://smartcity.edag.com/en/referenzen/smart-city-dashboard/
+    - theme, text
+- Chiều: Đã kích hoạt được tài khoản oracle với trandinhnamuet@gmail.com. Đang cố gắng mở port cho compute instance đã tạo nhưng không được. Thử tạo lại cloud instance được
+- Họp từ 4h15-6h
+
+23/09 
+- Sáng: Chiều muộn hôm qua họ cuối cùng đã mở port modem cho mình. Sáng nay cài hosts web
+- Do dùng các cổng không chuẩn 8887 6443 thay cho 80 443 làm cổng kết nối cho web hosting nên bị nhiều lỗi, cuối cùng không cài được. Đã cài lên oracle cloud instance.
+
+24/09
+Sáng:
+- Update responsive UI trang dashboard trên điện thoại
+- Thêm lựa chọn tùy chọn thuê theo năm hoặc mua trọn gói
+- Các card trong phần dịch vụ "Giải pháp Smart Dashboard toàn diện": Chuyển thành dạng card, khi hover sẽ lật mặt sau 
+- Phần thông số trong section dịch vụ: chuyển thành dạng thông số và rolling number animation. 
+- Thêm rolling number animation cho number ở hero section luôn
+- Phần Ứng dụng rộng rãi Nhà máy Cảng biển Ngân hàng Hành chính công Tòa nhà: Làm thành 1 banner dài với các con số luôn, không để thành các card rời rạc. Anh Âu đề xuất làm như lam nhu https://www.deepmoovr.com/list/11.html
+- Phần Lĩnh vực ứng dụng - industries section: Các card giờ sẽ có thể click vào để navigate sang trang landing page cho từng lĩnh vực
+
+
+25/09
+- Đã chạy smartdashboard.vn và oraclecloud.vn ngon lành - full chức năng backend
+- Tạo 5 trang landing page cho hành chính công, tòa nhà, cảng biển, tài chính ngân hàng, nhà máy và chỉnh sửa UI chày vẩy
+- Làm chức năng tự lấy tỉ giá VND USD hàng ngày từ vietcombank API
+- chuc nang gui mail (ebook)
+- Bỏ giá ở card thuê theo năm
+
+26/09
+Dashboard:
+- Chỉnh kích cỡ video cho các kích cỡ màn hình khác (Mac)
+- Fix flip card ở service section bị show mặt trước đè lên mặt sau khi lật mặt sau
+- Tinh chỉnh trang chủ: Không bắt đăng nhập để đăng ký gói custom. Phông chữ một số chỗ đang lỗi. Bỏ badge dịch vụ và badge
+
+
+Oracle Cloud:
+- Đưa bảng giá đã chốt lên web. Bổ sung gói Hạ tầng AI - GPU. https://docs.google.com/spreadsheets/d/1qHfG6xq__DTk50RF5LYCbdI8XkXhr6OYjeAfYPxxpwo/edit?gid=553644124#gid=553644124
+- Thêm API tỉ giá. Tính giá bằng giá USD nhân với tỉ giá call từ API tỉ giá.
+- T
+
+27/09
+- Update hoàn thiện các trang landing page: Tạo ảnh, thẻ chữ đóng mở, banner,...
+- Tạo mới dashboard backend. Các chức năng mới sẽ code trên đây, còn chức năng cũ đang chạy trên oracle backend sẽ tách ra sau
+
+29/09
+- Dashboard: backend: thêm module image
+- Dashboard: Làm chức năng viết bài viết (Backend: Tạo bảng, module API CRUD. Frontend: trang viết bài mới, trang list bài viết (khách), trang quản lý bài viết.).
+- Đẩy dashboard backend lên server oracle chạy
+
+##Chiều: họp 3h
+#Sale:
+- Dự án đào tạo - Lịch trình dự án: Lên outline cho 2 ngày đào tạo. Gửi báo giá phường để chốt giá và lịch thực hiện: lich_trinh_du_an.xlsx
+Mỗi người 1 phường. Phường của Nam: Phường Chu Văn An. 
+Khóa AI. Tài liệu khóa AI đâu? Chưa thấy a Trung gửi.
+
+- 1 bạn mới join: kiếm khách hàng, web
+- Mạng lưới an ninh bảo mật - NIC (TBT join, xoay quanh dashboard, có đến thăm gian hàng của mình). Chi phí: 20 triệu. 1-3/10. Nhân sự cứng đứng sẵn sàng nói. => Cần đảm bảo hiệu quả truyền thông. Có chụp ảnh, bài báo,...
+Liên hệ nhà báo xem họ viết bài về sự kiện thế nào, đề xuất viết về mình.
+-> a Trung chỉ: Cần nói gì, sẽ nói gì. 
+- Oracle Webminar sắp tới. Timeline, đối tượng khách hàng,...
+
+##Công việc khác:
+- Chức năng quên mật khẩu và xác thực Email: Cần thêm trường email_verified và phone_verified cho bảng user.
+Nên dùng chung module gửi mail?
+- Dashboard phần viết bài viết: thêm lựa chọn paste html thay vì react_quill
+- Dashboard: Fix flip card: Không thể lật trên iphone
+
+Todo:
+- Cả 2 web: Thêm chức năng báo bug
+
+- Oracle: thêm xác thực email khi đăng ký
+- Oracle: thêm form liên hệ ở trang liên hệ và footer
+- Oracle: update ngôn ngữ cho tiếng Anh, Trung, Hàn, Nhật
+- Chức năng quên mật khẩu: Code trang #file:page.tsx quên mật khẩu. UI tương tự #file:page.tsx nhưng form yêu cầu người dùng nhập mail. Khi nhập mail và submit sẽ gửi mail về mail chứa otp user bằng module gửi mail cuẩ backend, đồng thời navigate đến trang otp-confirm #file:page.tsx . Nếu user nhập otp và submit sẽ kiểm tra otp , nếu đúng sẽ navigate đến trang new-password #file:page.tsx để user nhập password mới và xác nhận lại password mới. Submit sẽ đổi mật khẩu user và dẫn về trang login.
+- Oracle: Thêm đăng nhập bằng google
+- oracle web: fix đang chưa đăng nhập vẫn cho thanh toán, tiền nhận được chuyển từ thiện
+- oracle custom package: Thêm chú thích what can you custom: cpu type (amd, intel, ampete), data center, ...
+- Làm trang quản lý các gói đã đăng ký của 1 user (backend - frontend, cần thiết kế database)
+- Làm module quản lý ảnh đề làm chức năng ảnh avatar cho user
+- Chức năng sửa thông tin tài khoản và đổi mật khẩu
+- Lưu ngôn ngữ user chọn vào local storage để F5 vẫn show ngôn ngữ đã chọn
+- Đổi sang tài khoản ngân hàng công ty. Hiện tại đang để tài khoản của Nam để tiện test
+- Test nhiều người vào 1 lúc để kiểm thử hiệu năng
+- Làm counter: đếm lượt truy cập web
+- Phân quyền: Chỉ tài khoản admin mới thấy menu admin. Chỉ user nào mới call được data của user đó
+- Viết tài liệu kĩ thuật: luồng hoạt động của đăng nhập, luồng hoạt động của tính giá và thanh toán, luồng hoạt động của quản lý 
+- Làm counter: đếm lượt truy cập web
+
+Cloud Oracle API: Note để hôm nào Bella transfer thì trao đổi / hỏi thêm
+- API cấp cloud
+- Tham số: số tháng đăng ký, chọn data center
+- Get list data center
+- API tùy chỉnh: mạng, cổng,...
+- API gia hạn cloud. Cloud hết hạn mỗi cuối tháng hay tròn 1 tháng từ ngày đăng ký  
+
+
+- Dashboard: Thêm news vào menu header và thêm chức năng đăng bài
+- Dashboard: update UI để không bị lỗi trên Safari - Macbook
+- Thêm menu đối tác vào header, thêm section đối tác
+- Update UI trang landing page theo format https://docs.google.com/document/d/18Y0IerExACEv-pk-Bby_pxi3vFO5CxkHZrXL0iwu8Xc/edit?tab=t.0
+- Darkmode đang có vấn đề. Một số div không ảnh hưởng bởi dark mode, hãy fix.
+
+
+- Màn admin oracle: QUản lý user nào lịch sử mua hàng, hiện có các gói nào (view cho admin)
+- oracle user: THêm trang thông tin chi tiết của 1 gói đã mua:IP, cấu hình , ...
+- Làm sidebar menu cho admin
+
+
+- Làm phân quyền: chỉ role admin mới nhìn thấy  button admin và nhiều phân quyền khác trong tương lai
+- Làm module quản lý các gói đăng ký và màn quản lý các gói đăng ký để admin no code có thể chỉnh sửa thường xuyên từ UI. Thiết kế: Định nghĩa 30 gói ở frontend. Call backend lấy API thông tin 30 gói. Nếu call được thì show data từ API,
+không thì show data đã định nghĩa -> Không sợ backend chết.
+- Bổ sung đa ngôn ngữ cho các màn và text mới, hàn nhật
+- Ước lượng chi phí cho form custom đăng ký gói
+
+- Xác thực email khi đăng ký tài khoản và đăng nhập bằng google
+
+- Thêm lựa chọn cloud center cho gói custom
+- Kiểm tra responsive web
+
+
+
+- Chức năng gửi mail liên hệ trên UI
+- Link tiktok, youtube
+
+- Note lại các vấn đề xảy ra khi host server hôm 23/9 để lần sau gặp lại biết xử lý
+
+
+Todo: 
+- làm chức năng lọc khách hàng bằng button mà Dũng bảo  
+- Tạo page youtube, tiktok. Viết bài so sánh
+
+- Nghiên cứu các giải pháp đó trong data source như SMS, NMS, SRM thì các nhà thầu phụ bên nào phụ trách, bên nào thầu làm được, hiện có giải pháp nào, thiết bị gì,
+
+- Marketing: Từ chart báo cáo tình hình fanpage facebook tạo excel báo cáo
+sáng thứ 7 nộp báo cáo 
+
+- Làm FTP server lưu file nội bộ
+- Update UI cho trang ICSS: UI tương tự https://www.cisco.com/

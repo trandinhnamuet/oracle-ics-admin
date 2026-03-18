@@ -1,0 +1,483 @@
+ĐIỀU KHOẢN SỬ DỤNG DỊCH VỤ
+ORACLECLOUD VIETNAM
+(Terms of Service – Managed Oracle Cloud & VPS)
+PHẦN I
+GIỚI THIỆU – TƯ CÁCH PHÁP LÝ – PHẠM VI ÁP DỤNG – ĐỊNH NGHĨA
+Điều 1. Chủ thể cung cấp dịch vụ và tư cách pháp lý
+1.1. OracleCloud Vietnam là đơn vị cung cấp dịch vụ điện toán đám mây, máy chủ ảo (VPS/VM) và dịch vụ quản lý hạ tầng (Managed Cloud Service) thông qua website chính thức tại địa chỉ https://oraclecloud.vn.
+1.2. OracleCloud Vietnam là đối tác chính thức được Oracle Corporation ủy quyền, thực hiện việc triển khai, cung cấp và quản lý dịch vụ Cloud dựa trên hạ tầng Oracle cho khách hàng tại Việt Nam theo phạm vi ủy quyền và các thỏa thuận hợp tác giữa hai bên.
+1.3. Mặc dù là đối tác được ủy quyền, OracleCloud Vietnam là bên trực tiếp cung cấp dịch vụ cho Người dùng, chịu trách nhiệm về:
+•	Việc triển khai dịch vụ.
+•	Vận hành, hỗ trợ kỹ thuật.
+•	Quan hệ hợp đồng với Người dùng cuối.
+1.4. Oracle Corporation không phải là bên ký kết Điều khoản sử dụng này với Người dùng, không trực tiếp cung cấp dịch vụ cho Người dùng cuối và không chịu trách nhiệm pháp lý trực tiếp đối với các nghĩa vụ phát sinh giữa OracleCloud Vietnam và Người dùng, trừ khi có thỏa thuận riêng bằng văn bản.
+1.5. Việc sử dụng tên, thương hiệu và công nghệ Oracle trong phạm vi Điều khoản này được thực hiện theo quyền ủy quyền hợp pháp, không làm phát sinh quan hệ đại diện pháp lý toàn phần hoặc chuyển giao trách nhiệm giữa các bên.
+Điều 2. Hiệu lực ràng buộc của Điều khoản
+2.1. Điều khoản sử dụng này cấu thành một thỏa thuận dân sự – thương mại có giá trị pháp lý ràng buộc giữa OracleCloud Vietnam và Người dùng.
+2.2. Bằng việc:
+•	Truy cập website.
+•	Đăng ký tài khoản.
+•	Thanh toán phí dịch vụ.
+•	Hoặc sử dụng bất kỳ dịch vụ nào.
+Người dùng được xem là đã:
+•	Đọc toàn bộ Điều khoản.
+•	Hiểu rõ quyền, nghĩa vụ và rủi ro.
+•	Đồng ý bị ràng buộc bởi Điều khoản này mà không có bất kỳ bảo lưu nào.
+2.3. Trường hợp Người dùng không đồng ý với bất kỳ nội dung nào của Điều khoản, Người dùng phải ngừng sử dụng dịch vụ ngay lập tức.
+Điều 3. Phạm vi áp dụng
+3.1. Điều khoản này áp dụng cho:
+•	Tất cả cá nhân, tổ chức trong và ngoài nước sử dụng dịch vụ tại oraclecloud.vn.
+•	Chủ tài khoản chính và mọi người được cấp quyền truy cập.
+•	Mọi hành vi phát sinh từ tài khoản Người dùng, kể cả khi phát sinh do bên thứ ba truy cập trái phép.
+3.2. Điều khoản này điều chỉnh toàn bộ:
+•	Việc đăng ký, sử dụng, thanh toán dịch vụ.
+•	Việc cấp phát, quản lý tài nguyên.
+•	Việc xử lý vi phạm và chấm dứt dịch vụ.
+3.3. Trong trường hợp có mâu thuẫn giữa Điều khoản này và các tài liệu, thông tin khác trên website, Điều khoản này có giá trị ưu tiên áp dụng cao nhất, trừ khi có thỏa thuận bằng văn bản khác.
+Điều 4. Giải thích thuật ngữ
+Trong Điều khoản này, các thuật ngữ dưới đây được hiểu như sau:
+4.1. Dịch vụ
+Là toàn bộ dịch vụ Cloud, VPS, VM, tài nguyên điện toán và dịch vụ quản lý hạ tầng do OracleCloud Vietnam cung cấp.
+4.2. Cloud / Cloud Computing
+Là mô hình cung cấp tài nguyên điện toán theo nhu cầu thông qua hạ tầng máy chủ từ xa.
+4.3. Máy ảo (VPS/VM)
+Là máy chủ ảo được tạo lập trên nền tảng Cloud, được cấp tài nguyên theo gói dịch vụ mà Người dùng đăng ký.
+4.4. Managed Cloud Service
+Là dịch vụ trong đó OracleCloud Vietnam thực hiện các hoạt động quản lý kỹ thuật như giám sát, hỗ trợ, vận hành hạ tầng ở mức nhất định.
+4.5. Người dùng
+Là cá nhân hoặc tổ chức đăng ký và sử dụng dịch vụ, chịu trách nhiệm pháp lý đối với mọi hoạt động trên máy ảo.
+4.6. Tài nguyên
+Bao gồm CPU, RAM, dung lượng lưu trữ, băng thông, địa chỉ IP và các tài nguyên liên quan khác.
+4.7. Mining (Đào tiền mã hóa)
+Là việc sử dụng tài nguyên máy ảo để khai thác tiền mã hóa. Hoạt động này chỉ được phép khi có kiểm soát và chấp thuận rõ ràng.
+Điều 5. Nguyên tắc cung cấp dịch vụ
+5.1. Dịch vụ được cung cấp theo mô hình thuê tài nguyên có thời hạn, không chuyển giao quyền sở hữu hạ tầng hoặc phần mềm nền tảng.
+5.2. OracleCloud Vietnam có quyền:
+•	Giám sát mức sử dụng tài nguyên.
+•	Can thiệp kỹ thuật khi cần thiết.
+•	Áp dụng biện pháp xử lý để đảm bảo an toàn hệ thống.
+5.3. Người dùng thừa nhận rằng:
+•	Cloud là môi trường dùng chung.
+•	Hiệu năng và khả năng sẵn sàng có thể thay đổi theo tải hệ thống.
+•	Không tồn tại cam kết “hoạt động tuyệt đối 100%” nếu không có SLA riêng.
+ 
+PHẦN II
+MÔ HÌNH DỊCH VỤ – PHẠM VI QUẢN LÝ – QUYỀN & GIỚI HẠN KỸ THUẬT
+Điều 6. Mô hình cung cấp dịch vụ Managed Oracle Cloud
+6.1. OracleCloud Vietnam cung cấp dịch vụ theo mô hình Managed Oracle Cloud Service, trong đó:
+•	Hạ tầng Cloud được triển khai và vận hành trên nền tảng công nghệ Oracle;
+•	OracleCloud Vietnam là đối tác chính thức được Oracle Corporation ủy quyền, thực hiện việc triển khai, cung cấp, cấu hình, vận hành, hỗ trợ kỹ thuật và quản lý dịch vụ Cloud cho Người dùng cuối theo phạm vi ủy quyền và các thỏa thuận hợp tác giữa OracleCloud Vietnam và Oracle Corporation.
+6.2. Người dùng hiểu và đồng ý rằng:
+•	OracleCloud Vietnam không sở hữu công nghệ lõi của Oracle và không có quyền sửa đổi, can thiệp hoặc thay đổi kiến trúc nền tảng Cloud cốt lõi do Oracle Corporation cung cấp;
+•	Việc cung cấp dịch vụ được thực hiện trên cơ sở sử dụng hạ tầng Oracle kết hợp với năng lực triển khai, quản lý, vận hành và hỗ trợ kỹ thuật của OracleCloud Vietnam;
+•	Các giới hạn kỹ thuật, tính năng hệ thống và khả năng mở rộng của dịch vụ chịu sự chi phối bởi kiến trúc và chính sách nền tảng của Oracle.
+6.3. Mọi cam kết liên quan đến:
+•	Việc cung cấp dịch vụ cho Người dùng cuối;
+•	Hỗ trợ kỹ thuật, vận hành, xử lý sự cố;
+•	Quản lý tài nguyên và tương tác với Người dùng;
+được OracleCloud Vietnam thực hiện trực tiếp trong phạm vi:
+•	Quyền hạn được Oracle Corporation ủy quyền; và
+•	Khả năng quản lý, vận hành thực tế của OracleCloud Vietnam theo mô hình Managed Service.
+
+
+6.4. Người dùng xác nhận và đồng ý rằng:
+•	Oracle Corporation không phải là bên ký kết hợp đồng hoặc Điều khoản sử dụng này với Người dùng;
+•	Oracle Corporation không chịu trách nhiệm pháp lý trực tiếp đối với các nghĩa vụ phát sinh giữa OracleCloud Vietnam và Người dùng cuối, trừ trường hợp có thỏa thuận riêng bằng văn bản do Oracle Corporation trực tiếp ký kết.
+Điều 7. Phân định trách nhiệm giữa các bên
+7.1. Trách nhiệm của OracleCloud Vietnam bao gồm:
+•	Cấp phát máy ảo, tài nguyên theo gói dịch vụ đã đăng ký.
+•	Quản lý kỹ thuật ở tầng hạ tầng và ảo hóa.
+•	Giám sát hoạt động hệ thống ở mức cần thiết.
+•	Hỗ trợ kỹ thuật theo phạm vi công bố.
+7.2. Trách nhiệm của Người dùng bao gồm:
+•	Quản trị hệ điều hành, ứng dụng, dữ liệu trên máy ảo.
+•	Cấu hình bảo mật ở tầng hệ điều hành và ứng dụng.
+•	Đảm bảo việc sử dụng dịch vụ đúng pháp luật và Điều khoản.
+7.3. Oracle Corporation:
+•	Không tham gia trực tiếp vào việc cung cấp dịch vụ cho Người dùng.
+•	Không chịu trách nhiệm về vận hành, dữ liệu, tranh chấp phát sinh.
+•	Không bị ràng buộc bởi Điều khoản sử dụng này.
+Điều 8. Phạm vi dịch vụ được cung cấp
+8.1. Dịch vụ OracleCloud Vietnam cung cấp bao gồm nhưng không giới hạn:
+•	Thuê máy chủ ảo (VPS/VM).
+•	Cấp phát CPU, RAM, lưu trữ, băng thông.
+•	Cung cấp địa chỉ IP.
+•	Công cụ quản lý máy ảo.
+•	Dịch vụ hỗ trợ kỹ thuật.
+8.2. Các dịch vụ bổ sung (nếu có) như:
+•	Snapshot.
+•	Backup.
+•	Firewall.
+•	Giám sát nâng cao.
+Chỉ có hiệu lực khi được công bố rõ ràng và có thể phát sinh chi phí riêng.
+8.3. OracleCloud Vietnam không cam kết rằng mọi dịch vụ bổ sung đều luôn sẵn sàng hoặc phù hợp với mọi cấu hình máy ảo.
+Điều 9. Cơ chế cấp phát và sử dụng tài nguyên
+9.1. Tài nguyên được cấp phát dựa trên:
+•	Gói dịch vụ mà Người dùng lựa chọn.
+•	Khả năng sẵn có của hệ thống tại thời điểm cấp phát.
+9.2. Người dùng hiểu rằng:
+•	Tài nguyên Cloud là tài nguyên dùng chung.
+•	Hiệu năng thực tế có thể biến động theo tải hệ thống.
+•	Việc sử dụng tối đa tài nguyên trong thời gian dài có thể bị giám sát.
+9.3. OracleCloud Vietnam có quyền:
+•	Theo dõi mức tiêu thụ tài nguyên.
+•	Cảnh báo hoặc giới hạn tài nguyên nếu phát hiện dấu hiệu bất thường.
+•	Điều chỉnh tạm thời cấu hình để bảo vệ hệ thống chung.
+Điều 10. Quyền quản trị của Người dùng
+10.1. Người dùng được cấp quyền quản trị máy ảo trong phạm vi:
+•	Hệ điều hành.
+•	Phần mềm, ứng dụng cài đặt trên máy ảo.
+•	Dữ liệu do Người dùng tạo ra.
+10.2. Người dùng không có quyền:
+•	Truy cập vào hạ tầng vật lý.
+•	Can thiệp vào lớp ảo hóa.
+•	Truy cập máy ảo của người dùng khác.
+•	Thay đổi cấu hình nền tảng Cloud.
+10.3. Mọi hành vi vượt quá phạm vi quyền quản trị được cấp được xem là vi phạm Điều khoản.
+Điều 11. Quyền can thiệp kỹ thuật của OracleCloud Vietnam
+11.1. OracleCloud Vietnam có quyền can thiệp kỹ thuật vào máy ảo hoặc hệ thống trong các trường hợp sau:
+•	Bảo trì định kỳ hoặc khẩn cấp.
+•	Khắc phục sự cố kỹ thuật.
+•	Ngăn chặn tấn công mạng.
+•	Xử lý hành vi vi phạm Điều khoản.
+•	Tuân thủ yêu cầu từ cơ quan có thẩm quyền.
+11.2. Hình thức can thiệp có thể bao gồm:
+•	Giới hạn tài nguyên.
+•	Tạm dừng máy ảo.
+•	Khởi động lại hệ thống.
+•	Cách ly máy ảo khỏi hệ thống chung.
+•	Thu hồi quyền truy cập.
+11.3. Người dùng đồng ý rằng các biện pháp can thiệp này:
+•	Có thể được thực hiện không cần thông báo trước trong trường hợp khẩn cấp.
+•	Không làm phát sinh nghĩa vụ bồi thường.
+Điều 12. Giới hạn dịch vụ và rủi ro kỹ thuật
+12.1. Người dùng hiểu và chấp nhận rằng:
+•	Dịch vụ Cloud có thể phát sinh lỗi kỹ thuật.
+•	Không tồn tại hệ thống không có rủi ro;
+•	Hiệu năng và tính sẵn sàng phụ thuộc vào nhiều yếu tố khách quan.
+12.2. OracleCloud Vietnam không bảo đảm:
+•	Dịch vụ hoạt động liên tục không gián đoạn.
+•	Hiệu năng luôn đạt mức tối đa.
+•	Không xảy ra lỗi phần cứng hoặc phần mềm.
+12.3. Trường hợp có SLA riêng, quyền và nghĩa vụ của các bên được điều chỉnh theo SLA đó, không thay thế Điều khoản này.
+Điều 13. Quy định về mục đích sử dụng hợp lệ
+13.1. Người dùng chỉ được sử dụng dịch vụ cho các mục đích hợp pháp, bao gồm nhưng không giới hạn:
+•	Vận hành website, ứng dụng.
+•	Phát triển, thử nghiệm phần mềm.
+•	Lưu trữ và xử lý dữ liệu hợp pháp.
+13.2. Mọi mục đích sử dụng không được nêu rõ hoặc gây rủi ro cho hệ thống đều có thể bị từ chối hoặc chấm dứt dịch vụ.
+Điều 14. Quy định về hoạt động đào tiền mã hóa (Mining)
+14.1. Hoạt động Mining không được phép mặc định trên mọi gói dịch vụ.
+14.2. Chỉ được phép Mining khi:
+•	Có sự chấp thuận rõ ràng bằng văn bản hoặc cấu hình từ OracleCloud Vietnam.
+•	Sử dụng gói dịch vụ phù hợp với mining.
+•	Tuân thủ giới hạn tài nguyên và chính sách kiểm soát.
+14.3. OracleCloud Vietnam có quyền:
+•	Giám sát mức sử dụng tài nguyên liên quan đến mining.
+•	Giới hạn hoặc dừng mining nếu ảnh hưởng hệ thống.
+•	Chấm dứt dịch vụ ngay lập tức nếu mining trái phép.
+14.4. Mọi thiệt hại phát sinh từ hoạt động mining do Người dùng tự chịu trách nhiệm.
+Điều 15. Không chuyển giao quyền sử dụng
+15.1. Người dùng không được chuyển nhượng, cho thuê lại, chia sẻ quyền sử dụng dịch vụ cho bên thứ ba nếu không có sự chấp thuận bằng văn bản từ OracleCloud Vietnam.
+15.2. Mọi hành vi chuyển giao trái phép được xem là vi phạm nghiêm trọng Điều khoản.
+PHẦN III
+NGHĨA VỤ NGƯỜI DÙNG – HÀNH VI BỊ CẤM – CƠ CHẾ XỬ LÝ VI PHẠM
+
+Điều 16. Nghĩa vụ pháp lý chung của Người dùng
+16.1. Người dùng có nghĩa vụ sử dụng dịch vụ một cách hợp pháp, trung thực, thiện chí và tuân thủ đầy đủ:
+•	Điều khoản sử dụng này.
+•	Pháp luật Việt Nam.
+•	Pháp luật và quy định có liên quan tại nơi đặt hạ tầng (nếu có).
+16.2. Người dùng chịu toàn bộ trách nhiệm pháp lý đối với:
+•	Mọi hoạt động phát sinh từ tài khoản.
+•	Mọi dữ liệu, nội dung, phần mềm, ứng dụng được cài đặt trên máy ảo.
+•	Mọi thiệt hại phát sinh cho bên thứ ba do hành vi sử dụng dịch vụ của mình.
+16.3. OracleCloud Vietnam không có nghĩa vụ kiểm duyệt trước nội dung hoặc hoạt động của Người dùng, và việc không phát hiện vi phạm không đồng nghĩa với việc chấp thuận.
+Điều 17. Nghĩa vụ quản lý tài khoản và truy cập
+17.1. Người dùng có trách nhiệm:
+•	Bảo mật thông tin đăng nhập.
+•	Quản lý mật khẩu, khóa SSH, API key.
+•	Thiết lập phân quyền truy cập phù hợp.
+17.2. Mọi hành vi phát sinh từ tài khoản được mặc định là do Người dùng thực hiện, kể cả trong trường hợp:
+•	Tài khoản bị chiếm quyền do lỗi bảo mật phía Người dùng.
+•	Bên thứ ba truy cập trái phép.
+17.3. OracleCloud Vietnam không chịu trách nhiệm đối với thiệt hại phát sinh do:
+•	Lộ thông tin đăng nhập.
+•	Cấu hình bảo mật yếu.
+•	Không cập nhật, vá lỗi hệ thống.
+Điều 18. Nghĩa vụ sử dụng tài nguyên đúng mục đích
+18.1. Người dùng cam kết sử dụng tài nguyên:
+•	Đúng gói dịch vụ đã đăng ký.
+•	Đúng mục đích hợp pháp.
+•	Không gây ảnh hưởng tiêu cực đến hệ thống chung.
+18.2. Người dùng không được:
+•	Lạm dụng tài nguyên vượt mức cho phép.
+•	Cố tình duy trì mức tải cao bất thường trong thời gian dài.
+•	Lợi dụng lỗi hệ thống để chiếm dụng tài nguyên.
+Điều 19. Các hành vi bị nghiêm cấm – Nhóm an ninh mạng
+19.1. Nghiêm cấm sử dụng dịch vụ để thực hiện hoặc hỗ trợ các hành vi:
+•	Tấn công từ chối dịch vụ (DDoS, DRDoS, Flood, Amplification).
+•	Quét cổng, dò lỗ hổng trái phép.
+•	Brute-force, credential stuffing.
+•	Triển khai botnet, malware, trojan, ransomware.
+•	Phát tán mã độc dưới mọi hình thức.
+19.2. Mọi hành vi có dấu hiệu đe dọa an toàn hệ thống được xem là vi phạm nghiêm trọng, có thể bị xử lý ngay lập tức.
+Điều 20. Các hành vi bị nghiêm cấm – Nhóm spam & lạm dụng mạng
+20.1. Nghiêm cấm:
+•	Gửi email spam, SMS spam.
+•	Chạy proxy, open relay.
+•	Vận hành VPN, TOR relay, node ẩn danh trái phép.
+•	Lợi dụng máy ảo làm trung gian ẩn danh cho hành vi bất hợp pháp.
+20.2. OracleCloud Vietnam có quyền đánh giá hành vi spam/lạm dụng dựa trên:
+•	Phản ánh từ hệ thống.
+•	Khiếu nại từ bên thứ ba.
+•	Dữ liệu giám sát kỹ thuật.
+Điều 21. Các hành vi bị nghiêm cấm – Nội dung & dữ liệu
+21.1. Nghiêm cấm lưu trữ, xử lý hoặc phát tán:
+•	Nội dung vi phạm pháp luật.
+•	Nội dung xâm phạm quyền sở hữu trí tuệ.
+•	Nội dung đồi trụy, bạo lực, phản động.
+•	Nội dung xâm phạm đời sống riêng tư, danh dự cá nhân.
+21.2. Người dùng tự chịu trách nhiệm xác minh tính hợp pháp của dữ liệu mình lưu trữ.
+Điều 22. Các hành vi bị nghiêm cấm – Tiền mã hóa & tài chính
+22.1. Nghiêm cấm:
+•	Đào tiền mã hóa khi chưa được cho phép.
+•	Đào coin vượt mức tài nguyên cho phép.
+•	Che giấu hoặc ngụy trang hoạt động mining.
+22.2. Nghiêm cấm sử dụng dịch vụ cho:
+•	Lừa đảo tài chính.
+•	Phát hành token trái phép.
+•	Rửa tiền hoặc che giấu nguồn gốc tài sản.
+Điều 23. Các hành vi bị nghiêm cấm – Lạm dụng hạ tầng
+23.1. Nghiêm cấm:
+•	Can thiệp trái phép vào hạ tầng.
+•	Gây ảnh hưởng đến máy ảo của Người dùng khác.
+•	Tìm cách truy cập trái phép vào hệ thống quản trị.
+23.2. OracleCloud Vietnam có toàn quyền xác định hành vi lạm dụng dựa trên đánh giá kỹ thuật và rủi ro.
+Điều 24. Nguyên tắc xác định và xử lý vi phạm
+24.1. Việc xác định vi phạm được thực hiện dựa trên:
+•	Dữ liệu giám sát hệ thống.
+•	Phản ánh từ đối tác, nhà cung cấp hạ tầng.
+•	Yêu cầu từ cơ quan nhà nước có thẩm quyền.
+24.2. Người dùng đồng ý rằng:
+•	Đánh giá của OracleCloud Vietnam có giá trị quyết định.
+•	Không bắt buộc phải có kết luận của cơ quan chức năng trước khi xử lý.
+Điều 25. Các biện pháp xử lý vi phạm
+25.1. Tùy mức độ vi phạm, OracleCloud Vietnam có quyền áp dụng một hoặc nhiều biện pháp sau mà không cần báo trước:
+•	Cảnh báo.
+•	Giới hạn tài nguyên.
+•	Tạm ngưng máy ảo.
+•	Khóa tài khoản.
+•	Chấm dứt dịch vụ vĩnh viễn.
+•	Xóa dữ liệu liên quan đến vi phạm.
+25.2. Trường hợp vi phạm nghiêm trọng:
+•	Không hoàn tiền.
+•	Không cung cấp lại dữ liệu.
+•	Có thể phối hợp với cơ quan chức năng.
+Điều 26. Miễn trừ nghĩa vụ thông báo
+26.1. OracleCloud Vietnam không có nghĩa vụ thông báo trước trong các trường hợp:
+•	Vi phạm an ninh.
+•	Rủi ro nghiêm trọng cho hệ thống.
+•	Yêu cầu khẩn cấp từ cơ quan có thẩm quyền.
+26.2. Việc xử lý khẩn cấp không làm phát sinh trách nhiệm bồi thường.
+Điều 27. Bồi thường thiệt hại
+27.1. Người dùng có trách nhiệm bồi thường cho OracleCloud Vietnam đối với:
+•	Thiệt hại phát sinh do vi phạm Điều khoản.
+•	Khiếu nại, tranh chấp từ bên thứ ba.
+•	Chi phí pháp lý, chi phí xử lý sự cố.
+27.2. Nghĩa vụ bồi thường tồn tại kể cả sau khi dịch vụ đã chấm dứt.
+PHẦN IV
+THANH TOÁN – GIA HẠN – KHÔNG HOÀN TIỀN – HẾT HẠN DỊCH VỤ – THU HỒI TÀI NGUYÊN
+Điều 28. Nguyên tắc thanh toán dịch vụ
+28.1. Dịch vụ Cloud/VPS do OracleCloud Vietnam cung cấp được áp dụng theo nguyên tắc trả phí trước cho toàn bộ thời hạn sử dụng mà Người dùng lựa chọn.
+28.2. Việc thanh toán được thực hiện thông qua các phương thức được OracleCloud Vietnam công bố tại từng thời điểm và được xem là hoàn tất khi:
+•	Khoản tiền được ghi nhận thành công.
+•	Dịch vụ được kích hoạt hoặc gia hạn trên hệ thống.
+28.3. Người dùng có trách nhiệm:
+•	Kiểm tra đầy đủ thông tin gói dịch vụ, cấu hình, thời hạn trước khi thanh toán.
+•	Đảm bảo quyền và nghĩa vụ tài chính của mình phát sinh từ việc sử dụng dịch vụ.
+28.4. OracleCloud Vietnam không chịu trách nhiệm đối với các sai sót phát sinh do Người dùng lựa chọn nhầm gói dịch vụ, thời hạn hoặc cấu hình.
+Điều 29. Giá dịch vụ và điều chỉnh giá
+29.1. Giá dịch vụ được công bố công khai tại thời điểm Người dùng đăng ký hoặc gia hạn.
+29.2. OracleCloud Vietnam có quyền:
+•	Điều chỉnh giá dịch vụ.
+•	Thay đổi cấu trúc gói dịch vụ.
+•	Áp dụng chính sách giá mới theo từng thời kỳ.
+29.3. Việc điều chỉnh giá:
+•	Không ảnh hưởng đến thời hạn dịch vụ đã được thanh toán trước đó.
+•	Được áp dụng cho các kỳ gia hạn hoặc đăng ký mới.
+Điều 30. Gia hạn dịch vụ
+30.1. Người dùng có trách nhiệm chủ động gia hạn dịch vụ trước khi hết hạn sử dụng.
+30.2. OracleCloud Vietnam không có nghĩa vụ:
+•	Nhắc nhở gia hạn.
+•	Gia hạn tự động nếu không có thỏa thuận riêng.
+30.3. Việc không gia hạn đúng hạn được xem là Người dùng tự nguyện chấm dứt quyền sử dụng dịch vụ khi hết hạn.
+Điều 31. Chính sách hủy dịch vụ & KHÔNG HOÀN TIỀN
+31.1. Người dùng có quyền yêu cầu hủy dịch vụ trước thời hạn sử dụng.
+31.2. Tuy nhiên, Người dùng xác nhận và đồng ý rõ ràng rằng:
+•	MỌI KHOẢN PHÍ ĐÃ THANH TOÁN KHÔNG ĐƯỢC HOÀN LẠI;
+•	Việc hủy dịch vụ trước hạn không làm phát sinh bất kỳ nghĩa vụ hoàn tiền nào từ phía OracleCloud Vietnam.
+31.3. Chính sách KHÔNG HOÀN TIỀN áp dụng cho mọi trường hợp, bao gồm nhưng không giới hạn:
+•	Người dùng không còn nhu cầu sử dụng.
+•	Người dùng thay đổi mục đích.
+•	Người dùng không hài lòng với dịch vụ.
+•	Người dùng hủy do lỗi vận hành, cấu hình từ phía mình.
+•	Dịch vụ bị chấm dứt do vi phạm Điều khoản.
+•	Dịch vụ bị tạm ngưng hoặc chấm dứt theo yêu cầu của cơ quan có thẩm quyền.
+31.4. Người dùng hiểu và đồng ý rằng:
+•	Phí dịch vụ đã thanh toán là chi phí cấp phát tài nguyên, vận hành hạ tầng và duy trì hệ thống.
+•	Việc không hoàn tiền là điều kiện bắt buộc để đảm bảo tính ổn định và công bằng của dịch vụ Cloud.
+Điều 32. Tạm ngưng dịch vụ do vi phạm hoặc rủi ro
+32.1. OracleCloud Vietnam có quyền tạm ngưng dịch vụ mà không cần báo trước trong các trường hợp:
+•	Phát hiện dấu hiệu vi phạm Điều khoản.
+•	Phát sinh rủi ro an ninh mạng.
+•	Hành vi gây ảnh hưởng đến hệ thống chung.
+•	Yêu cầu từ cơ quan nhà nước có thẩm quyền.
+32.2. Thời gian tạm ngưng:
+•	Không được cộng bù vào thời hạn sử dụng.
+•	Không làm phát sinh nghĩa vụ hoàn tiền hay bồi thường.
+Điều 33. Hết hạn dịch vụ và xử lý máy ảo
+33.1. Khi dịch vụ hết hạn và không được gia hạn, OracleCloud Vietnam có quyền:
+•	Tạm ngưng máy ảo.
+•	Thu hồi tài nguyên đã cấp phát.
+•	Ngừng quyền truy cập của Người dùng.
+33.2. Thời gian lưu trữ dữ liệu sau khi hết hạn (nếu có) hoàn toàn phụ thuộc vào chính sách kỹ thuật tại từng thời điểm và không được đảm bảo.
+33.3. OracleCloud Vietnam không chịu trách nhiệm đối với:
+•	Mất mát dữ liệu do hết hạn dịch vụ.
+•	Thiệt hại phát sinh từ việc máy ảo bị ngừng hoạt động.
+Điều 34. Thu hồi và xóa dữ liệu
+34.1. Sau khi dịch vụ bị chấm dứt hoặc hết hạn, OracleCloud Vietnam có quyền:
+•	Xóa vĩnh viễn máy ảo.
+•	Xóa toàn bộ dữ liệu liên quan.
+•	Thu hồi IP và tài nguyên đã cấp phát.
+34.2. Việc xóa dữ liệu:
+•	Có thể được thực hiện mà không cần thông báo trước.
+•	Không làm phát sinh nghĩa vụ khôi phục dữ liệu.
+34.3. Người dùng có trách nhiệm:
+•	Sao lưu dữ liệu trước khi hủy hoặc hết hạn dịch vụ.
+•	Chấp nhận rủi ro mất dữ liệu nếu không thực hiện sao lưu.
+Điều 35. Ngừng cung cấp dịch vụ theo quyết định quản lý
+35.1. Trong trường hợp:
+•	Thay đổi chính sách pháp luật.
+•	Thay đổi điều kiện hợp tác với nhà cung cấp hạ tầng.
+•	Yêu cầu từ cơ quan quản lý nhà nước;
+OracleCloud Vietnam có quyền ngừng cung cấp một phần hoặc toàn bộ dịch vụ.
+35.2. Việc ngừng cung cấp dịch vụ theo điều này:
+•	Không được xem là vi phạm nghĩa vụ.
+•	Không làm phát sinh nghĩa vụ hoàn tiền hoặc bồi thường.
+Điều 36. Miễn trừ trách nhiệm liên quan đến thanh toán
+36.1. OracleCloud Vietnam không chịu trách nhiệm đối với:
+•	Lỗi thanh toán do bên trung gian.
+•	Lỗi hệ thống ngân hàng hoặc cổng thanh toán.
+•	Trì hoãn kích hoạt dịch vụ do nguyên nhân ngoài kiểm soát.
+36.2. Trong mọi trường hợp, tổng trách nhiệm (nếu có) liên quan đến thanh toán không vượt quá số tiền Người dùng đã thanh toán cho kỳ dịch vụ gần nhất.
+
+Điều 37. Hiệu lực nghĩa vụ tài chính
+37.1. Các nghĩa vụ tài chính của Người dùng:
+•	Có hiệu lực ngay khi thanh toán.
+•	Không bị hủy bỏ bởi việc ngừng sử dụng dịch vụ.
+37.2. Nghĩa vụ thanh toán và không hoàn tiền tiếp tục có hiệu lực kể cả khi dịch vụ đã bị chấm dứt.
+PHẦN V
+BẢO MẬT – DỮ LIỆU – GIỚI HẠN TRÁCH NHIỆM – CHẤM DỨT – TRANH CHẤP – ĐIỀU KHOẢN CUỐI
+Điều 38. Nguyên tắc bảo mật hệ thống
+38.1. OracleCloud Vietnam áp dụng các biện pháp kỹ thuật và quản lý hợp lý nhằm:
+•	Bảo vệ hạ tầng Cloud.
+•	Giảm thiểu rủi ro an ninh.
+•	Đảm bảo vận hành ổn định trong phạm vi khả năng kiểm soát.
+38.2. Người dùng hiểu và thừa nhận rằng:
+•	Không tồn tại hệ thống công nghệ thông tin an toàn tuyệt đối.
+•	Các rủi ro bảo mật có thể phát sinh do yếu tố khách quan hoặc từ phía Người dùng.
+38.3. Việc áp dụng các biện pháp bảo mật của OracleCloud Vietnam không cấu thành cam kết đảm bảo tuyệt đối đối với dữ liệu hoặc hoạt động của Người dùng.
+Điều 39. Trách nhiệm bảo mật của Người dùng
+39.1. Người dùng có trách nhiệm chủ động:
+•	Bảo mật tài khoản, mật khẩu, khóa SSH, API key.
+•	Cấu hình firewall, phân quyền truy cập.
+•	Cập nhật, vá lỗi hệ điều hành và phần mềm.
+39.2. Người dùng chịu toàn bộ trách nhiệm đối với:
+•	Truy cập trái phép do lỗi bảo mật phía mình.
+•	Thiệt hại phát sinh từ cấu hình sai hoặc lỗ hổng ứng dụng.
+•	Hậu quả do không thực hiện biện pháp bảo mật phù hợp.
+39.3. OracleCloud Vietnam không chịu trách nhiệm đối với mọi sự cố bảo mật phát sinh từ các nguyên nhân nêu trên.
+Điều 40. Quyền truy cập dữ liệu và can thiệp kỹ thuật
+40.1. Dữ liệu trên máy ảo thuộc quyền quản lý của Người dùng; tuy nhiên Người dùng đồng ý rằng OracleCloud Vietnam có thể cần can thiệp kỹ thuật trong các trường hợp cần thiết.
+40.2. Các trường hợp can thiệp bao gồm nhưng không giới hạn:
+•	Bảo trì, nâng cấp hạ tầng.
+•	Khắc phục sự cố kỹ thuật.
+•	Ngăn chặn hành vi vi phạm Điều khoản.
+•	Tuân thủ yêu cầu của cơ quan nhà nước có thẩm quyền.
+•	Phòng ngừa rủi ro cho hệ thống chung.
+40.3. Việc can thiệp được thực hiện trong phạm vi cần thiết và không tạo ra nghĩa vụ bồi thường.
+Điều 41. Sao lưu dữ liệu (Backup) và Snapshot
+41.1. Trừ khi có thỏa thuận riêng bằng văn bản, Người dùng tự chịu trách nhiệm sao lưu toàn bộ dữ liệu trên máy ảo.
+41.2. Các dịch vụ backup, snapshot (nếu có):
+•	Chỉ mang tính hỗ trợ kỹ thuật.
+•	Không phải là cam kết đảm bảo an toàn dữ liệu tuyệt đối.
+41.3. OracleCloud Vietnam không chịu trách nhiệm đối với:
+•	Mất dữ liệu do lỗi phần mềm.
+•	Lỗi trong quá trình khôi phục.
+•	Mất dữ liệu phát sinh từ hành vi của Người dùng hoặc bên thứ ba.
+Điều 42. Mất dữ liệu và gián đoạn dịch vụ
+42.1. Người dùng chấp nhận rằng dịch vụ Cloud/VPS có thể phát sinh:
+•	Gián đoạn tạm thời.
+•	Lỗi phần cứng hoặc phần mềm.
+•	Sự cố mạng, điện, hạ tầng viễn thông.
+42.2. OracleCloud Vietnam sẽ nỗ lực khắc phục trong thời gian hợp lý, tuy nhiên:
+•	Không cam kết thời gian khôi phục cụ thể.
+•	Không bảo đảm dịch vụ hoạt động liên tục.
+42.3. OracleCloud Vietnam không chịu trách nhiệm đối với:
+•	Mất dữ liệu.
+•	Mất doanh thu.
+•	Gián đoạn hoạt động kinh doanh.
+•	Bất kỳ thiệt hại gián tiếp nào.
+Điều 43. Giới hạn trách nhiệm
+43.1. Trong phạm vi tối đa được pháp luật cho phép, OracleCloud Vietnam loại trừ mọi trách nhiệm đối với:
+•	Thiệt hại gián tiếp, ngẫu nhiên hoặc hệ quả.
+•	Thiệt hại do bên thứ ba gây ra.
+•	Thiệt hại phát sinh từ việc Người dùng vi phạm Điều khoản.
+43.2. Tổng trách nhiệm của OracleCloud Vietnam (nếu có) không vượt quá tổng phí dịch vụ mà Người dùng đã thanh toán trong kỳ gần nhất.
+43.3. Giới hạn trách nhiệm này áp dụng ngay cả khi OracleCloud Vietnam đã được thông báo về khả năng xảy ra thiệt hại.
+Điều 44. Trường hợp bất khả kháng
+44.1. Bất khả kháng bao gồm nhưng không giới hạn:
+•	Thiên tai, hỏa hoạn, lũ lụt, động đất.
+•	Chiến tranh, bạo loạn, đình công.
+•	Sự cố hạ tầng diện rộng.
+•	Quyết định của cơ quan nhà nước.
+44.2. Trong trường hợp bất khả kháng:
+•	OracleCloud Vietnam được miễn trách nhiệm.
+•	Không phát sinh nghĩa vụ bồi thường hay hoàn tiền.
+Điều 45. Chấm dứt dịch vụ
+45.1. OracleCloud Vietnam có quyền đơn phương chấm dứt dịch vụ ngay lập tức nếu:
+•	Người dùng vi phạm Điều khoản.
+•	Phát sinh rủi ro nghiêm trọng cho hệ thống.
+•	Có yêu cầu từ cơ quan có thẩm quyền.
+45.2. Khi dịch vụ bị chấm dứt:
+•	Quyền sử dụng của Người dùng chấm dứt ngay.
+•	Dữ liệu có thể bị xóa vĩnh viễn.
+•	Không hoàn tiền trong mọi trường hợp.
+Điều 46. Luật áp dụng
+46.1. Điều khoản này được điều chỉnh và giải thích theo pháp luật Việt Nam.
+46.2. Người dùng, kể cả tổ chức hoặc cá nhân nước ngoài, đồng ý áp dụng pháp luật Việt Nam cho mọi tranh chấp phát sinh.
+Điều 47. Giải quyết tranh chấp
+47.1. Mọi tranh chấp phát sinh sẽ được ưu tiên giải quyết thông qua thương lượng.
+47.2. Trường hợp không đạt được thỏa thuận, tranh chấp được giải quyết tại Tòa án có thẩm quyền nơi OracleCloud Vietnam đặt trụ sở.
+47.3. Người dùng từ bỏ quyền:
+•	Khởi kiện tập thể.
+•	Yêu cầu bồi thường thiệt hại gián tiếp.
+•	Yêu cầu áp dụng pháp luật hoặc cơ quan tài phán khác.
+Điều 48. Điều khoản tách rời
+48.1. Nếu bất kỳ điều khoản nào bị tuyên vô hiệu, các điều khoản còn lại vẫn giữ nguyên hiệu lực.
+Điều 49. Chuyển giao quyền và nghĩa vụ
+49.1. OracleCloud Vietnam có quyền chuyển giao quyền và nghĩa vụ theo Điều khoản này cho bên thứ ba mà không cần sự đồng ý của Người dùng.
+49.2. Người dùng không được chuyển giao quyền sử dụng dịch vụ nếu không có chấp thuận bằng văn bản.
+Điều 50. Sửa đổi Điều khoản
+50.1. OracleCloud Vietnam có quyền sửa đổi, bổ sung Điều khoản bất kỳ lúc nào.
+50.2. Phiên bản mới nhất có hiệu lực ngay khi được công bố trên website.
+50.3. Việc tiếp tục sử dụng dịch vụ được xem là chấp thuận Điều khoản sửa đổi.
+Điều 51. Toàn bộ thỏa thuận
+51.1. Điều khoản này cấu thành toàn bộ thỏa thuận giữa OracleCloud Vietnam và Người dùng.
+51.2. Điều khoản này thay thế mọi thỏa thuận, cam kết trước đó.
+Điều 52. Hiệu lực
+52.1. Điều khoản sử dụng này có hiệu lực kể từ ngày công bố trên website oraclecloud.vn.
+52.2. Người dùng xác nhận đã đọc, hiểu và đồng ý chịu sự ràng buộc pháp lý của toàn bộ Điều khoản.
+
+Mặc dù dịch vụ được triển khai trên hạ tầng Oracle, mọi khiếu nại, tranh chấp và yêu cầu liên quan đến việc sử dụng dịch vụ của Người dùng được giải quyết trực tiếp giữa Người dùng và OracleCloud Vietnam. Oracle Corporation không chịu trách nhiệm pháp lý trực tiếp đối với Người dùng cuối, trừ trường hợp có thỏa thuận riêng bằng văn bản.
