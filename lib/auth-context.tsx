@@ -148,9 +148,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           token: 'from-httponly-cookie'
         })
         console.log('✅ [AUTH CONTEXT] Redirecting to /admin...')
-        // Redirect to admin dashboard after successful login
-        router.push("/admin")
-        console.log('✅ [AUTH CONTEXT] Router.push called')
+        // Use replace to clear history so /unauthorized won't appear when navigating back
+        router.replace("/admin")
+        console.log('✅ [AUTH CONTEXT] Router.replace called')
       } else {
         // Should not happen, but handle gracefully
         console.error('❌ [AUTH CONTEXT] No user data in response')
@@ -178,7 +178,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       if (typeof window !== 'undefined') {
         localStorage.removeItem('auth-storage')
       }
-      router.push("/login")
+      // Use replace to clear history so /unauthorized won't be in back stack
+      router.replace("/login")
     }
   }, [router])
 
@@ -198,7 +199,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       if (typeof window !== 'undefined') {
         localStorage.removeItem('auth-storage')
       }
-      router.push("/login")
+      router.replace("/login")
     }
   }, [router])
 

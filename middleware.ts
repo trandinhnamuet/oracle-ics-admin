@@ -33,7 +33,8 @@ export function middleware(request: NextRequest) {
     try {
       const payload = refreshToken.split('.')[1]
       if (payload) {
-        const decoded = JSON.parse(Buffer.from(payload, 'base64').toString('utf-8'))
+        // Use base64url encoding (correct for JWT)
+        const decoded = JSON.parse(Buffer.from(payload, 'base64url').toString('utf-8'))
         userRole = decoded.role
         console.log('🔍 [MIDDLEWARE] User role:', userRole);
       }
@@ -69,6 +70,12 @@ export function middleware(request: NextRequest) {
   // Đã đăng nhập + là admin + đang ở /login → redirect về /admin
   if (refreshToken && userRole === 'admin' && pathname.startsWith('/login')) {
     console.log('🔍 [MIDDLEWARE] Authenticated admin at /login, redirecting to /admin');
+    return NextResponse.redirect(new URL('/admin', request.url))
+  }
+
+  // Đã đăng nhập + là admin + đang ở /unauthorized → redirect về /admin
+  if (refreshToken && userRole === 'admin' && pathname.startsWith('/unauthorized')) {
+    console.log('🔍 [MIDDLEWARE] Authenticated admin at /unauthorized, redirecting to /admin');
     return NextResponse.redirect(new URL('/admin', request.url))
   }
 
