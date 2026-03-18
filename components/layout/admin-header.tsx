@@ -7,7 +7,6 @@ import { useTranslation } from "react-i18next"
 
 import { Button } from "@/components/ui/button"
 import { Menu, X, User, LogOut } from "lucide-react"
-import { SimpleDropdown } from "@/components/ui/simple-dropdown"
 import { LanguageSelector } from "@/components/ui/language-selector"
 import { ThemeToggle } from "@/components/ui/theme-toggle"
 
@@ -61,10 +60,6 @@ export function AdminHeader() {
     }
   }
 
-  const handleProfileClick = () => {
-    router.push('/admin/profile')
-  }
-
   return (
     <header className="bg-background border-b border-border sticky top-0 z-50 backdrop-blur-sm bg-background/95">
       <div className="container mx-auto px-4 py-4">
@@ -93,11 +88,14 @@ export function AdminHeader() {
             {isAuthenticated && user ? (
               <div className="flex items-center space-x-2">
                 <NotificationBell />
-                <SimpleDropdown
-                  user={user}
-                  onProfileClick={handleProfileClick}
-                  onLogout={handleLogout}
-                />
+                <Button
+                  variant="outline"
+                  onClick={handleLogout}
+                  className="flex items-center space-x-2"
+                >
+                  <LogOut className="h-4 w-4" />
+                  <span>{t('common.logout')}</span>
+                </Button>
                 <LanguageSelector />
                 <ThemeToggle />
               </div>
@@ -135,10 +133,6 @@ export function AdminHeader() {
                       <ThemeToggle />
                     </div>
                   </div>
-                  <Button variant="outline" onClick={handleProfileClick} className="w-full bg-transparent">
-                    <User className="h-4 w-4 mr-2" />
-                    {t('header.profile')}
-                  </Button>
                   <Button variant="outline" onClick={handleLogout} className="w-full bg-transparent">
                     <LogOut className="h-4 w-4 mr-2" />
                     {t('common.logout')}
