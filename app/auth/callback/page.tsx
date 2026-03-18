@@ -36,7 +36,7 @@ export default function AuthCallback() {
               token
             });
             console.log('✅ Google login successful:', user);
-            router.push('/');
+            router.push('/admin');
           } else {
             router.push('/login?error=Không lấy được thông tin người dùng');
           }
