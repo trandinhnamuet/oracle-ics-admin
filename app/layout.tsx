@@ -9,6 +9,7 @@ import { AnalyticsProvider } from '@/components/providers/analytics-provider'
 import { Toaster } from '@/components/ui/toaster'
 import { cookies } from 'next/headers'
 import { DomPatchProvider } from '@/components/providers/dom-patch-provider'
+import { AdminHeader } from '@/components/layout/admin-header'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -50,6 +51,7 @@ export default function RootLayout({
               <AuthStoreInitializer />
               <AnalyticsProvider>
                 <div className="min-h-screen flex flex-col">
+                  <AdminHeader />
                   <main className="flex-1">
                     {children}
                   </main>
