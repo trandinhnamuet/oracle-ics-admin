@@ -81,10 +81,12 @@ export default function LoginPage() {
     try {
       setError(null)
       clearErrors()
+      console.log('🔐 [LOGIN PAGE] Submitting login form...', { email: data.email })
       await login(data.email, data.password)
-      console.log('✅ Login successful')
+      console.log('✅ [LOGIN PAGE] Login successful, should be redirected now')
       reset()
     } catch (error: any) {
+      console.error('❌ [LOGIN PAGE] Login error:', error)
       // Don't show error if it's a verification redirect
       if (error.message === 'VERIFICATION_REQUIRED') {
         console.log('🔄 Redirecting to OTP verification...')

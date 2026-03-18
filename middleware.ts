@@ -8,6 +8,12 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
   const refreshToken = request.cookies.get('refreshToken')?.value
 
+  // Debug logging
+  const allCookies = request.cookies.getAll();
+  console.log('🔍 [MIDDLEWARE] Path:', pathname);
+  console.log('🔍 [MIDDLEWARE] All cookies:', allCookies.map(c => c.name));
+  console.log('🔍 [MIDDLEWARE] RefreshToken:', refreshToken ? '✅ Found' : '❌ Not found');
+
   // Set language cookie nếu chưa có
   const response = NextResponse.next()
   const currentLanguage = request.cookies.get('language')?.value
@@ -29,14 +35,17 @@ export function middleware(request: NextRequest) {
       if (payload) {
         const decoded = JSON.parse(Buffer.from(payload, 'base64').toString('utf-8'))
         userRole = decoded.role
+        console.log('🔍 [MIDDLEWARE] User role:', userRole);
       }
     } catch {
       // invalid token
+      console.log('🔍 [MIDDLEWARE] Failed to decode token');
     }
   }
 
   // Chưa đăng nhập + không phải public route → về /login
   if (!refreshToken && !isPublicRoute) {
+    console.log('🔍 [MIDDLEWARE] No refreshToken and not public route, redirecting to /login');
     const loginUrl = new URL('/login', request.url)
     loginUrl.searchParams.set('returnUrl', pathname)
     const loginResponse = NextResponse.redirect(loginUrl)
@@ -49,6 +58,7 @@ export function middleware(request: NextRequest) {
 
   // Đã đăng nhập nhưng không phải admin → /unauthorized
   if (refreshToken && !isPublicRoute && userRole !== 'admin') {
+    console.log('🔍 [MIDDLEWARE] User is not admin, redirecting to /unauthorized');
     const unauthorizedResponse = NextResponse.redirect(new URL('/unauthorized', request.url))
     if (currentLanguage) {
       unauthorizedResponse.cookies.set('language', currentLanguage, { path: '/', maxAge: 60 * 60 * 24 * 365, sameSite: 'lax' })
@@ -58,6 +68,7 @@ export function middleware(request: NextRequest) {
 
   // Đã đăng nhập + là admin + đang ở /login → redirect về /admin
   if (refreshToken && userRole === 'admin' && pathname.startsWith('/login')) {
+    console.log('🔍 [MIDDLEWARE] Authenticated admin at /login, redirecting to /admin');
     return NextResponse.redirect(new URL('/admin', request.url))
   }
 

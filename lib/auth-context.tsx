@@ -118,7 +118,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const login = useCallback(async (email: string, password: string) => {
     try {
+      console.log('🔐 [AUTH CONTEXT] Starting login for:', email)
       const response = await authService.login(email, password)
+      console.log('🔐 [AUTH CONTEXT] Got response:', { hasUser: !!response.user, hasToken: !!response.accessToken })
       
       // Check if email verification is required
       if (response.requiresVerification) {
@@ -136,6 +138,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       
       // Normal login flow
       if (response.user) {
+        console.log('🔐 [AUTH CONTEXT] User authenticated:', response.user.email)
         setUser(response.user)
         // Sync to Zustand store
         useAuthStore.setState({
@@ -144,14 +147,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           isLoading: false,
           token: 'from-httponly-cookie'
         })
-        console.log('✅ Login synced to store:', response.user)
+        console.log('✅ [AUTH CONTEXT] Redirecting to /admin...')
         // Redirect to admin dashboard after successful login
         router.push("/admin")
+        console.log('✅ [AUTH CONTEXT] Router.push called')
       } else {
         // Should not happen, but handle gracefully
+        console.error('❌ [AUTH CONTEXT] No user data in response')
         throw new Error('Login failed - no user data returned')
       }
     } catch (error) {
+      console.error('❌ [AUTH CONTEXT] Login error:', error)
       throw error
     }
   }, [router])

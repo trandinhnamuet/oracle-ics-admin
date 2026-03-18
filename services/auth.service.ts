@@ -46,10 +46,12 @@ class AuthService {
   async login(email: string, password: string): Promise<LoginResponse> {
     // Get client IP from ipify.org (public IP)
     const ipData = await getClientIp();
-    console.log('Client IP data in login:', ipData);
+    console.log('🔐 [AUTH SERVICE] IP data:', ipData);
+    const apiUrl = `${API_URL}/auth/login`;
+    console.log('🔐 [AUTH SERVICE] Login request to:', apiUrl);
 
     // Login should NOT use fetchWithAuth wrapper to avoid circular refresh
-    const response = await fetch(`${API_URL}/auth/login`, {
+    const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -59,15 +61,29 @@ class AuthService {
       body: JSON.stringify({ email, password, ipv4: ipData.ipv4, ipv6: ipData.ipv6 }),
     });
 
+    console.log('🔐 [AUTH SERVICE] Response status:', response.status);
+    console.log('🔐 [AUTH SERVICE] Response headers:', {
+      contentType: response.headers.get('content-type'),
+      setCookie: response.headers.get('set-cookie'),
+    });
+
     if (!response.ok) {
       const error = await response.json().catch(() => ({ message: 'Login failed' }));
+      console.error('❌ [AUTH SERVICE] Login failed:', error);
       throw new Error(error.message || 'Login failed');
     }
 
     const data: LoginResponse = await response.json();
+    console.log('🔐 [AUTH SERVICE] Response data:', { 
+      hasAccessToken: !!data.accessToken, 
+      hasUser: !!data.user,
+      userEmail: data.user?.email,
+      userRole: data.user?.role,
+    });
     
     // Check if verification is required
     if (data.requiresVerification) {
+      console.log('⚠️ [AUTH SERVICE] Verification required for:', data.email);
       // Don't set access token, return response as-is for frontend to handle
       return data;
     }
@@ -78,8 +94,10 @@ class AuthService {
       // Save to localStorage
       if (typeof window !== 'undefined') {
         localStorage.setItem(ACCESS_TOKEN_KEY, data.accessToken);
+        console.log('✅ [AUTH SERVICE] Access token saved to localStorage');
       }
     }
+    console.log('✅ [AUTH SERVICE] Login completed successfully');
     return data;
   }
 
