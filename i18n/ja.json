@@ -134,6 +134,62 @@
     "subscriptionsTitle": "サービスサブスクリプション管理",
     "subscriptionsDesc": "ユーザーがサブスクライブしたサービスパッケージ（サブスクリプション）の表示と管理",
     "subscriptionsStats": "ユーザーがサブスクライブしたサービスパッケージ（サブスクリプション）の表示と管理",
+    "walletTransactionsTitle": "ウォレット取引管理",
+    "walletTransactionsDesc": "ユーザーのウォレット取引履歴を表示",
+    "walletTransactionsStats": "すべての取引",
+    "termsTitle": "利用規約管理",
+    "termsDesc": "データベースに保存された利用規約セクションを管理",
+    "termsStats": "規約コンテンツを編集",
+    "terms": {
+      "title": "利用規約管理",
+      "subtitle": "コード変更なしでベトナム語版と英語版を独立して編集",
+      "refresh": "更新",
+      "loading": "利用規約セクションを読み込み中...",
+      "createTitle": "新しいセクションを作成",
+      "create": "セクションを作成",
+      "creating": "作成中...",
+      "save": "保存",
+      "delete": "削除",
+      "sectionLabel": "セクション #{{id}}",
+      "articleLabel": "条項 #{{index}}",
+      "addArticle": "条項を追加",
+      "removeArticle": "条項を削除",
+      "copyViToEn": "VI -> EN をコピー",
+      "copySectionViToEn": "セクション全体を VI -> EN コピー",
+      "paragraphHint": "1行につき1段落",
+      "confirmDelete": "このセクションを削除しますか？この操作は元に戻せません。",
+      "fields": {
+        "sectionTitle": "セクションタイトル",
+        "sectionTitleVi": "セクションタイトル（ベトナム語）",
+        "sectionTitleEn": "セクションタイトル（英語）",
+        "orderIndex": "表示順",
+        "active": "有効",
+        "articlesJson": "条項 JSON",
+        "articleNumber": "条項番号",
+        "headingVi": "見出し（ベトナム語）",
+        "headingEn": "見出し（英語）",
+        "paragraphsVi": "段落（ベトナム語）",
+        "paragraphsEn": "段落（英語）"
+      },
+      "toast": {
+        "saved": "セクションを更新しました",
+        "deleted": "セクションを削除しました",
+        "created": "セクションを作成しました",
+        "error": "操作に失敗しました",
+        "loadError": "利用規約セクションを読み込めません",
+        "saveError": "セクションを保存できません",
+        "deleteError": "セクションを削除できません",
+        "createError": "セクションを作成できません",
+        "invalidJson": "条項 JSON が不正です",
+        "invalidStructure": "条項 JSON の構造が不正です",
+        "titleRequired": "セクションタイトルは必須です",
+        "titleViRequired": "ベトナム語のセクションタイトルは必須です",
+        "titleEnRequired": "英語のセクションタイトルは必須です",
+        "articleRequired": "少なくとも1つの条項が必要です",
+        "headingViRequired": "ベトナム語の条項見出しは必須です",
+        "headingEnRequired": "英語の条項見出しは必須です"
+      }
+    },
     "user": {
       "title": "ユーザー管理",
       "subtitle": "システム内のユーザーアカウントを管理",
@@ -487,6 +543,52 @@
         "errorMessage": "帯域幅データを取得できません: {{error}}"
       },
       "noVms": "現在のフィルターに一致するVMがありません"
+    },
+    "walletTransactions": {
+      "title": "ウォレット取引管理",
+      "subtitle": "すべてのユーザーのウォレット取引履歴を表示",
+      "refresh": "更新",
+      "loading": "読み込み中...",
+      "empty": "取引がありません",
+      "walletFallback": "ウォレット #{{id}}",
+      "log": {
+        "totalAmount": "フィルター後 {{total}} 件の合計金額"
+      },
+      "toast": {
+        "loadError": "データの読み込みに失敗しました"
+      },
+      "filters": {
+        "user": "ユーザーで絞り込み",
+        "allUsers": "すべてのユーザー",
+        "searchPlaceholder": "メール、名前で検索...",
+        "noUserFound": "見つかりません",
+        "month": "月で絞り込み",
+        "enabled": "有効",
+        "amountDirection": "金額方向で絞り込み",
+        "amountAll": "すべて",
+        "amountPositive": "入金のみ (+)",
+        "amountNegative": "出金のみ (-)"
+      },
+      "table": {
+        "title": "取引一覧（{{total}} 件）"
+      },
+      "columns": {
+        "user": "ユーザー",
+        "type": "取引種別",
+        "amount": "金額",
+        "balanceAfter": "取引後残高",
+        "paymentId": "Payment ID",
+        "time": "日時"
+      },
+      "type": {
+        "deposit": "チャージ",
+        "subscription_payment": "プラン支払い",
+        "auto_renewal": "自動更新",
+        "manual_renewal": "手動更新"
+      },
+      "pagination": {
+        "summary": "{{page}} / {{totalPages}} ページ - {{total}} 件"
+      }
     },
     "compartment": {
       "title": "コンパートメント管理",

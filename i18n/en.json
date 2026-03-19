@@ -134,6 +134,62 @@
     "subscriptionsTitle": "Manage Service Subscriptions",
     "subscriptionsDesc": "View and manage user-subscribed service packages (subscriptions)",
     "subscriptionsStats": "View and manage subscribed user plans (subscriptions)",
+    "walletTransactionsTitle": "Wallet Transactions Management",
+    "walletTransactionsDesc": "View wallet transaction history of users",
+    "walletTransactionsStats": "All transactions",
+    "termsTitle": "Terms Management",
+    "termsDesc": "Manage Terms of Service sections stored in database",
+    "termsStats": "Edit terms content",
+    "terms": {
+      "title": "Terms Management",
+      "subtitle": "Edit Vietnamese and English terms independently without code changes",
+      "refresh": "Refresh",
+      "loading": "Loading terms sections...",
+      "createTitle": "Create New Section",
+      "create": "Create Section",
+      "creating": "Creating...",
+      "save": "Save",
+      "delete": "Delete",
+      "sectionLabel": "Section #{{id}}",
+      "articleLabel": "Article #{{index}}",
+      "addArticle": "Add Article",
+      "removeArticle": "Remove Article",
+      "copyViToEn": "Copy VI -> EN",
+      "copySectionViToEn": "Copy Entire Section VI -> EN",
+      "paragraphHint": "One paragraph per line",
+      "confirmDelete": "Delete this section? This action cannot be undone.",
+      "fields": {
+        "sectionTitle": "Section Title",
+        "sectionTitleVi": "Section Title (Vietnamese)",
+        "sectionTitleEn": "Section Title (English)",
+        "orderIndex": "Order Index",
+        "active": "Active",
+        "articlesJson": "Articles JSON",
+        "articleNumber": "Article Number",
+        "headingVi": "Heading (Vietnamese)",
+        "headingEn": "Heading (English)",
+        "paragraphsVi": "Paragraphs (Vietnamese)",
+        "paragraphsEn": "Paragraphs (English)"
+      },
+      "toast": {
+        "saved": "Section updated successfully",
+        "deleted": "Section deleted successfully",
+        "created": "Section created successfully",
+        "error": "Operation failed",
+        "loadError": "Cannot load terms sections",
+        "saveError": "Cannot save section",
+        "deleteError": "Cannot delete section",
+        "createError": "Cannot create section",
+        "invalidJson": "Articles JSON is invalid",
+        "invalidStructure": "Articles JSON structure is invalid",
+        "titleRequired": "Section title is required",
+        "titleViRequired": "Vietnamese section title is required",
+        "titleEnRequired": "English section title is required",
+        "articleRequired": "At least one article is required",
+        "headingViRequired": "Vietnamese article heading is required",
+        "headingEnRequired": "English article heading is required"
+      }
+    },
     "user": {
       "title": "User Management",
       "subtitle": "Manage user accounts in the system",
@@ -480,6 +536,52 @@
         "errorMessage": "Cannot retrieve bandwidth data: {{error}}"
       },
       "noVms": "No VMs match the current filter"
+    },
+    "walletTransactions": {
+      "title": "Wallet Transactions Management",
+      "subtitle": "View wallet transaction history for all users",
+      "refresh": "Refresh",
+      "loading": "Loading...",
+      "empty": "No transactions found",
+      "walletFallback": "Wallet #{{id}}",
+      "log": {
+        "totalAmount": "Total amount for all {{total}} filtered records"
+      },
+      "toast": {
+        "loadError": "Failed to load data"
+      },
+      "filters": {
+        "user": "Filter by user",
+        "allUsers": "All users",
+        "searchPlaceholder": "Search by email, name...",
+        "noUserFound": "No users found",
+        "month": "Filter by month",
+        "enabled": "Enabled",
+        "amountDirection": "Filter by money flow",
+        "amountAll": "All",
+        "amountPositive": "Incoming only (+)",
+        "amountNegative": "Outgoing only (-)"
+      },
+      "table": {
+        "title": "Transactions ({{total}} records)"
+      },
+      "columns": {
+        "user": "User",
+        "type": "Transaction Type",
+        "amount": "Amount",
+        "balanceAfter": "Balance After",
+        "paymentId": "Payment ID",
+        "time": "Time"
+      },
+      "type": {
+        "deposit": "Deposit",
+        "subscription_payment": "Subscription Payment",
+        "auto_renewal": "Auto Renewal",
+        "manual_renewal": "Manual Renewal"
+      },
+      "pagination": {
+        "summary": "Page {{page}}/{{totalPages}} - {{total}} records"
+      }
     },
     "compartment": {
       "title": "Compartment Management",

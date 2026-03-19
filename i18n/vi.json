@@ -134,6 +134,62 @@
     "subscriptionsTitle": "Quản lý đăng ký dịch vụ",
     "subscriptionsDesc": "Xem và quản lý các gói người dùng đã đăng ký (subscription)",
     "subscriptionsStats": "Xem và quản lý các gói người dùng đã đăng ký (subscription)",
+    "walletTransactionsTitle": "Quản lý Wallet Transactions",
+    "walletTransactionsDesc": "Xem lịch sử giao dịch ví của người dùng",
+    "walletTransactionsStats": "Tất cả giao dịch",
+    "termsTitle": "Quản lý Điều khoản",
+    "termsDesc": "Quản lý các mục Điều khoản dịch vụ trong cơ sở dữ liệu",
+    "termsStats": "Chỉnh sửa nội dung điều khoản",
+    "terms": {
+      "title": "Quản lý Điều khoản",
+      "subtitle": "Chỉnh sửa điều khoản tiếng Việt và tiếng Anh độc lập, không cần sửa code",
+      "refresh": "Làm mới",
+      "loading": "Đang tải danh sách điều khoản...",
+      "createTitle": "Tạo mục mới",
+      "create": "Tạo mục",
+      "creating": "Đang tạo...",
+      "save": "Lưu",
+      "delete": "Xóa",
+      "sectionLabel": "Mục #{{id}}",
+      "articleLabel": "Điều #{{index}}",
+      "addArticle": "Thêm điều",
+      "removeArticle": "Xóa điều",
+      "copyViToEn": "Sao chép VI -> EN",
+      "copySectionViToEn": "Sao chép toàn mục VI -> EN",
+      "paragraphHint": "Mỗi dòng là một đoạn",
+      "confirmDelete": "Xóa mục này? Hành động này không thể hoàn tác.",
+      "fields": {
+        "sectionTitle": "Tiêu đề mục",
+        "sectionTitleVi": "Tiêu đề mục (Tiếng Việt)",
+        "sectionTitleEn": "Tiêu đề mục (Tiếng Anh)",
+        "orderIndex": "Thứ tự hiển thị",
+        "active": "Kích hoạt",
+        "articlesJson": "JSON bài điều khoản",
+        "articleNumber": "Số điều",
+        "headingVi": "Tiêu đề điều (Tiếng Việt)",
+        "headingEn": "Tiêu đề điều (Tiếng Anh)",
+        "paragraphsVi": "Nội dung đoạn (Tiếng Việt)",
+        "paragraphsEn": "Nội dung đoạn (Tiếng Anh)"
+      },
+      "toast": {
+        "saved": "Cập nhật mục thành công",
+        "deleted": "Xóa mục thành công",
+        "created": "Tạo mục thành công",
+        "error": "Thao tác thất bại",
+        "loadError": "Không thể tải danh sách điều khoản",
+        "saveError": "Không thể lưu mục",
+        "deleteError": "Không thể xóa mục",
+        "createError": "Không thể tạo mục",
+        "invalidJson": "JSON bài điều khoản không hợp lệ",
+        "invalidStructure": "Cấu trúc JSON bài điều khoản không hợp lệ",
+        "titleRequired": "Vui lòng nhập tiêu đề mục",
+        "titleViRequired": "Vui lòng nhập tiêu đề mục tiếng Việt",
+        "titleEnRequired": "Vui lòng nhập tiêu đề mục tiếng Anh",
+        "articleRequired": "Vui lòng thêm ít nhất một điều",
+        "headingViRequired": "Vui lòng nhập tiêu đề điều tiếng Việt",
+        "headingEnRequired": "Vui lòng nhập tiêu đề điều tiếng Anh"
+      }
+    },
     "user": {
       "title": "Quản lý người dùng",
       "subtitle": "Quản lý tài khoản người dùng trong hệ thống",
@@ -480,6 +536,52 @@
         "errorMessage": "Không thể lấy dữ liệu băng thông: {{error}}"
       },
       "noVms": "Không có VM nào phù hợp với bộ lọc hiện tại"
+    },
+    "walletTransactions": {
+      "title": "Quản lý Wallet Transactions",
+      "subtitle": "Xem lịch sử giao dịch ví của tất cả người dùng",
+      "refresh": "Làm mới",
+      "loading": "Đang tải...",
+      "empty": "Không có giao dịch nào",
+      "walletFallback": "Ví #{{id}}",
+      "log": {
+        "totalAmount": "Tổng số tiền của {{total}} bản ghi thỏa mãn bộ lọc"
+      },
+      "toast": {
+        "loadError": "Lỗi tải dữ liệu"
+      },
+      "filters": {
+        "user": "Lọc theo người dùng",
+        "allUsers": "Tất cả người dùng",
+        "searchPlaceholder": "Tìm email, tên...",
+        "noUserFound": "Không tìm thấy",
+        "month": "Lọc theo tháng",
+        "enabled": "Bật",
+        "amountDirection": "Lọc theo chiều tiền",
+        "amountAll": "Tất cả",
+        "amountPositive": "Chỉ tiền vào (+)",
+        "amountNegative": "Chỉ tiền ra (-)"
+      },
+      "table": {
+        "title": "Danh sách giao dịch ({{total}} bản ghi)"
+      },
+      "columns": {
+        "user": "Người dùng",
+        "type": "Loại giao dịch",
+        "amount": "Số tiền",
+        "balanceAfter": "Số dư sau GD",
+        "paymentId": "Payment ID",
+        "time": "Thời gian"
+      },
+      "type": {
+        "deposit": "Nạp tiền",
+        "subscription_payment": "Thanh toán gói",
+        "auto_renewal": "Gia hạn tự động",
+        "manual_renewal": "Gia hạn thủ công"
+      },
+      "pagination": {
+        "summary": "Trang {{page}}/{{totalPages}} - {{total}} bản ghi"
+      }
     },
     "compartment": {
       "title": "Quản lý Compartments",

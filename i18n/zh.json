@@ -134,6 +134,62 @@
     "subscriptionsTitle": "管理服务订阅",
     "subscriptionsDesc": "查看和管理用户订阅的服务包（订阅）",
     "subscriptionsStats": "查看和管理用户订阅的服务包（订阅）",
+    "walletTransactionsTitle": "钱包交易管理",
+    "walletTransactionsDesc": "查看用户的钱包交易历史",
+    "walletTransactionsStats": "所有交易",
+    "termsTitle": "条款管理",
+    "termsDesc": "管理存储在数据库中的服务条款章节",
+    "termsStats": "编辑条款内容",
+    "terms": {
+      "title": "条款管理",
+      "subtitle": "无需修改代码即可分别编辑越南语和英语条款",
+      "refresh": "刷新",
+      "loading": "正在加载条款章节...",
+      "createTitle": "创建新章节",
+      "create": "创建章节",
+      "creating": "创建中...",
+      "save": "保存",
+      "delete": "删除",
+      "sectionLabel": "章节 #{{id}}",
+      "articleLabel": "条款 #{{index}}",
+      "addArticle": "添加条款",
+      "removeArticle": "删除条款",
+      "copyViToEn": "复制 VI -> EN",
+      "copySectionViToEn": "整节复制 VI -> EN",
+      "paragraphHint": "每行一个段落",
+      "confirmDelete": "删除此章节？此操作无法撤销。",
+      "fields": {
+        "sectionTitle": "章节标题",
+        "sectionTitleVi": "章节标题（越南语）",
+        "sectionTitleEn": "章节标题（英语）",
+        "orderIndex": "排序索引",
+        "active": "启用",
+        "articlesJson": "文章 JSON",
+        "articleNumber": "条款编号",
+        "headingVi": "标题（越南语）",
+        "headingEn": "标题（英语）",
+        "paragraphsVi": "段落内容（越南语）",
+        "paragraphsEn": "段落内容（英语）"
+      },
+      "toast": {
+        "saved": "章节更新成功",
+        "deleted": "章节删除成功",
+        "created": "章节创建成功",
+        "error": "操作失败",
+        "loadError": "无法加载条款章节",
+        "saveError": "无法保存章节",
+        "deleteError": "无法删除章节",
+        "createError": "无法创建章节",
+        "invalidJson": "文章 JSON 无效",
+        "invalidStructure": "文章 JSON 结构无效",
+        "titleRequired": "章节标题为必填项",
+        "titleViRequired": "越南语章节标题为必填项",
+        "titleEnRequired": "英语章节标题为必填项",
+        "articleRequired": "至少需要一个条款",
+        "headingViRequired": "越南语条款标题为必填项",
+        "headingEnRequired": "英语条款标题为必填项"
+      }
+    },
     "user": {
       "title": "用户管理",
       "subtitle": "管理系统中的用户账户",
@@ -487,6 +543,52 @@
         "errorMessage": "无法获取带宽数据: {{error}}"
       },
       "noVms": "没有VM符合当前筛选条件"
+    },
+    "walletTransactions": {
+      "title": "钱包交易管理",
+      "subtitle": "查看所有用户的钱包交易历史",
+      "refresh": "刷新",
+      "loading": "加载中...",
+      "empty": "暂无交易记录",
+      "walletFallback": "钱包 #{{id}}",
+      "log": {
+        "totalAmount": "筛选后共 {{total}} 条记录的总金额"
+      },
+      "toast": {
+        "loadError": "加载数据失败"
+      },
+      "filters": {
+        "user": "按用户筛选",
+        "allUsers": "所有用户",
+        "searchPlaceholder": "搜索邮箱、姓名...",
+        "noUserFound": "未找到用户",
+        "month": "按月份筛选",
+        "enabled": "启用",
+        "amountDirection": "按资金方向筛选",
+        "amountAll": "全部",
+        "amountPositive": "仅入账 (+)",
+        "amountNegative": "仅出账 (-)"
+      },
+      "table": {
+        "title": "交易列表（{{total}} 条）"
+      },
+      "columns": {
+        "user": "用户",
+        "type": "交易类型",
+        "amount": "金额",
+        "balanceAfter": "交易后余额",
+        "paymentId": "Payment ID",
+        "time": "时间"
+      },
+      "type": {
+        "deposit": "充值",
+        "subscription_payment": "套餐支付",
+        "auto_renewal": "自动续费",
+        "manual_renewal": "手动续费"
+      },
+      "pagination": {
+        "summary": "第 {{page}}/{{totalPages}} 页 - 共 {{total}} 条"
+      }
     },
     "compartment": {
       "title": "分区管理",
