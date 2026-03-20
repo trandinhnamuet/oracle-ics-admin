@@ -8,6 +8,7 @@ import { Trash2, RefreshCw, AlertTriangle, Loader2 } from 'lucide-react'
 import { useToast } from '@/hooks/use-toast'
 import { getCompartments, deleteCompartment, Compartment } from '@/api/oci.api'
 import { useTranslation } from 'react-i18next'
+import { formatDateTime } from '@/lib/utils'
 import {
   AlertDialog,
   AlertDialogAction,
@@ -146,7 +147,7 @@ export default function CompartmentManagementPage() {
                   <div>
                     <p className="text-sm font-medium text-muted-foreground">{t('admin.compartment.createdAt')}</p>
                     <p className="text-sm">
-                      {new Date(compartment.timeCreated).toLocaleString('vi-VN')}
+                      {formatDateTime(compartment.timeCreated)}
                     </p>
                   </div>
                 </div>

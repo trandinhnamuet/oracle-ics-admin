@@ -16,6 +16,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { toggleUserAdminRole } from '@/api/user.api'
 import { useTranslation } from 'react-i18next'
 import { useToast } from '@/hooks/use-toast'
+import { formatDateTime } from '@/lib/utils'
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from '@/components/ui/alert-dialog'
 
 interface User {
@@ -473,24 +474,10 @@ export default function UserManagementPage() {
                         </div>
                       </TableCell>
                       <TableCell>
-                        {new Date(user.createdAt).toLocaleString('vi-VN', {
-                          year: 'numeric',
-                          month: '2-digit',
-                          day: '2-digit',
-                          hour: '2-digit',
-                          minute: '2-digit',
-                          timeZone: 'Asia/Ho_Chi_Minh'
-                        })}
+                        {formatDateTime(user.createdAt)}
                       </TableCell>
                       <TableCell>
-                        {new Date(user.updatedAt).toLocaleString('vi-VN', {
-                          year: 'numeric',
-                          month: '2-digit',
-                          day: '2-digit',
-                          hour: '2-digit',
-                          minute: '2-digit',
-                          timeZone: 'Asia/Ho_Chi_Minh'
-                        })}
+                        {formatDateTime(user.updatedAt)}
                       </TableCell>
                       <TableCell>
                         <div className="flex items-center space-x-1">

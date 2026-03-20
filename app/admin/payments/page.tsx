@@ -13,6 +13,7 @@ import {
 import { paymentApi } from '@/api/payment.api'
 import { useTranslation } from 'react-i18next'
 import { useToast } from '@/hooks/use-toast'
+import { formatDateTime } from '@/lib/utils'
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from '@/components/ui/alert-dialog'
 
 interface Payment {
@@ -196,8 +197,7 @@ export default function PaymentManagementPage() {
   const formatCurrency = (amount: number) =>
     new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(amount)
 
-  const formatDate = (dateString: string) =>
-    new Date(dateString).toLocaleString('vi-VN')
+  const formatDate = (dateString: string) => formatDateTime(dateString)
 
   const th = (label: string, col: SortKey) => (
     <TableHead

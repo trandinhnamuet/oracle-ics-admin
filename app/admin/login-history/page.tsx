@@ -15,6 +15,7 @@ import useAuthStore from '@/hooks/use-auth-store'
 import { useToast } from '@/hooks/use-toast'
 import { formatDistanceToNow, format } from 'date-fns'
 import { vi } from 'date-fns/locale'
+import { parseAsUtc, formatDateTime } from '@/lib/utils'
 
 export default function AdminLoginHistoryPage() {
   const { t } = useTranslation()
@@ -197,7 +198,7 @@ export default function AdminLoginHistoryPage() {
         record.id,
         record.username,
         record.role,
-        format(new Date(record.loginTime), 'PPpp', { locale: vi }),
+        format(parseAsUtc(record.loginTime), 'PPpp', { locale: vi }),
         record.loginStatus,
         record.ipV4 || record.ipV6 || t('admin.loginHistory.csvNA'),
         record.country || t('admin.loginHistory.csvNA'),
@@ -298,7 +299,7 @@ export default function AdminLoginHistoryPage() {
                   <ul className="list-disc pl-5 space-y-1">
                     {suspiciousAttempts.slice(0, 3).map((attempt, index) => (
                       <li key={index}>
-                        {t('admin.loginHistory.suspicious.failedFrom', { ip: attempt.ipV4 || attempt.ipV6, date: format(new Date(attempt.loginTime), 'PPp', { locale: vi }) })}
+                        {t('admin.loginHistory.suspicious.failedFrom', { ip: attempt.ipV4 || attempt.ipV6, date: format(parseAsUtc(attempt.loginTime), 'PPp', { locale: vi }) })}
                       </li>
                     ))}
                     {suspiciousAttempts.length > 3 && (
@@ -463,8 +464,8 @@ export default function AdminLoginHistoryPage() {
                         </div>
                       </td>
                       <td className="px-4 py-4 text-sm">
-                        <div className="text-gray-900 dark:text-foreground">{format(new Date(record.loginTime), 'PPp', { locale: vi })}</div>
-                        <div className="text-gray-500 dark:text-muted-foreground text-xs">{formatDistanceToNow(new Date(record.loginTime), { locale: vi, addSuffix: true })}</div>
+                        <div className="text-gray-900 dark:text-foreground">{formatDateTime(record.loginTime)}</div>
+                        <div className="text-gray-500 dark:text-muted-foreground text-xs">{formatDistanceToNow(parseAsUtc(record.loginTime), { locale: vi, addSuffix: true })}</div>
                       </td>
                       <td className="px-4 py-4 whitespace-nowrap">
                         <span className={`px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${

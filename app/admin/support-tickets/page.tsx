@@ -19,6 +19,7 @@ import { useToast } from '@/hooks/use-toast'
 import { getAllTickets, updateTicket, deleteTicket, parseAttachments, SupportTicket, TicketAttachment } from '@/api/support-ticket.api'
 import { useTranslation } from 'react-i18next'
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from '@/components/ui/alert-dialog'
+import { formatDateTime } from '@/lib/utils'
 
 const STATUS_CONFIG: Record<string, { className: string; icon: React.ElementType }> = {
   open:        { className: 'bg-blue-100 text-blue-700 border-blue-200',   icon: AlertCircle },
@@ -167,8 +168,7 @@ export default function AdminSupportTicketsPage() {
     urgent:      tickets.filter(t => t.priority === 'urgent').length,
   }
 
-  const formatDate = (d: string) =>
-    new Date(d).toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })
+  const formatDate = (d: string) => formatDateTime(d)
 
   return (
     <div className="p-6 space-y-6">

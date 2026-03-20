@@ -16,6 +16,7 @@ import {
 import { getAllUsers } from '@/api/user.api'
 import { useToast } from '@/hooks/use-toast'
 import { useTranslation } from 'react-i18next'
+import { formatDateTime } from '@/lib/utils'
 
 const PAGE_SIZE = 20
 
@@ -31,7 +32,7 @@ function formatCurrency(amount: number) {
 }
 
 function formatDate(dateString: string) {
-  return new Date(dateString).toLocaleString('vi-VN')
+  return formatDateTime(dateString)
 }
 
 const TYPE_COLOR_MAP: Record<string, string> = {
