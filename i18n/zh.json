@@ -511,14 +511,17 @@
         "overLimit": "超出限制",
         "nearLimit": "接近限制",
         "totalEgress": "总出口流量",
-        "average": "平均值"
+        "average": "平均值",
+        "vmsWithData": "有数据的VM",
+        "totalIngress": "总入站流量"
       },
       "filter": {
         "label": "筛选:",
         "all": "全部",
         "over": "超出限制",
         "near": "警告",
-        "normal": "正常"
+        "normal": "正常",
+        "searchPlaceholder": "按VM名称、邮箱或IP搜索..."
       },
       "sort": {
         "label": "排序:",
@@ -530,7 +533,10 @@
         "overLimit": "超出限制",
         "warning": "警告",
         "normal": "正常",
-        "error": "错误"
+        "error": "错误",
+        "live": "实时",
+        "archived": "已归档",
+        "noData": "无数据"
       },
       "source": {
         "oci": "实时 (OCI)",
@@ -558,7 +564,11 @@
         "nearLimitMessage": "此VM已使用{{usage}}%出口带宽。距限制还有{{remaining}} TB。",
         "errorMessage": "无法获取带宽数据: {{error}}"
       },
-      "noVms": "没有VM符合当前筛选条件"
+      "noVms": "没有VM符合当前筛选条件",
+      "compartment": {
+        "vms": "VM",
+        "withData": "有数据"
+      }
     },
     "walletTransactions": {
       "title": "钱包交易管理",

@@ -511,14 +511,17 @@
         "overLimit": "制限超過",
         "nearLimit": "制限近傍",
         "totalEgress": "総エグレス",
-        "average": "平均"
+        "average": "平均",
+        "vmsWithData": "データのあるVM",
+        "totalIngress": "合計Ingress"
       },
       "filter": {
         "label": "フィルター:",
         "all": "すべて",
         "over": "制限超過",
         "near": "警告",
-        "normal": "正常"
+        "normal": "正常",
+        "searchPlaceholder": "VM名、メール、IPで検索..."
       },
       "sort": {
         "label": "並び替え:",
@@ -530,7 +533,10 @@
         "overLimit": "制限超過",
         "warning": "警告",
         "normal": "正常",
-        "error": "エラー"
+        "error": "エラー",
+        "live": "ライブ",
+        "archived": "アーカイブ",
+        "noData": "データなし"
       },
       "source": {
         "oci": "リアルタイム (OCI)",
@@ -558,7 +564,11 @@
         "nearLimitMessage": "このVMはエグレス帯域幅の{{usage}}%を使用しています。制限まで{{remaining}} TB残っています。",
         "errorMessage": "帯域幅データを取得できません: {{error}}"
       },
-      "noVms": "現在のフィルターに一致するVMがありません"
+      "noVms": "現在のフィルターに一致するVMがありません",
+      "compartment": {
+        "vms": "VM",
+        "withData": "データあり"
+      }
     },
     "walletTransactions": {
       "title": "ウォレット取引管理",
