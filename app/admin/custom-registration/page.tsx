@@ -12,6 +12,7 @@ import { Input } from '@/components/ui/input'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Search, Filter, Download, Users, Calendar, Building } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+import { formatDateOnly, formatDateTime } from '@/lib/utils'
 
 interface CustomRegistration {
   id: number
@@ -53,7 +54,7 @@ export default function CustomRegistrationAdminPage() {
       [t('admin.customRegistration.table.company')]: reg.company || t('admin.customRegistration.export.notAvailable'),
       [t('admin.customRegistration.export.detail')]: typeof reg.detail === 'object' ? JSON.stringify(reg.detail) : reg.detail,
       [t('admin.customRegistration.table.status')]: reg.processed ? t('admin.customRegistration.filter.processed') : t('admin.customRegistration.filter.unprocessed'),
-      [t('admin.customRegistration.export.createdAt')]: new Date(reg.createdAt).toLocaleDateString(locale),
+      [t('admin.customRegistration.export.createdAt')]: formatDateOnly(reg.createdAt, locale),
       [t('admin.customRegistration.export.createdBy')]: reg.createdBy || t('admin.customRegistration.export.system')
     }))
 
@@ -283,7 +284,7 @@ export default function CustomRegistrationAdminPage() {
                           </p>
                         </TableCell>
                         <TableCell>
-                          <p className="text-sm">{new Date(item.createdAt).toLocaleString(i18n.language)}</p>
+                          <p className="text-sm">{formatDateTime(item.createdAt, i18n.language)}</p>
                         </TableCell>
                         <TableCell className="text-center">
                           <div className="flex items-center justify-center">

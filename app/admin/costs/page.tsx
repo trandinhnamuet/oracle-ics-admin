@@ -9,7 +9,7 @@ import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { RefreshCw, Search, TrendingUp, TrendingDown, Wallet, Users, ArrowLeft } from 'lucide-react'
 import { getAllWallets, getAllWalletTransactions, UserWallet, WalletTransaction } from '@/api/user-wallet.api'
-import { formatPrice } from '@/lib/utils'
+import { formatPrice, parseAsUtc } from '@/lib/utils'
 import { useRouter } from 'next/navigation'
 import { useTranslation } from 'react-i18next'
 
@@ -87,7 +87,7 @@ export default function AdminCostsPage() {
     
     // Collect years from transactions
     transactions.forEach(t => {
-      const y = new Date(t.created_at).getFullYear()
+      const y = parseAsUtc(t.created_at).getFullYear()
       if (!isNaN(y)) years.add(y)
     })
     
@@ -119,7 +119,7 @@ export default function AdminCostsPage() {
     for (let m = 1; m <= 12; m++) map.set(m, { deposited: 0, spent: 0 })
 
     transactions.forEach(t => {
-      const d = new Date(t.created_at)
+      const d = parseAsUtc(t.created_at)
       if (d.getFullYear() !== year) return
       const month = d.getMonth() + 1
       const bucket = map.get(month)!
@@ -142,7 +142,7 @@ export default function AdminCostsPage() {
   const yearlyData = useMemo(() => {
     const map = new Map<number, { deposited: number; spent: number }>()
     transactions.forEach(t => {
-      const year = new Date(t.created_at).getFullYear()
+      const year = parseAsUtc(t.created_at).getFullYear()
       if (isNaN(year)) return
       if (!map.has(year)) map.set(year, { deposited: 0, spent: 0 })
       const bucket = map.get(year)!

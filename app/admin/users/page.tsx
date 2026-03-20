@@ -16,7 +16,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { toggleUserAdminRole } from '@/api/user.api'
 import { useTranslation } from 'react-i18next'
 import { useToast } from '@/hooks/use-toast'
-import { formatDateTime } from '@/lib/utils'
+import { formatDateTime, formatDateOnly } from '@/lib/utils'
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from '@/components/ui/alert-dialog'
 
 interface User {
@@ -271,8 +271,8 @@ export default function UserManagementPage() {
       [t('admin.users.export.company')]: user.company || t('admin.users.export.notAvailable'),
       [t('admin.users.export.role')]: user.role === 'admin' ? 'Admin' : 'Customer',
       [t('admin.users.export.status')]: user.isActive ? t('admin.users.export.active') : t('admin.users.export.locked'),
-      [t('admin.users.export.createdAt')]: new Date(user.createdAt).toLocaleDateString(locale),
-      [t('admin.users.export.updatedAt')]: new Date(user.updatedAt).toLocaleDateString(locale)
+      [t('admin.users.export.createdAt')]: formatDateOnly(user.createdAt, locale),
+      [t('admin.users.export.updatedAt')]: formatDateOnly(user.updatedAt, locale)
     }))
 
     const ws = XLSX.utils.json_to_sheet(exportData)

@@ -24,6 +24,7 @@ import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, 
 import { useRouter } from 'next/navigation'
 import { toast } from '@/hooks/use-toast'
 import { useTranslation } from 'react-i18next'
+import { formatDateOnly } from '@/lib/utils'
 
 export default function AdminSubscriptionsPage() {
   const router = useRouter()
@@ -272,7 +273,7 @@ export default function AdminSubscriptionsPage() {
   }
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString(i18n.language)
+    return formatDateOnly(dateString, i18n.language)
   }
 
   const formatCurrency = (amount: number) => {
