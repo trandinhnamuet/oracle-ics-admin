@@ -78,7 +78,7 @@ export function AdminHeader() {
                 {t('header.logoTitle')}
               </h1>
               <p className="text-xs text-muted-foreground">
-                Admin Panel
+                {t('header.adminPanel')}
               </p>
             </div>
           </Link>

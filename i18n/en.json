@@ -32,7 +32,7 @@
       "inactive": "Inactive",
       "pending": "Pending",
       "suspended": "Suspended",
-      "cancelled": "Cancelled", 
+      "cancelled": "Cancelled",
       "expired": "Expired",
       "pauseTitle": "Pause Package",
       "activateTitle": "Activate Package",
@@ -341,7 +341,14 @@
           "popular": "Popular",
           "noPackagesFound": "No service packages found",
           "active": "Active",
-          "inactive": "Inactive"
+          "inactive": "Inactive",
+          "idLabel": "ID",
+          "specs": {
+            "cpu": "CPU",
+            "ram": "RAM",
+            "ssd": "SSD",
+            "bw": "BW"
+          }
         },
         "toast": {
           "createSuccess": "Success",
@@ -349,8 +356,13 @@
           "updateSuccess": "Success",
           "updateSuccessDesc": "Package updated successfully",
           "deleteSuccess": "Success",
-          "deleteSuccessDesc": "Package deleted successfully"
-        }
+          "deleteSuccessDesc": "Package deleted successfully",
+          "loadError": "Failed to load packages",
+          "createError": "Failed to create package",
+          "updateError": "Failed to update package",
+          "deleteError": "Failed to delete package"
+        },
+        "packageCount": "{{count}} package(s)"
       }
     },
     "subscriptions": {
@@ -398,7 +410,9 @@
         "no": "No",
         "recordsPerPage": "Records per page:",
         "goTo": "Go to page:",
-        "pageOf": "Page {{current}} of {{total}}"
+        "pageOf": "Page {{current}} of {{total}}",
+        "fromDatePlaceholder": "From date",
+        "toDatePlaceholder": "To date"
       },
       "actions": {
         "viewDetail": "View Details",
@@ -526,7 +540,9 @@
         "ingress": "Ingress (Free)",
         "package": "Package",
         "company": "Company",
-        "dataSource": "Source"
+        "dataSource": "Source",
+        "email": "Email",
+        "ip": "IP"
       },
       "compartment": {
         "vms": "VMs",
@@ -613,7 +629,8 @@
         "loadError": "Cannot load compartment list: {{message}}",
         "deleteSuccess": "Successfully deleted compartment \"{{name}}\" and all resources inside",
         "deleteError": "Cannot delete compartment: {{message}}"
-      }
+      },
+      "compartmentIdLabel": "Compartment ID"
     },
     "costs": {
       "title": "Costs & Credit",
@@ -637,10 +654,18 @@
         "yearly": "By Year"
       },
       "months": {
-        "jan": "January", "feb": "February", "mar": "March",
-        "apr": "April", "may": "May", "jun": "June",
-        "jul": "July", "aug": "August", "sep": "September",
-        "oct": "October", "nov": "November", "dec": "December"
+        "jan": "January",
+        "feb": "February",
+        "mar": "March",
+        "apr": "April",
+        "may": "May",
+        "jun": "June",
+        "jul": "July",
+        "aug": "August",
+        "sep": "September",
+        "oct": "October",
+        "nov": "November",
+        "dec": "December"
       },
       "table": {
         "month": "Month",
@@ -721,6 +746,25 @@
         "page": "Page {{current}} of {{total}}",
         "prev": "Previous",
         "next": "Next"
+      },
+      "exportToastSuccess": "Success",
+      "exportToastError": "Error",
+      "csvNA": "N/A",
+      "csvYes": "Yes",
+      "csvNo": "No",
+      "csvHeaders": {
+        "id": "ID",
+        "username": "Username",
+        "role": "Role",
+        "loginTime": "Login Time",
+        "status": "Status",
+        "ipAddress": "IP Address",
+        "country": "Country",
+        "browser": "Browser",
+        "os": "OS",
+        "deviceType": "Device Type",
+        "sessionDuration": "Session Duration",
+        "newDevice": "New Device"
       }
     },
     "payments": {
@@ -904,7 +948,9 @@
         "locked": "Locked",
         "cancel": "Cancel",
         "save": "Save Changes",
-        "saving": "Saving..."
+        "saving": "Saving...",
+        "roleCustomer": "Customer",
+        "roleAdmin": "Admin"
       },
       "deleteDialog": {
         "title": "Confirm Delete User",
@@ -933,7 +979,8 @@
         "sheetName": "Users List",
         "active": "Active",
         "locked": "Locked"
-      }
+      },
+      "editTooltip": "Edit information"
     },
     "packagesExtra": {
       "dialog": {
@@ -1008,32 +1055,62 @@
         "database": {
           "title": "Oracle Database Cloud",
           "description": "Self-managed Oracle database with high performance and absolute security",
-          "features": ["Autonomous Database", "Real Application Clusters", "Data Guard", "Advanced Security"]
+          "features": [
+            "Autonomous Database",
+            "Real Application Clusters",
+            "Data Guard",
+            "Advanced Security"
+          ]
         },
         "compute": {
           "title": "Compute Cloud",
           "description": "Flexible virtual servers with customizable configurations for business needs",
-          "features": ["Bare Metal", "Virtual Machines", "Container Engine", "Functions"]
+          "features": [
+            "Bare Metal",
+            "Virtual Machines",
+            "Container Engine",
+            "Functions"
+          ]
         },
         "storage": {
           "title": "Storage Solutions",
           "description": "Diverse storage solutions from block storage to object storage",
-          "features": ["Block Volume", "Object Storage", "File Storage", "Archive Storage"]
+          "features": [
+            "Block Volume",
+            "Object Storage",
+            "File Storage",
+            "Archive Storage"
+          ]
         },
         "networking": {
           "title": "Networking",
           "description": "Global network infrastructure with low latency and high bandwidth",
-          "features": ["Virtual Cloud Network", "Load Balancer", "VPN Connect", "FastConnect"]
+          "features": [
+            "Virtual Cloud Network",
+            "Load Balancer",
+            "VPN Connect",
+            "FastConnect"
+          ]
         },
         "security": {
           "title": "Security & Identity",
           "description": "Multi-layered security with advanced identity and access management",
-          "features": ["Identity Management", "Key Management", "Web Application Firewall", "Security Zones"]
+          "features": [
+            "Identity Management",
+            "Key Management",
+            "Web Application Firewall",
+            "Security Zones"
+          ]
         },
         "analytics": {
           "title": "Analytics & AI",
           "description": "Intelligent data analytics with integrated machine learning",
-          "features": ["Analytics Cloud", "Data Science", "Machine Learning", "Big Data Service"]
+          "features": [
+            "Analytics Cloud",
+            "Data Science",
+            "Machine Learning",
+            "Big Data Service"
+          ]
         }
       },
       "benefits": {
@@ -1145,7 +1222,7 @@
     }
   },
   "pricing": {
-    "loginRequired": "Please log in to register for a package", 
+    "loginRequired": "Please log in to register for a package",
     "plans": {
       "starter": {
         "1": {
@@ -1271,8 +1348,8 @@
     "languageLabel": "Language",
     "admin": "Admin",
     "packageManagement": "My Cloud",
-    "supportRequest": "Support Request"
-
+    "supportRequest": "Support Request",
+    "adminPanel": "Admin Panel"
   },
   "footer": {
     "companyName": "Oracle Cloud Vietnam",
@@ -1484,7 +1561,7 @@
       "active": "Active",
       "inactive": "Inactive",
       "expired": "Expired",
-      "suspended": "Suspended", 
+      "suspended": "Suspended",
       "cancelled": "Cancelled",
       "pending": "Pending"
     },
@@ -1509,7 +1586,7 @@
       "timeOptions": {
         "oneHour": "1 hour ago",
         "sixHours": "6 hours ago",
-        "twentyFourHours": "24 hours ago", 
+        "twentyFourHours": "24 hours ago",
         "sevenDays": "7 days ago"
       },
       "themeOptions": {
@@ -1544,7 +1621,7 @@
       "title": "Manage Package",
       "startVM": "Start VM",
       "pauseVM": "Pause VM",
-      "restartVM": "Restart VM", 
+      "restartVM": "Restart VM",
       "createBackup": "Create Backup",
       "console": "Console",
       "changeOS": "Change/Reinstall OS",
@@ -1947,9 +2024,18 @@
     "successTitle": "Success",
     "successDesc": "Deposit request created, redirecting to payment page...",
     "methods": {
-      "momo": { "name": "MoMo Wallet", "description": "Pay via MoMo e-wallet" },
-      "card": { "name": "International Card", "description": "Visa, Mastercard, JCB" },
-      "bank_transfer": { "name": "Bank Transfer", "description": "Scan QR Code or manual transfer" }
+      "momo": {
+        "name": "MoMo Wallet",
+        "description": "Pay via MoMo e-wallet"
+      },
+      "card": {
+        "name": "International Card",
+        "description": "Visa, Mastercard, JCB"
+      },
+      "bank_transfer": {
+        "name": "Bank Transfer",
+        "description": "Scan QR Code or manual transfer"
+      }
     }
   },
   "pricingModal": {
@@ -1992,9 +2078,9 @@
     "email": "Email",
     "emailPlaceholder": "your@email.com",
     "password": "Password",
-    "passwordPlaceholder": "\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7",
+    "passwordPlaceholder": "········",
     "confirmPassword": "Confirm Password",
-    "confirmPasswordPlaceholder": "\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7",
+    "confirmPasswordPlaceholder": "········",
     "registerButton": "Register",
     "registering": "Registering...",
     "or": "Or",
@@ -2065,7 +2151,7 @@
       "verifying": "Verifying...",
       "resend": "Resend OTP",
       "resendCountdown": "Resend after {{countdown}}s",
-      "backToLogin": "\u2190 Back to login",
+      "backToLogin": "← Back to login",
       "validation": {
         "otpRequired": "Please enter all 6 OTP digits"
       }
@@ -2093,7 +2179,7 @@
     "benefit4": "Secure encrypted transactions",
     "scanQR": "Scan QR to Pay",
     "loadingPaymentInfo": "Loading payment information...",
-    "paymentSuccessRedirect": "\u2705 Deposit Successful! Redirecting...",
+    "paymentSuccessRedirect": "✅ Deposit Successful! Redirecting...",
     "checkingPayment": "Checking payment...",
     "scanQRDesc": "Scan the QR code with your banking app to pay",
     "bankLabel": "Bank:",

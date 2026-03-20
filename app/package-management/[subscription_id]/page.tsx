@@ -673,7 +673,7 @@ export default function AdminPackageDetailPage() {
               {/* CPU Usage Chart */}
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between">
-                  <CardTitle className="text-lg font-semibold">CPU Utilization (%)</CardTitle>
+                  <CardTitle className="text-lg font-semibold">{t('packageDetail.charts.cpuTitle')}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="h-80">
@@ -702,7 +702,7 @@ export default function AdminPackageDetailPage() {
               {/* Memory Usage Chart */}
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between">
-                  <CardTitle className="text-lg font-semibold">Memory Utilization (%)</CardTitle>
+                  <CardTitle className="text-lg font-semibold">{t('packageDetail.charts.memoryTitle')}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="h-80">

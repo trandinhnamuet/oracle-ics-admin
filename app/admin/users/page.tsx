@@ -494,7 +494,7 @@ export default function UserManagementPage() {
                       </TableCell>
                       <TableCell>
                         <div className="flex items-center space-x-1">
-                          <div title="Chỉnh sửa thông tin">
+                          <div title={t('admin.users.editTooltip')}>
                             <Button
                               variant="outline"
                               size="sm"
@@ -643,8 +643,8 @@ export default function UserManagementPage() {
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="customer">Customer</SelectItem>
-                    <SelectItem value="admin">Admin</SelectItem>
+                    <SelectItem value="customer">{t('admin.users.editDialog.roleCustomer')}</SelectItem>
+                    <SelectItem value="admin">{t('admin.users.editDialog.roleAdmin')}</SelectItem>
                   </SelectContent>
                 </Select>
               </div>

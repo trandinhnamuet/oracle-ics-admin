@@ -341,7 +341,14 @@
           "popular": "热门",
           "noPackagesFound": "未找到服务套餐",
           "active": "活跃",
-          "inactive": "非活跃"
+          "inactive": "非活跃",
+          "idLabel": "ID",
+          "specs": {
+            "cpu": "CPU",
+            "ram": "RAM",
+            "ssd": "SSD",
+            "bw": "带宽"
+          }
         },
         "toast": {
           "createSuccess": "成功",
@@ -349,8 +356,13 @@
           "updateSuccess": "成功",
           "updateSuccessDesc": "套餐更新成功",
           "deleteSuccess": "成功",
-          "deleteSuccessDesc": "套餐删除成功"
-        }
+          "deleteSuccessDesc": "套餐删除成功",
+          "loadError": "加载包失败",
+          "createError": "创建包失败",
+          "updateError": "更新包失败",
+          "deleteError": "删除包失败"
+        },
+        "packageCount": "{{count}} 套餐"
       }
     },
     "subscriptions": {
@@ -398,7 +410,9 @@
         "no": "否",
         "recordsPerPage": "每页记录数:",
         "goTo": "跳转到页:",
-        "pageOf": "第 {{current}} / {{total}} 页"
+        "pageOf": "第 {{current}} / {{total}} 页",
+        "fromDatePlaceholder": "起始日期",
+        "toDatePlaceholder": "结束日期"
       },
       "actions": {
         "viewDetail": "查看详情",
@@ -533,7 +547,9 @@
         "exceeded": "超出",
         "package": "套餐",
         "company": "公司",
-        "dataSource": "数据来源"
+        "dataSource": "数据来源",
+        "email": "邮箱",
+        "ip": "IP地址"
       },
       "warning": {
         "overLimitTitle": "警告：出口流量限制已超出！",
@@ -620,7 +636,8 @@
         "loadError": "无法加载分区列表: {{message}}",
         "deleteSuccess": "已删除分区\"{{name}}\"及其内部所有资源",
         "deleteError": "无法删除分区: {{message}}"
-      }
+      },
+      "compartmentIdLabel": "分区ID"
     },
     "costs": {
       "title": "费用 & 积分",
@@ -644,10 +661,18 @@
         "yearly": "按年"
       },
       "months": {
-        "jan": "1月", "feb": "2月", "mar": "3月",
-        "apr": "4月", "may": "5月", "jun": "6月",
-        "jul": "7月", "aug": "8月", "sep": "9月",
-        "oct": "10月", "nov": "11月", "dec": "12月"
+        "jan": "1月",
+        "feb": "2月",
+        "mar": "3月",
+        "apr": "4月",
+        "may": "5月",
+        "jun": "6月",
+        "jul": "7月",
+        "aug": "8月",
+        "sep": "9月",
+        "oct": "10月",
+        "nov": "11月",
+        "dec": "12月"
       },
       "table": {
         "month": "月份",
@@ -728,6 +753,25 @@
         "page": "第{{current}} / {{total}}页",
         "prev": "上一页",
         "next": "下一页"
+      },
+      "exportToastSuccess": "成功",
+      "exportToastError": "错误",
+      "csvNA": "N/A",
+      "csvYes": "是",
+      "csvNo": "否",
+      "csvHeaders": {
+        "id": "ID",
+        "username": "用户名",
+        "role": "角色",
+        "loginTime": "登录时间",
+        "status": "状态",
+        "ipAddress": "IP地址",
+        "country": "国家",
+        "browser": "浏览器",
+        "os": "系统",
+        "deviceType": "设备类型",
+        "sessionDuration": "会话时长",
+        "newDevice": "新设备"
       }
     },
     "payments": {
@@ -911,7 +955,9 @@
         "locked": "已锁定",
         "cancel": "取消",
         "save": "保存更改",
-        "saving": "保存中..."
+        "saving": "保存中...",
+        "roleCustomer": "客户",
+        "roleAdmin": "管理员"
       },
       "deleteDialog": {
         "title": "确认删除用户",
@@ -940,7 +986,8 @@
         "sheetName": "用户列表",
         "active": "活跃",
         "locked": "锁定"
-      }
+      },
+      "editTooltip": "编辑信息"
     },
     "packagesExtra": {
       "dialog": {
@@ -1015,32 +1062,62 @@
         "database": {
           "title": "Oracle数据库云",
           "description": "具有高性能和绝对安全的自管理Oracle数据库",
-          "features": ["自主数据库", "实时应用集群", "数据保护", "高级安全"]
+          "features": [
+            "自主数据库",
+            "实时应用集群",
+            "数据保护",
+            "高级安全"
+          ]
         },
         "compute": {
           "title": "计算云",
           "description": "灵活的虚拟服务器，可根据企业需求自定义配置",
-          "features": ["裸金属", "虚拟机", "容器引擎", "函数"]
+          "features": [
+            "裸金属",
+            "虚拟机",
+            "容器引擎",
+            "函数"
+          ]
         },
         "storage": {
           "title": "存储解决方案",
           "description": "从块存储到对象存储的多样化存储解决方案",
-          "features": ["块存储", "对象存储", "文件存储", "归档存储"]
+          "features": [
+            "块存储",
+            "对象存储",
+            "文件存储",
+            "归档存储"
+          ]
         },
         "networking": {
           "title": "网络",
           "description": "低延迟和高带宽的全球网络基础设施",
-          "features": ["虚拟云网络", "负载均衡器", "VPN连接", "快速连接"]
+          "features": [
+            "虚拟云网络",
+            "负载均衡器",
+            "VPN连接",
+            "快速连接"
+          ]
         },
         "security": {
           "title": "安全与身份",
           "description": "多层安全与高级身份和访问管理",
-          "features": ["身份管理", "密钥管理", "Web应用程序防火墙", "安全区域"]
+          "features": [
+            "身份管理",
+            "密钥管理",
+            "Web应用程序防火墙",
+            "安全区域"
+          ]
         },
         "analytics": {
           "title": "分析与人工智能",
           "description": "集成机器学习智能数据分析",
-          "features": ["分析云", "数据科学", "机器学习", "大数据服务"]
+          "features": [
+            "分析云",
+            "数据科学",
+            "机器学习",
+            "大数据服务"
+          ]
         }
       },
       "benefits": {
@@ -1278,8 +1355,8 @@
     "languageLabel": "语言",
     "admin": "管理员",
     "packageManagement": "我的云",
-    "supportRequest": "支持请求"
-    
+    "supportRequest": "支持请求",
+    "adminPanel": "管理面板"
   },
   "footer": {
     "companyName": "越南Oracle云",
@@ -1954,9 +2031,18 @@
     "successTitle": "成功",
     "successDesc": "充値请求已创建，正在跳转到支付页面...",
     "methods": {
-      "momo": { "name": "MoMo钱包", "description": "通过MoMo电子钱包支付" },
-      "card": { "name": "国际支付卡", "description": "Visa、Mastercard、JCB" },
-      "bank_transfer": { "name": "银行转账", "description": "扫描QR码或手动转账" }
+      "momo": {
+        "name": "MoMo钱包",
+        "description": "通过MoMo电子钱包支付"
+      },
+      "card": {
+        "name": "国际支付卡",
+        "description": "Visa、Mastercard、JCB"
+      },
+      "bank_transfer": {
+        "name": "银行转账",
+        "description": "扫描QR码或手动转账"
+      }
     }
   },
   "pricingModal": {
@@ -1999,9 +2085,9 @@
     "email": "电子邮件",
     "emailPlaceholder": "your@email.com",
     "password": "密码",
-    "passwordPlaceholder": "\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7",
+    "passwordPlaceholder": "········",
     "confirmPassword": "确认密码",
-    "confirmPasswordPlaceholder": "\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7",
+    "confirmPasswordPlaceholder": "········",
     "registerButton": "注册",
     "registering": "注册中...",
     "or": "或",
@@ -2072,7 +2158,7 @@
       "verifying": "验证中...",
       "resend": "重新发送OTP",
       "resendCountdown": "{{countdown}}秒后重新发送",
-      "backToLogin": "\u2190 返回登录",
+      "backToLogin": "← 返回登录",
       "validation": {
         "otpRequired": "请输入完整的6位OTP验证码"
       }
@@ -2100,7 +2186,7 @@
     "benefit4": "加密安全交易",
     "scanQR": "扫描二维码支付",
     "loadingPaymentInfo": "加载支付信息中...",
-    "paymentSuccessRedirect": "\u2705 充值成功！正在跳转...",
+    "paymentSuccessRedirect": "✅ 充值成功！正在跳转...",
     "checkingPayment": "正在检查支付...",
     "scanQRDesc": "使用银行APP扫描二维码进行支付",
     "bankLabel": "银行:",

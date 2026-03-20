@@ -58,7 +58,7 @@ export default function PackagesManagementPage() {
       const data = await getAllCloudPackages(token)
       setPackages(data)
     } catch {
-      toast({ title: 'Failed to load packages', variant: 'destructive' })
+      toast({ title: t('admin.packages.management.toast.loadError'), variant: 'destructive' })
     } finally {
       setIsLoading(false)
     }
@@ -87,7 +87,7 @@ export default function PackagesManagementPage() {
       toast({ title: t('admin.packages.management.toast.createSuccess') })
       await fetchPackages()
     } catch {
-      toast({ title: 'Failed to create package', variant: 'destructive' })
+      toast({ title: t('admin.packages.management.toast.createError'), variant: 'destructive' })
     }
   }
 
@@ -98,7 +98,7 @@ export default function PackagesManagementPage() {
       toast({ title: t('admin.packages.management.toast.updateSuccess') })
       await fetchPackages()
     } catch {
-      toast({ title: 'Failed to update package', variant: 'destructive' })
+      toast({ title: t('admin.packages.management.toast.updateError'), variant: 'destructive' })
     }
   }
 
@@ -116,7 +116,7 @@ export default function PackagesManagementPage() {
       toast({ title: t('admin.packages.management.toast.deleteSuccess') })
       setPackages((prev) => prev.filter((p) => p.id !== id))
     } catch {
-      toast({ title: 'Failed to delete package', variant: 'destructive' })
+      toast({ title: t('admin.packages.management.toast.deleteError'), variant: 'destructive' })
     }
   }
 
@@ -210,7 +210,7 @@ export default function PackagesManagementPage() {
         <Card>
           <CardHeader>
             <CardTitle>
-              {filteredPackages.length} package{filteredPackages.length !== 1 ? 's' : ''}
+              {t('admin.packages.management.packageCount', { count: filteredPackages.length })}
             </CardTitle>
           </CardHeader>
           <CardContent className="p-0">
@@ -261,7 +261,7 @@ export default function PackagesManagementPage() {
                               </div>
                               <div>
                                 <div className="text-sm font-medium text-gray-900 dark:text-foreground">{pkg.name}</div>
-                                <div className="text-xs text-gray-500 dark:text-muted-foreground">ID: {pkg.id}</div>
+                                <div className="text-xs text-gray-500 dark:text-muted-foreground">{t('admin.packages.management.table.idLabel')}: {pkg.id}</div>
                               </div>
                             </div>
                           </td>
@@ -281,10 +281,10 @@ export default function PackagesManagementPage() {
                           {/* Specs */}
                           <td className="px-6 py-4">
                             <div className="text-xs text-gray-600 dark:text-muted-foreground space-y-0.5">
-                              {pkg.cpu && <div>CPU: {pkg.cpu}</div>}
-                              {pkg.ram && <div>RAM: {pkg.ram}</div>}
-                              {pkg.memory && <div>SSD: {pkg.memory}</div>}
-                              {pkg.bandwidth && <div>BW: {pkg.bandwidth}</div>}
+                              {pkg.cpu && <div>{t('admin.packages.management.table.specs.cpu')}: {pkg.cpu}</div>}
+                              {pkg.ram && <div>{t('admin.packages.management.table.specs.ram')}: {pkg.ram}</div>}
+                              {pkg.memory && <div>{t('admin.packages.management.table.specs.ssd')}: {pkg.memory}</div>}
+                              {pkg.bandwidth && <div>{t('admin.packages.management.table.specs.bw')}: {pkg.bandwidth}</div>}
                             </div>
                           </td>
                           {/* Feature text */}

@@ -341,7 +341,14 @@
           "popular": "人気",
           "noPackagesFound": "サービスパッケージが見つかりません",
           "active": "アクティブ",
-          "inactive": "非アクティブ"
+          "inactive": "非アクティブ",
+          "idLabel": "ID",
+          "specs": {
+            "cpu": "CPU",
+            "ram": "RAM",
+            "ssd": "SSD",
+            "bw": "帯域幅"
+          }
         },
         "toast": {
           "createSuccess": "成功",
@@ -349,8 +356,13 @@
           "updateSuccess": "成功",
           "updateSuccessDesc": "パッケージが正常に更新されました",
           "deleteSuccess": "成功",
-          "deleteSuccessDesc": "パッケージが正常に削除されました"
-        }
+          "deleteSuccessDesc": "パッケージが正常に削除されました",
+          "loadError": "パッケージの読み込みに失敗",
+          "createError": "パッケージの作成に失敗",
+          "updateError": "パッケージの更新に失敗",
+          "deleteError": "パッケージの削除に失敗"
+        },
+        "packageCount": "{{count}} パッケージ"
       }
     },
     "subscriptions": {
@@ -398,7 +410,9 @@
         "no": "いいえ",
         "recordsPerPage": "1ページあたりの件数:",
         "goTo": "ページへ移動:",
-        "pageOf": "{{current}} / {{total}} ページ"
+        "pageOf": "{{current}} / {{total}} ページ",
+        "fromDatePlaceholder": "開始日",
+        "toDatePlaceholder": "終了日"
       },
       "actions": {
         "viewDetail": "詳細を表示",
@@ -533,7 +547,9 @@
         "exceeded": "超過",
         "package": "パッケージ",
         "company": "会社",
-        "dataSource": "データソース"
+        "dataSource": "データソース",
+        "email": "メール",
+        "ip": "IPアドレス"
       },
       "warning": {
         "overLimitTitle": "警告: エグレス制限超過！",
@@ -620,7 +636,8 @@
         "loadError": "コンパートメントリストを読み込めません: {{message}}",
         "deleteSuccess": "コンパートメント\"{{name}}\"と内部のすべてのリソースが削除されました",
         "deleteError": "コンパートメントを削除できません: {{message}}"
-      }
+      },
+      "compartmentIdLabel": "コンパートメントID"
     },
     "costs": {
       "title": "コスト & クレジット",
@@ -644,10 +661,18 @@
         "yearly": "年別"
       },
       "months": {
-        "jan": "1月", "feb": "2月", "mar": "3月",
-        "apr": "4月", "may": "5月", "jun": "6月",
-        "jul": "7月", "aug": "8月", "sep": "9月",
-        "oct": "10月", "nov": "11月", "dec": "12月"
+        "jan": "1月",
+        "feb": "2月",
+        "mar": "3月",
+        "apr": "4月",
+        "may": "5月",
+        "jun": "6月",
+        "jul": "7月",
+        "aug": "8月",
+        "sep": "9月",
+        "oct": "10月",
+        "nov": "11月",
+        "dec": "12月"
       },
       "table": {
         "month": "月",
@@ -728,6 +753,25 @@
         "page": "{{current}} / {{total}} ページ",
         "prev": "前へ",
         "next": "次へ"
+      },
+      "exportToastSuccess": "成功",
+      "exportToastError": "エラー",
+      "csvNA": "N/A",
+      "csvYes": "はい",
+      "csvNo": "いいえ",
+      "csvHeaders": {
+        "id": "ID",
+        "username": "ユーザー名",
+        "role": "役割",
+        "loginTime": "ログイン時間",
+        "status": "ステータス",
+        "ipAddress": "IPアドレス",
+        "country": "国",
+        "browser": "ブラウザ",
+        "os": "OS",
+        "deviceType": "デバイスタイプ",
+        "sessionDuration": "セッション時間",
+        "newDevice": "新しいデバイス"
       }
     },
     "payments": {
@@ -911,7 +955,9 @@
         "locked": "ロック",
         "cancel": "キャンセル",
         "save": "変更を保存",
-        "saving": "保存中..."
+        "saving": "保存中...",
+        "roleCustomer": "お客様",
+        "roleAdmin": "管理者"
       },
       "deleteDialog": {
         "title": "ユーザー削除の確認",
@@ -940,7 +986,8 @@
         "sheetName": "ユーザーリスト",
         "active": "アクティブ",
         "locked": "ロック"
-      }
+      },
+      "editTooltip": "情報を編集"
     },
     "packagesExtra": {
       "dialog": {
@@ -1015,32 +1062,62 @@
         "database": {
           "title": "Oracleデータベースクラウド",
           "description": "高性能で絶対的なセキュリティを備えた自己管理型Oracleデータベース",
-          "features": ["自律型データベース", "リアルアプリケーションクラスタ", "データガード", "高度なセキュリティ"]
+          "features": [
+            "自律型データベース",
+            "リアルアプリケーションクラスタ",
+            "データガード",
+            "高度なセキュリティ"
+          ]
         },
         "compute": {
           "title": "コンピュートクラウド",
           "description": "ビジネスニーズに応じた柔軟な仮想サーバー構成",
-          "features": ["ベアメタル", "仮想マシン", "コンテナエンジン", "ファンクション"]
+          "features": [
+            "ベアメタル",
+            "仮想マシン",
+            "コンテナエンジン",
+            "ファンクション"
+          ]
         },
         "storage": {
           "title": "ストレージソリューション",
           "description": "ブロックストレージからオブジェクトストレージまで多様なストレージソリューション",
-          "features": ["ブロックボリューム", "オブジェクトストレージ", "ファイルストレージ", "アーカイブストレージ"]
+          "features": [
+            "ブロックボリューム",
+            "オブジェクトストレージ",
+            "ファイルストレージ",
+            "アーカイブストレージ"
+          ]
         },
         "networking": {
           "title": "ネットワーキング",
           "description": "低遅延かつ高帯域幅のグローバルネットワークインフラ",
-          "features": ["仮想クラウドネットワーク", "ロードバランサー", "VPN接続", "ファストコネクト"]
+          "features": [
+            "仮想クラウドネットワーク",
+            "ロードバランサー",
+            "VPN接続",
+            "ファストコネクト"
+          ]
         },
         "security": {
           "title": "セキュリティとアイデンティティ",
           "description": "高度なアイデンティティおよびアクセス管理を備えた多層セキュリティ",
-          "features": ["アイデンティティ管理", "キー管理", "ウェブアプリケーションファイアウォール", "セキュリティゾーン"]
+          "features": [
+            "アイデンティティ管理",
+            "キー管理",
+            "ウェブアプリケーションファイアウォール",
+            "セキュリティゾーン"
+          ]
         },
         "analytics": {
           "title": "分析とAI",
           "description": "統合された機械学習によるインテリジェントなデータ分析",
-          "features": ["分析クラウド", "データサイエンス", "機械学習", "ビッグデータサービス"]
+          "features": [
+            "分析クラウド",
+            "データサイエンス",
+            "機械学習",
+            "ビッグデータサービス"
+          ]
         }
       },
       "benefits": {
@@ -1278,7 +1355,8 @@
     "languageLabel": "言語",
     "admin": "管理者",
     "packageManagement": "マイクラウド",
-    "supportRequest": "サポートリクエスト"
+    "supportRequest": "サポートリクエスト",
+    "adminPanel": "管理パネル"
   },
   "footer": {
     "companyName": "Oracleクラウドベトナム",
@@ -1953,9 +2031,18 @@
     "successTitle": "成功",
     "successDesc": "チャージリクエストが作成されました。支払いページに移動中...",
     "methods": {
-      "momo": { "name": "MoMoウォレット", "description": "MoMo電子ウォレットで支払い" },
-      "card": { "name": "国際カード", "description": "Visa、Mastercard、JCB" },
-      "bank_transfer": { "name": "銀行振込", "description": "QRコードをスキャンまたは手動振込" }
+      "momo": {
+        "name": "MoMoウォレット",
+        "description": "MoMo電子ウォレットで支払い"
+      },
+      "card": {
+        "name": "国際カード",
+        "description": "Visa、Mastercard、JCB"
+      },
+      "bank_transfer": {
+        "name": "銀行振込",
+        "description": "QRコードをスキャンまたは手動振込"
+      }
     }
   },
   "pricingModal": {
@@ -1998,9 +2085,9 @@
     "email": "メールアドレス",
     "emailPlaceholder": "your@email.com",
     "password": "パスワード",
-    "passwordPlaceholder": "\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7",
+    "passwordPlaceholder": "········",
     "confirmPassword": "パスワード確認",
-    "confirmPasswordPlaceholder": "\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7",
+    "confirmPasswordPlaceholder": "········",
     "registerButton": "登録",
     "registering": "登録中...",
     "or": "または",
@@ -2071,7 +2158,7 @@
       "verifying": "認証中...",
       "resend": "OTPを再送信",
       "resendCountdown": "{{countdown}}秒後に再送信",
-      "backToLogin": "\u2190 ログインに戻る",
+      "backToLogin": "← ログインに戻る",
       "validation": {
         "otpRequired": "6桁のOTPをすべて入力してください"
       }
@@ -2099,7 +2186,7 @@
     "benefit4": "暗号化されたセキュア取引",
     "scanQR": "QRコードをスキャンして支払い",
     "loadingPaymentInfo": "決済情報読み込み中...",
-    "paymentSuccessRedirect": "\u2705 チャージ成功！リダイレクト中...",
+    "paymentSuccessRedirect": "✅ チャージ成功！リダイレクト中...",
     "checkingPayment": "決済確認中...",
     "scanQRDesc": "バンキングアプリでQRコードをスキャンして支払ってください",
     "bankLabel": "銀行:",

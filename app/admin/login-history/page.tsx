@@ -179,20 +179,33 @@ export default function AdminLoginHistoryPage() {
   // Export to CSV
   const handleExportCSV = () => {
     try {
-      const headers = ['ID', 'Username', 'Role', 'Login Time', 'Status', 'IP Address', 'Country', 'Browser', 'OS', 'Device Type', 'Session Duration', 'New Device']
+      const headers = [
+        t('admin.loginHistory.csvHeaders.id'),
+        t('admin.loginHistory.csvHeaders.username'),
+        t('admin.loginHistory.csvHeaders.role'),
+        t('admin.loginHistory.csvHeaders.loginTime'),
+        t('admin.loginHistory.csvHeaders.status'),
+        t('admin.loginHistory.csvHeaders.ipAddress'),
+        t('admin.loginHistory.csvHeaders.country'),
+        t('admin.loginHistory.csvHeaders.browser'),
+        t('admin.loginHistory.csvHeaders.os'),
+        t('admin.loginHistory.csvHeaders.deviceType'),
+        t('admin.loginHistory.csvHeaders.sessionDuration'),
+        t('admin.loginHistory.csvHeaders.newDevice')
+      ]
       const rows = loginHistory.map(record => [
         record.id,
         record.username,
         record.role,
         format(new Date(record.loginTime), 'PPpp', { locale: vi }),
         record.loginStatus,
-        record.ipV4 || record.ipV6 || 'N/A',
-        record.country || 'N/A',
+        record.ipV4 || record.ipV6 || t('admin.loginHistory.csvNA'),
+        record.country || t('admin.loginHistory.csvNA'),
         record.browser,
         record.os,
         record.deviceType,
-        record.sessionDurationMinutes ? `${record.sessionDurationMinutes}m` : 'N/A',
-        record.isNewDevice ? 'Yes' : 'No'
+        record.sessionDurationMinutes ? `${record.sessionDurationMinutes}m` : t('admin.loginHistory.csvNA'),
+        record.isNewDevice ? t('admin.loginHistory.csvYes') : t('admin.loginHistory.csvNo')
       ])
 
       const csv = [
@@ -209,13 +222,13 @@ export default function AdminLoginHistoryPage() {
       window.URL.revokeObjectURL(url)
 
       toast({
-        title: 'Success',
+        title: t('admin.loginHistory.exportToastSuccess'),
         description: t('admin.loginHistory.exportSuccess')
       })
     } catch (error) {
       console.error('Error exporting CSV:', error)
       toast({
-        title: 'Error',
+        title: t('admin.loginHistory.exportToastError'),
         description: t('admin.loginHistory.exportError'),
         variant: 'destructive'
       })

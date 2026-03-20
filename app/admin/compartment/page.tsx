@@ -140,7 +140,7 @@ export default function CompartmentManagementPage() {
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                   <div>
-                    <p className="text-sm font-medium text-muted-foreground">Compartment ID</p>
+                    <p className="text-sm font-medium text-muted-foreground">{t('admin.compartment.compartmentIdLabel')}</p>
                     <p className="text-sm font-mono break-all">{compartment.id}</p>
                   </div>
                   <div>

@@ -341,7 +341,7 @@ export default function AdminSubscriptionsPage() {
               type="date"
               value={startDateFilter}
               onChange={(e) => setStartDateFilter(e.target.value)}
-              placeholder="From date"
+              placeholder={t('admin.subscriptions.table.fromDatePlaceholder')}
               className="text-sm flex-1"
             />
             <ArrowRight className="h-4 w-4 text-gray-400 flex-shrink-0" />
@@ -349,7 +349,7 @@ export default function AdminSubscriptionsPage() {
               type="date"
               value={endDateFilter}
               onChange={(e) => setEndDateFilter(e.target.value)}
-              placeholder="To date"
+              placeholder={t('admin.subscriptions.table.toDatePlaceholder')}
               className="text-sm flex-1"
             />
           </div>

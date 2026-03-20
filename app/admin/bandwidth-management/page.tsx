@@ -383,8 +383,8 @@ export default function BandwidthManagementPage() {
                                 <Users className="h-4 w-4" />
                                 <span>{vm.userName}</span>
                               </div>
-                              <div>Email: {vm.userEmail}</div>
-                              <div>IP: {vm.publicIp || 'N/A'}</div>
+                              <div>{t('admin.bandwidth.details.email')}: {vm.userEmail}</div>
+                              <div>{t('admin.bandwidth.details.ip')}: {vm.publicIp || 'N/A'}</div>
                               <div>{t('admin.bandwidth.details.package')}: {vm.packageName}</div>
                               {vm.companyName && <div>{t('admin.bandwidth.details.company')}: {vm.companyName}</div>}
                             </div>
