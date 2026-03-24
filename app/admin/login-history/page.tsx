@@ -245,8 +245,7 @@ export default function AdminLoginHistoryPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-background p-6">
-      <div className="max-w-7xl mx-auto">
+    <div className="container mx-auto py-8 px-4 space-y-8">
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 dark:text-foreground">{t('admin.loginHistory.title')}</h1>
@@ -557,7 +556,6 @@ export default function AdminLoginHistoryPage() {
               {t('admin.loginHistory.pagination.next')}
             </button>
           </div>
-        </div>
       </div>
     </div>
   )
