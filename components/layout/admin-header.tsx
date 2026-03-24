@@ -87,7 +87,7 @@ export function AdminHeader() {
   const handleLogout = async () => {
     try {
       await logout()
-      toast({ title: t('common.logoutSuccess'), variant: 'success' })
+      toast({ title: t('header.logoutSuccess'), variant: 'success' })
     } catch (error: any) {
       toast({ title: t('common.error'), description: error.message, variant: 'destructive' })
     }
@@ -166,7 +166,7 @@ export function AdminHeader() {
                           className="flex items-center space-x-2.5 px-3 py-2 text-sm text-destructive hover:bg-destructive/10 transition-colors w-full text-left"
                         >
                           <LogOut className="h-4 w-4 flex-shrink-0" />
-                          <span>{t('common.logout')}</span>
+                          <span>{t('header.logout')}</span>
                         </button>
                       </div>
                     </div>
@@ -228,7 +228,7 @@ export function AdminHeader() {
                   </div>
                   <Button variant="outline" onClick={handleLogout} className="w-full bg-transparent">
                     <LogOut className="h-4 w-4 mr-2" />
-                    {t('common.logout')}
+                    {t('header.logout')}
                   </Button>
                 </div>
               ) : (
