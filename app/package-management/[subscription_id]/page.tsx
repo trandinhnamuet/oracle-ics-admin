@@ -510,28 +510,7 @@ export default function AdminPackageDetailPage() {
                     <p className="text-sm text-gray-600 dark:text-muted-foreground">Compartment ID</p>
                     <p className="font-semibold text-xs break-all">{vmDetails?.vm?.compartmentId || 'N/A'}</p>
                   </div>
-                  {vmDetails?.vm?.startedAt && (
-                    <>
-                      <div>
-                        <p className="text-sm text-gray-600 dark:text-muted-foreground">Thời điểm bắt đầu chạy</p>
-                        <p className="font-semibold">{formatDateTime(vmDetails.vm.startedAt)}</p>
-                      </div>
-                      <div>
-                        <p className="text-sm text-gray-600 dark:text-muted-foreground">Uptime</p>
-                        <p className="font-semibold">
-                          {(() => {
-                            const startTime = parseAsUtc(vmDetails.vm!.startedAt!).getTime()
-                            const now = new Date().getTime()
-                            const diff = now - startTime
-                            const days = Math.floor(diff / (1000 * 60 * 60 * 24))
-                            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-                            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
-                            return `${days}d ${hours}h ${minutes}m`
-                          })()}
-                        </p>
-                      </div>
-                    </>
-                  )}
+
                 </div>
               )}
 
@@ -686,7 +665,7 @@ export default function AdminPackageDetailPage() {
                       <ResponsiveContainer width="100%" height="100%">
                         <AreaChart data={metrics.cpu}>
                           <CartesianGrid strokeDasharray="3 3" />
-                          <XAxis dataKey="time" axisLine={false} tickLine={false} className="text-sm" />
+                          <XAxis dataKey="time" axisLine={false} tickLine={false} className="text-sm" tickFormatter={(t) => parseAsUtc(t).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })} />
                           <YAxis domain={[0, 100]} axisLine={false} tickLine={false} className="text-sm" />
                           <Area type="monotone" dataKey="value" stroke="#ef4444" fill="#fecaca" strokeWidth={2} />
                         </AreaChart>
@@ -715,7 +694,7 @@ export default function AdminPackageDetailPage() {
                       <ResponsiveContainer width="100%" height="100%">
                         <AreaChart data={metrics.memory}>
                           <CartesianGrid strokeDasharray="3 3" />
-                          <XAxis dataKey="time" axisLine={false} tickLine={false} className="text-sm" />
+                          <XAxis dataKey="time" axisLine={false} tickLine={false} className="text-sm" tickFormatter={(t) => parseAsUtc(t).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })} />
                           <YAxis domain={[0, 100]} axisLine={false} tickLine={false} className="text-sm" />
                           <Area type="monotone" dataKey="value" stroke="#8b5cf6" fill="#ddd6fe" strokeWidth={2} />
                         </AreaChart>
@@ -744,7 +723,7 @@ export default function AdminPackageDetailPage() {
                       <ResponsiveContainer width="100%" height="100%">
                         <AreaChart data={getNetworkData()}>
                           <CartesianGrid strokeDasharray="3 3" />
-                          <XAxis dataKey="time" axisLine={false} tickLine={false} className="text-sm" />
+                          <XAxis dataKey="time" axisLine={false} tickLine={false} className="text-sm" tickFormatter={(t) => parseAsUtc(t).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })} />
                           <YAxis axisLine={false} tickLine={false} className="text-sm" />
                           <Area type="monotone" dataKey="in" stackId="1" stroke="#10b981" fill="#d1fae5" strokeWidth={2} name="In" />
                           <Area type="monotone" dataKey="out" stackId="1" stroke="#3b82f6" fill="#bfdbfe" strokeWidth={2} name="Out" />
@@ -774,7 +753,7 @@ export default function AdminPackageDetailPage() {
                       <ResponsiveContainer width="100%" height="100%">
                         <AreaChart data={getDiskData()}>
                           <CartesianGrid strokeDasharray="3 3" />
-                          <XAxis dataKey="time" axisLine={false} tickLine={false} className="text-sm" />
+                          <XAxis dataKey="time" axisLine={false} tickLine={false} className="text-sm" tickFormatter={(t) => parseAsUtc(t).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })} />
                           <YAxis axisLine={false} tickLine={false} className="text-sm" />
                           <Area type="monotone" dataKey="read" stackId="1" stroke="#f59e0b" fill="#fed7aa" strokeWidth={2} name="Read" />
                           <Area type="monotone" dataKey="write" stackId="1" stroke="#ef4444" fill="#fecaca" strokeWidth={2} name="Write" />
