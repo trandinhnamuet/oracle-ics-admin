@@ -518,18 +518,18 @@ export default function AdminPackageDetailPage() {
               {vmDetails?.vm?.operatingSystem?.toLowerCase().includes('windows') && (
                 <div className="mt-4 border-t pt-4">
                   <p className="text-sm font-semibold mb-2 flex items-center gap-2">
-                    🪟 Windows RDP Credentials
+                    {t('packageDetail.serverDetails.windowsRdpCredentials')}
                   </p>
                   {vmDetails.vm.windowsInitialPassword ? (
                     <div className="bg-gray-50 dark:bg-muted p-3 rounded space-y-2 text-sm font-mono">
                       <div className="flex items-center justify-between">
-                        <span><strong>Username:</strong> opc</span>
+                        <span><strong>{t('packageDetail.serverDetails.username')}:</strong> opc</span>
                         <Button size="sm" variant="ghost" onClick={() => copyToClipboard('opc', 'win-user')}>
                           {copiedField === 'win-user' ? <Check className="h-3 w-3 text-green-500" /> : <Copy className="h-3 w-3" />}
                         </Button>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span><strong>Initial password:</strong> {vmDetails.vm.windowsInitialPassword}</span>
+                        <span><strong>{t('packageDetail.serverDetails.initialPassword')}:</strong> {vmDetails.vm.windowsInitialPassword}</span>
                         <Button size="sm" variant="ghost" onClick={() => copyToClipboard(vmDetails.vm!.windowsInitialPassword!, 'win-pass')}>
                           {copiedField === 'win-pass' ? <Check className="h-3 w-3 text-green-500" /> : <Copy className="h-3 w-3" />}
                         </Button>
@@ -538,8 +538,7 @@ export default function AdminPackageDetailPage() {
                   ) : (
                     <div className="bg-yellow-50 dark:bg-yellow-950/20 border border-yellow-200 dark:border-yellow-900 p-3 rounded text-sm">
                       <p className="text-yellow-800 dark:text-yellow-400">
-                        ⏳ Mật khẩu đang được tạo (5–10 phút sau khi VM khởi động).
-                        Hãy làm mới trang sau vài phút.
+                        {t('packageDetail.serverDetails.windowsPasswordPending')}
                       </p>
                     </div>
                   )}

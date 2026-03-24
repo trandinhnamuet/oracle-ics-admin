@@ -1508,11 +1508,14 @@
       "hostname": "Tên miền/ Hostname",
       "username": "Tên đăng nhập",
       "password": "Mật khẩu",
+      "initialPassword": "Mật khẩu khởi tạo",
       "ip": "IP",
       "uptime": "Uptime",
       "days": "Ngày",
       "vmState": "Trạng thái VM",
-      "publicIp": "IP công khai"
+      "publicIp": "IP công khai",
+      "windowsRdpCredentials": "🪟 Windows RDP Credentials",
+      "windowsPasswordPending": "⏳ Mật khẩu đang được tạo (5-10 phút sau khi VM khởi động). Vui lòng làm mới trang sau vài phút."
     },
     "controls": {
       "vmName": "Tên VM:",

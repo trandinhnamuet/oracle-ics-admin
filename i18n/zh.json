@@ -1526,11 +1526,14 @@
       "hostname": "域名/主机名",
       "username": "用户名",
       "password": "密码",
+      "initialPassword": "初始密码",
       "ip": "IP地址",
       "uptime": "运行时间",
       "days": "天",
       "vmState": "VM状态",
-      "publicIp": "公网IP"
+      "publicIp": "公网IP",
+      "windowsRdpCredentials": "🪟 Windows RDP 登录凭据",
+      "windowsPasswordPending": "⏳ 密码正在生成中（VM 启动后约 5-10 分钟）。请几分钟后刷新页面。"
     },
     "controls": {
       "vmName": "虚拟机名称：",

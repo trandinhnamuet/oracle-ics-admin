@@ -1525,11 +1525,14 @@
       "hostname": "도메인/호스트명",
       "username": "사용자명",
       "password": "비밀번호",
+      "initialPassword": "초기 비밀번호",
       "ip": "IP 주소",
       "uptime": "가동 시간",
       "days": "일",
       "vmState": "VM 상태",
-      "publicIp": "공용 IP"
+      "publicIp": "공용 IP",
+      "windowsRdpCredentials": "🪟 Windows RDP 자격 증명",
+      "windowsPasswordPending": "⏳ 비밀번호를 생성 중입니다 (VM 부팅 후 5-10분). 몇 분 후 페이지를 새로고침해 주세요."
     },
     "controls": {
       "vmName": "VM 이름:",

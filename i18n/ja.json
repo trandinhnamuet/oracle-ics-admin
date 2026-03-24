@@ -205,7 +205,9 @@
         "email": "メール",
         "name": "フルネーム",
         "phone": "電話番号",
-        "company": "会社",
+        "publicIp": "パブリックIP",
+        "windowsRdpCredentials": "🪟 Windows RDP 資格情報",
+        "windowsPasswordPending": "⏳ パスワードを生成中です（VM起動後5〜10分）。数分後にページを更新してください。"
         "role": "役割",
         "status": "ステータス",
         "createdAt": "作成日",
@@ -1525,11 +1527,14 @@
       "hostname": "ドメイン/ホスト名",
       "username": "ユーザー名",
       "password": "パスワード",
+      "initialPassword": "初期パスワード",
       "ip": "IPアドレス",
       "uptime": "稼働時間",
       "days": "日",
       "vmState": "VM状態",
-      "publicIp": "パブリックIP"
+      "publicIp": "パブリックIP",
+      "windowsRdpCredentials": "🪟 Windows RDP 資格情報",
+      "windowsPasswordPending": "⏳ パスワードを生成中です（VM起動後5〜10分）。数分後にページを更新してください。"
     },
     "controls": {
       "vmName": "VM名：",

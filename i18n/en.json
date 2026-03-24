@@ -1509,11 +1509,14 @@
       "hostname": "Domain/Hostname",
       "username": "Username",
       "password": "Password",
+      "initialPassword": "Initial password",
       "ip": "IP",
       "uptime": "Uptime",
       "days": "Days",
       "vmState": "VM State",
-      "publicIp": "Public IP"
+      "publicIp": "Public IP",
+      "windowsRdpCredentials": "🪟 Windows RDP Credentials",
+      "windowsPasswordPending": "⏳ Password is being generated (5-10 minutes after VM boot). Please refresh the page after a few minutes."
     },
     "controls": {
       "vmName": "VM Name:",
