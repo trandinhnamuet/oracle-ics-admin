@@ -207,7 +207,7 @@
         "phone": "電話番号",
         "publicIp": "パブリックIP",
         "windowsRdpCredentials": "🪟 Windows RDP 資格情報",
-        "windowsPasswordPending": "⏳ パスワードを生成中です（VM起動後5〜10分）。数分後にページを更新してください。"
+        "windowsPasswordPending": "⏳ パスワードを生成中です（VM起動後5〜10分）。数分後にページを更新してください。",
         "role": "役割",
         "status": "ステータス",
         "createdAt": "作成日",
