@@ -21,20 +21,20 @@ import { useI18nReady } from "@/hooks/use-i18n-ready"
 import { NotificationBell } from "@/components/layout/notification-bell"
 
 const adminNavItems = [
-  { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
-  { href: "/admin/users", label: "Users", icon: Users },
-  { href: "/admin/subscriptions", label: "Subscriptions", icon: CreditCard },
-  { href: "/admin/packages", label: "Packages", icon: Package },
-  { href: "/admin/payments", label: "Payments", icon: Wallet },
-  { href: "/admin/wallet-transactions", label: "Wallet Transactions", icon: ArrowLeftRight },
-  { href: "/admin/analytics", label: "Analytics", icon: BarChart2 },
-  { href: "/admin/support-tickets", label: "Support Tickets", icon: LifeBuoy },
-  { href: "/admin/login-history", label: "Login History", icon: History },
-  { href: "/admin/bandwidth-management", label: "Bandwidth", icon: Activity },
-  { href: "/admin/compartment", label: "Compartment", icon: Server },
-  { href: "/admin/costs", label: "Costs", icon: DollarSign },
-  { href: "/admin/terms", label: "Terms", icon: FileText },
-  { href: "/admin/custom-registration", label: "Custom Registration", icon: UserPlus },
+  { href: "/admin", label: "admin.title", icon: LayoutDashboard },
+  { href: "/admin/users", label: "admin.userTitle", icon: Users },
+  { href: "/admin/subscriptions", label: "admin.subscriptionsTitle", icon: CreditCard },
+  { href: "/admin/packages", label: "admin.packagesTitle", icon: Package },
+  { href: "/admin/payments", label: "admin.paymentsTitle", icon: Wallet },
+  { href: "/admin/wallet-transactions", label: "admin.walletTransactionsTitle", icon: ArrowLeftRight },
+  { href: "/admin/analytics", label: "admin.analyticsTitle", icon: BarChart2 },
+  { href: "/admin/support-tickets", label: "admin.supportTicketsTitle", icon: LifeBuoy },
+  { href: "/admin/login-history", label: "admin.loginHistoryTitle", icon: History },
+  { href: "/admin/bandwidth-management", label: "admin.bandwidthTitle", icon: Activity },
+  { href: "/admin/compartment", label: "admin.compartmentTitle", icon: Server },
+  { href: "/admin/costs", label: "admin.costsTitle", icon: DollarSign },
+  { href: "/admin/terms", label: "admin.termsTitle", icon: FileText },
+  { href: "/admin/custom-registration", label: "admin.customRegTitle", icon: UserPlus },
 ]
 
 export function AdminHeader() {
