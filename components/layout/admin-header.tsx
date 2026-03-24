@@ -1,12 +1,17 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { useTranslation } from "react-i18next"
 
 import { Button } from "@/components/ui/button"
-import { Menu, X, User, LogOut } from "lucide-react"
+import {
+  Menu, X, User, LogOut, ChevronDown,
+  LayoutDashboard, Users, CreditCard, Package,
+  Wallet, LifeBuoy, ArrowLeftRight, BarChart2,
+  History, Activity, Server, DollarSign, FileText, UserPlus
+} from "lucide-react"
 import { LanguageSelector } from "@/components/ui/language-selector"
 import { ThemeToggle } from "@/components/ui/theme-toggle"
 
@@ -15,13 +20,41 @@ import { useToast } from "@/hooks/use-toast"
 import { useI18nReady } from "@/hooks/use-i18n-ready"
 import { NotificationBell } from "@/components/layout/notification-bell"
 
+const adminNavItems = [
+  { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
+  { href: "/admin/users", label: "Users", icon: Users },
+  { href: "/admin/subscriptions", label: "Subscriptions", icon: CreditCard },
+  { href: "/admin/packages", label: "Packages", icon: Package },
+  { href: "/admin/payments", label: "Payments", icon: Wallet },
+  { href: "/admin/wallet-transactions", label: "Wallet Transactions", icon: ArrowLeftRight },
+  { href: "/admin/analytics", label: "Analytics", icon: BarChart2 },
+  { href: "/admin/support-tickets", label: "Support Tickets", icon: LifeBuoy },
+  { href: "/admin/login-history", label: "Login History", icon: History },
+  { href: "/admin/bandwidth-management", label: "Bandwidth", icon: Activity },
+  { href: "/admin/compartment", label: "Compartment", icon: Server },
+  { href: "/admin/costs", label: "Costs", icon: DollarSign },
+  { href: "/admin/terms", label: "Terms", icon: FileText },
+  { href: "/admin/custom-registration", label: "Custom Registration", icon: UserPlus },
+]
+
 export function AdminHeader() {
   const { t } = useTranslation()
   const { toast } = useToast()
   const router = useRouter()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false)
+  const dropdownTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
   const { user, isAuthenticated, logout } = useAuth()
   const isI18nReady = useI18nReady()
+
+  const handleDropdownEnter = () => {
+    if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current)
+    setIsUserDropdownOpen(true)
+  }
+
+  const handleDropdownLeave = () => {
+    dropdownTimeout.current = setTimeout(() => setIsUserDropdownOpen(false), 150)
+  }
 
   if (!isI18nReady) {
     return (
@@ -88,22 +121,58 @@ export function AdminHeader() {
             {isAuthenticated && user ? (
               <div className="flex items-center space-x-2">
                 <NotificationBell />
-                <div className="flex items-center space-x-2 text-sm text-muted-foreground border border-border rounded-md px-3 py-1.5">
-                  <User className="h-4 w-4" />
-                  <span className="font-medium text-foreground">
-                    {user.firstName && user.lastName
-                      ? `${user.firstName} ${user.lastName}`
-                      : user.firstName || user.email}
-                  </span>
-                </div>
-                <Button
-                  variant="outline"
-                  onClick={handleLogout}
-                  className="flex items-center space-x-2"
+
+                {/* User dropdown */}
+                <div
+                  className="relative"
+                  onMouseEnter={handleDropdownEnter}
+                  onMouseLeave={handleDropdownLeave}
                 >
-                  <LogOut className="h-4 w-4" />
-                  <span>{t('common.logout')}</span>
-                </Button>
+                  <button
+                    className="flex items-center space-x-2 text-sm border border-border rounded-md px-3 py-1.5 hover:bg-accent transition-colors cursor-pointer"
+                  >
+                    <User className="h-4 w-4 text-muted-foreground" />
+                    <span className="font-medium text-foreground">
+                      {user.firstName && user.lastName
+                        ? `${user.firstName} ${user.lastName}`
+                        : user.firstName || user.email}
+                    </span>
+                    <ChevronDown className={`h-3.5 w-3.5 text-muted-foreground transition-transform duration-200 ${isUserDropdownOpen ? "rotate-180" : ""}`} />
+                  </button>
+
+                  {isUserDropdownOpen && (
+                    <div
+                      className="absolute right-0 top-full mt-1 w-56 rounded-md border border-border bg-popover shadow-lg z-50 py-1"
+                      onMouseEnter={handleDropdownEnter}
+                      onMouseLeave={handleDropdownLeave}
+                    >
+                      {adminNavItems.map((item) => {
+                        const Icon = item.icon
+                        return (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            className="flex items-center space-x-2.5 px-3 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                            onClick={() => setIsUserDropdownOpen(false)}
+                          >
+                            <Icon className="h-4 w-4 text-muted-foreground flex-shrink-0" />
+                            <span>{item.label}</span>
+                          </Link>
+                        )
+                      })}
+                      <div className="border-t border-border mt-1 pt-1">
+                        <button
+                          onClick={() => { setIsUserDropdownOpen(false); handleLogout() }}
+                          className="flex items-center space-x-2.5 px-3 py-2 text-sm text-destructive hover:bg-destructive/10 transition-colors w-full text-left"
+                        >
+                          <LogOut className="h-4 w-4 flex-shrink-0" />
+                          <span>{t('common.logout')}</span>
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
                 <LanguageSelector />
                 <ThemeToggle />
               </div>
@@ -140,6 +209,22 @@ export function AdminHeader() {
                       <LanguageSelector />
                       <ThemeToggle />
                     </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-1">
+                    {adminNavItems.map((item) => {
+                      const Icon = item.icon
+                      return (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className="flex items-center space-x-2 px-3 py-2 text-sm text-foreground rounded-md hover:bg-accent transition-colors"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          <Icon className="h-4 w-4 text-muted-foreground flex-shrink-0" />
+                          <span>{item.label}</span>
+                        </Link>
+                      )
+                    })}
                   </div>
                   <Button variant="outline" onClick={handleLogout} className="w-full bg-transparent">
                     <LogOut className="h-4 w-4 mr-2" />

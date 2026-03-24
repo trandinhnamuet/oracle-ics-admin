@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import {
   HeadphonesIcon, Search, RefreshCw, Trash2, CheckCircle2,
   XCircle, AlertCircle, Clock, ChevronDown, ChevronUp, Save,
-  Paperclip, FileText, Image as ImageIcon, Download,
+  Paperclip, FileText, Image as ImageIcon, Download, Eye,
 } from 'lucide-react'
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -50,6 +50,23 @@ function AdminAttachmentItem({ att }: { att: TicketAttachment }) {
   const isImage = att.mimeType.startsWith('image/')
   const fullUrl = att.url.startsWith('http') ? att.url : `${base}${att.url}`
 
+  const handleDownload = async () => {
+    try {
+      const response = await fetch(fullUrl)
+      const blob = await response.blob()
+      const blobUrl = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = blobUrl
+      a.download = att.name
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
+      URL.revokeObjectURL(blobUrl)
+    } catch {
+      window.open(fullUrl, '_blank')
+    }
+  }
+
   return (
     <div className="flex items-center gap-3 bg-muted/40 border border-border rounded-lg px-3 py-2">
       {isImage ? (
@@ -63,18 +80,14 @@ function AdminAttachmentItem({ att }: { att: TicketAttachment }) {
         <p className="text-xs text-muted-foreground">{att.mimeType} · {formatBytes(att.size)}</p>
       </div>
       <div className="flex gap-1 shrink-0">
-        {isImage && (
-          <a href={fullUrl} target="_blank" rel="noopener noreferrer">
-            <Button variant="ghost" size="sm" className="h-8 w-8 p-0" title="View">
-              <ImageIcon className="h-4 w-4" />
-            </Button>
-          </a>
-        )}
-        <a href={fullUrl} target="_blank" rel="noopener noreferrer" download={att.name}>
-          <Button variant="ghost" size="sm" className="h-8 w-8 p-0" title="Download">
-            <Download className="h-4 w-4" />
+        <a href={fullUrl} target="_blank" rel="noopener noreferrer">
+          <Button variant="ghost" size="sm" className="h-8 w-8 p-0" title="View">
+            <Eye className="h-4 w-4" />
           </Button>
         </a>
+        <Button variant="ghost" size="sm" className="h-8 w-8 p-0" title="Download" onClick={handleDownload}>
+          <Download className="h-4 w-4" />
+        </Button>
       </div>
     </div>
   )
