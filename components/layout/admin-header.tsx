@@ -87,7 +87,7 @@ export function AdminHeader() {
   const handleLogout = async () => {
     try {
       await logout()
-      toast({ title: t('header.logoutSuccess'), variant: 'success' })
+      toast({ title: t('common.logoutSuccess'), variant: 'success' })
     } catch (error: any) {
       toast({ title: t('common.error'), description: error.message, variant: 'destructive' })
     }

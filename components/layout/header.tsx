@@ -72,7 +72,7 @@ export function Header() {
       console.log('[AUTH DEBUG] cookies after logout:', document.cookie)
       console.log('[AUTH DEBUG] localStorage auth-storage after logout:', localStorage.getItem('auth-storage'))
       toast({
-        title: t('header.logoutSuccess'),
+        title: t('common.logoutSuccess'),
         variant: 'success'
       })
     } catch (error: any) {
