@@ -16,21 +16,14 @@ import {
   clearReadNotifications,
 } from "@/api/notification.api"
 import { useAuth } from "@/lib/auth-context"
-import { cn } from "@/lib/utils"
+import { cn, parseAsUtc, formatDateTime } from "@/lib/utils"
 import { useTranslation } from "react-i18next"
 
 // ---------- helpers ----------
 
 function timeAgo(dateStr: string, lang: string): string {
   try {
-    // Normalise: if the string has no timezone indicator, treat it as UTC.
-    // @CreateDateColumn() can return "2026-03-05T03:00:00.000" (no Z),
-    // which browsers in UTC+7 would misread as local time — 7 h off.
-    let normalised = dateStr.trim().replace(' ', 'T')
-    if (!/Z$/i.test(normalised) && !/[+-]\d{2}:?\d{2}$/.test(normalised)) {
-      normalised += 'Z'
-    }
-    const date = new Date(normalised)
+    const date = parseAsUtc(dateStr)
     
     // Check if date is valid
     if (isNaN(date.getTime())) {
@@ -55,12 +48,7 @@ function timeAgo(dateStr: string, lang: string): string {
     if (days < 7) return lang === 'vi' ? `${days} ngày trước` : `${days}d ago`
     
     // For older dates, show the actual date
-    return date.toLocaleDateString(lang === 'vi' ? "vi-VN" : "en-US", {
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit"
-    })
+    return formatDateTime(dateStr)
   } catch (e) {
     return lang === 'vi' ? "thời gian không rõ" : "unknown time"
   }

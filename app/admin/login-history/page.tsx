@@ -14,11 +14,11 @@ import {
 import useAuthStore from '@/hooks/use-auth-store'
 import { useToast } from '@/hooks/use-toast'
 import { formatDistanceToNow, format } from 'date-fns'
-import { vi } from 'date-fns/locale'
+import { vi, enUS } from 'date-fns/locale'
 import { parseAsUtc, formatDateTime } from '@/lib/utils'
 
 export default function AdminLoginHistoryPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const router = useRouter()
   const user = useAuthStore((state) => state.user)
   const isLoading = useAuthStore((state) => state.isLoading)
@@ -198,7 +198,7 @@ export default function AdminLoginHistoryPage() {
         record.id,
         record.username,
         record.role,
-        format(parseAsUtc(record.loginTime), 'PPpp', { locale: vi }),
+        formatDateTime(record.loginTime, i18n.language),
         record.loginStatus,
         record.ipV4 || record.ipV6 || t('admin.loginHistory.csvNA'),
         record.country || t('admin.loginHistory.csvNA'),
@@ -299,7 +299,7 @@ export default function AdminLoginHistoryPage() {
                   <ul className="list-disc pl-5 space-y-1">
                     {suspiciousAttempts.slice(0, 3).map((attempt, index) => (
                       <li key={index}>
-                        {t('admin.loginHistory.suspicious.failedFrom', { ip: attempt.ipV4 || attempt.ipV6, date: format(parseAsUtc(attempt.loginTime), 'PPp', { locale: vi }) })}
+                        {t('admin.loginHistory.suspicious.failedFrom', { ip: attempt.ipV4 || attempt.ipV6, date: formatDateTime(attempt.loginTime, i18n.language) })}
                       </li>
                     ))}
                     {suspiciousAttempts.length > 3 && (
@@ -465,7 +465,7 @@ export default function AdminLoginHistoryPage() {
                       </td>
                       <td className="px-4 py-4 text-sm">
                         <div className="text-gray-900 dark:text-foreground">{formatDateTime(record.loginTime)}</div>
-                        <div className="text-gray-500 dark:text-muted-foreground text-xs">{formatDistanceToNow(parseAsUtc(record.loginTime), { locale: vi, addSuffix: true })}</div>
+                        <div className="text-gray-500 dark:text-muted-foreground text-xs">{formatDistanceToNow(parseAsUtc(record.loginTime), { locale: i18n.language === 'vi' ? vi : enUS, addSuffix: true })}</div>
                       </td>
                       <td className="px-4 py-4 whitespace-nowrap">
                         <span className={`px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${

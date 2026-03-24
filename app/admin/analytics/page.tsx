@@ -21,7 +21,7 @@ import {
 import { AnalyticsApi } from '@/api/analytics.api'
 import { useTranslation } from 'react-i18next'
 import { ArrowUp, Eye, Users, TrendingDown, Zap } from 'lucide-react'
-import { format, subDays } from 'date-fns'
+import { subDays } from 'date-fns'
 import { parseAsUtc } from '@/lib/utils'
 
 const COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6']
@@ -212,7 +212,7 @@ export default function AnalyticsDashboard() {
                       <CartesianGrid strokeDasharray="3 3" />
                       <XAxis
                         dataKey="date"
-                        tickFormatter={(date) => format(parseAsUtc(date), 'MMM dd')}
+                        tickFormatter={(date) => parseAsUtc(date).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
                       />
                       <YAxis />
                       <Tooltip />

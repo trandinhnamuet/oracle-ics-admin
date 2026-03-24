@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import useAuthStore from '@/hooks/use-auth-store'
 import { getTokenInfo } from '@/lib/token-expiry'
+import { formatDateTime } from '@/lib/utils'
 import Cookies from 'js-cookie'
 
 export function AuthDebugPanel() {
@@ -140,7 +141,7 @@ export function AuthDebugPanel() {
                     <div>Email: {tokenInfo.payload?.email}</div>
                     <div>Role: {tokenInfo.payload?.role}</div>
                     <div>
-                      Expires: {tokenInfo.expiryTime?.toLocaleString()}
+                      Expires: {tokenInfo.expiryTime ? formatDateTime(tokenInfo.expiryTime) : '—'}
                     </div>
                     <div className={tokenInfo.isExpired ? 'text-red-500 font-bold' : tokenInfo.isExpiringSoon ? 'text-yellow-500 font-bold' : 'text-green-500'}>
                       Status: {tokenInfo.isExpired ? '❌ EXPIRED' : tokenInfo.isExpiringSoon ? '⚠️ EXPIRING SOON' : '✅ VALID'}
