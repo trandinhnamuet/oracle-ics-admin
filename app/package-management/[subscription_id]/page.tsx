@@ -30,7 +30,7 @@ import {
   ResponsiveContainer,
 } from 'recharts'
 import { getSubscriptionById, deleteSubscription, Subscription } from '@/api/subscription.api'
-import { getSubscriptionVm, performVmAction, requestNewSshKey, deleteVmOnly, VmDetails } from '@/api/vm-subscription.api'
+import { getSubscriptionVm, performVmAction, requestNewSshKey, deleteVmOnly, resetWindowsPassword, VmDetails } from '@/api/vm-subscription.api'
 import { getInstanceMetrics, InstanceMetrics } from '@/api/oci.api'
 import { toast } from '@/hooks/use-toast'
 import { formatDateOnly, formatDateTime, parseAsUtc } from '@/lib/utils'
@@ -79,6 +79,9 @@ export default function AdminPackageDetailPage() {
   const [isRequestingSshKey, setIsRequestingSshKey] = useState(false)
   const [newSshKey, setNewSshKey] = useState<{ privateKey: string; instanceName: string } | null>(null)
   const [copiedField, setCopiedField] = useState<string | null>(null)
+  const [isResettingPassword, setIsResettingPassword] = useState(false)
+  const [resetPasswordDialog, setResetPasswordDialog] = useState(false)
+  const [newWindowsPassword, setNewWindowsPassword] = useState<string | null>(null)
   const [confirmDialog, setConfirmDialog] = useState<{
     open: boolean
     title: string
@@ -303,6 +306,32 @@ export default function AdminPackageDetailPage() {
     }
   }
 
+  const handleResetWindowsPassword = async () => {
+    setIsResettingPassword(true)
+    setResetPasswordDialog(false)
+    try {
+      const result = await resetWindowsPassword(subscriptionId)
+      setNewWindowsPassword(result.newPassword)
+      const updatedVm = await getSubscriptionVm(subscriptionId)
+      setVmDetails(updatedVm)
+      toast({
+        title: t('packageDetail.toast.passwordResetSuccess'),
+        description: t('packageDetail.toast.passwordResetSuccessDesc'),
+        duration: 8000,
+      })
+    } catch (error: any) {
+      console.error('Error resetting Windows password:', error)
+      toast({
+        title: t('packageDetail.toast.passwordResetError'),
+        description: error?.response?.data?.message || error?.message || t('packageDetail.toast.passwordResetErrorDesc'),
+        variant: 'destructive',
+        duration: 8000,
+      })
+    } finally {
+      setIsResettingPassword(false)
+    }
+  }
+
   const handleDeleteVmOnly = () => {
     setConfirmDialog({
       open: true,
@@ -517,9 +546,27 @@ export default function AdminPackageDetailPage() {
               {/* Windows Password Section */}
               {vmDetails?.vm?.operatingSystem?.toLowerCase().includes('windows') && (
                 <div className="mt-4 border-t pt-4">
-                  <p className="text-sm font-semibold mb-2 flex items-center gap-2">
-                    🪟 Windows RDP Credentials
-                  </p>
+                  <div className="flex items-center justify-between mb-2">
+                    <p className="text-sm font-semibold flex items-center gap-2">
+                      🪟 Windows RDP Credentials
+                    </p>
+                    {vmDetails.vm.lifecycleState === 'RUNNING' && (
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="text-orange-600 border-orange-300 hover:bg-orange-50 dark:hover:bg-orange-950/20"
+                        onClick={() => setResetPasswordDialog(true)}
+                        disabled={isResettingPassword}
+                      >
+                        {isResettingPassword ? (
+                          <RefreshCw className="h-3 w-3 mr-1 animate-spin" />
+                        ) : (
+                          <Key className="h-3 w-3 mr-1" />
+                        )}
+                        {t('packageDetail.serverDetails.resetPassword')}
+                      </Button>
+                    )}
+                  </div>
                   {vmDetails.vm.windowsInitialPassword ? (
                     <div className="bg-gray-50 dark:bg-muted p-3 rounded space-y-2 text-sm font-mono">
                       <div className="flex items-center justify-between">
@@ -1059,6 +1106,67 @@ export default function AdminPackageDetailPage() {
               className="bg-green-600 hover:bg-green-700"
             >
               Đã lưu — Đóng
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      {/* Reset Windows Password — Confirmation dialog */}
+      <AlertDialog open={resetPasswordDialog} onOpenChange={setResetPasswordDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>🔑 {t('packageDetail.serverDetails.resetPasswordTitle')}</AlertDialogTitle>
+            <AlertDialogDescription>
+              {t('packageDetail.serverDetails.resetPasswordDesc')}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>{t('packageDetail.confirmDialog.cancel')}</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleResetWindowsPassword}
+              className="bg-orange-600 hover:bg-orange-700 text-white"
+            >
+              {t('packageDetail.serverDetails.resetPasswordConfirm')}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      {/* Reset Windows Password — New password display (one-time) */}
+      <AlertDialog open={!!newWindowsPassword} onOpenChange={() => {}}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle className="flex items-center gap-2">
+              ✅ {t('packageDetail.serverDetails.resetPasswordSuccessTitle')}
+            </AlertDialogTitle>
+            <AlertDialogDescription asChild>
+              <div className="space-y-4">
+                <p className="text-sm text-muted-foreground">
+                  {t('packageDetail.serverDetails.resetPasswordSuccessDesc')}
+                </p>
+                <div className="bg-gray-50 dark:bg-muted border rounded p-4 font-mono text-sm space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span><strong>Username:</strong> opc</span>
+                    <Button size="sm" variant="ghost" onClick={() => copyToClipboard('opc', 'new-win-user')}>
+                      {copiedField === 'new-win-user' ? <Check className="h-3 w-3 text-green-500" /> : <Copy className="h-3 w-3" />}
+                    </Button>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span><strong>New password:</strong> {newWindowsPassword}</span>
+                    <Button size="sm" variant="ghost" onClick={() => copyToClipboard(newWindowsPassword!, 'new-win-pass')}>
+                      {copiedField === 'new-win-pass' ? <Check className="h-3 w-3 text-green-500" /> : <Copy className="h-3 w-3" />}
+                    </Button>
+                  </div>
+                </div>
+                <p className="text-xs text-orange-600 dark:text-orange-400">
+                  ⚠️ {t('packageDetail.serverDetails.resetPasswordWarning')}
+                </p>
+              </div>
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogAction onClick={() => setNewWindowsPassword(null)}>
+              {t('packageDetail.serverDetails.resetPasswordClose')}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

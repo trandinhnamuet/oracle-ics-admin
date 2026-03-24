@@ -129,6 +129,18 @@ export const performVmAction = async (
 }
 
 /**
+ * Reset Windows VM password via SSH
+ */
+export const resetWindowsPassword = async (
+  subscriptionId: string
+): Promise<{ success: boolean; username: string; newPassword: string; message: string }> => {
+  return fetchJsonWithAuth(
+    `${API_BASE_URL}/vm-subscription/${subscriptionId}/reset-windows-password`,
+    { method: 'POST' }
+  )
+}
+
+/**
  * Request new SSH key for VM
  */
 export const requestNewSshKey = async (

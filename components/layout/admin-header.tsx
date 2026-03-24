@@ -156,7 +156,7 @@ export function AdminHeader() {
                             onClick={() => setIsUserDropdownOpen(false)}
                           >
                             <Icon className="h-4 w-4 text-muted-foreground flex-shrink-0" />
-                            <span>{item.label}</span>
+                            <span>{t(item.label)}</span>
                           </Link>
                         )
                       })}
@@ -221,7 +221,7 @@ export function AdminHeader() {
                           onClick={() => setIsMenuOpen(false)}
                         >
                           <Icon className="h-4 w-4 text-muted-foreground flex-shrink-0" />
-                          <span>{item.label}</span>
+                          <span>{t(item.label)}</span>
                         </Link>
                       )
                     })}
