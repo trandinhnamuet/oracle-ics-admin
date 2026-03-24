@@ -65,7 +65,7 @@ export default function UnauthorizedPage() {
 				disabled={isLoading}
 				className="bg-red-600 hover:bg-red-700 text-white"
 			>
-				{isLoading ? t('common.loggingOut') || 'Đang đăng xuất...' : t('common.logout') || 'Đăng xuất'}
+				{isLoading ? t('common.loggingOut') || 'Đang đăng xuất...' : t('header.logout') || 'Đăng xuất'}
 			</Button>
 		</div>
 	);
