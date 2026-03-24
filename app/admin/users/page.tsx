@@ -392,36 +392,36 @@ export default function UserManagementPage() {
           <CardTitle>{t('admin.user.title')} ({total})</CardTitle>
         </CardHeader>
         <CardContent>
-          <div>
-            <Table className="table-fixed w-full">
+          <div className="overflow-x-auto">
+            <Table className="w-full min-w-[900px]">
               <TableHeader>
                 <TableRow>
-                  <TableHead className="cursor-pointer select-none w-12" onClick={() => handleSort('id')}>
+                  <TableHead className="cursor-pointer select-none w-12 shrink-0" onClick={() => handleSort('id')}>
                     {t('admin.user.table.id')}<SortIcon col="id" />
                   </TableHead>
-                  <TableHead className="cursor-pointer select-none w-[18%]" onClick={() => handleSort('email')}>
+                  <TableHead className="cursor-pointer select-none min-w-[160px]" onClick={() => handleSort('email')}>
                     {t('admin.user.table.email')}<SortIcon col="email" />
                   </TableHead>
-                  <TableHead className="cursor-pointer select-none w-[13%]" onClick={() => handleSort('firstName')}>
+                  <TableHead className="cursor-pointer select-none min-w-[120px]" onClick={() => handleSort('firstName')}>
                     {t('admin.user.table.name')}<SortIcon col="firstName" />
                   </TableHead>
-                  <TableHead className="w-[11%]">{t('admin.user.table.phone')}</TableHead>
-                  <TableHead className="cursor-pointer select-none w-[13%]" onClick={() => handleSort('company')}>
+                  <TableHead className="min-w-[110px]">{t('admin.user.table.phone')}</TableHead>
+                  <TableHead className="cursor-pointer select-none min-w-[120px]" onClick={() => handleSort('company')}>
                     {t('admin.user.table.company')}<SortIcon col="company" />
                   </TableHead>
-                  <TableHead className="cursor-pointer select-none w-[8%]" onClick={() => handleSort('role')}>
+                  <TableHead className="cursor-pointer select-none min-w-[80px]" onClick={() => handleSort('role')}>
                     {t('admin.user.table.role')}<SortIcon col="role" />
                   </TableHead>
-                  <TableHead className="cursor-pointer select-none w-[10%]" onClick={() => handleSort('isActive')}>
+                  <TableHead className="cursor-pointer select-none min-w-[120px]" onClick={() => handleSort('isActive')}>
                     {t('admin.user.table.status')}<SortIcon col="isActive" />
                   </TableHead>
-                  <TableHead className="cursor-pointer select-none w-[11%]" onClick={() => handleSort('createdAt')}>
+                  <TableHead className="cursor-pointer select-none min-w-[130px] whitespace-nowrap" onClick={() => handleSort('createdAt')}>
                     {t('admin.user.table.createdAt')}<SortIcon col="createdAt" />
                   </TableHead>
-                  <TableHead className="cursor-pointer select-none w-[11%]" onClick={() => handleSort('updatedAt')}>
+                  <TableHead className="cursor-pointer select-none min-w-[130px] whitespace-nowrap" onClick={() => handleSort('updatedAt')}>
                     {t('admin.user.table.updatedAt')}<SortIcon col="updatedAt" />
                   </TableHead>
-                  <TableHead className="w-[10%]">{t('admin.user.table.actions')}</TableHead>
+                  <TableHead className="min-w-[100px]">{t('admin.user.table.actions')}</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -440,19 +440,23 @@ export default function UserManagementPage() {
                 ) : (
                   users.map(user => (
                     <TableRow key={user.id}>
-                      <TableCell className="font-medium">{user.id}</TableCell>
-                      <TableCell className="break-all overflow-hidden">{user.email}</TableCell>
-                      <TableCell className="break-words overflow-hidden">{user.firstName} {user.lastName}</TableCell>
-                      <TableCell className="break-all overflow-hidden">
+                      <TableCell className="font-medium shrink-0">{user.id}</TableCell>
+                      <TableCell className="max-w-[200px]">
+                        <span className="block truncate" title={user.email}>{user.email}</span>
+                      </TableCell>
+                      <TableCell className="max-w-[150px]">
+                        <span className="block break-words">{user.firstName} {user.lastName}</span>
+                      </TableCell>
+                      <TableCell className="whitespace-nowrap">
                         {user.phoneNumber ? (
                           <span>{user.phoneNumber}</span>
                         ) : (
                           <span className="text-gray-400 dark:text-muted-foreground italic">{t('admin.user.table.noData')}</span>
                         )}
                       </TableCell>
-                      <TableCell className="break-words overflow-hidden">
+                      <TableCell className="max-w-[150px]">
                         {user.company ? (
-                          <span>{user.company}</span>
+                          <span className="block truncate" title={user.company}>{user.company}</span>
                         ) : (
                           <span className="text-gray-400 dark:text-muted-foreground italic">{t('admin.user.table.noData')}</span>
                         )}
@@ -463,7 +467,7 @@ export default function UserManagementPage() {
                         </Badge>
                       </TableCell>
                       <TableCell>
-                        <div className="flex items-center space-x-2">
+                        <div className="flex items-center gap-2 flex-wrap">
                           <Switch
                             checked={user.isActive}
                             onCheckedChange={() => toggleUserStatus(user.id, user.isActive)}
@@ -473,10 +477,10 @@ export default function UserManagementPage() {
                           </Badge>
                         </div>
                       </TableCell>
-                      <TableCell>
+                      <TableCell className="whitespace-nowrap text-sm">
                         {formatDateTime(user.createdAt)}
                       </TableCell>
-                      <TableCell>
+                      <TableCell className="whitespace-nowrap text-sm">
                         {formatDateTime(user.updatedAt)}
                       </TableCell>
                       <TableCell>

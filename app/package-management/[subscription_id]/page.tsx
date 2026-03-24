@@ -529,7 +529,7 @@ export default function AdminPackageDetailPage() {
                         </Button>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span><strong>Password:</strong> {vmDetails.vm.windowsInitialPassword}</span>
+                        <span><strong>Initial password:</strong> {vmDetails.vm.windowsInitialPassword}</span>
                         <Button size="sm" variant="ghost" onClick={() => copyToClipboard(vmDetails.vm!.windowsInitialPassword!, 'win-pass')}>
                           {copiedField === 'win-pass' ? <Check className="h-3 w-3 text-green-500" /> : <Copy className="h-3 w-3" />}
                         </Button>
