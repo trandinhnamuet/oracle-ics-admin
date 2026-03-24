@@ -13,8 +13,8 @@
     "stats": {
       "total": "총 패키지 수",
       "active": "활성",
-      "inactive": "비활성",
-      "revenue": "월 수익"
+      "pending": "결제 대기",
+      "suspended": "만료/일시정지"
     },
     "table": {
       "title": "구독 패키지 목록 ({{count}})",
@@ -341,14 +341,7 @@
           "popular": "인기",
           "noPackagesFound": "서비스 패키지를 찾을 수 없습니다",
           "active": "활성",
-          "inactive": "비활성",
-          "idLabel": "ID",
-          "specs": {
-            "cpu": "CPU",
-            "ram": "RAM",
-            "ssd": "SSD",
-            "bw": "대역폭"
-          }
+          "inactive": "비활성"
         },
         "toast": {
           "createSuccess": "성공",
@@ -356,13 +349,8 @@
           "updateSuccess": "성공",
           "updateSuccessDesc": "패키지가 성공적으로 업데이트되었습니다",
           "deleteSuccess": "성공",
-          "deleteSuccessDesc": "패키지가 성공적으로 삭제되었습니다",
-          "loadError": "패키지 로드 실패",
-          "createError": "패키지 생성 실패",
-          "updateError": "패키지 업데이트 실패",
-          "deleteError": "패키지 삭제 실패"
-        },
-        "packageCount": "{{count}} 패키지"
+          "deleteSuccessDesc": "패키지가 성공적으로 삭제되었습니다"
+        }
       }
     },
     "subscriptions": {
@@ -410,9 +398,7 @@
         "no": "아니오",
         "recordsPerPage": "페이지당 항목 수:",
         "goTo": "페이지로 이동:",
-        "pageOf": "{{current}} / {{total}} 페이지",
-        "fromDatePlaceholder": "시작일",
-        "toDatePlaceholder": "종료일"
+        "pageOf": "{{current}} / {{total}} 페이지"
       },
       "actions": {
         "viewDetail": "세부 정보 보기",
@@ -508,20 +494,21 @@
       },
       "summary": {
         "totalVMs": "총 VM",
+        "vmsWithData": "데이터 있는 VM",
         "overLimit": "한도 초과",
         "nearLimit": "한도 근접",
         "totalEgress": "총 에그레스",
-        "average": "평균",
-        "vmsWithData": "데이터 있는 VM",
-        "totalIngress": "총 Ingress"
+        "totalIngress": "총 인그레스",
+        "average": "평균"
       },
       "filter": {
+        "searchPlaceholder": "VM 이름, 이메일, IP로 검색...",
+        "matchingCount": "{{matched}} / {{total}} VM",
         "label": "필터:",
         "all": "전체",
         "over": "한도 초과",
         "near": "경고",
-        "normal": "정상",
-        "searchPlaceholder": "VM 이름, 이메일, IP로 검색..."
+        "normal": "정상"
       },
       "sort": {
         "label": "정렬:",
@@ -530,13 +517,13 @@
         "user": "사용자"
       },
       "status": {
+        "live": "실시간",
+        "archived": "보관됨",
+        "noData": "데이터 없음",
         "overLimit": "한도 초과",
         "warning": "경고",
         "normal": "정상",
-        "error": "오류",
-        "live": "라이브",
-        "archived": "보관됨",
-        "noData": "데이터 없음"
+        "error": "오류"
       },
       "source": {
         "oci": "실시간 (OCI)",
@@ -555,7 +542,21 @@
         "company": "회사",
         "dataSource": "데이터 소스",
         "email": "이메일",
-        "ip": "IP 주소"
+        "ip": "IP",
+        "notAvailable": "N/A"
+      },
+      "lifecycle": {
+        "RUNNING": "실행 중",
+        "STOPPED": "중지됨",
+        "STARTING": "시작 중",
+        "STOPPING": "중지 중",
+        "PROVISIONING": "프로비저닝 중",
+        "TERMINATED": "종료됨",
+        "UNKNOWN": "알 수 없음"
+      },
+      "compartment": {
+        "vms": "VM",
+        "withData": "데이터 있음"
       },
       "warning": {
         "overLimitTitle": "경고: 에그레스 한도 초과!",
@@ -564,11 +565,7 @@
         "nearLimitMessage": "이 VM은 에그레스 대역폭의 {{usage}}%를 사용했습니다. 한도까지 {{remaining}} TB 남았습니다.",
         "errorMessage": "대역폭 데이터를 가져올 수 없습니다: {{error}}"
       },
-      "noVms": "현재 필터와 일치하는 VM이 없습니다",
-      "compartment": {
-        "vms": "VM",
-        "withData": "데이터 있음"
-      }
+      "noVms": "현재 필터와 일치하는 VM이 없습니다"
     },
     "walletTransactions": {
       "title": "지갑 거래 관리",
@@ -646,8 +643,7 @@
         "loadError": "컴파트먼트 목록을 로드할 수 없습니다: {{message}}",
         "deleteSuccess": "컴파트먼트 \"{{name}}\" 및 내부의 모든 리소스가 삭제되었습니다",
         "deleteError": "컴파트먼트를 삭제할 수 없습니다: {{message}}"
-      },
-      "compartmentIdLabel": "컴파트먼트 ID"
+      }
     },
     "costs": {
       "title": "비용 & 크레딧",
@@ -671,18 +667,10 @@
         "yearly": "연별"
       },
       "months": {
-        "jan": "1월",
-        "feb": "2월",
-        "mar": "3월",
-        "apr": "4월",
-        "may": "5월",
-        "jun": "6월",
-        "jul": "7월",
-        "aug": "8월",
-        "sep": "9월",
-        "oct": "10월",
-        "nov": "11월",
-        "dec": "12월"
+        "jan": "1월", "feb": "2월", "mar": "3월",
+        "apr": "4월", "may": "5월", "jun": "6월",
+        "jul": "7월", "aug": "8월", "sep": "9월",
+        "oct": "10월", "nov": "11월", "dec": "12월"
       },
       "table": {
         "month": "월",
@@ -763,25 +751,6 @@
         "page": "{{current}} / {{total}} 페이지",
         "prev": "이전",
         "next": "다음"
-      },
-      "exportToastSuccess": "성공",
-      "exportToastError": "오류",
-      "csvNA": "N/A",
-      "csvYes": "예",
-      "csvNo": "아니오",
-      "csvHeaders": {
-        "id": "ID",
-        "username": "사용자명",
-        "role": "역할",
-        "loginTime": "로그인 시간",
-        "status": "상태",
-        "ipAddress": "IP 주소",
-        "country": "국가",
-        "browser": "브라우저",
-        "os": "OS",
-        "deviceType": "장치 유형",
-        "sessionDuration": "세션 시간",
-        "newDevice": "새 장치"
       }
     },
     "payments": {
@@ -965,9 +934,7 @@
         "locked": "잠김",
         "cancel": "취소",
         "save": "변경 사항 저장",
-        "saving": "저장 중...",
-        "roleCustomer": "고객",
-        "roleAdmin": "관리자"
+        "saving": "저장 중..."
       },
       "deleteDialog": {
         "title": "사용자 삭제 확인",
@@ -996,8 +963,7 @@
         "sheetName": "사용자 목록",
         "active": "활성",
         "locked": "잠김"
-      },
-      "editTooltip": "정보 편집"
+      }
     },
     "packagesExtra": {
       "dialog": {
@@ -1072,62 +1038,32 @@
         "database": {
           "title": "Oracle 데이터베이스 클라우드",
           "description": "고성능 및 절대적인 보안을 제공하는 자가 관리 Oracle 데이터베이스",
-          "features": [
-            "자율 데이터베이스",
-            "실시간 애플리케이션 클러스터",
-            "데이터 가드",
-            "고급 보안"
-          ]
+          "features": ["자율 데이터베이스", "실시간 애플리케이션 클러스터", "데이터 가드", "고급 보안"]
         },
         "compute": {
           "title": "컴퓨트 클라우드",
           "description": "기업 요구에 맞춘 유연한 가상 서버 구성",
-          "features": [
-            "베어 메탈",
-            "가상 머신",
-            "컨테이너 엔진",
-            "함수"
-          ]
+          "features": ["베어 메탈", "가상 머신", "컨테이너 엔진", "함수"]
         },
         "storage": {
           "title": "저장소 솔루션",
           "description": "블록 저장소에서 객체 저장소까지 다양한 저장소 솔루션",
-          "features": [
-            "블록 볼륨",
-            "객체 저장소",
-            "파일 저장소",
-            "아카이브 저장소"
-          ]
+          "features": ["블록 볼륨", "객체 저장소", "파일 저장소", "아카이브 저장소"]
         },
         "networking": {
           "title": "네트워킹",
           "description": "낮은 지연 시간과 높은 대역폭의 글로벌 네트워크 인프라",
-          "features": [
-            "가상 클라우드 네트워크",
-            "로드 밸런서",
-            "VPN 연결",
-            "패스트커넥트"
-          ]
+          "features": ["가상 클라우드 네트워크", "로드 밸런서", "VPN 연결", "패스트커넥트"]
         },
         "security": {
           "title": "보안 및 신원",
           "description": "고급 신원 및 접근 관리를 포함한 다층 보안",
-          "features": [
-            "신원 관리",
-            "키 관리",
-            "웹 애플리케이션 방화벽",
-            "보안 존"
-          ]
+          "features": ["신원 관리", "키 관리", "웹 애플리케이션 방화벽", "보안 존"]
         },
         "analytics": {
           "title": "분석 및 AI",
           "description": "통합된 머신 러닝을 활용한 지능형 데이터 분석",
-          "features": [
-            "분석 클라우드",
-            "데이터 사이언스",
-            "머신 러닝",
-            "빅 데이터 서비스"
-          ]
+          "features": ["분석 클라우드", "데이터 사이언스", "머신 러닝", "빅 데이터 서비스"]
         }
       },
       "benefits": {
@@ -1365,8 +1301,7 @@
     "languageLabel": "언어",
     "admin": "관리자",
     "packageManagement": "내 클라우드",
-    "supportRequest": "지원 요청",
-    "adminPanel": "관리 패널"
+    "supportRequest": "지원 요청"
   },
   "footer": {
     "companyName": "Oracle 클라우드 베트남",
@@ -1412,7 +1347,6 @@
   },
   "common": {
     "loading": "로딩 중...",
-    "logout": "로그아웃",
     "logoutSuccess": "로그아웃 성공!",
     "error": "오류"
   },
@@ -1593,12 +1527,15 @@
       "password": "비밀번호",
       "ip": "IP 주소",
       "uptime": "가동 시간",
-      "days": "일"
+      "days": "일",
+      "vmState": "VM 상태",
+      "publicIp": "공용 IP"
     },
     "controls": {
       "vmName": "VM 이름:",
       "time": "시간:",
       "theme": "테마:",
+      "timeRange": "시간 범위:",
       "showPerformance": "성능 사용량 표시",
       "timeOptions": {
         "oneHour": "1시간 전",
@@ -1613,7 +1550,12 @@
     },
     "charts": {
       "cpuUsage": "CPU 사용률 (%)",
-      "memoryUsage": "메모리 사용률 (%)"
+      "memoryUsage": "메모리 사용률 (%)",
+      "cpuTitle": "CPU 사용률 (%)",
+      "memoryTitle": "메모리 사용률 (%)",
+      "networkTraffic": "네트워크 트래픽 (MB/s)",
+      "diskIO": "디스크 I/O (MB/s)",
+      "noData": "데이터 없음"
     },
     "packageInfo": {
       "title": "패키지 정보",
@@ -1643,7 +1585,10 @@
       "console": "콘솔",
       "changeOS": "OS 변경/재설치",
       "deletePackage": "패키지 삭제",
-      "configurateVM": "VM 구성"
+      "configurateVM": "VM 구성",
+      "requestSshKey": "새 SSH 키 요청",
+      "generating": "생성 중...",
+      "openTerminal": "터미널 열기"
     },
     "billing": {
       "title": "청구 정보",
@@ -1688,6 +1633,37 @@
       "message4": "VM이 실행 중일 때 차트를 사용할 수 있습니다",
       "label": "VM이 아직 구성되지 않았습니다",
       "deleteButton": "VM 삭제 (구독 유지)"
+    },
+    "sshKeyRequest": {
+      "title": "새 SSH 키 생성 확인",
+      "warningTitle": "중요 보안 알림",
+      "warningItem1": "새 SSH 키가 생성되어 VM에 추가됩니다",
+      "warningItem2": "이전 키는 계속 정상적으로 작동합니다 — 계속 사용할 수 있습니다",
+      "warningItem3": "최대 2개의 사용자 SSH 키 + 1개의 관리자 키 (총 3개)",
+      "warningItem4": "사용자 키가 이미 2개인 경우, 가장 오래된 사용자 키가 자동으로 삭제됩니다",
+      "vmInfoTitle": "VM 정보:",
+      "privateKeyOnScreen": "개인 키가 다운로드를 위해 화면에 직접 표시됩니다",
+      "processTitle": "🔐 키 생성 프로세스:",
+      "processStep1": "시스템이 새로운 RSA 4096비트 SSH 키 쌍을 생성",
+      "processStep2": "공개 키가 VM 메타데이터에 추가됨",
+      "processStep3": "개인 키가 다운로드를 위해 화면에 직접 표시됨 (1회만)",
+      "processStep4": "이전 키는 계속 작동하며, 제한을 초과하면 자동으로 삭제됨",
+      "importantLabel": "중요:",
+      "importantNote1": "개인 키는",
+      "importantOnce": "단 한 번만 표시됩니다",
+      "importantNote2": "생성 직후 저장하세요.",
+      "cancel": "취소",
+      "creating": "키 생성 중...",
+      "confirm": "새 SSH 키 확인"
+    },
+    "newSshKeyCreated": {
+      "title": "새 SSH 키가 성공적으로 생성되었습니다!",
+      "onceWarningTitle": "⚠️ 이 정보는 1회만 표시됩니다",
+      "onceWarningDesc": "지금 바로 저장하세요. 이 창을 닫으면 개인 키를 다시 볼 수 없습니다.",
+      "copy": "키 복사",
+      "copied": "복사됨!",
+      "download": "다운로드 (.pem)",
+      "close": "저장됨 — 닫기"
     }
   },
   "support": {
@@ -1963,7 +1939,7 @@
     "vmNameNote": "VM 이름은 이메일 주소를 기반으로 자동 생성됩니다. 형식:",
     "notificationSettings": "알림 설정",
     "emailLabel": "이메일 주소 * (SSH 키가 여기로 전송됩니다)",
-    "emailNote": "SSH 개인 키가 이 이메일 주소로 전송됩니다. 안전하게 보관하세요.",
+    "emailNote": "",
     "vmShape": "VM 형태 *",
     "vmShapeNote": "먼저 VM 형태를 선택하세요 - OS 옵션은 호환성에 따라 필터링됩니다",
     "recommended": "추천",
@@ -2014,7 +1990,22 @@
     "configSuccess": "성공",
     "armCapacityUnavailable": "ARM 용량을 사용할 수 없습니다",
     "capacityUnavailable": "용량을 사용할 수 없습니다",
-    "configFailed": "구성 실패"
+    "configFailed": "구성 실패",
+    "vmCreated": {
+      "title": "VM이 성공적으로 생성되었습니다!",
+      "warningTitle": "⚠️ 이 정보는 한 번만 표시됩니다",
+      "warningDesc": "지금 바로 저장해 주세요. 이 창을 닫으면 다시 볼 수 없습니다.",
+      "sshKeyLabel": "SSH 개인 키",
+      "copyKey": "키 복사",
+      "copied": "복사됨!",
+      "downloadPem": "다운로드 (.pem)",
+      "connectLabel": "연결: ",
+      "downloadCredentials": "인증 정보 다운로드 (.txt)",
+      "windowsPendingTitle": "⏳ Windows 비밀번호 생성 중",
+      "windowsPendingDesc1": "초기 비밀번호는 5~10분 내에 준비됩니다.",
+      "windowsPendingDesc2": "이 화면을 닫은 후 VM 관리 페이지에서 비밀번호를 확인하세요.",
+      "savedGotoVM": "저장됨 — VM 관리 페이지로 이동"
+    }
   },
   "addFunds": {
     "title": "계정에 충전",
@@ -2041,18 +2032,9 @@
     "successTitle": "성공",
     "successDesc": "충전 요청이 생성되었습니다. 결제 페이지로 이동 중...",
     "methods": {
-      "momo": {
-        "name": "MoMo 지갑",
-        "description": "MoMo 전자지갑으로 결제"
-      },
-      "card": {
-        "name": "국제 카드",
-        "description": "Visa, Mastercard, JCB"
-      },
-      "bank_transfer": {
-        "name": "계좌 이체",
-        "description": "QR 코드 스캔 또는 수동 이체"
-      }
+      "momo": { "name": "MoMo 지갑", "description": "MoMo 전자지갑으로 결제" },
+      "card": { "name": "국제 카드", "description": "Visa, Mastercard, JCB" },
+      "bank_transfer": { "name": "계좌 이체", "description": "QR 코드 스캔 또는 수동 이체" }
     }
   },
   "pricingModal": {
@@ -2095,9 +2077,9 @@
     "email": "이메일",
     "emailPlaceholder": "your@email.com",
     "password": "비밀번호",
-    "passwordPlaceholder": "········",
+    "passwordPlaceholder": "\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7",
     "confirmPassword": "비밀번호 확인",
-    "confirmPasswordPlaceholder": "········",
+    "confirmPasswordPlaceholder": "\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7",
     "registerButton": "등록",
     "registering": "등록 중...",
     "or": "또는",
@@ -2168,7 +2150,7 @@
       "verifying": "인증 중...",
       "resend": "OTP 재전송",
       "resendCountdown": "{{countdown}}초 후 재전송",
-      "backToLogin": "← 로그인으로 돌아가기",
+      "backToLogin": "\u2190 로그인으로 돌아가기",
       "validation": {
         "otpRequired": "6자리 OTP를 모두 입력해주세요"
       }
@@ -2196,7 +2178,7 @@
     "benefit4": "암호화된 보안 거래",
     "scanQR": "QR 코드 스캔하여 결제",
     "loadingPaymentInfo": "결제 정보 로딩 중...",
-    "paymentSuccessRedirect": "✅ 충전 성공! 리다이렉트 중...",
+    "paymentSuccessRedirect": "\u2705 충전 성공! 리다이렉트 중...",
     "checkingPayment": "결제 확인 중...",
     "scanQRDesc": "뱅킹 앱으로 QR 코드를 스캔하여 결제하세요",
     "bankLabel": "은행:",

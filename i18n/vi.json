@@ -13,8 +13,8 @@
     "stats": {
       "total": "Tổng số gói",
       "active": "Đang hoạt động",
-      "inactive": "Không hoạt động",
-      "revenue": "Doanh thu/tháng"
+      "pending": "Đang chờ thanh toán",
+      "suspended": "Đã hết hạn/tạm dừng"
     },
     "table": {
       "title": "Danh sách gói đăng ký ({{count}})",
@@ -31,7 +31,7 @@
       "active": "Hoạt động",
       "inactive": "Không hoạt động",
       "pending": "Đang chờ",
-      "suspended": "Tạm dừng",
+      "suspended": "Tạm dừng", 
       "cancelled": "Đã hủy",
       "expired": "Hết hạn",
       "pauseTitle": "Tạm dừng gói",
@@ -341,14 +341,7 @@
           "popular": "Phổ biến",
           "noPackagesFound": "Không tìm thấy gói dịch vụ nào",
           "active": "Đang hoạt động",
-          "inactive": "Không hoạt động",
-          "idLabel": "ID",
-          "specs": {
-            "cpu": "CPU",
-            "ram": "RAM",
-            "ssd": "SSD",
-            "bw": "Băng thông"
-          }
+          "inactive": "Không hoạt động"
         },
         "toast": {
           "createSuccess": "Thành công",
@@ -356,13 +349,8 @@
           "updateSuccess": "Thành công",
           "updateSuccessDesc": "Cập nhật gói thành công",
           "deleteSuccess": "Thành công",
-          "deleteSuccessDesc": "Xóa gói thành công",
-          "loadError": "Không thể tải danh sách gói",
-          "createError": "Không thể tạo gói",
-          "updateError": "Không thể cập nhật gói",
-          "deleteError": "Không thể xóa gói"
-        },
-        "packageCount": "{{count}} gói dịch vụ"
+          "deleteSuccessDesc": "Xóa gói thành công"
+        }
       }
     },
     "subscriptions": {
@@ -410,9 +398,7 @@
         "no": "Không",
         "recordsPerPage": "Số hàng mỗi trang:",
         "goTo": "Đến trang:",
-        "pageOf": "Trang {{current}} / {{total}}",
-        "fromDatePlaceholder": "Từ ngày",
-        "toDatePlaceholder": "Đến ngày"
+        "pageOf": "Trang {{current}} / {{total}}"
       },
       "actions": {
         "viewDetail": "Xem chi tiết",
@@ -513,7 +499,8 @@
         "totalIngress": "Tổng Ingress"
       },
       "filter": {
-        "searchPlaceholder": "Tìm theo tên VM, email hoặc IP..."
+        "searchPlaceholder": "Tìm theo tên VM, email hoặc IP...",
+        "matchingCount": "{{matched}} / {{total}} VM"
       },
       "sort": {
         "label": "Sắp xếp:",
@@ -542,7 +529,17 @@
         "company": "Công ty",
         "dataSource": "Nguồn dữ liệu",
         "email": "Email",
-        "ip": "IP"
+        "ip": "IP",
+        "notAvailable": "N/A"
+      },
+      "lifecycle": {
+        "RUNNING": "Đang chạy",
+        "STOPPED": "Đã dừng",
+        "STARTING": "Đang khởi động",
+        "STOPPING": "Đang dừng",
+        "PROVISIONING": "Đang cấp phát",
+        "TERMINATED": "Đã hủy",
+        "UNKNOWN": "Không xác định"
       },
       "compartment": {
         "vms": "VM",
@@ -629,8 +626,7 @@
         "loadError": "Không thể tải danh sách compartments: {{message}}",
         "deleteSuccess": "Đã xóa compartment \"{{name}}\" và tất cả tài nguyên bên trong",
         "deleteError": "Không thể xóa compartment: {{message}}"
-      },
-      "compartmentIdLabel": "Compartment ID"
+      }
     },
     "costs": {
       "title": "Chi phí & Credit",
@@ -654,18 +650,10 @@
         "yearly": "Theo năm"
       },
       "months": {
-        "jan": "Tháng 1",
-        "feb": "Tháng 2",
-        "mar": "Tháng 3",
-        "apr": "Tháng 4",
-        "may": "Tháng 5",
-        "jun": "Tháng 6",
-        "jul": "Tháng 7",
-        "aug": "Tháng 8",
-        "sep": "Tháng 9",
-        "oct": "Tháng 10",
-        "nov": "Tháng 11",
-        "dec": "Tháng 12"
+        "jan": "Tháng 1", "feb": "Tháng 2", "mar": "Tháng 3",
+        "apr": "Tháng 4", "may": "Tháng 5", "jun": "Tháng 6",
+        "jul": "Tháng 7", "aug": "Tháng 8", "sep": "Tháng 9",
+        "oct": "Tháng 10", "nov": "Tháng 11", "dec": "Tháng 12"
       },
       "table": {
         "month": "Tháng",
@@ -746,25 +734,6 @@
         "page": "Trang {{current}} / {{total}}",
         "prev": "Trước",
         "next": "Tiếp"
-      },
-      "exportToastSuccess": "Thành công",
-      "exportToastError": "Lỗi",
-      "csvNA": "N/A",
-      "csvYes": "Có",
-      "csvNo": "Không",
-      "csvHeaders": {
-        "id": "ID",
-        "username": "Tên đăng nhập",
-        "role": "Vai trò",
-        "loginTime": "Thời gian đăng nhập",
-        "status": "Trạng thái",
-        "ipAddress": "Địa chỉ IP",
-        "country": "Quốc gia",
-        "browser": "Trình duyệt",
-        "os": "Hệ điều hành",
-        "deviceType": "Loại thiết bị",
-        "sessionDuration": "Thời gian phiên",
-        "newDevice": "Thiết bị mới"
       }
     },
     "payments": {
@@ -948,9 +917,7 @@
         "locked": "Bị khóa",
         "cancel": "Hủy",
         "save": "Lưu thay đổi",
-        "saving": "Đang lưu...",
-        "roleCustomer": "Khách hàng",
-        "roleAdmin": "Quản trị viên"
+        "saving": "Đang lưu..."
       },
       "deleteDialog": {
         "title": "Xác nhận xóa người dùng",
@@ -979,8 +946,7 @@
         "sheetName": "Danh sách người dùng",
         "active": "Hoạt động",
         "locked": "Khóa"
-      },
-      "editTooltip": "Chỉnh sửa thông tin"
+      }
     },
     "packagesExtra": {
       "dialog": {
@@ -1055,62 +1021,32 @@
         "database": {
           "title": "Oracle Database Cloud",
           "description": "Cơ sở dữ liệu Oracle tự quản lý với hiệu suất cao và bảo mật tuyệt đối",
-          "features": [
-            "Autonomous Database",
-            "Real Application Clusters",
-            "Data Guard",
-            "Advanced Security"
-          ]
+          "features": ["Autonomous Database", "Real Application Clusters", "Data Guard", "Advanced Security"]
         },
         "compute": {
           "title": "Compute Cloud",
           "description": "Máy chủ ảo linh hoạt với cấu hình tùy chỉnh theo nhu cầu doanh nghiệp",
-          "features": [
-            "Bare Metal",
-            "Virtual Machines",
-            "Container Engine",
-            "Functions"
-          ]
+          "features": ["Bare Metal", "Virtual Machines", "Container Engine", "Functions"]
         },
         "storage": {
           "title": "Storage Solutions",
           "description": "Giải pháp lưu trữ đa dạng từ block storage đến object storage",
-          "features": [
-            "Block Volume",
-            "Object Storage",
-            "File Storage",
-            "Archive Storage"
-          ]
+          "features": ["Block Volume", "Object Storage", "File Storage", "Archive Storage"]
         },
         "networking": {
           "title": "Networking",
           "description": "Hạ tầng mạng toàn cầu với độ trễ thấp và băng thông cao",
-          "features": [
-            "Virtual Cloud Network",
-            "Load Balancer",
-            "VPN Connect",
-            "FastConnect"
-          ]
+          "features": ["Virtual Cloud Network", "Load Balancer", "VPN Connect", "FastConnect"]
         },
         "security": {
           "title": "Security & Identity",
           "description": "Bảo mật đa lớp với quản lý danh tính và truy cập tiên tiến",
-          "features": [
-            "Identity Management",
-            "Key Management",
-            "Web Application Firewall",
-            "Security Zones"
-          ]
+          "features": ["Identity Management", "Key Management", "Web Application Firewall", "Security Zones"]
         },
         "analytics": {
           "title": "Analytics & AI",
           "description": "Phân tích dữ liệu thông minh với machine learning tích hợp",
-          "features": [
-            "Analytics Cloud",
-            "Data Science",
-            "Machine Learning",
-            "Big Data Service"
-          ]
+          "features": ["Analytics Cloud", "Data Science", "Machine Learning", "Big Data Service"]
         }
       },
       "benefits": {
@@ -1348,8 +1284,7 @@
     "languageLabel": "Ngôn ngữ",
     "admin": "Quản trị",
     "packageManagement": "Cloud của tôi",
-    "supportRequest": "Yêu cầu hỗ trợ",
-    "adminPanel": "Bảng quản trị"
+    "supportRequest": "Yêu cầu hỗ trợ"
   },
   "footer": {
     "companyName": "Oracle Cloud Vietnam",
@@ -1395,7 +1330,6 @@
   },
   "common": {
     "loading": "Đang tải...",
-    "logout": "Đăng xuất",
     "logoutSuccess": "Đăng xuất thành công!",
     "error": "Lỗi"
   },
@@ -1560,7 +1494,7 @@
     "status": {
       "active": "Đang hoạt động",
       "inactive": "Không hoạt động",
-      "expired": "Hết hạn",
+      "expired": "Hết hạn", 
       "suspended": "Tạm dừng",
       "cancelled": "Đã hủy",
       "pending": "Đang chờ"
@@ -1576,16 +1510,19 @@
       "password": "Mật khẩu",
       "ip": "IP",
       "uptime": "Uptime",
-      "days": "Ngày"
+      "days": "Ngày",
+      "vmState": "Trạng thái VM",
+      "publicIp": "IP công khai"
     },
     "controls": {
       "vmName": "Tên VM:",
       "time": "Thời gian:",
       "theme": "Giao diện:",
+      "timeRange": "Khoảng thời gian:",
       "showPerformance": "Hiển thị sử dụng hiệu suất",
       "timeOptions": {
         "oneHour": "1 tiếng trước",
-        "sixHours": "6 tiếng trước",
+        "sixHours": "6 tiếng trước", 
         "twentyFourHours": "24 tiếng trước",
         "sevenDays": "7 ngày trước"
       },
@@ -1596,7 +1533,12 @@
     },
     "charts": {
       "cpuUsage": "Sử dụng CPU (%)",
-      "memoryUsage": "Sử dụng bộ nhớ (%)"
+      "memoryUsage": "Sử dụng bộ nhớ (%)",
+      "cpuTitle": "Mức sử dụng CPU (%)",
+      "memoryTitle": "Mức sử dụng bộ nhớ (%)",
+      "networkTraffic": "Lưu lượng mạng (MB/s)",
+      "diskIO": "Disk I/O (MB/s)",
+      "noData": "Không có dữ liệu"
     },
     "packageInfo": {
       "title": "Thông tin gói",
@@ -1620,13 +1562,16 @@
     "actions": {
       "title": "Quản lý gói",
       "startVM": "Khởi động VM",
-      "pauseVM": "Tạm dừng VM",
+      "pauseVM": "Tạm dừng VM", 
       "restartVM": "Khởi động lại VM",
       "createBackup": "Tạo bản sao lưu",
       "console": "Console",
       "changeOS": "Thay đổi/Cài đặt lại OS",
       "deletePackage": "Xóa gói",
-      "configurateVM": "Cấu hình VM"
+      "configurateVM": "Cấu hình VM",
+      "requestSshKey": "Yêu cầu SSH Key mới",
+      "generating": "Đang tạo...",
+      "openTerminal": "Mở Terminal"
     },
     "billing": {
       "title": "Thông tin thanh toán",
@@ -1671,6 +1616,37 @@
       "message4": "Biểu đồ sẽ khả dụng khi VM đang chạy",
       "label": "VM chưa được cấu hình",
       "deleteButton": "Xóa VM (giữ nguyên subscription)"
+    },
+    "sshKeyRequest": {
+      "title": "Xác nhận tạo SSH Key mới",
+      "warningTitle": "Lưu ý quan trọng về bảo mật",
+      "warningItem1": "SSH key mới sẽ được tạo và thêm vào VM của bạn",
+      "warningItem2": "Key cũ vẫn hoạt động bình thường - bạn có thể tiếp tục sử dụng",
+      "warningItem3": "Tối đa 2 user SSH keys + 1 admin key (3 keys total)",
+      "warningItem4": "Nếu đã có 2 user keys, key user cũ nhất sẽ tự động bị xóa",
+      "vmInfoTitle": "Thông tin VM:",
+      "privateKeyOnScreen": "Private key sẽ hiển thị trực tiếp trên màn hình để bạn tải về",
+      "processTitle": "🔐 Quy trình tạo key:",
+      "processStep1": "Hệ thống tạo cặp SSH key RSA 4096-bit mới",
+      "processStep2": "Public key được thêm vào VM metadata",
+      "processStep3": "Private key hiển thị trực tiếp trên màn hình để bạn tải về (chỉ lần này duy nhất)",
+      "processStep4": "Key cũ vẫn hoạt động, tự động xóa khi vượt giới hạn",
+      "importantLabel": "Quan trọng:",
+      "importantNote1": "Private key sẽ hiển thị",
+      "importantOnce": "CHỈ MỘT LẦN DUY NHẤT",
+      "importantNote2": "Hãy lưu lại ngay sau khi tạo xong.",
+      "cancel": "Hủy bỏ",
+      "creating": "Đang tạo key...",
+      "confirm": "Xác nhận tạo SSH Key mới"
+    },
+    "newSshKeyCreated": {
+      "title": "SSH Key mới đã tạo thành công!",
+      "onceWarningTitle": "⚠️ Thông tin này chỉ hiển thị 1 lần duy nhất",
+      "onceWarningDesc": "Vui lòng lưu lại ngay bây giờ. Sau khi đóng cửa sổ này, bạn sẽ không thể xem lại private key.",
+      "copy": "Sao chép key",
+      "copied": "Đã sao chép!",
+      "download": "Tải về (.pem)",
+      "close": "Đã lưu — Đóng"
     }
   },
   "support": {
@@ -1946,7 +1922,7 @@
     "vmNameNote": "Tên VM sẽ được tự động tạo dựa trên địa chỉ email của bạn theo định dạng:",
     "notificationSettings": "Cài đặt thông báo",
     "emailLabel": "Địa chỉ Email * (Khóa SSH sẽ được gửi đến đây)",
-    "emailNote": "Khóa SSH riêng tư của bạn sẽ được gửi đến địa chỉ email này. Hãy giữ bí mật.",
+    "emailNote": "",
     "vmShape": "VM Shape *",
     "vmShapeNote": "Chọn VM shape trước - Tùy chọn OS sẽ được lọc theo tương thích",
     "recommended": "Được đề xuất",
@@ -1997,7 +1973,22 @@
     "configSuccess": "Thành công",
     "armCapacityUnavailable": "Không có năng lực ARM",
     "capacityUnavailable": "Không có năng lực",
-    "configFailed": "Cấu hình thất bại"
+    "configFailed": "Cấu hình thất bại",
+    "vmCreated": {
+      "title": "Máy ảo đã tạo thành công!",
+      "warningTitle": "⚠️ Thông tin này chỉ hiển thị 1 lần duy nhất",
+      "warningDesc": "Vui lòng lưu lại ngay bây giờ. Sau khi đóng cửa sổ này, bạn sẽ không thể xem lại.",
+      "sshKeyLabel": "SSH Private Key",
+      "copyKey": "Sao chép key",
+      "copied": "Đã sao chép!",
+      "downloadPem": "Tải về (.pem)",
+      "connectLabel": "Kết nối: ",
+      "downloadCredentials": "Tải về thông tin đăng nhập (.txt)",
+      "windowsPendingTitle": "⏳ Mật khẩu Windows đang được tạo",
+      "windowsPendingDesc1": "Mật khẩu ban đầu sẽ sẵn sàng trong 5–10 phút.",
+      "windowsPendingDesc2": "Sau khi đóng màn hình này, hãy vào trang Quản lý VM để xem mật khẩu.",
+      "savedGotoVM": "Đã lưu — Đến trang quản lý VM"
+    }
   },
   "addFunds": {
     "title": "Nạp tiền vào tài khoản",
@@ -2024,18 +2015,9 @@
     "successTitle": "Thành công",
     "successDesc": "Đã tạo lệnh nạp tiền, đang chuyển đến trang thanh toán...",
     "methods": {
-      "momo": {
-        "name": "Ví MoMo",
-        "description": "Thanh toán qua ví điện tử MoMo"
-      },
-      "card": {
-        "name": "Thẻ thanh toán quốc tế",
-        "description": "Visa, Mastercard, JCB"
-      },
-      "bank_transfer": {
-        "name": "Chuyển khoản ngân hàng",
-        "description": "Quét QR Code hoặc chuyển khoản thủ công"
-      }
+      "momo": { "name": "Ví MoMo", "description": "Thanh toán qua ví điện tử MoMo" },
+      "card": { "name": "Thẻ thanh toán quốc tế", "description": "Visa, Mastercard, JCB" },
+      "bank_transfer": { "name": "Chuyển khoản ngân hàng", "description": "Quét QR Code hoặc chuyển khoản thủ công" }
     }
   },
   "pricingModal": {
@@ -2078,9 +2060,9 @@
     "email": "Email",
     "emailPlaceholder": "your@email.com",
     "password": "Mật khẩu",
-    "passwordPlaceholder": "········",
+    "passwordPlaceholder": "\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7",
     "confirmPassword": "Xác nhận mật khẩu",
-    "confirmPasswordPlaceholder": "········",
+    "confirmPasswordPlaceholder": "\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7",
     "registerButton": "Đăng ký",
     "registering": "Đang đăng ký...",
     "or": "Hoặc",
@@ -2151,7 +2133,7 @@
       "verifying": "Đang xác thực...",
       "resend": "Gửi lại mã OTP",
       "resendCountdown": "Gửi lại mã sau {{countdown}}s",
-      "backToLogin": "← Quay lại đăng nhập",
+      "backToLogin": "\u2190 Quay lại đăng nhập",
       "validation": {
         "otpRequired": "Vui lòng nhập đầy đủ 6 số OTP"
       }
@@ -2179,7 +2161,7 @@
     "benefit4": "Giao dịch được mã hóa bảo mật",
     "scanQR": "Quét QR để thanh toán",
     "loadingPaymentInfo": "Đang tải thông tin thanh toán...",
-    "paymentSuccessRedirect": "✅ Nạp tiền thành công! Đang chuyển hướng...",
+    "paymentSuccessRedirect": "\u2705 Nạp tiền thành công! Đang chuyển hướng...",
     "checkingPayment": "Đang kiểm tra thanh toán...",
     "scanQRDesc": "Quét mã QR bằng app ngân hàng để thanh toán",
     "bankLabel": "Ngân hàng:",

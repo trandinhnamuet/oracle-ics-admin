@@ -13,8 +13,8 @@
     "stats": {
       "total": "Total Packages",
       "active": "Active",
-      "inactive": "Inactive",
-      "revenue": "Revenue/Month"
+      "pending": "Pending Payment",
+      "suspended": "Expired/Suspended"
     },
     "table": {
       "title": "List of Subscription Packages ({{count}})",
@@ -32,7 +32,7 @@
       "inactive": "Inactive",
       "pending": "Pending",
       "suspended": "Suspended",
-      "cancelled": "Cancelled",
+      "cancelled": "Cancelled", 
       "expired": "Expired",
       "pauseTitle": "Pause Package",
       "activateTitle": "Activate Package",
@@ -341,14 +341,7 @@
           "popular": "Popular",
           "noPackagesFound": "No service packages found",
           "active": "Active",
-          "inactive": "Inactive",
-          "idLabel": "ID",
-          "specs": {
-            "cpu": "CPU",
-            "ram": "RAM",
-            "ssd": "SSD",
-            "bw": "BW"
-          }
+          "inactive": "Inactive"
         },
         "toast": {
           "createSuccess": "Success",
@@ -356,13 +349,8 @@
           "updateSuccess": "Success",
           "updateSuccessDesc": "Package updated successfully",
           "deleteSuccess": "Success",
-          "deleteSuccessDesc": "Package deleted successfully",
-          "loadError": "Failed to load packages",
-          "createError": "Failed to create package",
-          "updateError": "Failed to update package",
-          "deleteError": "Failed to delete package"
-        },
-        "packageCount": "{{count}} package(s)"
+          "deleteSuccessDesc": "Package deleted successfully"
+        }
       }
     },
     "subscriptions": {
@@ -410,9 +398,7 @@
         "no": "No",
         "recordsPerPage": "Records per page:",
         "goTo": "Go to page:",
-        "pageOf": "Page {{current}} of {{total}}",
-        "fromDatePlaceholder": "From date",
-        "toDatePlaceholder": "To date"
+        "pageOf": "Page {{current}} of {{total}}"
       },
       "actions": {
         "viewDetail": "View Details",
@@ -513,7 +499,8 @@
         "totalIngress": "Total Ingress"
       },
       "filter": {
-        "searchPlaceholder": "Search by VM name, email, or IP..."
+        "searchPlaceholder": "Search by VM name, email, or IP...",
+        "matchingCount": "{{matched}} / {{total}} VMs"
       },
       "sort": {
         "label": "Sort:",
@@ -542,7 +529,17 @@
         "company": "Company",
         "dataSource": "Source",
         "email": "Email",
-        "ip": "IP"
+        "ip": "IP",
+        "notAvailable": "N/A"
+      },
+      "lifecycle": {
+        "RUNNING": "Running",
+        "STOPPED": "Stopped",
+        "STARTING": "Starting",
+        "STOPPING": "Stopping",
+        "PROVISIONING": "Provisioning",
+        "TERMINATED": "Terminated",
+        "UNKNOWN": "Unknown"
       },
       "compartment": {
         "vms": "VMs",
@@ -629,8 +626,7 @@
         "loadError": "Cannot load compartment list: {{message}}",
         "deleteSuccess": "Successfully deleted compartment \"{{name}}\" and all resources inside",
         "deleteError": "Cannot delete compartment: {{message}}"
-      },
-      "compartmentIdLabel": "Compartment ID"
+      }
     },
     "costs": {
       "title": "Costs & Credit",
@@ -654,18 +650,10 @@
         "yearly": "By Year"
       },
       "months": {
-        "jan": "January",
-        "feb": "February",
-        "mar": "March",
-        "apr": "April",
-        "may": "May",
-        "jun": "June",
-        "jul": "July",
-        "aug": "August",
-        "sep": "September",
-        "oct": "October",
-        "nov": "November",
-        "dec": "December"
+        "jan": "January", "feb": "February", "mar": "March",
+        "apr": "April", "may": "May", "jun": "June",
+        "jul": "July", "aug": "August", "sep": "September",
+        "oct": "October", "nov": "November", "dec": "December"
       },
       "table": {
         "month": "Month",
@@ -746,25 +734,6 @@
         "page": "Page {{current}} of {{total}}",
         "prev": "Previous",
         "next": "Next"
-      },
-      "exportToastSuccess": "Success",
-      "exportToastError": "Error",
-      "csvNA": "N/A",
-      "csvYes": "Yes",
-      "csvNo": "No",
-      "csvHeaders": {
-        "id": "ID",
-        "username": "Username",
-        "role": "Role",
-        "loginTime": "Login Time",
-        "status": "Status",
-        "ipAddress": "IP Address",
-        "country": "Country",
-        "browser": "Browser",
-        "os": "OS",
-        "deviceType": "Device Type",
-        "sessionDuration": "Session Duration",
-        "newDevice": "New Device"
       }
     },
     "payments": {
@@ -948,9 +917,7 @@
         "locked": "Locked",
         "cancel": "Cancel",
         "save": "Save Changes",
-        "saving": "Saving...",
-        "roleCustomer": "Customer",
-        "roleAdmin": "Admin"
+        "saving": "Saving..."
       },
       "deleteDialog": {
         "title": "Confirm Delete User",
@@ -979,8 +946,7 @@
         "sheetName": "Users List",
         "active": "Active",
         "locked": "Locked"
-      },
-      "editTooltip": "Edit information"
+      }
     },
     "packagesExtra": {
       "dialog": {
@@ -1055,62 +1021,32 @@
         "database": {
           "title": "Oracle Database Cloud",
           "description": "Self-managed Oracle database with high performance and absolute security",
-          "features": [
-            "Autonomous Database",
-            "Real Application Clusters",
-            "Data Guard",
-            "Advanced Security"
-          ]
+          "features": ["Autonomous Database", "Real Application Clusters", "Data Guard", "Advanced Security"]
         },
         "compute": {
           "title": "Compute Cloud",
           "description": "Flexible virtual servers with customizable configurations for business needs",
-          "features": [
-            "Bare Metal",
-            "Virtual Machines",
-            "Container Engine",
-            "Functions"
-          ]
+          "features": ["Bare Metal", "Virtual Machines", "Container Engine", "Functions"]
         },
         "storage": {
           "title": "Storage Solutions",
           "description": "Diverse storage solutions from block storage to object storage",
-          "features": [
-            "Block Volume",
-            "Object Storage",
-            "File Storage",
-            "Archive Storage"
-          ]
+          "features": ["Block Volume", "Object Storage", "File Storage", "Archive Storage"]
         },
         "networking": {
           "title": "Networking",
           "description": "Global network infrastructure with low latency and high bandwidth",
-          "features": [
-            "Virtual Cloud Network",
-            "Load Balancer",
-            "VPN Connect",
-            "FastConnect"
-          ]
+          "features": ["Virtual Cloud Network", "Load Balancer", "VPN Connect", "FastConnect"]
         },
         "security": {
           "title": "Security & Identity",
           "description": "Multi-layered security with advanced identity and access management",
-          "features": [
-            "Identity Management",
-            "Key Management",
-            "Web Application Firewall",
-            "Security Zones"
-          ]
+          "features": ["Identity Management", "Key Management", "Web Application Firewall", "Security Zones"]
         },
         "analytics": {
           "title": "Analytics & AI",
           "description": "Intelligent data analytics with integrated machine learning",
-          "features": [
-            "Analytics Cloud",
-            "Data Science",
-            "Machine Learning",
-            "Big Data Service"
-          ]
+          "features": ["Analytics Cloud", "Data Science", "Machine Learning", "Big Data Service"]
         }
       },
       "benefits": {
@@ -1222,7 +1158,7 @@
     }
   },
   "pricing": {
-    "loginRequired": "Please log in to register for a package",
+    "loginRequired": "Please log in to register for a package", 
     "plans": {
       "starter": {
         "1": {
@@ -1348,8 +1284,8 @@
     "languageLabel": "Language",
     "admin": "Admin",
     "packageManagement": "My Cloud",
-    "supportRequest": "Support Request",
-    "adminPanel": "Admin Panel"
+    "supportRequest": "Support Request"
+
   },
   "footer": {
     "companyName": "Oracle Cloud Vietnam",
@@ -1395,7 +1331,6 @@
   },
   "common": {
     "loading": "Loading...",
-    "logout": "Logout",
     "logoutSuccess": "Logged out successfully!",
     "error": "Error"
   },
@@ -1561,7 +1496,7 @@
       "active": "Active",
       "inactive": "Inactive",
       "expired": "Expired",
-      "suspended": "Suspended",
+      "suspended": "Suspended", 
       "cancelled": "Cancelled",
       "pending": "Pending"
     },
@@ -1576,17 +1511,20 @@
       "password": "Password",
       "ip": "IP",
       "uptime": "Uptime",
-      "days": "Days"
+      "days": "Days",
+      "vmState": "VM State",
+      "publicIp": "Public IP"
     },
     "controls": {
       "vmName": "VM Name:",
       "time": "Time:",
       "theme": "Theme:",
+      "timeRange": "Time Range:",
       "showPerformance": "Show Performance Usage",
       "timeOptions": {
         "oneHour": "1 hour ago",
         "sixHours": "6 hours ago",
-        "twentyFourHours": "24 hours ago",
+        "twentyFourHours": "24 hours ago", 
         "sevenDays": "7 days ago"
       },
       "themeOptions": {
@@ -1596,7 +1534,12 @@
     },
     "charts": {
       "cpuUsage": "CPU Usage (%)",
-      "memoryUsage": "Memory Usage (%)"
+      "memoryUsage": "Memory Usage (%)",
+      "cpuTitle": "CPU Utilization (%)",
+      "memoryTitle": "Memory Utilization (%)",
+      "networkTraffic": "Network Traffic (MB/s)",
+      "diskIO": "Disk I/O (MB/s)",
+      "noData": "No data available"
     },
     "packageInfo": {
       "title": "Package Information",
@@ -1626,7 +1569,10 @@
       "console": "Console",
       "changeOS": "Change/Reinstall OS",
       "deletePackage": "Delete Package",
-      "configurateVM": "Configurate VM"
+      "configurateVM": "Configurate VM",
+      "requestSshKey": "Request New SSH Key",
+      "generating": "Generating...",
+      "openTerminal": "Open Terminal"
     },
     "billing": {
       "title": "Billing Information",
@@ -1671,6 +1617,37 @@
       "message4": "Charts available when VM is running",
       "label": "VM not configured yet",
       "deleteButton": "Delete VM (keep subscription)"
+    },
+    "sshKeyRequest": {
+      "title": "Confirm New SSH Key Generation",
+      "warningTitle": "Important Security Notice",
+      "warningItem1": "A new SSH key will be created and added to your VM",
+      "warningItem2": "Old key continues to work normally — you can keep using it",
+      "warningItem3": "Maximum 2 user SSH keys + 1 admin key (3 keys total)",
+      "warningItem4": "If you already have 2 user keys, the oldest user key will be automatically removed",
+      "vmInfoTitle": "VM Information:",
+      "privateKeyOnScreen": "Private key will be displayed directly on screen for you to download",
+      "processTitle": "🔐 Key generation process:",
+      "processStep1": "System generates a new RSA 4096-bit SSH key pair",
+      "processStep2": "Public key is added to VM metadata",
+      "processStep3": "Private key is displayed directly on screen for you to download (one time only)",
+      "processStep4": "Old key continues to work, automatically removed when limit is exceeded",
+      "importantLabel": "Important:",
+      "importantNote1": "Private key will be displayed",
+      "importantOnce": "ONLY ONCE",
+      "importantNote2": "Save it immediately after creation.",
+      "cancel": "Cancel",
+      "creating": "Generating key...",
+      "confirm": "Confirm New SSH Key"
+    },
+    "newSshKeyCreated": {
+      "title": "New SSH Key Created Successfully!",
+      "onceWarningTitle": "⚠️ This information is displayed only ONCE",
+      "onceWarningDesc": "Please save it now. After closing this window, you will not be able to view the private key again.",
+      "copy": "Copy key",
+      "copied": "Copied!",
+      "download": "Download (.pem)",
+      "close": "Saved — Close"
     }
   },
   "support": {
@@ -1946,7 +1923,7 @@
     "vmNameNote": "VM name will be auto-generated based on your email address in format:",
     "notificationSettings": "Notification Settings",
     "emailLabel": "Email Address * (SSH keys will be sent here)",
-    "emailNote": "Your SSH private key will be sent to this email address. Please keep it secure.",
+    "emailNote": "",
     "vmShape": "VM Shape *",
     "vmShapeNote": "Select VM shape first - OS options will be filtered by compatibility",
     "recommended": "Recommended",
@@ -1997,7 +1974,22 @@
     "configSuccess": "Success",
     "armCapacityUnavailable": "ARM Capacity Unavailable",
     "capacityUnavailable": "Capacity Unavailable",
-    "configFailed": "Configuration Failed"
+    "configFailed": "Configuration Failed",
+    "vmCreated": {
+      "title": "VM created successfully!",
+      "warningTitle": "⚠️ This information is shown only once",
+      "warningDesc": "Please save it now. Once you close this window, you will not be able to view it again.",
+      "sshKeyLabel": "SSH Private Key",
+      "copyKey": "Copy key",
+      "copied": "Copied!",
+      "downloadPem": "Download (.pem)",
+      "connectLabel": "Connect: ",
+      "downloadCredentials": "Download credentials (.txt)",
+      "windowsPendingTitle": "⏳ Windows password is being generated",
+      "windowsPendingDesc1": "The initial password will be ready in 5–10 minutes.",
+      "windowsPendingDesc2": "After closing this screen, go to the VM Management page to view the password.",
+      "savedGotoVM": "Saved — Go to VM Management"
+    }
   },
   "addFunds": {
     "title": "Add Funds to Account",
@@ -2024,18 +2016,9 @@
     "successTitle": "Success",
     "successDesc": "Deposit request created, redirecting to payment page...",
     "methods": {
-      "momo": {
-        "name": "MoMo Wallet",
-        "description": "Pay via MoMo e-wallet"
-      },
-      "card": {
-        "name": "International Card",
-        "description": "Visa, Mastercard, JCB"
-      },
-      "bank_transfer": {
-        "name": "Bank Transfer",
-        "description": "Scan QR Code or manual transfer"
-      }
+      "momo": { "name": "MoMo Wallet", "description": "Pay via MoMo e-wallet" },
+      "card": { "name": "International Card", "description": "Visa, Mastercard, JCB" },
+      "bank_transfer": { "name": "Bank Transfer", "description": "Scan QR Code or manual transfer" }
     }
   },
   "pricingModal": {
@@ -2078,9 +2061,9 @@
     "email": "Email",
     "emailPlaceholder": "your@email.com",
     "password": "Password",
-    "passwordPlaceholder": "········",
+    "passwordPlaceholder": "\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7",
     "confirmPassword": "Confirm Password",
-    "confirmPasswordPlaceholder": "········",
+    "confirmPasswordPlaceholder": "\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7",
     "registerButton": "Register",
     "registering": "Registering...",
     "or": "Or",
@@ -2151,7 +2134,7 @@
       "verifying": "Verifying...",
       "resend": "Resend OTP",
       "resendCountdown": "Resend after {{countdown}}s",
-      "backToLogin": "← Back to login",
+      "backToLogin": "\u2190 Back to login",
       "validation": {
         "otpRequired": "Please enter all 6 OTP digits"
       }
@@ -2179,7 +2162,7 @@
     "benefit4": "Secure encrypted transactions",
     "scanQR": "Scan QR to Pay",
     "loadingPaymentInfo": "Loading payment information...",
-    "paymentSuccessRedirect": "✅ Deposit Successful! Redirecting...",
+    "paymentSuccessRedirect": "\u2705 Deposit Successful! Redirecting...",
     "checkingPayment": "Checking payment...",
     "scanQRDesc": "Scan the QR code with your banking app to pay",
     "bankLabel": "Bank:",

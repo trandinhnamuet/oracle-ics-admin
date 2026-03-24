@@ -13,8 +13,8 @@
     "stats": {
       "total": "パッケージ総数",
       "active": "アクティブ",
-      "inactive": "非アクティブ",
-      "revenue": "月間収益"
+      "pending": "支払い待ち",
+      "suspended": "期限切れ/停止"
     },
     "table": {
       "title": "サブスクリプションパッケージ一覧 ({{count}})",
@@ -341,14 +341,7 @@
           "popular": "人気",
           "noPackagesFound": "サービスパッケージが見つかりません",
           "active": "アクティブ",
-          "inactive": "非アクティブ",
-          "idLabel": "ID",
-          "specs": {
-            "cpu": "CPU",
-            "ram": "RAM",
-            "ssd": "SSD",
-            "bw": "帯域幅"
-          }
+          "inactive": "非アクティブ"
         },
         "toast": {
           "createSuccess": "成功",
@@ -356,13 +349,8 @@
           "updateSuccess": "成功",
           "updateSuccessDesc": "パッケージが正常に更新されました",
           "deleteSuccess": "成功",
-          "deleteSuccessDesc": "パッケージが正常に削除されました",
-          "loadError": "パッケージの読み込みに失敗",
-          "createError": "パッケージの作成に失敗",
-          "updateError": "パッケージの更新に失敗",
-          "deleteError": "パッケージの削除に失敗"
-        },
-        "packageCount": "{{count}} パッケージ"
+          "deleteSuccessDesc": "パッケージが正常に削除されました"
+        }
       }
     },
     "subscriptions": {
@@ -410,9 +398,7 @@
         "no": "いいえ",
         "recordsPerPage": "1ページあたりの件数:",
         "goTo": "ページへ移動:",
-        "pageOf": "{{current}} / {{total}} ページ",
-        "fromDatePlaceholder": "開始日",
-        "toDatePlaceholder": "終了日"
+        "pageOf": "{{current}} / {{total}} ページ"
       },
       "actions": {
         "viewDetail": "詳細を表示",
@@ -508,20 +494,21 @@
       },
       "summary": {
         "totalVMs": "総VM数",
+        "vmsWithData": "データありVM",
         "overLimit": "制限超過",
         "nearLimit": "制限近傍",
         "totalEgress": "総エグレス",
-        "average": "平均",
-        "vmsWithData": "データのあるVM",
-        "totalIngress": "合計Ingress"
+        "totalIngress": "総イングレス",
+        "average": "平均"
       },
       "filter": {
+        "searchPlaceholder": "VM名、メール、IPで検索...",
+        "matchingCount": "{{matched}} / {{total}} VM",
         "label": "フィルター:",
         "all": "すべて",
         "over": "制限超過",
         "near": "警告",
-        "normal": "正常",
-        "searchPlaceholder": "VM名、メール、IPで検索..."
+        "normal": "正常"
       },
       "sort": {
         "label": "並び替え:",
@@ -530,13 +517,13 @@
         "user": "ユーザー"
       },
       "status": {
+        "live": "ライブ",
+        "archived": "アーカイブ",
+        "noData": "データなし",
         "overLimit": "制限超過",
         "warning": "警告",
         "normal": "正常",
-        "error": "エラー",
-        "live": "ライブ",
-        "archived": "アーカイブ",
-        "noData": "データなし"
+        "error": "エラー"
       },
       "source": {
         "oci": "リアルタイム (OCI)",
@@ -555,7 +542,21 @@
         "company": "会社",
         "dataSource": "データソース",
         "email": "メール",
-        "ip": "IPアドレス"
+        "ip": "IP",
+        "notAvailable": "N/A"
+      },
+      "lifecycle": {
+        "RUNNING": "実行中",
+        "STOPPED": "停止中",
+        "STARTING": "起動中",
+        "STOPPING": "停止処理中",
+        "PROVISIONING": "プロビジョニング中",
+        "TERMINATED": "終了済み",
+        "UNKNOWN": "不明"
+      },
+      "compartment": {
+        "vms": "VM",
+        "withData": "データあり"
       },
       "warning": {
         "overLimitTitle": "警告: エグレス制限超過！",
@@ -564,11 +565,7 @@
         "nearLimitMessage": "このVMはエグレス帯域幅の{{usage}}%を使用しています。制限まで{{remaining}} TB残っています。",
         "errorMessage": "帯域幅データを取得できません: {{error}}"
       },
-      "noVms": "現在のフィルターに一致するVMがありません",
-      "compartment": {
-        "vms": "VM",
-        "withData": "データあり"
-      }
+      "noVms": "現在のフィルターに一致するVMがありません"
     },
     "walletTransactions": {
       "title": "ウォレット取引管理",
@@ -646,8 +643,7 @@
         "loadError": "コンパートメントリストを読み込めません: {{message}}",
         "deleteSuccess": "コンパートメント\"{{name}}\"と内部のすべてのリソースが削除されました",
         "deleteError": "コンパートメントを削除できません: {{message}}"
-      },
-      "compartmentIdLabel": "コンパートメントID"
+      }
     },
     "costs": {
       "title": "コスト & クレジット",
@@ -671,18 +667,10 @@
         "yearly": "年別"
       },
       "months": {
-        "jan": "1月",
-        "feb": "2月",
-        "mar": "3月",
-        "apr": "4月",
-        "may": "5月",
-        "jun": "6月",
-        "jul": "7月",
-        "aug": "8月",
-        "sep": "9月",
-        "oct": "10月",
-        "nov": "11月",
-        "dec": "12月"
+        "jan": "1月", "feb": "2月", "mar": "3月",
+        "apr": "4月", "may": "5月", "jun": "6月",
+        "jul": "7月", "aug": "8月", "sep": "9月",
+        "oct": "10月", "nov": "11月", "dec": "12月"
       },
       "table": {
         "month": "月",
@@ -763,25 +751,6 @@
         "page": "{{current}} / {{total}} ページ",
         "prev": "前へ",
         "next": "次へ"
-      },
-      "exportToastSuccess": "成功",
-      "exportToastError": "エラー",
-      "csvNA": "N/A",
-      "csvYes": "はい",
-      "csvNo": "いいえ",
-      "csvHeaders": {
-        "id": "ID",
-        "username": "ユーザー名",
-        "role": "役割",
-        "loginTime": "ログイン時間",
-        "status": "ステータス",
-        "ipAddress": "IPアドレス",
-        "country": "国",
-        "browser": "ブラウザ",
-        "os": "OS",
-        "deviceType": "デバイスタイプ",
-        "sessionDuration": "セッション時間",
-        "newDevice": "新しいデバイス"
       }
     },
     "payments": {
@@ -965,9 +934,7 @@
         "locked": "ロック",
         "cancel": "キャンセル",
         "save": "変更を保存",
-        "saving": "保存中...",
-        "roleCustomer": "お客様",
-        "roleAdmin": "管理者"
+        "saving": "保存中..."
       },
       "deleteDialog": {
         "title": "ユーザー削除の確認",
@@ -996,8 +963,7 @@
         "sheetName": "ユーザーリスト",
         "active": "アクティブ",
         "locked": "ロック"
-      },
-      "editTooltip": "情報を編集"
+      }
     },
     "packagesExtra": {
       "dialog": {
@@ -1072,62 +1038,32 @@
         "database": {
           "title": "Oracleデータベースクラウド",
           "description": "高性能で絶対的なセキュリティを備えた自己管理型Oracleデータベース",
-          "features": [
-            "自律型データベース",
-            "リアルアプリケーションクラスタ",
-            "データガード",
-            "高度なセキュリティ"
-          ]
+          "features": ["自律型データベース", "リアルアプリケーションクラスタ", "データガード", "高度なセキュリティ"]
         },
         "compute": {
           "title": "コンピュートクラウド",
           "description": "ビジネスニーズに応じた柔軟な仮想サーバー構成",
-          "features": [
-            "ベアメタル",
-            "仮想マシン",
-            "コンテナエンジン",
-            "ファンクション"
-          ]
+          "features": ["ベアメタル", "仮想マシン", "コンテナエンジン", "ファンクション"]
         },
         "storage": {
           "title": "ストレージソリューション",
           "description": "ブロックストレージからオブジェクトストレージまで多様なストレージソリューション",
-          "features": [
-            "ブロックボリューム",
-            "オブジェクトストレージ",
-            "ファイルストレージ",
-            "アーカイブストレージ"
-          ]
+          "features": ["ブロックボリューム", "オブジェクトストレージ", "ファイルストレージ", "アーカイブストレージ"]
         },
         "networking": {
           "title": "ネットワーキング",
           "description": "低遅延かつ高帯域幅のグローバルネットワークインフラ",
-          "features": [
-            "仮想クラウドネットワーク",
-            "ロードバランサー",
-            "VPN接続",
-            "ファストコネクト"
-          ]
+          "features": ["仮想クラウドネットワーク", "ロードバランサー", "VPN接続", "ファストコネクト"]
         },
         "security": {
           "title": "セキュリティとアイデンティティ",
           "description": "高度なアイデンティティおよびアクセス管理を備えた多層セキュリティ",
-          "features": [
-            "アイデンティティ管理",
-            "キー管理",
-            "ウェブアプリケーションファイアウォール",
-            "セキュリティゾーン"
-          ]
+          "features": ["アイデンティティ管理", "キー管理", "ウェブアプリケーションファイアウォール", "セキュリティゾーン"]
         },
         "analytics": {
           "title": "分析とAI",
           "description": "統合された機械学習によるインテリジェントなデータ分析",
-          "features": [
-            "分析クラウド",
-            "データサイエンス",
-            "機械学習",
-            "ビッグデータサービス"
-          ]
+          "features": ["分析クラウド", "データサイエンス", "機械学習", "ビッグデータサービス"]
         }
       },
       "benefits": {
@@ -1365,8 +1301,7 @@
     "languageLabel": "言語",
     "admin": "管理者",
     "packageManagement": "マイクラウド",
-    "supportRequest": "サポートリクエスト",
-    "adminPanel": "管理パネル"
+    "supportRequest": "サポートリクエスト"
   },
   "footer": {
     "companyName": "Oracleクラウドベトナム",
@@ -1412,7 +1347,6 @@
   },
   "common": {
     "loading": "読み込み中...",
-    "logout": "ログアウト",
     "logoutSuccess": "ログアウト成功！",
     "error": "エラー"
   },
@@ -1593,12 +1527,15 @@
       "password": "パスワード",
       "ip": "IPアドレス",
       "uptime": "稼働時間",
-      "days": "日"
+      "days": "日",
+      "vmState": "VM状態",
+      "publicIp": "パブリックIP"
     },
     "controls": {
       "vmName": "VM名：",
       "time": "時間：",
       "theme": "テーマ：",
+      "timeRange": "時間範囲：",
       "showPerformance": "パフォーマンス使用状況を表示",
       "timeOptions": {
         "oneHour": "1時間前",
@@ -1613,7 +1550,12 @@
     },
     "charts": {
       "cpuUsage": "CPU使用率 (%)",
-      "memoryUsage": "メモリ使用率 (%)"
+      "memoryUsage": "メモリ使用率 (%)",
+      "cpuTitle": "CPU使用率 (%)",
+      "memoryTitle": "メモリ使用率 (%)",
+      "networkTraffic": "ネットワークトラフィック (MB/s)",
+      "diskIO": "ディスクI/O (MB/s)",
+      "noData": "データなし"
     },
     "packageInfo": {
       "title": "パッケージ情報",
@@ -1643,7 +1585,10 @@
       "console": "コンソール",
       "changeOS": "OS変更/再インストール",
       "deletePackage": "パッケージ削除",
-      "configurateVM": "VM設定"
+      "configurateVM": "VM設定",
+      "requestSshKey": "新しいSSHキーをリクエスト",
+      "generating": "生成中...",
+      "openTerminal": "ターミナルを開く"
     },
     "billing": {
       "title": "請求情報",
@@ -1688,6 +1633,37 @@
       "message4": "VMが実行中の場合、グラフが利用可能です",
       "label": "VMはまだ構成されていません",
       "deleteButton": "VMを削除（サブスクリプションを保持）"
+    },
+    "sshKeyRequest": {
+      "title": "新しいSSHキーの作成を確認",
+      "warningTitle": "重要なセキュリティに関する注意事項",
+      "warningItem1": "新しいSSHキーが作成され、VMに追加されます",
+      "warningItem2": "古いキーは引き続き使用できます — そのまま利用可能です",
+      "warningItem3": "最大2つのユーザーSSHキー + 1つの管理者キー（合計3キー）",
+      "warningItem4": "ユーザーキーがすでに2つある場合、最も古いユーザーキーが自動的に削除されます",
+      "vmInfoTitle": "VM情報：",
+      "privateKeyOnScreen": "秘密鍵はダウンロード用に画面に直接表示されます",
+      "processTitle": "🔐 キー生成プロセス：",
+      "processStep1": "システムが新しいRSA 4096ビットSSHキーペアを生成",
+      "processStep2": "公開鍵がVMメタデータに追加される",
+      "processStep3": "秘密鍵がダウンロード用に画面に直接表示される（一度限り）",
+      "processStep4": "古いキーは引き続き動作し、制限を超えると自動的に削除される",
+      "importantLabel": "重要：",
+      "importantNote1": "秘密鍵は",
+      "importantOnce": "一度だけ表示されます",
+      "importantNote2": "作成後すぐに保存してください。",
+      "cancel": "キャンセル",
+      "creating": "キーを生成中...",
+      "confirm": "新しいSSHキーを確認"
+    },
+    "newSshKeyCreated": {
+      "title": "新しいSSHキーが正常に作成されました！",
+      "onceWarningTitle": "⚠️ この情報は1回のみ表示されます",
+      "onceWarningDesc": "今すぐ保存してください。このウィンドウを閉じると、秘密鍵を再度確認することはできません。",
+      "copy": "キーをコピー",
+      "copied": "コピーしました！",
+      "download": "ダウンロード (.pem)",
+      "close": "保存済み — 閉じる"
     }
   },
   "support": {
@@ -1963,7 +1939,7 @@
     "vmNameNote": "VM名はメールアドレスに基づいて自動生成されます。形式：",
     "notificationSettings": "通知設定",
     "emailLabel": "メールアドレス * (SSHキーはこちらに送信されます)",
-    "emailNote": "SSHプライベートキーがこのメールアドレスに送信されます。大切に保管してください。",
+    "emailNote": "",
     "vmShape": "VMシェイプ *",
     "vmShapeNote": "まずVMシェイプを選択してください - OSオプションは互換性に応じてフィルタリングされます",
     "recommended": "推奨",
@@ -2014,7 +1990,22 @@
     "configSuccess": "成功",
     "armCapacityUnavailable": "ARM容量は利用できません",
     "capacityUnavailable": "容量は利用できません",
-    "configFailed": "設定に失敗しました"
+    "configFailed": "設定に失敗しました",
+    "vmCreated": {
+      "title": "VMが正常に作成されました！",
+      "warningTitle": "⚠️ この情報は一度しか表示されません",
+      "warningDesc": "今すぐ保存してください。このウィンドウを閉じると、再度確認できません。",
+      "sshKeyLabel": "SSH秘密鍵",
+      "copyKey": "キーをコピー",
+      "copied": "コピーしました！",
+      "downloadPem": "ダウンロード (.pem)",
+      "connectLabel": "接続: ",
+      "downloadCredentials": "認証情報をダウンロード (.txt)",
+      "windowsPendingTitle": "⏳ Windowsパスワードを生成中",
+      "windowsPendingDesc1": "初期パスワードは5〜10分以内に利用可能になります。",
+      "windowsPendingDesc2": "この画面を閉じた後、VM管理ページでパスワードを確認してください。",
+      "savedGotoVM": "保存済み — VM管理ページへ"
+    }
   },
   "addFunds": {
     "title": "アカウントにチャージ",
@@ -2041,18 +2032,9 @@
     "successTitle": "成功",
     "successDesc": "チャージリクエストが作成されました。支払いページに移動中...",
     "methods": {
-      "momo": {
-        "name": "MoMoウォレット",
-        "description": "MoMo電子ウォレットで支払い"
-      },
-      "card": {
-        "name": "国際カード",
-        "description": "Visa、Mastercard、JCB"
-      },
-      "bank_transfer": {
-        "name": "銀行振込",
-        "description": "QRコードをスキャンまたは手動振込"
-      }
+      "momo": { "name": "MoMoウォレット", "description": "MoMo電子ウォレットで支払い" },
+      "card": { "name": "国際カード", "description": "Visa、Mastercard、JCB" },
+      "bank_transfer": { "name": "銀行振込", "description": "QRコードをスキャンまたは手動振込" }
     }
   },
   "pricingModal": {
@@ -2095,9 +2077,9 @@
     "email": "メールアドレス",
     "emailPlaceholder": "your@email.com",
     "password": "パスワード",
-    "passwordPlaceholder": "········",
+    "passwordPlaceholder": "\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7",
     "confirmPassword": "パスワード確認",
-    "confirmPasswordPlaceholder": "········",
+    "confirmPasswordPlaceholder": "\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7",
     "registerButton": "登録",
     "registering": "登録中...",
     "or": "または",
@@ -2168,7 +2150,7 @@
       "verifying": "認証中...",
       "resend": "OTPを再送信",
       "resendCountdown": "{{countdown}}秒後に再送信",
-      "backToLogin": "← ログインに戻る",
+      "backToLogin": "\u2190 ログインに戻る",
       "validation": {
         "otpRequired": "6桁のOTPをすべて入力してください"
       }
@@ -2196,7 +2178,7 @@
     "benefit4": "暗号化されたセキュア取引",
     "scanQR": "QRコードをスキャンして支払い",
     "loadingPaymentInfo": "決済情報読み込み中...",
-    "paymentSuccessRedirect": "✅ チャージ成功！リダイレクト中...",
+    "paymentSuccessRedirect": "\u2705 チャージ成功！リダイレクト中...",
     "checkingPayment": "決済確認中...",
     "scanQRDesc": "バンキングアプリでQRコードをスキャンして支払ってください",
     "bankLabel": "銀行:",
