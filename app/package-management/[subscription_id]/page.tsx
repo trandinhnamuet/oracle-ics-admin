@@ -548,60 +548,6 @@ export default function AdminPackageDetailPage() {
           </CardContent>
         </Card>
 
-        <Card>
-          <CardContent className="p-6">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
-              {subscription?.vm_instance_id ? (
-                <>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-muted-foreground mb-2">
-                      {t('packageDetail.controls.vmName')}
-                    </label>
-                    <div className="px-3 py-2 border rounded bg-gray-50 dark:bg-muted dark:border-border">
-                      <p className="text-sm font-semibold">{vmDetails?.vm?.instanceName || 'N/A'}</p>
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-muted-foreground mb-2">
-                      Shape
-                    </label>
-                    <div className="px-3 py-2 border rounded bg-gray-50 dark:bg-muted dark:border-border">
-                      <p className="text-sm font-semibold">{vmDetails?.vm?.shape || 'N/A'}</p>
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-muted-foreground mb-2">
-                      Region
-                    </label>
-                    <div className="px-3 py-2 border rounded bg-gray-50 dark:bg-muted dark:border-border">
-                      <p className="text-sm font-semibold">{vmDetails?.vm?.region || vmDetails?.vm?.availabilityDomain?.split(':')[0] || 'N/A'}</p>
-                    </div>
-                  </div>
-                  <div className="flex justify-end">
-                    <Button
-                      className="bg-blue-600 hover:bg-blue-700 text-white px-8"
-                      onClick={() => {
-                        if (vmDetails?.vm?.instanceId) {
-                          window.open(`https://cloud.oracle.com/compute/instances/${vmDetails.vm.instanceId}`, '_blank')
-                        }
-                      }}
-                      disabled={!vmDetails?.vm}
-                    >
-                      {t('packageDetail.controls.showPerformance')}
-                    </Button>
-                  </div>
-                </>
-              ) : (
-                <div className="col-span-4">
-                  <p className="text-sm text-gray-600 dark:text-muted-foreground mb-4">
-                    {t('packageDetail.vmNotConfigured.message2')}
-                  </p>
-                </div>
-              )}
-            </div>
-          </CardContent>
-        </Card>
-
         {/* Charts */}
         {subscription?.vm_instance_id && vmDetails?.vm?.lifecycleState === 'RUNNING' ? (
           <>
