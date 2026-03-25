@@ -1284,7 +1284,8 @@
     "languageLabel": "Ngôn ngữ",
     "admin": "Quản trị",
     "packageManagement": "Cloud của tôi",
-    "supportRequest": "Yêu cầu hỗ trợ"
+    "supportRequest": "Yêu cầu hỗ trợ",
+    "adminPanel": "Bảng quản trị"
   },
   "footer": {
     "companyName": "Oracle Cloud Vietnam",

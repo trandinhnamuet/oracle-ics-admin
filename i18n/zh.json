@@ -1301,7 +1301,8 @@
     "languageLabel": "语言",
     "admin": "管理员",
     "packageManagement": "我的云",
-    "supportRequest": "支持请求"
+    "supportRequest": "支持请求",
+    "adminPanel": "管理面板"
     
   },
   "footer": {

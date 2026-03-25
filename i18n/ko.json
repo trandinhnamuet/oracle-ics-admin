@@ -1301,7 +1301,8 @@
     "languageLabel": "언어",
     "admin": "관리자",
     "packageManagement": "내 클라우드",
-    "supportRequest": "지원 요청"
+    "supportRequest": "지원 요청",
+    "adminPanel": "관리자 패널"
   },
   "footer": {
     "companyName": "Oracle 클라우드 베트남",

@@ -1284,7 +1284,8 @@
     "languageLabel": "Language",
     "admin": "Admin",
     "packageManagement": "My Cloud",
-    "supportRequest": "Support Request"
+    "supportRequest": "Support Request",
+    "adminPanel": "Admin Panel"
 
   },
   "footer": {

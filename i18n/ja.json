@@ -1303,7 +1303,8 @@
     "languageLabel": "言語",
     "admin": "管理者",
     "packageManagement": "マイクラウド",
-    "supportRequest": "サポートリクエスト"
+    "supportRequest": "サポートリクエスト",
+    "adminPanel": "管理パネル"
   },
   "footer": {
     "companyName": "Oracleクラウドベトナム",
