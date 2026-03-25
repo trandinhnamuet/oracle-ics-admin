@@ -1516,7 +1516,14 @@
       "vmState": "Trạng thái VM",
       "publicIp": "IP công khai",
       "windowsRdpCredentials": "🪟 Windows RDP Credentials",
-      "windowsPasswordPending": "⏳ Mật khẩu đang được tạo (5-10 phút sau khi VM khởi động). Vui lòng làm mới trang sau vài phút."
+      "windowsPasswordPending": "⏳ Mật khẩu đang được tạo (5-10 phút sau khi VM khởi động). Vui lòng làm mới trang sau vài phút.",
+      "resetPassword": "Đặt lại mật khẩu",
+      "resetPasswordTitle": "Đặt lại mật khẩu Windows",
+      "resetPasswordDesc": "Thao tác này sẽ tạo mật khẩu mới cho VM Windows. Mật khẩu hiện tại sẽ bị thay thế.",
+      "resetPasswordConfirm": "Đặt lại mật khẩu",
+      "resetPasswordSuccessTitle": "Đặt lại mật khẩu thành công!",
+      "resetPasswordSuccessDesc": "Mật khẩu VM Windows đã được thay đổi. Vui lòng lưu lại mật khẩu mới bên dưới.",
+      "resetPasswordWarning": "Vui lòng lưu lại mật khẩu này ngay. Bạn có thể xem lại trong phần Windows RDP Credentials."
     },
     "controls": {
       "vmName": "Tên VM:",
@@ -1599,7 +1606,11 @@
       "deleteVmFailedDesc": "Vui lòng thử lại sau hoặc liên hệ hỗ trợ.",
       "deleteSuccess": "Xóa thành công",
       "deleteSuccessDesc": "Subscription và VM đã được xóa hoàn toàn",
-      "deleteError": "Lỗi xóa subscription"
+      "deleteError": "Lỗi xóa subscription",
+      "passwordResetSuccess": "Đặt lại mật khẩu thành công",
+      "passwordResetSuccessDesc": "Mật khẩu Windows mới đã được thiết lập. Vui lòng lưu lại ngay.",
+      "passwordResetError": "Đặt lại mật khẩu thất bại",
+      "passwordResetErrorDesc": "Không thể đặt lại mật khẩu Windows. Vui lòng thử lại."
     },
     "confirmDialog": {
       "cancel": "Hủy",

@@ -1535,7 +1535,14 @@
       "vmState": "VM状態",
       "publicIp": "パブリックIP",
       "windowsRdpCredentials": "🪟 Windows RDP 資格情報",
-      "windowsPasswordPending": "⏳ パスワードを生成中です（VM起動後5〜10分）。数分後にページを更新してください。"
+      "windowsPasswordPending": "⏳ パスワードを生成中です（VM起動後5〜10分）。数分後にページを更新してください。",
+      "resetPassword": "パスワードリセット",
+      "resetPasswordTitle": "Windowsパスワードリセット",
+      "resetPasswordDesc": "Windows VMの新しいパスワードを生成します。現在のパスワードは置き換えられます。",
+      "resetPasswordConfirm": "パスワードリセット",
+      "resetPasswordSuccessTitle": "パスワードリセット成功！",
+      "resetPasswordSuccessDesc": "Windows VMのパスワードが変更されました。以下の新しいパスワードを保存してください。",
+      "resetPasswordWarning": "今すぐこのパスワードを保存してください。Windows RDP資格情報セクションで後で確認できます。"
     },
     "controls": {
       "vmName": "VM名：",
@@ -1618,7 +1625,11 @@
       "deleteVmFailedDesc": "後で再試するか、サポートにお問い合わせください。",
       "deleteSuccess": "削除成功",
       "deleteSuccessDesc": "サブスクリプションとVMが完全に削除されました",
-      "deleteError": "サブスクリプションの削除エラー"
+      "deleteError": "サブスクリプションの削除エラー",
+      "passwordResetSuccess": "パスワードのリセット成功",
+      "passwordResetSuccessDesc": "新しいWindowsパスワードが設定されました。今すぐ保存してください。",
+      "passwordResetError": "パスワードのリセット失敗",
+      "passwordResetErrorDesc": "Windowsパスワードをリセットできませんでした。もう一度お試しください。"
     },
     "confirmDialog": {
       "cancel": "キャンセル",

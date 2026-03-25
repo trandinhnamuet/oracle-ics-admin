@@ -1517,7 +1517,14 @@
       "vmState": "VM State",
       "publicIp": "Public IP",
       "windowsRdpCredentials": "🪟 Windows RDP Credentials",
-      "windowsPasswordPending": "⏳ Password is being generated (5-10 minutes after VM boot). Please refresh the page after a few minutes."
+      "windowsPasswordPending": "⏳ Password is being generated (5-10 minutes after VM boot). Please refresh the page after a few minutes.",
+      "resetPassword": "Reset Password",
+      "resetPasswordTitle": "Reset Windows Password",
+      "resetPasswordDesc": "This will generate a new password for the Windows VM. The current password will be replaced.",
+      "resetPasswordConfirm": "Reset Password",
+      "resetPasswordSuccessTitle": "Password Reset Successfully!",
+      "resetPasswordSuccessDesc": "The Windows VM password has been changed. Please save the new password below.",
+      "resetPasswordWarning": "Please save this password now. You can view it later in the Windows RDP Credentials section."
     },
     "controls": {
       "vmName": "VM Name:",
@@ -1600,7 +1607,11 @@
       "deleteVmFailedDesc": "Please try again or contact support.",
       "deleteSuccess": "Deleted successfully",
       "deleteSuccessDesc": "Subscription and VM have been completely removed",
-      "deleteError": "Error deleting subscription"
+      "deleteError": "Error deleting subscription",
+      "passwordResetSuccess": "Password reset successfully",
+      "passwordResetSuccessDesc": "New Windows password has been set. Please save it now.",
+      "passwordResetError": "Password reset failed",
+      "passwordResetErrorDesc": "Failed to reset Windows password. Please try again."
     },
     "confirmDialog": {
       "cancel": "Cancel",

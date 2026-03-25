@@ -1533,7 +1533,14 @@
       "vmState": "VM 상태",
       "publicIp": "공용 IP",
       "windowsRdpCredentials": "🪟 Windows RDP 자격 증명",
-      "windowsPasswordPending": "⏳ 비밀번호를 생성 중입니다 (VM 부팅 후 5-10분). 몇 분 후 페이지를 새로고침해 주세요."
+      "windowsPasswordPending": "⏳ 비밀번호를 생성 중입니다 (VM 부팅 후 5-10분). 몇 분 후 페이지를 새로고침해 주세요.",
+      "resetPassword": "비밀번호 재설정",
+      "resetPasswordTitle": "Windows 비밀번호 재설정",
+      "resetPasswordDesc": "Windows VM의 새 비밀번호를 생성합니다. 현재 비밀번호가 대체됩니다.",
+      "resetPasswordConfirm": "비밀번호 재설정",
+      "resetPasswordSuccessTitle": "비밀번호 재설정 성공!",
+      "resetPasswordSuccessDesc": "Windows VM 비밀번호가 변경되었습니다. 아래에서 새 비밀번호를 저장하세요.",
+      "resetPasswordWarning": "지금 비밀번호를 저장하세요. Windows RDP 자격 증명 섹션에서 나중에 확인할 수 있습니다."
     },
     "controls": {
       "vmName": "VM 이름:",
@@ -1616,7 +1623,11 @@
       "deleteVmFailedDesc": "나중에 다시 시도하거나 지원팀에 문의하세요.",
       "deleteSuccess": "삭제 성공",
       "deleteSuccessDesc": "구독과 VM이 완전히 제거되었습니다",
-      "deleteError": "구독 삭제 오류"
+      "deleteError": "구독 삭제 오류",
+      "passwordResetSuccess": "비밀번호 재설정 성공",
+      "passwordResetSuccessDesc": "새로운 Windows 비밀번호가 설정되었습니다. 지금 바로 저장하세요.",
+      "passwordResetError": "비밀번호 재설정 실패",
+      "passwordResetErrorDesc": "Windows 비밀번호를 재설정할 수 없습니다. 다시 시도해 주세요."
     },
     "confirmDialog": {
       "cancel": "취소",

@@ -1534,7 +1534,14 @@
       "vmState": "VM状态",
       "publicIp": "公网IP",
       "windowsRdpCredentials": "🪟 Windows RDP 登录凭据",
-      "windowsPasswordPending": "⏳ 密码正在生成中（VM 启动后约 5-10 分钟）。请几分钟后刷新页面。"
+      "windowsPasswordPending": "⏳ 密码正在生成中（VM 启动后约 5-10 分钟）。请几分钟后刷新页面。",
+      "resetPassword": "重置密码",
+      "resetPasswordTitle": "重置 Windows 密码",
+      "resetPasswordDesc": "此操作将为 Windows VM 生成新密码。当前密码将被替换。",
+      "resetPasswordConfirm": "重置密码",
+      "resetPasswordSuccessTitle": "密码重置成功！",
+      "resetPasswordSuccessDesc": "Windows VM 密码已更改。请保存以下新密码。",
+      "resetPasswordWarning": "请立即保存此密码。您可以稍后在 Windows RDP 凭据部分查看。"
     },
     "controls": {
       "vmName": "虚拟机名称：",
@@ -1617,7 +1624,11 @@
       "deleteVmFailedDesc": "请稍后再试或联系支持。",
       "deleteSuccess": "删除成功",
       "deleteSuccessDesc": "订阅和VM已完全删除",
-      "deleteError": "删除订阅出错"
+      "deleteError": "删除订阅出错",
+      "passwordResetSuccess": "密码重置成功",
+      "passwordResetSuccessDesc": "新的 Windows 密码已设置。请立即保存。",
+      "passwordResetError": "密码重置失败",
+      "passwordResetErrorDesc": "无法重置 Windows 密码。请重试。"
     },
     "confirmDialog": {
       "cancel": "取消",
