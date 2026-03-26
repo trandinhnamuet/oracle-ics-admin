@@ -55,7 +55,7 @@ export function clearAllAuthCookies() {
   if (typeof window === 'undefined') return;
 
   // List of all auth-related cookies to clear
-  const authCookies = ['adminRefreshToken', 'refreshToken', 'access_token', 'auth-token'];
+  const authCookies = ['refreshToken', 'access_token', 'auth-token'];
   
   // Try to extract domain from current location
   const hostname = window.location.hostname;

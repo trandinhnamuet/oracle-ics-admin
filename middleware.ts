@@ -6,13 +6,13 @@ const publicRoutes = ['/login', '/unauthorized']
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
-  const refreshToken = request.cookies.get('adminRefreshToken')?.value
+  const refreshToken = request.cookies.get('refreshToken')?.value
 
   // Debug logging
   const allCookies = request.cookies.getAll();
   console.log('🔍 [MIDDLEWARE] Path:', pathname);
   console.log('🔍 [MIDDLEWARE] All cookies:', allCookies.map(c => c.name));
-  console.log('🔍 [MIDDLEWARE] adminRefreshToken:', refreshToken ? '✅ Found' : '❌ Not found');
+  console.log('🔍 [MIDDLEWARE] RefreshToken:', refreshToken ? '✅ Found' : '❌ Not found');
 
   // Set language cookie nếu chưa có
   const response = NextResponse.next()
@@ -52,7 +52,7 @@ export function middleware(request: NextRequest) {
       loginUrl.searchParams.set('returnUrl', pathname)
     }
     const loginResponse = NextResponse.redirect(loginUrl)
-    loginResponse.cookies.delete('adminRefreshToken')
+    loginResponse.cookies.delete('refreshToken')
     if (currentLanguage) {
       loginResponse.cookies.set('language', currentLanguage, { path: '/', maxAge: 60 * 60 * 24 * 365, sameSite: 'lax' })
     }
