@@ -1529,6 +1529,18 @@
       "resetPasswordSuccessDesc": "The Windows VM password has been changed. Please save the new password below.",
       "resetPasswordWarning": "Please save this password now. You can view it later in the Windows RDP Credentials section."
     },
+    "resetPassword": {
+      "newPasswordLabel": "New Password (optional)",
+      "newPasswordPlaceholder": "Leave blank to auto-generate",
+      "newPasswordHint": "8-127 characters · must include characters from at least 3 of: uppercase (A-Z), lowercase (a-z), digits (0-9), special characters",
+      "validation": {
+        "minLength": "Password must be at least 8 characters long",
+        "maxLength": "Password must not exceed 127 characters",
+        "noUsername": "Password must not contain the username \"opc\"",
+        "complexity": "Must contain characters from at least 3 of: uppercase (A-Z), lowercase (a-z), digits (0-9), special characters",
+        "valid": "Password meets Windows requirements"
+      }
+    },
     "controls": {
       "vmName": "VM Name:",
       "time": "Time:",

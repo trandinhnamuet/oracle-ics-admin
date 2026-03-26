@@ -1546,6 +1546,18 @@
       "resetPasswordSuccessDesc": "Windows VM 密码已更改。请保存以下新密码。",
       "resetPasswordWarning": "请立即保存此密码。您可以稍后在 Windows RDP 凭据部分查看。"
     },
+    "resetPassword": {
+      "newPasswordLabel": "新密码（可选）",
+      "newPasswordPlaceholder": "留空则自动生成",
+      "newPasswordHint": "8-127个字符 · 至少包含以下4类中的3类：大写字母(A-Z)、小写字母(a-z)、数字(0-9)、特殊字符",
+      "validation": {
+        "minLength": "密码至少需要8个字符",
+        "maxLength": "密码不得超过127个字符",
+        "noUsername": "密码不得包含用户名 \"opc\"",
+        "complexity": "必须包含以下4类中的至少3类：大写字母(A-Z)、小写字母(a-z)、数字(0-9)、特殊字符",
+        "valid": "密码符合Windows要求"
+      }
+    },
     "controls": {
       "vmName": "虚拟机名称：",
       "time": "时间：",

@@ -7,9 +7,10 @@ import dynamic from 'next/dynamic'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { ArrowLeft, Play, Pause, RotateCcw, Trash2, Download, RefreshCw, Terminal, MonitorUp, Copy, Key, Check, CheckCircle } from 'lucide-react'
+import { ArrowLeft, Play, Pause, RotateCcw, Trash2, Download, RefreshCw, Terminal, MonitorUp, Copy, Key, Check, CheckCircle, Eye, EyeOff } from 'lucide-react'
 import { ConfirmSshKeyRequestDialog } from '@/components/dialogs/confirm-ssh-key-request-dialog'
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from '@/components/ui/alert-dialog'
+import { Input } from '@/components/ui/input'
 
 // Dynamic import TerminalComponent to avoid SSR issues with xterm and socket.io-client
 const TerminalComponent = dynamic(
@@ -82,6 +83,8 @@ export default function AdminPackageDetailPage() {
   const [isResettingPassword, setIsResettingPassword] = useState(false)
   const [resetPasswordDialog, setResetPasswordDialog] = useState(false)
   const [newWindowsPassword, setNewWindowsPassword] = useState<string | null>(null)
+  const [customPassword, setCustomPassword] = useState('')
+  const [showCustomPassword, setShowCustomPassword] = useState(false)
   const [confirmDialog, setConfirmDialog] = useState<{
     open: boolean
     title: string
@@ -306,11 +309,23 @@ export default function AdminPackageDetailPage() {
     }
   }
 
+  const validateWindowsPassword = (pwd: string): string | null => {
+    if (pwd.length < 8) return t('packageDetail.resetPassword.validation.minLength')
+    if (pwd.length > 127) return t('packageDetail.resetPassword.validation.maxLength')
+    if (pwd.toLowerCase().includes('opc')) return t('packageDetail.resetPassword.validation.noUsername')
+    const categories = [/[A-Z]/.test(pwd), /[a-z]/.test(pwd), /[0-9]/.test(pwd), /[^A-Za-z0-9]/.test(pwd)]
+    if (categories.filter(Boolean).length < 3) return t('packageDetail.resetPassword.validation.complexity')
+    return null
+  }
+
   const handleResetWindowsPassword = async () => {
     setIsResettingPassword(true)
     setResetPasswordDialog(false)
+    const passwordToUse = customPassword.trim() || undefined
+    setCustomPassword('')
+    setShowCustomPassword(false)
     try {
-      const result = await resetWindowsPassword(subscriptionId)
+      const result = await resetWindowsPassword(subscriptionId, passwordToUse)
       setNewWindowsPassword(result.newPassword)
       const updatedVm = await getSubscriptionVm(subscriptionId)
       setVmDetails(updatedVm)
@@ -1112,19 +1127,55 @@ export default function AdminPackageDetailPage() {
       </AlertDialog>
 
       {/* Reset Windows Password — Confirmation dialog */}
-      <AlertDialog open={resetPasswordDialog} onOpenChange={setResetPasswordDialog}>
+      <AlertDialog open={resetPasswordDialog} onOpenChange={(open) => {
+        if (!open) { setCustomPassword(''); setShowCustomPassword(false) }
+        setResetPasswordDialog(open)
+      }}>
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogTitle>🔑 {t('packageDetail.serverDetails.resetPasswordTitle')}</AlertDialogTitle>
-            <AlertDialogDescription>
-              {t('packageDetail.serverDetails.resetPasswordDesc')}
+            <AlertDialogDescription asChild>
+              <div className="space-y-4">
+                <p>{t('packageDetail.serverDetails.resetPasswordDesc')}</p>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-foreground">
+                    {t('packageDetail.resetPassword.newPasswordLabel')}
+                  </label>
+                  <div className="relative">
+                    <Input
+                      type={showCustomPassword ? 'text' : 'password'}
+                      placeholder={t('packageDetail.resetPassword.newPasswordPlaceholder')}
+                      value={customPassword}
+                      onChange={(e) => setCustomPassword(e.target.value)}
+                      className="pr-10"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowCustomPassword(v => !v)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                    >
+                      {showCustomPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                    </button>
+                  </div>
+                  {customPassword && (() => {
+                    const err = validateWindowsPassword(customPassword)
+                    return err
+                      ? <p className="text-xs text-destructive">{err}</p>
+                      : <p className="text-xs text-green-600 dark:text-green-400">✓ {t('packageDetail.resetPassword.validation.valid')}</p>
+                  })()}
+                  <p className="text-xs text-muted-foreground">{t('packageDetail.resetPassword.newPasswordHint')}</p>
+                </div>
+              </div>
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>{t('packageDetail.confirmDialog.cancel')}</AlertDialogCancel>
+            <AlertDialogCancel onClick={() => { setCustomPassword(''); setShowCustomPassword(false) }}>
+              {t('packageDetail.confirmDialog.cancel')}
+            </AlertDialogCancel>
             <AlertDialogAction
               onClick={handleResetWindowsPassword}
               className="bg-orange-600 hover:bg-orange-700 text-white"
+              disabled={!!customPassword && !!validateWindowsPassword(customPassword)}
             >
               {t('packageDetail.serverDetails.resetPasswordConfirm')}
             </AlertDialogAction>
