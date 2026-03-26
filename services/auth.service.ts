@@ -133,9 +133,15 @@ class AuthService {
 
   async logout(): Promise<void> {
     try {
-      await fetchWithAuth('/api/auth/logout', {
+      // Must use plain fetch with RELATIVE path so request stays same-origin
+      // (goes through Next.js proxy at admin.oraclecloud.vn/api/auth/logout).
+      // fetchWithAuth would prepend NEXT_PUBLIC_API_URL → absolute cross-origin URL
+      // → backend sets Domain=.oraclecloud.vn deletion → mismatches our host-only cookie.
+      await fetch('/api/auth/logout', {
         method: 'POST',
-      }, false, true); // skipRedirectOnError=true: let the logout flow handle navigation
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
+      });
     } catch (error) {
       // Even if logout fails on server, clear local state
       console.error('Logout request failed:', error);
@@ -151,9 +157,11 @@ class AuthService {
 
   async logoutAll(): Promise<void> {
     try {
-      await fetchWithAuth('/api/auth/logout-all', {
+      await fetch('/api/auth/logout-all', {
         method: 'POST',
-      }, false, true); // skipRedirectOnError=true: let the logout flow handle navigation
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
+      });
     } catch (error) {
       // Even if logout fails on server, clear local state
       console.error('Logout-all request failed:', error);
