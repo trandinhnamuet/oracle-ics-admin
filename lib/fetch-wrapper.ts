@@ -5,22 +5,33 @@ import { authService } from '@/services/auth.service';
  * Reads from the `language` cookie (set by the i18n module) or localStorage fallback.
  */
 export function getCurrentLang(): string {
+  const supported = ['vi', 'en', 'zh', 'ja', 'ko'];
+
   if (typeof document !== 'undefined') {
     const cookieLang = document.cookie
       .split('; ')
       .find(row => row.startsWith('language='))
       ?.split('=')[1];
-    if (cookieLang && ['vi', 'en', 'zh', 'ja', 'ko'].includes(cookieLang)) {
+    if (cookieLang && supported.includes(cookieLang)) {
       return cookieLang;
     }
   }
+
   if (typeof window !== 'undefined') {
     const stored = localStorage.getItem('selectedLanguage');
-    if (stored && ['vi', 'en', 'zh', 'ja', 'ko'].includes(stored)) {
+    if (stored && supported.includes(stored)) {
       return stored;
     }
+
+    // Final client fallback: infer from browser language
+    const browserPrimary = (navigator.language || 'en').split('-')[0].toLowerCase();
+    if (supported.includes(browserPrimary)) {
+      return browserPrimary;
+    }
   }
-  return 'vi';
+
+  // Default to English when no explicit language is available
+  return 'en';
 }
 
 /**
