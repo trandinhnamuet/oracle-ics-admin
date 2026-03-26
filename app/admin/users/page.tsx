@@ -261,39 +261,54 @@ export default function UserManagementPage() {
   }
 
   // Export to Excel
-  const exportToExcel = () => {
+  const exportToExcel = async () => {
     const locale = i18n.language
-    const exportData = users.map(user => ({
-      'ID': user.id,
-      'Email': user.email,
-      [t('admin.users.export.fullName')]: `${user.firstName} ${user.lastName}`,
-      [t('admin.users.export.phone')]: user.phoneNumber || t('admin.users.export.notAvailable'),
-      [t('admin.users.export.company')]: user.company || t('admin.users.export.notAvailable'),
-      [t('admin.users.export.role')]: user.role === 'admin' ? 'Admin' : 'Customer',
-      [t('admin.users.export.status')]: user.isActive ? t('admin.users.export.active') : t('admin.users.export.locked'),
-      [t('admin.users.export.createdAt')]: formatDateOnly(user.createdAt, locale),
-      [t('admin.users.export.updatedAt')]: formatDateOnly(user.updatedAt, locale)
-    }))
+    try {
+      const params = new URLSearchParams({
+        page: '1',
+        limit: String(total || 10000),
+        search: debouncedSearch,
+        sortBy,
+        sortOrder,
+      })
+      const res = await axios.get<PaginatedResponse>(`${API_URL}/users?${params}`)
+      const allUsers = res.data.data
 
-    const ws = XLSX.utils.json_to_sheet(exportData)
-    const wb = XLSX.utils.book_new()
-    XLSX.utils.book_append_sheet(wb, ws, t('admin.users.export.sheetName'))
+      const exportData = allUsers.map(user => ({
+        'ID': user.id,
+        'Email': user.email,
+        [t('admin.users.export.fullName')]: `${user.firstName} ${user.lastName}`,
+        [t('admin.users.export.phone')]: user.phoneNumber || t('admin.users.export.notAvailable'),
+        [t('admin.users.export.company')]: user.company || t('admin.users.export.notAvailable'),
+        [t('admin.users.export.role')]: user.role === 'admin' ? 'Admin' : 'Customer',
+        [t('admin.users.export.status')]: user.isActive ? t('admin.users.export.active') : t('admin.users.export.locked'),
+        [t('admin.users.export.createdAt')]: formatDateOnly(user.createdAt, locale),
+        [t('admin.users.export.updatedAt')]: formatDateOnly(user.updatedAt, locale)
+      }))
 
-    const colWidths = [
-      { wch: 5 },   // ID
-      { wch: 25 },  // Email
-      { wch: 20 },  // Họ tên
-      { wch: 15 },  // Số điện thoại
-      { wch: 20 },  // Công ty
-      { wch: 12 },  // Vai trò
-      { wch: 12 },  // Trạng thái
-      { wch: 12 },  // Ngày tạo
-      { wch: 12 }   // Ngày cập nhật
-    ]
-    ws['!cols'] = colWidths
+      const ws = XLSX.utils.json_to_sheet(exportData)
+      const wb = XLSX.utils.book_new()
+      XLSX.utils.book_append_sheet(wb, ws, t('admin.users.export.sheetName'))
 
-    const fileName = `users-${new Date().toISOString().split('T')[0]}.xlsx`
-    XLSX.writeFile(wb, fileName)
+      const colWidths = [
+        { wch: 5 },   // ID
+        { wch: 25 },  // Email
+        { wch: 20 },  // Họ tên
+        { wch: 15 },  // Số điện thoại
+        { wch: 20 },  // Công ty
+        { wch: 12 },  // Vai trò
+        { wch: 12 },  // Trạng thái
+        { wch: 12 },  // Ngày tạo
+        { wch: 12 }   // Ngày cập nhật
+      ]
+      ws['!cols'] = colWidths
+
+      const fileName = `users-${new Date().toISOString().split('T')[0]}.xlsx`
+      XLSX.writeFile(wb, fileName)
+    } catch (error) {
+      console.error('Error exporting users:', error)
+      toast({ title: t('common.error'), variant: 'destructive' })
+    }
   }
 
   const stats = {
