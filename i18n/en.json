@@ -1522,6 +1522,9 @@
       "resetPasswordTitle": "Reset Windows Password",
       "resetPasswordDesc": "This will generate a new password for the Windows VM. The current password will be replaced.",
       "resetPasswordConfirm": "Reset Password",
+      "resetPasswordResettingTitle": "Resetting password...",
+      "resetPasswordResettingDesc": "Connecting to the Windows VM. This may take several minutes.",
+      "resetPasswordResettingNote": "This process may take 5-10 minutes.",
       "resetPasswordSuccessTitle": "Password Reset Successfully!",
       "resetPasswordSuccessDesc": "The Windows VM password has been changed. Please save the new password below.",
       "resetPasswordWarning": "Please save this password now. You can view it later in the Windows RDP Credentials section."

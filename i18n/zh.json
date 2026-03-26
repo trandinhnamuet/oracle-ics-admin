@@ -1539,6 +1539,9 @@
       "resetPasswordTitle": "重置 Windows 密码",
       "resetPasswordDesc": "此操作将为 Windows VM 生成新密码。当前密码将被替换。",
       "resetPasswordConfirm": "重置密码",
+      "resetPasswordResettingTitle": "正在重置密码...",
+      "resetPasswordResettingDesc": "正在连接到 Windows VM。此过程可能需要几分钟。",
+      "resetPasswordResettingNote": "该过程可能需要5-10分钟。",
       "resetPasswordSuccessTitle": "密码重置成功！",
       "resetPasswordSuccessDesc": "Windows VM 密码已更改。请保存以下新密码。",
       "resetPasswordWarning": "请立即保存此密码。您可以稍后在 Windows RDP 凭据部分查看。"
