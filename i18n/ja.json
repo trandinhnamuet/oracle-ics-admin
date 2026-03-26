@@ -1540,6 +1540,9 @@
       "resetPasswordTitle": "Windowsパスワードリセット",
       "resetPasswordDesc": "Windows VMの新しいパスワードを生成します。現在のパスワードは置き換えられます。",
       "resetPasswordConfirm": "パスワードリセット",
+      "resetPasswordResettingTitle": "パスワードをリセット中...",
+      "resetPasswordResettingDesc": "Windows VMに接続中です。この処理には数分かかる場合があります。",
+      "resetPasswordResettingNote": "この処理は5〜10分かかる場合があります。",
       "resetPasswordSuccessTitle": "パスワードリセット成功！",
       "resetPasswordSuccessDesc": "Windows VMのパスワードが変更されました。以下の新しいパスワードを保存してください。",
       "resetPasswordWarning": "今すぐこのパスワードを保存してください。Windows RDP資格情報セクションで後で確認できます。"

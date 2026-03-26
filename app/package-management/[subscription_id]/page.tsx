@@ -1132,6 +1132,22 @@ export default function AdminPackageDetailPage() {
         </AlertDialogContent>
       </AlertDialog>
 
+      {/* Reset Windows Password — Loading Dialog */}
+      <AlertDialog open={isResettingPassword} onOpenChange={() => {}}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle className="flex items-center gap-2">
+              <RefreshCw className="h-5 w-5 animate-spin" />
+              {t('packageDetail.serverDetails.resetPasswordResettingTitle')}
+            </AlertDialogTitle>
+            <AlertDialogDescription>
+              {t('packageDetail.serverDetails.resetPasswordResettingDesc')}
+              <p className="text-sm text-muted-foreground mt-2">{t('packageDetail.serverDetails.resetPasswordResettingNote')}</p>
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+        </AlertDialogContent>
+      </AlertDialog>
+
       {/* Reset Windows Password — New password display (one-time) */}
       <AlertDialog open={!!newWindowsPassword} onOpenChange={() => {}}>
         <AlertDialogContent>

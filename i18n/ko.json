@@ -1538,6 +1538,9 @@
       "resetPasswordTitle": "Windows 비밀번호 재설정",
       "resetPasswordDesc": "Windows VM의 새 비밀번호를 생성합니다. 현재 비밀번호가 대체됩니다.",
       "resetPasswordConfirm": "비밀번호 재설정",
+      "resetPasswordResettingTitle": "비밀번호 재설정 중...",
+      "resetPasswordResettingDesc": "Windows VM에 연결 중입니다. 이 과정은 몇 분 소요될 수 있습니다.",
+      "resetPasswordResettingNote": "이 과정은 5-10분 정도 소요될 수 있습니다.",
       "resetPasswordSuccessTitle": "비밀번호 재설정 성공!",
       "resetPasswordSuccessDesc": "Windows VM 비밀번호가 변경되었습니다. 아래에서 새 비밀번호를 저장하세요.",
       "resetPasswordWarning": "지금 비밀번호를 저장하세요. Windows RDP 자격 증명 섹션에서 나중에 확인할 수 있습니다."

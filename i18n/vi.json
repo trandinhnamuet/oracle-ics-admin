@@ -1521,6 +1521,9 @@
       "resetPasswordTitle": "Đặt lại mật khẩu Windows",
       "resetPasswordDesc": "Thao tác này sẽ tạo mật khẩu mới cho VM Windows. Mật khẩu hiện tại sẽ bị thay thế.",
       "resetPasswordConfirm": "Đặt lại mật khẩu",
+      "resetPasswordResettingTitle": "Đang đặt lại mật khẩu...",
+      "resetPasswordResettingDesc": "Đang kết nối tới VM Windows. Quá trình này có thể mất vài phút.",
+      "resetPasswordResettingNote": "Quá trình này sẽ kéo dài từ 5-10 phút",
       "resetPasswordSuccessTitle": "Đặt lại mật khẩu thành công!",
       "resetPasswordSuccessDesc": "Mật khẩu VM Windows đã được thay đổi. Vui lòng lưu lại mật khẩu mới bên dưới.",
       "resetPasswordWarning": "Vui lòng lưu lại mật khẩu này ngay. Bạn có thể xem lại trong phần Windows RDP Credentials."
