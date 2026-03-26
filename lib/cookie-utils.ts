@@ -55,7 +55,8 @@ export function clearAllAuthCookies() {
   if (typeof window === 'undefined') return;
 
   // List of all auth-related cookies to clear
-  const authCookies = ['refreshToken', 'access_token', 'auth-token'];
+  // Admin uses 'adminRefreshToken' to keep session isolated from oraclecloud.vn
+  const authCookies = ['adminRefreshToken', 'refreshToken', 'access_token', 'auth-token'];
   
   // Try to extract domain from current location
   const hostname = window.location.hostname;
