@@ -1531,12 +1531,15 @@
     "resetPassword": {
       "newPasswordLabel": "Mật khẩu mới (tùy chọn)",
       "newPasswordPlaceholder": "Để trống để tự động tạo mật khẩu",
-      "newPasswordHint": "8-127 ký tự · cần ít nhất 3 trong 4 loại: chữ hoa (A-Z), chữ thường (a-z), số (0-9), ký tự đặc biệt",
+      "newPasswordHint": "14-127 ký tự · bắt buộc có đủ: chữ hoa (A-Z), chữ thường (a-z), số (0-9) và ký tự đặc biệt",
       "validation": {
-        "minLength": "Mật khẩu phải có ít nhất 8 ký tự",
+        "minLength": "Mật khẩu phải có ít nhất 14 ký tự",
         "maxLength": "Mật khẩu không được vượt quá 127 ký tự",
         "noUsername": "Mật khẩu không được chứa tên tài khoản \"opc\"",
-        "complexity": "Phải chứa ký tự từ ít nhất 3 trong 4 loại: chữ hoa (A-Z), chữ thường (a-z), số (0-9), ký tự đặc biệt",
+        "needUpper": "Mật khẩu phải có ít nhất 1 chữ hoa (A-Z)",
+        "needLower": "Mật khẩu phải có ít nhất 1 chữ thường (a-z)",
+        "needDigit": "Mật khẩu phải có ít nhất 1 chữ số (0-9)",
+        "needSpecial": "Mật khẩu phải có ít nhất 1 ký tự đặc biệt (ví dụ: !@#$%)",
         "valid": "Mật khẩu đáp ứng yêu cầu Windows"
       }
     },

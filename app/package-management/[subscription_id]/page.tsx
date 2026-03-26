@@ -310,11 +310,13 @@ export default function AdminPackageDetailPage() {
   }
 
   const validateWindowsPassword = (pwd: string): string | null => {
-    if (pwd.length < 8) return t('packageDetail.resetPassword.validation.minLength')
+    if (pwd.length < 14) return t('packageDetail.resetPassword.validation.minLength')
     if (pwd.length > 127) return t('packageDetail.resetPassword.validation.maxLength')
     if (pwd.toLowerCase().includes('opc')) return t('packageDetail.resetPassword.validation.noUsername')
-    const categories = [/[A-Z]/.test(pwd), /[a-z]/.test(pwd), /[0-9]/.test(pwd), /[^A-Za-z0-9]/.test(pwd)]
-    if (categories.filter(Boolean).length < 3) return t('packageDetail.resetPassword.validation.complexity')
+    if (!/[A-Z]/.test(pwd)) return t('packageDetail.resetPassword.validation.needUpper')
+    if (!/[a-z]/.test(pwd)) return t('packageDetail.resetPassword.validation.needLower')
+    if (!/[0-9]/.test(pwd)) return t('packageDetail.resetPassword.validation.needDigit')
+    if (!/[^A-Za-z0-9]/.test(pwd)) return t('packageDetail.resetPassword.validation.needSpecial')
     return null
   }
 
