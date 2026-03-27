@@ -20,6 +20,7 @@ export interface VmDetails {
     imageId?: string
     imageName?: string
     operatingSystem?: string
+    operatingSystemVersion?: string
     region?: string
     availabilityDomain: string
     lifecycleState: string

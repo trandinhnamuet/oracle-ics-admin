@@ -554,6 +554,18 @@ export default function AdminPackageDetailPage() {
                     <p className="text-sm text-gray-600 dark:text-muted-foreground">Compartment ID</p>
                     <p className="font-semibold text-xs break-all">{vmDetails?.vm?.compartmentId || 'N/A'}</p>
                   </div>
+                  <div>
+                    <p className="text-sm text-gray-600 dark:text-muted-foreground">Operating System</p>
+                    <p className="font-semibold">{vmDetails?.vm?.operatingSystem || 'N/A'}</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-600 dark:text-muted-foreground">Version</p>
+                    <p className="font-semibold">{vmDetails?.vm?.operatingSystemVersion || 'N/A'}</p>
+                  </div>
+                  <div className="col-span-2">
+                    <p className="text-sm text-gray-600 dark:text-muted-foreground">Image</p>
+                    <p className="font-semibold text-xs break-all">{vmDetails?.vm?.imageName || 'N/A'}</p>
+                  </div>
 
                 </div>
               )}
