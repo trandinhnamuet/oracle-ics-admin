@@ -7,17 +7,18 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 /**
- * Parse timestamp từ API theo cách an toàn cho UI đa múi giờ:
+ * Parse timestamp từ API theo chuẩn UTC:
  * - Có timezone info (Z, +HH:MM, -HH:MM): parse trực tiếp
- * - Không có timezone info: coi là giờ local của browser
+ * - Không có timezone info: coi là UTC
  */
 export function parseAsUtc(dateStr: string | Date): Date {
   if (dateStr instanceof Date) return dateStr
   const s = dateStr.trim()
   // Đã có timezone info (Z, +HH:MM, -HH:MM) → parse trực tiếp
   if (/Z$/i.test(s) || /[+-]\d{2}:\d{2}$/.test(s)) return new Date(s)
-  // Không có timezone info -> giữ local time của user
-  return new Date(s.replace(' ', 'T'))
+  // Không có timezone info -> coi là UTC
+  if (s.includes('T')) return new Date(s + 'Z')
+  return new Date(s.replace(' ', 'T') + 'Z')
 }
 
 /**
