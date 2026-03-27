@@ -837,20 +837,8 @@ export default function AdminPackageDetailPage() {
                   <p className="font-semibold">{packageDetail.bandwidth || '-'}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-600 dark:text-muted-foreground">{t('packageDetail.packageInfo.feature')}</p>
-                  <p className="font-semibold">{packageDetail.feature || '-'}</p>
-                </div>
-                <div>
                   <p className="text-sm text-gray-600 dark:text-muted-foreground">{t('packageDetail.packageInfo.ipAddress')}</p>
                   <p className="font-semibold">{vmDetails?.vm?.publicIp || '-'}</p>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-600 dark:text-muted-foreground">{t('packageDetail.packageInfo.subscriber')}</p>
-                  <p className="font-semibold">
-                    {packageDetail.user
-                      ? `${packageDetail.user.firstName} ${packageDetail.user.lastName}`
-                      : '-'}
-                  </p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-600 dark:text-muted-foreground">{t('packageDetail.packageInfo.email')}</p>
@@ -883,14 +871,6 @@ export default function AdminPackageDetailPage() {
                 </div>
                 {vmDetails?.vm && (
                   <>
-                    <div>
-                      <p className="text-sm text-gray-600 dark:text-muted-foreground">VM Shape</p>
-                      <p className="font-semibold">{vmDetails.vm.shape || '-'}</p>
-                    </div>
-                    <div>
-                      <p className="text-sm text-gray-600 dark:text-muted-foreground">Region</p>
-                      <p className="font-semibold">{vmDetails.vm.region || vmDetails.vm.availabilityDomain?.split(':')[0] || '-'}</p>
-                    </div>
                     <div>
                       <p className="text-sm text-gray-600 dark:text-muted-foreground">VM Status</p>
                       <p className="font-semibold">{vmDetails.vm.lifecycleState || '-'}</p>
