@@ -541,9 +541,7 @@ export default function AdminPackageDetailPage() {
                   <div>
                     <p className="text-sm text-gray-600 dark:text-muted-foreground">{t('packageDetail.serverDetails.ip')}</p>
                     {vmDetails?.vm?.publicIp ? (
-                      <a href={`http://${vmDetails.vm.publicIp}`} target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-600 underline">
-                        {vmDetails.vm.publicIp}
-                      </a>
+                        <p className="font-semibold">{vmDetails.vm.publicIp}</p>
                     ) : (
                       <p className="font-semibold text-gray-400">-</p>
                     )}
