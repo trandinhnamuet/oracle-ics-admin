@@ -932,6 +932,8 @@
         "female": "여성",
         "other": "기타",
         "role": "역할",
+        "roleCustomer": "고객",
+        "roleAdmin": "관리자",
         "statusLabel": "상태",
         "active": "활성",
         "locked": "잠김",

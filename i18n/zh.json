@@ -932,6 +932,8 @@
         "female": "女",
         "other": "其他",
         "role": "角色",
+        "roleCustomer": "客户",
+        "roleAdmin": "管理员",
         "statusLabel": "状态",
         "active": "活跃",
         "locked": "已锁定",

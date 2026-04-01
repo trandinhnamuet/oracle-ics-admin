@@ -915,6 +915,8 @@
         "female": "Nữ",
         "other": "Khác",
         "role": "Vai trò",
+        "roleCustomer": "Khách hàng",
+        "roleAdmin": "Quản trị viên",
         "statusLabel": "Trạng thái",
         "active": "Hoạt động",
         "locked": "Bị khóa",

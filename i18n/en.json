@@ -915,6 +915,8 @@
         "female": "Female",
         "other": "Other",
         "role": "Role",
+        "roleCustomer": "Customer",
+        "roleAdmin": "Admin",
         "statusLabel": "Status",
         "active": "Active",
         "locked": "Locked",
