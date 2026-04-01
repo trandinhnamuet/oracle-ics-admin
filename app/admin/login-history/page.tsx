@@ -32,6 +32,7 @@ export default function AdminLoginHistoryPage() {
   const [statistics, setStatistics] = useState<AdminLoginStatistics | null>(null)
   const [suspiciousAttempts, setSuspiciousAttempts] = useState<AdminLoginHistoryRecord[]>([])
   const [loading, setLoading] = useState(false)
+  const [isExporting, setIsExporting] = useState(false)
 
   // Pagination
   const [page, setPage] = useState(1)
@@ -178,8 +179,18 @@ export default function AdminLoginHistoryPage() {
   }
 
   // Export to CSV
-  const handleExportCSV = () => {
+  const handleExportCSV = async () => {
     try {
+      setIsExporting(true)
+
+      // Fetch all records matching current filters (ignore pagination)
+      const allDataResponse = await getLoginHistory({
+        ...filters,
+        page: 1,
+        limit: total > 0 ? total : 10000
+      })
+      const allRecords: AdminLoginHistoryRecord[] = allDataResponse.data || []
+
       const headers = [
         t('admin.loginHistory.csvHeaders.id'),
         t('admin.loginHistory.csvHeaders.username'),
@@ -194,7 +205,7 @@ export default function AdminLoginHistoryPage() {
         t('admin.loginHistory.csvHeaders.sessionDuration'),
         t('admin.loginHistory.csvHeaders.newDevice')
       ]
-      const rows = loginHistory.map(record => [
+      const rows = allRecords.map(record => [
         record.id,
         record.username,
         record.role,
@@ -233,6 +244,8 @@ export default function AdminLoginHistoryPage() {
         description: t('admin.loginHistory.exportError'),
         variant: 'destructive'
       })
+    } finally {
+      setIsExporting(false)
     }
   }
 
@@ -393,10 +406,10 @@ export default function AdminLoginHistoryPage() {
           </div>
           <button
             onClick={handleExportCSV}
-            disabled={loginHistory.length === 0}
+            disabled={loginHistory.length === 0 || isExporting}
             className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition disabled:opacity-50"
           >
-            {t('admin.loginHistory.export')}
+            {isExporting ? t('admin.loginHistory.exportLoading') : t('admin.loginHistory.export')}
           </button>
         </div>
 

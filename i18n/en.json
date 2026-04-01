@@ -710,7 +710,10 @@
       },
       "showing": "Showing {{from}} to {{to}} of {{total}} entries",
       "export": "Export to CSV",
+      "exportLoading": "Exporting...",
+      "exportToastSuccess": "Export Successful",
       "exportSuccess": "Login history exported to CSV",
+      "exportToastError": "Export Failed",
       "exportError": "Failed to export login history",
       "table": {
         "account": "Account",

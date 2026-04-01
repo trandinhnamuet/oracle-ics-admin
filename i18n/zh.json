@@ -727,7 +727,10 @@
       },
       "showing": "显示第{{from}}至{{to}}条，共{{total}}条",
       "export": "导出CSV",
+      "exportLoading": "导出中...",
+      "exportToastSuccess": "导出成功",
       "exportSuccess": "登录历史已导出为CSV",
+      "exportToastError": "导出失败",
       "exportError": "导出登录历史失败",
       "table": {
         "account": "账户",
@@ -1356,7 +1359,7 @@
     "title": "结账",
     "backButton": "返回",
     "success": {
-      "title": "支付成功！",
+      "title": "购买成功！",
       "desc": "感谢您订阅服务套餐。我们已将确认电子邮件和使用说明发送到您的电子邮件地址。",
       "configBtn": "配置虚拟机",
       "manageBtn": "管理订阅套餐",
@@ -2098,7 +2101,7 @@
     "insufficientBalanceTitle": "余额不足",
     "insufficientBalanceDesc": "您的余额不足，请充值。",
     "successTitle": "注册成功！",
-    "successDesc": "已成功注册 {{planName}} 套餐。费用已从账户中扣除。",
+    "successDesc": "已成功购买 {{planName}} 套餐。费用已从账户中扣除。",
     "errorGeneral": "发生错误，请重试。"
   },
   "register": {

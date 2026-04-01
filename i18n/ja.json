@@ -729,7 +729,10 @@
       },
       "showing": "{{total}}件中{{from}}～{{to}}件を表示",
       "export": "CSVエクスポート",
+      "exportLoading": "エクスポート中...",
+      "exportToastSuccess": "エクスポート成功",
       "exportSuccess": "ログイン履歴をCSVにエクスポートしました",
+      "exportToastError": "エクスポート失敗",
       "exportError": "ログイン履歴のエクスポートに失敗しました",
       "table": {
         "account": "アカウント",

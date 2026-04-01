@@ -727,7 +727,10 @@
       },
       "showing": "{{total}}개 중 {{from}}~{{to}} 표시",
       "export": "CSV 내보내기",
+      "exportLoading": "내보내는 중...",
+      "exportToastSuccess": "내보내기 성공",
       "exportSuccess": "로그인 기록이 CSV로 내보내기 되었습니다",
+      "exportToastError": "내보내기 실패",
       "exportError": "로그인 기록 내보내기 실패",
       "table": {
         "account": "계정",

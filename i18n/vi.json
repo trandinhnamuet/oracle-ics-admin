@@ -710,7 +710,10 @@
       },
       "showing": "Hiển thị {{from}} đến {{to}} trong số {{total}} bản ghi",
       "export": "Xuất CSV",
+      "exportLoading": "Đang xuất...",
+      "exportToastSuccess": "Xuất thành công",
       "exportSuccess": "Đã xuất lịch sử đăng nhập ra CSV",
+      "exportToastError": "Xuất thất bại",
       "exportError": "Không thể xuất lịch sử đăng nhập",
       "table": {
         "account": "Tài khoản",
