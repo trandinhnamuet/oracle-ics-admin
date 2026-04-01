@@ -731,7 +731,7 @@ export default function AdminPackageDetailPage() {
               {/* Network Traffic Chart */}
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between">
-                  <CardTitle className="text-lg font-semibold">Network Traffic (MB/s)</CardTitle>
+                  <CardTitle className="text-lg font-semibold">{t('packageDetail.charts.networkTraffic')}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="h-80">
@@ -761,7 +761,7 @@ export default function AdminPackageDetailPage() {
               {/* Disk I/O Chart */}
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between">
-                  <CardTitle className="text-lg font-semibold">Disk I/O (MB/s)</CardTitle>
+                  <CardTitle className="text-lg font-semibold">{t('packageDetail.charts.diskIO')}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="h-80">
