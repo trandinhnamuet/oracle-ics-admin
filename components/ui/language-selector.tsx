@@ -11,7 +11,7 @@ interface Language {
 }
 
 const languages: Language[] = [
-  { code: 'vi', name: 'Tiếng Việt', flag: '/flag-vietnam.webp' },
+  { code: 'vi', name: 'Tiếng Việt', flag: '/flag-vietnam.png' },
   { code: 'en', name: 'English', flag: '/flag-united-state.png' },
   { code: 'zh', name: '中文', flag: '/flag-china.png' },
   { code: 'ko', name: '한국어', flag: '/flag-korea.png' },
