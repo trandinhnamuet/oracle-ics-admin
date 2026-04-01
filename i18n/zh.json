@@ -356,7 +356,7 @@
     "subscriptions": {
       "title": "订阅管理",
       "backButton": "返回",
-      "searchPlaceholder": "按用户名、邮箱、套餐名称、ID搜索...",
+      "searchPlaceholder": "按用户名、邮箱、套餐名称、VM名称、IPv4、ID搜索...",
       "filterByStatus": "按状态筛选",
       "confirmDelete": "您确定要删除此订阅吗？",
       "filter": {
@@ -1116,7 +1116,8 @@
       },
       "sections": {
         "selectSuitable": "选择最适合您的套餐",
-        "moreFeatures": "更多功能"
+        "moreFeatures": "更多功能",
+        "showLess": "收起"
       },
       "auth": {
         "loginRequired": "请登录",

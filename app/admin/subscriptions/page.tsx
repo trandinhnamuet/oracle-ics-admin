@@ -292,7 +292,7 @@ export default function AdminSubscriptionsPage() {
   }
 
   return (
-    <div className="container mx-auto py-6 px-4">
+    <div className="p-6 space-y-6">
       <div className="mb-6">
         <div className="flex items-center gap-4 mb-4">
           <Button
@@ -434,7 +434,7 @@ export default function AdminSubscriptionsPage() {
               {t('admin.subscriptions.table.noData')}
             </div>
           ) : (
-            <div className="w-full">
+            <div className="w-full overflow-x-auto">
               <Table className="text-xs w-full">
                 <TableHeader>
                   <TableRow>
@@ -451,7 +451,7 @@ export default function AdminSubscriptionsPage() {
                       {t('admin.subscriptions.table.user')} {getSortIcon('user_id')}
                     </TableHead>
                     <TableHead className="min-w-[120px]">{t('admin.subscriptions.table.package')}</TableHead>
-                    <TableHead className="min-w-[130px]">{t('admin.subscriptions.table.vmInfo')}</TableHead>
+                    <TableHead className="min-w-[240px]">{t('admin.subscriptions.table.vmInfo')}</TableHead>
                     <TableHead 
                       onClick={() => handleSort('start_date')}
                       className="cursor-pointer hover:bg-gray-50 whitespace-nowrap"
@@ -511,13 +511,13 @@ export default function AdminSubscriptionsPage() {
                       <TableCell className="text-xs">
                         {subscription.vmInstance ? (
                           <div className="text-xs">
-                            <div className="font-medium flex items-center gap-1 truncate max-w-[120px]">
+                            <div className="font-medium flex items-center gap-1">
                               <Server className="h-3 w-3 text-blue-500 flex-shrink-0" />
-                              <span className="truncate">{subscription.vmInstance.instance_name}</span>
+                              <span>{subscription.vmInstance.instance_name}</span>
                             </div>
                             <div className="text-xs text-gray-500 flex items-center gap-1 mt-1">
                               <Globe className="h-3 w-3 flex-shrink-0" />
-                              <span className="truncate max-w-[100px]">{subscription.vmInstance.public_ip || t('admin.subscriptions.table.noPublicIp')}</span>
+                              <span>{subscription.vmInstance.public_ip || t('admin.subscriptions.table.noPublicIp')}</span>
                             </div>
                             <Badge 
                               variant="outline" 
@@ -628,9 +628,8 @@ export default function AdminSubscriptionsPage() {
           )}
           </div>
           
-          {/* Pagination */}
-          {totalPages > 1 && (
-            <div className="mt-6 flex justify-between items-center">
+          {/* Pagination - always visible */}
+          <div className="mt-6 flex justify-between items-center">
               {/* Records per page */}
               <div className="flex items-center gap-2">
                 <label className="text-sm text-gray-700">{t('admin.subscriptions.table.recordsPerPage')}</label>
@@ -696,7 +695,6 @@ export default function AdminSubscriptionsPage() {
                 </div>
               </div>
             </div>
-          )}
         </CardContent>
       </Card>
 

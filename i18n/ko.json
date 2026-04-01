@@ -356,7 +356,7 @@
     "subscriptions": {
       "title": "구독 관리",
       "backButton": "뒤로 가기",
-      "searchPlaceholder": "사용자 이름, 이메일, 패키지 이름, ID로 검색...",
+      "searchPlaceholder": "사용자 이름, 이메일, 패키지 이름, VM 이름, IPv4, ID로 검색...",
       "filterByStatus": "상태별 필터",
       "confirmDelete": "이 구독을 삭제하시겠습니까?",
       "filter": {
@@ -1116,7 +1116,8 @@
       },
       "sections": {
         "selectSuitable": "가장 적합한 패키지 선택",
-        "moreFeatures": "추가 기능"
+        "moreFeatures": "추가 기능",
+        "showLess": "접기"
       },
       "auth": {
         "loginRequired": "로그인하세요",

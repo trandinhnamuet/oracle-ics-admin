@@ -358,7 +358,7 @@
     "subscriptions": {
       "title": "サブスクリプション管理",
       "backButton": "戻る",
-      "searchPlaceholder": "ユーザー名、メール、パッケージ名、IDで検索...",
+      "searchPlaceholder": "ユーザー名、メール、パッケージ名、VM名、IPv4、IDで検索...",
       "filterByStatus": "ステータスでフィルター",
       "confirmDelete": "このサブスクリプションを削除してもよろしいですか？",
       "filter": {
@@ -1118,7 +1118,8 @@
       },
       "sections": {
         "selectSuitable": "あなたに最適なパッケージを選択",
-        "moreFeatures": "その他の機能"
+        "moreFeatures": "その他の機能",
+        "showLess": "折りたたむ"
       },
       "auth": {
         "loginRequired": "ログインしてください",

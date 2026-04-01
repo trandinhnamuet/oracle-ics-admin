@@ -356,7 +356,7 @@
     "subscriptions": {
       "title": "Quản lý đăng ký dịch vụ",
       "backButton": "Quay lại",
-      "searchPlaceholder": "Tìm kiếm theo tên người dùng, email, tên gói, ID...",
+      "searchPlaceholder": "Tìm kiếm theo tên người dùng, email, tên gói, tên VM, IPv4, ID...",
       "filterByStatus": "Lọc theo trạng thái",
       "confirmDelete": "Bạn có chắc chắn muốn xóa subscription này?",
       "filter": {
@@ -1099,7 +1099,8 @@
       },
       "sections": {
         "selectSuitable": "Chọn gói phù hợp nhất cho bạn",
-        "moreFeatures": "tính năng khác"
+        "moreFeatures": "tính năng khác",
+        "showLess": "Rút gọn"
       },
       "auth": {
         "loginRequired": "Vui lòng đăng nhập",

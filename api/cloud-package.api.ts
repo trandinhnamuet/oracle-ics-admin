@@ -80,5 +80,10 @@ export async function deactivateCloudPackage(token: string, id: number): Promise
  * Build a features string array from a CloudPackage record.
  */
 export function buildFeatures(pkg: CloudPackage): string[] {
-  return [pkg.cpu, pkg.ram, pkg.memory, pkg.bandwidth, pkg.feature].filter(Boolean) as string[]
+  const base = [pkg.cpu, pkg.ram, pkg.memory, pkg.bandwidth].filter(Boolean) as string[]
+  if (pkg.feature) {
+    const lines = pkg.feature.split('\n').map(l => l.trim()).filter(Boolean)
+    return [...base, ...lines]
+  }
+  return base
 }
