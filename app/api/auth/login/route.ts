@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json()
     const acceptLang = request.headers.get('accept-language') || ''
 
-    const backendRes = await fetch(`${API_BASE_URL}/auth/login`, {
+    const backendRes = await fetch(`${API_BASE_URL}/auth/admin-login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
