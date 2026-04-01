@@ -1538,6 +1538,8 @@
       "uptime": "稼働時間",
       "days": "日",
       "vmState": "VM状態",
+      "vmStatus": "VMステータス",
+      "createdDate": "作成日",
       "publicIp": "パブリックIP",
       "windowsRdpCredentials": "🪟 Windows RDP 資格情報",
       "windowsPasswordPending": "⏳ パスワードを生成中です（VM起動後5〜10分）。数分後にページを更新してください。",

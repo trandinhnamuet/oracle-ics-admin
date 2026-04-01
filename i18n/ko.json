@@ -1536,6 +1536,8 @@
       "uptime": "가동 시간",
       "days": "일",
       "vmState": "VM 상태",
+      "vmStatus": "VM 상태",
+      "createdDate": "생성일",
       "publicIp": "공용 IP",
       "windowsRdpCredentials": "🪟 Windows RDP 자격 증명",
       "windowsPasswordPending": "⏳ 비밀번호를 생성 중입니다 (VM 부팅 후 5-10분). 몇 분 후 페이지를 새로고침해 주세요.",

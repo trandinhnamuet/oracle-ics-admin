@@ -1520,6 +1520,8 @@
       "uptime": "Uptime",
       "days": "Days",
       "vmState": "VM State",
+      "vmStatus": "VM Status",
+      "createdDate": "Created Date",
       "publicIp": "Public IP",
       "windowsRdpCredentials": "🪟 Windows RDP Credentials",
       "windowsPasswordPending": "⏳ Password is being generated (5-10 minutes after VM boot). Please refresh the page after a few minutes.",

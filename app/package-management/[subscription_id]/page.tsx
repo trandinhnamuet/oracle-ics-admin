@@ -872,11 +872,11 @@ export default function AdminPackageDetailPage() {
                 {vmDetails?.vm && (
                   <>
                     <div>
-                      <p className="text-sm text-gray-600 dark:text-muted-foreground">VM Status</p>
+                      <p className="text-sm text-gray-600 dark:text-muted-foreground">{t('packageDetail.serverDetails.vmStatus')}</p>
                       <p className="font-semibold">{vmDetails.vm.lifecycleState || '-'}</p>
                     </div>
                     <div>
-                      <p className="text-sm text-gray-600 dark:text-muted-foreground">Created Date</p>
+                      <p className="text-sm text-gray-600 dark:text-muted-foreground">{t('packageDetail.serverDetails.createdDate')}</p>
                       <p className="font-semibold">
                         {vmDetails.vm.createdAt ? formatDateOnly(vmDetails.vm.createdAt) : '-'}
                       </p>

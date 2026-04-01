@@ -1537,6 +1537,8 @@
       "uptime": "运行时间",
       "days": "天",
       "vmState": "VM状态",
+      "vmStatus": "VM状态",
+      "createdDate": "建立日期",
       "publicIp": "公网IP",
       "windowsRdpCredentials": "🪟 Windows RDP 登录凭据",
       "windowsPasswordPending": "⏳ 密码正在生成中（VM 启动后约 5-10 分钟）。请几分钟后刷新页面。",

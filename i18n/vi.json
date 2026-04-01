@@ -1519,6 +1519,8 @@
       "uptime": "Uptime",
       "days": "Ngày",
       "vmState": "Trạng thái VM",
+      "vmStatus": "Trạng thái VM",
+      "createdDate": "Ngày tạo",
       "publicIp": "IP công khai",
       "windowsRdpCredentials": "🪟 Windows RDP Credentials",
       "windowsPasswordPending": "⏳ Mật khẩu đang được tạo (5-10 phút sau khi VM khởi động). Vui lòng làm mới trang sau vài phút.",
