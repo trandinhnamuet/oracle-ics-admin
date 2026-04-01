@@ -663,7 +663,7 @@ export default function AdminPackageDetailPage() {
                     disabled={isLoadingMetrics}
                   >
                     <RefreshCw className={`h-4 w-4 mr-2 ${isLoadingMetrics ? 'animate-spin' : ''}`} />
-                    Refresh
+                    {t('packageDetail.serverDetails.refresh')}
                   </Button>
                 </div>
               </CardContent>
