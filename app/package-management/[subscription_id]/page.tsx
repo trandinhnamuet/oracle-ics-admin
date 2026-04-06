@@ -77,7 +77,7 @@ export default function AdminPackageDetailPage() {
   const [isDataLoading, setIsDataLoading] = useState(true)
   const [isLoadingVm, setIsLoadingVm] = useState(false)
   const [metrics, setMetrics] = useState<InstanceMetrics | null>(null)
-  const [timeRange, setTimeRange] = useState<'1h' | '6h' | '24h' | '7d'>('1h')
+  const [timeRange, setTimeRange] = useState<'1h' | '6h' | '24h' | '7d' | 'all'>('7d')
   const [isLoadingMetrics, setIsLoadingMetrics] = useState(false)
   const [networkVisible, setNetworkVisible] = useState({ in: true, out: true })
   const [diskVisible, setDiskVisible] = useState({ read: true, write: true })
@@ -204,7 +204,7 @@ export default function AdminPackageDetailPage() {
 
       try {
         setIsLoadingMetrics(true)
-        const metricsData = await getInstanceMetrics(vmDetails.vm.instanceId, timeRange)
+        const metricsData = await getInstanceMetrics(vmDetails.vm.instanceId, timeRange, subscription?.start_date)
         setMetrics(metricsData)
       } catch (error: any) {
         console.error('Error fetching metrics:', error)
@@ -656,7 +656,7 @@ export default function AdminPackageDetailPage() {
                   <div className="flex items-center gap-2">
                     <span className="text-sm font-medium">Time Range:</span>
                     <div className="flex gap-2">
-                      {(['1h', '6h', '24h', '7d'] as const).map((range) => (
+                      {(['1h', '6h', '24h', '7d', 'all'] as const).map((range) => (
                         <Button
                           key={range}
                           variant={timeRange === range ? 'default' : 'outline'}
@@ -664,7 +664,7 @@ export default function AdminPackageDetailPage() {
                           onClick={() => setTimeRange(range)}
                           disabled={isLoadingMetrics}
                         >
-                          {range}
+                          {range === 'all' ? 'All time' : range}
                         </Button>
                       ))}
                     </div>
@@ -676,7 +676,7 @@ export default function AdminPackageDetailPage() {
                       if (vmDetails?.vm?.instanceId) {
                         setIsLoadingMetrics(true)
                         try {
-                          const metricsData = await getInstanceMetrics(vmDetails.vm.instanceId, timeRange)
+                          const metricsData = await getInstanceMetrics(vmDetails.vm.instanceId, timeRange, subscription?.start_date)
                           setMetrics(metricsData)
                         } finally {
                           setIsLoadingMetrics(false)

@@ -212,10 +212,14 @@ export interface InstanceMetrics {
  */
 export const getInstanceMetrics = async (
   instanceId: string,
-  timeRange: '1h' | '6h' | '24h' | '7d' = '1h'
+  timeRange: '1h' | '6h' | '24h' | '7d' | 'all' = '7d',
+  startDate?: string,
 ): Promise<InstanceMetrics> => {
   try {
     const params = new URLSearchParams({ timeRange });
+    if (timeRange === 'all' && startDate) {
+      params.set('startDate', startDate);
+    }
     const response = await fetchJsonWithAuth<{ success: boolean; data: InstanceMetrics }>(
       `${API_URL}/oci/instance/${encodeURIComponent(instanceId)}/metrics?${params.toString()}`
     );
