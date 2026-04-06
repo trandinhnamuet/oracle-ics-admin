@@ -36,7 +36,8 @@
       "expired": "已过期",
       "pauseTitle": "暂停套餐",
       "activateTitle": "激活套餐",
-      "deleteTitle": "删除套餐"
+      "deleteTitle": "删除套餐",
+      "imageDetail": "操作系统"
     },
     "confirmDialog": {
       "cancel": "取消",
@@ -1541,6 +1542,9 @@
       "vmStatus": "VM状态",
       "createdDate": "建立日期",
       "publicIp": "公网IP",
+      "operatingSystem": "操作系统",
+      "osVersion": "系统版本",
+      "imageName": "镜像",
       "windowsRdpCredentials": "🪟 Windows RDP 登录凭据",
       "windowsPasswordPending": "⏳ 密码正在生成中（VM 启动后约 5-10 分钟）。请几分钟后刷新页面。",
       "resetPassword": "重置密码",

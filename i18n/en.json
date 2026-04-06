@@ -36,7 +36,8 @@
       "expired": "Expired",
       "pauseTitle": "Pause Package",
       "activateTitle": "Activate Package",
-      "deleteTitle": "Delete Package"
+      "deleteTitle": "Delete Package",
+      "imageDetail": "Operating System"
     },
     "confirmDialog": {
       "cancel": "Cancel",
@@ -1524,6 +1525,9 @@
       "vmStatus": "VM Status",
       "createdDate": "Created Date",
       "publicIp": "Public IP",
+      "operatingSystem": "Operating System",
+      "osVersion": "OS Version",
+      "imageName": "Image",
       "windowsRdpCredentials": "🪟 Windows RDP Credentials",
       "windowsPasswordPending": "⏳ Password is being generated (5-10 minutes after VM boot). Please refresh the page after a few minutes.",
       "resetPassword": "Reset Password",

@@ -36,7 +36,8 @@
       "expired": "期限切れ",
       "pauseTitle": "パッケージ一時停止",
       "activateTitle": "パッケージ有効化",
-      "deleteTitle": "パッケージ削除"
+      "deleteTitle": "パッケージ削除",
+      "imageDetail": "オペレーティングシステム"
     },
     "confirmDialog": {
       "cancel": "キャンセル",
@@ -1542,6 +1543,9 @@
       "vmStatus": "VMステータス",
       "createdDate": "作成日",
       "publicIp": "パブリックIP",
+      "operatingSystem": "オペレーティングシステム",
+      "osVersion": "OSバージョン",
+      "imageName": "イメージ",
       "windowsRdpCredentials": "🪟 Windows RDP 資格情報",
       "windowsPasswordPending": "⏳ パスワードを生成中です（VM起動後5〜10分）。数分後にページを更新してください。",
       "resetPassword": "パスワードリセット",

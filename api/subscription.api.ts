@@ -51,6 +51,8 @@ export interface Subscription {
     region?: string
     shape?: string
     operating_system?: string
+    operating_system_version?: string
+    image_name?: string
     created_at: string
   } | null
 }

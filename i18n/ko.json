@@ -36,7 +36,8 @@
       "expired": "만료됨",
       "pauseTitle": "패키지 일시 중지",
       "activateTitle": "패키지 활성화",
-      "deleteTitle": "패키지 삭제"
+      "deleteTitle": "패키지 삭제",
+      "imageDetail": "운영 체제"
     },
     "confirmDialog": {
       "cancel": "취소",
@@ -1540,6 +1541,9 @@
       "vmStatus": "VM 상태",
       "createdDate": "생성일",
       "publicIp": "공용 IP",
+      "operatingSystem": "운영 체제",
+      "osVersion": "OS 버전",
+      "imageName": "이미지",
       "windowsRdpCredentials": "🪟 Windows RDP 자격 증명",
       "windowsPasswordPending": "⏳ 비밀번호를 생성 중입니다 (VM 부팅 후 5-10분). 몇 분 후 페이지를 새로고침해 주세요.",
       "resetPassword": "비밀번호 재설정",

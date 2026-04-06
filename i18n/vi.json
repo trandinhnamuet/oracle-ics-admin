@@ -36,7 +36,8 @@
       "expired": "Hết hạn",
       "pauseTitle": "Tạm dừng gói",
       "activateTitle": "Kích hoạt gói",
-      "deleteTitle": "Xóa gói"
+      "deleteTitle": "Xóa gói",
+      "imageDetail": "Hệ điều hành"
     },
     "confirmDialog": {
       "cancel": "Hủy",
@@ -1523,6 +1524,9 @@
       "vmStatus": "Trạng thái VM",
       "createdDate": "Ngày tạo",
       "publicIp": "IP công khai",
+      "operatingSystem": "Hệ điều hành",
+      "osVersion": "Phiên bản OS",
+      "imageName": "Image",
       "windowsRdpCredentials": "🪟 Windows RDP Credentials",
       "windowsPasswordPending": "⏳ Mật khẩu đang được tạo (5-10 phút sau khi VM khởi động). Vui lòng làm mới trang sau vài phút.",
       "resetPassword": "Đặt lại mật khẩu",
