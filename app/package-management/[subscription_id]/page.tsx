@@ -29,6 +29,7 @@ import {
   YAxis,
   CartesianGrid,
   ResponsiveContainer,
+  Tooltip,
 } from 'recharts'
 import { getSubscriptionById, deleteSubscription, Subscription } from '@/api/subscription.api'
 import { getSubscriptionVm, performVmAction, requestNewSshKey, deleteVmOnly, resetWindowsPassword, VmDetails } from '@/api/vm-subscription.api'
@@ -60,6 +61,9 @@ interface CloudPackageDetail {
   }
 }
 
+const fmtTime = (isoStr: string) =>
+  parseAsUtc(isoStr).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })
+
 export default function AdminPackageDetailPage() {
   const params = useParams()
   const router = useRouter()
@@ -75,6 +79,8 @@ export default function AdminPackageDetailPage() {
   const [metrics, setMetrics] = useState<InstanceMetrics | null>(null)
   const [timeRange, setTimeRange] = useState<'1h' | '6h' | '24h' | '7d'>('1h')
   const [isLoadingMetrics, setIsLoadingMetrics] = useState(false)
+  const [networkVisible, setNetworkVisible] = useState({ in: true, out: true })
+  const [diskVisible, setDiskVisible] = useState({ read: true, write: true })
   const [isTerminalOpen, setIsTerminalOpen] = useState(false)
   const [showSshKeyConfirm, setShowSshKeyConfirm] = useState(false)
   const [isRequestingSshKey, setIsRequestingSshKey] = useState(false)
@@ -100,6 +106,23 @@ export default function AdminPackageDetailPage() {
 
   const downloadFile = (content: string, filename: string) => {
     const blob = new Blob([content], { type: 'text/plain' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = filename
+    a.click()
+    URL.revokeObjectURL(url)
+  }
+
+  const downloadChartCSV = (data: Record<string, any>[], filename: string) => {
+    if (!data.length) return
+    const headers = Object.keys(data[0])
+    const rows = data.map(row => headers.map(h => {
+      const v = row[h]
+      return typeof v === 'number' ? v.toFixed(4) : String(v)
+    }).join(','))
+    const csv = [headers.join(','), ...rows].join('\n')
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' })
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
     a.href = url
@@ -674,6 +697,9 @@ export default function AdminPackageDetailPage() {
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between">
                   <CardTitle className="text-lg font-semibold">{t('packageDetail.charts.cpuTitle')}</CardTitle>
+                  <Button variant="ghost" size="sm" onClick={() => downloadChartCSV((metrics?.cpu || []).map(d => ({ time: fmtTime(d.time), cpu_percent: d.value })), `cpu-${subscriptionId}-${timeRange}.csv`)}>
+                    <Download className="h-4 w-4" />
+                  </Button>
                 </CardHeader>
                 <CardContent>
                   <div className="h-80">
@@ -687,6 +713,7 @@ export default function AdminPackageDetailPage() {
                           <CartesianGrid strokeDasharray="3 3" />
                           <XAxis dataKey="time" axisLine={false} tickLine={false} className="text-sm" tickFormatter={(t) => parseAsUtc(t).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })} />
                           <YAxis domain={[0, 100]} axisLine={false} tickLine={false} className="text-sm" />
+                          <Tooltip labelFormatter={fmtTime} formatter={(v: number) => [`${v.toFixed(2)}%`, 'CPU']} />
                           <Area type="monotone" dataKey="value" stroke="#ef4444" fill="#fecaca" strokeWidth={2} />
                         </AreaChart>
                       </ResponsiveContainer>
@@ -703,6 +730,9 @@ export default function AdminPackageDetailPage() {
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between">
                   <CardTitle className="text-lg font-semibold">{t('packageDetail.charts.memoryTitle')}</CardTitle>
+                  <Button variant="ghost" size="sm" onClick={() => downloadChartCSV((metrics?.memory || []).map(d => ({ time: fmtTime(d.time), memory_percent: d.value })), `memory-${subscriptionId}-${timeRange}.csv`)}>
+                    <Download className="h-4 w-4" />
+                  </Button>
                 </CardHeader>
                 <CardContent>
                   <div className="h-80">
@@ -716,6 +746,7 @@ export default function AdminPackageDetailPage() {
                           <CartesianGrid strokeDasharray="3 3" />
                           <XAxis dataKey="time" axisLine={false} tickLine={false} className="text-sm" tickFormatter={(t) => parseAsUtc(t).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })} />
                           <YAxis domain={[0, 100]} axisLine={false} tickLine={false} className="text-sm" />
+                          <Tooltip labelFormatter={fmtTime} formatter={(v: number) => [`${v.toFixed(2)}%`, 'Memory']} />
                           <Area type="monotone" dataKey="value" stroke="#8b5cf6" fill="#ddd6fe" strokeWidth={2} />
                         </AreaChart>
                       </ResponsiveContainer>
@@ -731,7 +762,32 @@ export default function AdminPackageDetailPage() {
               {/* Network Traffic Chart */}
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between">
-                  <CardTitle className="text-lg font-semibold">{t('packageDetail.charts.networkTraffic')}</CardTitle>
+                  <div className="flex items-center gap-3 flex-wrap">
+                    <CardTitle className="text-lg font-semibold">{t('packageDetail.charts.networkTraffic')}</CardTitle>
+                    <div className="flex items-center gap-3 text-sm">
+                      <label className="flex items-center gap-1.5 cursor-pointer select-none">
+                        <input
+                          type="checkbox"
+                          checked={networkVisible.in}
+                          onChange={e => setNetworkVisible(v => ({ ...v, in: e.target.checked }))}
+                          className="w-4 h-4 accent-emerald-500"
+                        />
+                        <span className="text-emerald-600 dark:text-emerald-400 font-medium">In</span>
+                      </label>
+                      <label className="flex items-center gap-1.5 cursor-pointer select-none">
+                        <input
+                          type="checkbox"
+                          checked={networkVisible.out}
+                          onChange={e => setNetworkVisible(v => ({ ...v, out: e.target.checked }))}
+                          className="w-4 h-4 accent-blue-500"
+                        />
+                        <span className="text-blue-600 dark:text-blue-400 font-medium">Out</span>
+                      </label>
+                    </div>
+                  </div>
+                  <Button variant="ghost" size="sm" onClick={() => downloadChartCSV(getNetworkData(), `network-${subscriptionId}-${timeRange}.csv`)}>
+                    <Download className="h-4 w-4" />
+                  </Button>
                 </CardHeader>
                 <CardContent>
                   <div className="h-80">
@@ -745,8 +801,19 @@ export default function AdminPackageDetailPage() {
                           <CartesianGrid strokeDasharray="3 3" />
                           <XAxis dataKey="time" axisLine={false} tickLine={false} className="text-sm" tickFormatter={(t) => parseAsUtc(t).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })} />
                           <YAxis axisLine={false} tickLine={false} className="text-sm" />
-                          <Area type="monotone" dataKey="in" stackId="1" stroke="#10b981" fill="#d1fae5" strokeWidth={2} name="In" />
-                          <Area type="monotone" dataKey="out" stackId="1" stroke="#3b82f6" fill="#bfdbfe" strokeWidth={2} name="Out" />
+                          <Tooltip
+                            labelFormatter={fmtTime}
+                            formatter={(v: number, name: string) => [
+                              `${v.toFixed(3)} MB`,
+                              name === 'in' ? 'In (nhận)' : 'Out (gửi)',
+                            ]}
+                          />
+                          {networkVisible.in && (
+                            <Area type="monotone" dataKey="in" stroke="#10b981" fill="#d1fae5" strokeWidth={2} name="in" />
+                          )}
+                          {networkVisible.out && (
+                            <Area type="monotone" dataKey="out" stroke="#3b82f6" fill="#bfdbfe" strokeWidth={2} name="out" />
+                          )}
                         </AreaChart>
                       </ResponsiveContainer>
                     ) : (
@@ -761,7 +828,32 @@ export default function AdminPackageDetailPage() {
               {/* Disk I/O Chart */}
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between">
-                  <CardTitle className="text-lg font-semibold">{t('packageDetail.charts.diskIO')}</CardTitle>
+                  <div className="flex items-center gap-3 flex-wrap">
+                    <CardTitle className="text-lg font-semibold">{t('packageDetail.charts.diskIO')}</CardTitle>
+                    <div className="flex items-center gap-3 text-sm">
+                      <label className="flex items-center gap-1.5 cursor-pointer select-none">
+                        <input
+                          type="checkbox"
+                          checked={diskVisible.read}
+                          onChange={e => setDiskVisible(v => ({ ...v, read: e.target.checked }))}
+                          className="w-4 h-4 accent-amber-500"
+                        />
+                        <span className="text-amber-600 dark:text-amber-400 font-medium">Read</span>
+                      </label>
+                      <label className="flex items-center gap-1.5 cursor-pointer select-none">
+                        <input
+                          type="checkbox"
+                          checked={diskVisible.write}
+                          onChange={e => setDiskVisible(v => ({ ...v, write: e.target.checked }))}
+                          className="w-4 h-4 accent-red-500"
+                        />
+                        <span className="text-red-600 dark:text-red-400 font-medium">Write</span>
+                      </label>
+                    </div>
+                  </div>
+                  <Button variant="ghost" size="sm" onClick={() => downloadChartCSV(getDiskData(), `disk-${subscriptionId}-${timeRange}.csv`)}>
+                    <Download className="h-4 w-4" />
+                  </Button>
                 </CardHeader>
                 <CardContent>
                   <div className="h-80">
@@ -775,8 +867,19 @@ export default function AdminPackageDetailPage() {
                           <CartesianGrid strokeDasharray="3 3" />
                           <XAxis dataKey="time" axisLine={false} tickLine={false} className="text-sm" tickFormatter={(t) => parseAsUtc(t).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })} />
                           <YAxis axisLine={false} tickLine={false} className="text-sm" />
-                          <Area type="monotone" dataKey="read" stackId="1" stroke="#f59e0b" fill="#fed7aa" strokeWidth={2} name="Read" />
-                          <Area type="monotone" dataKey="write" stackId="1" stroke="#ef4444" fill="#fecaca" strokeWidth={2} name="Write" />
+                          <Tooltip
+                            labelFormatter={fmtTime}
+                            formatter={(v: number, name: string) => [
+                              `${v.toFixed(3)} MB`,
+                              name === 'read' ? 'Read (đọc)' : 'Write (ghi)',
+                            ]}
+                          />
+                          {diskVisible.read && (
+                            <Area type="monotone" dataKey="read" stroke="#f59e0b" fill="#fed7aa" strokeWidth={2} name="read" />
+                          )}
+                          {diskVisible.write && (
+                            <Area type="monotone" dataKey="write" stroke="#ef4444" fill="#fecaca" strokeWidth={2} name="write" />
+                          )}
                         </AreaChart>
                       </ResponsiveContainer>
                     ) : (
