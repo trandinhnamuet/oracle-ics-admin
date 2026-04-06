@@ -1,6 +1,6 @@
-'use client'
+﻿'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import { useTranslation } from 'react-i18next'
 import dynamic from 'next/dynamic'
@@ -61,8 +61,23 @@ interface CloudPackageDetail {
   }
 }
 
-const fmtTime = (isoStr: string) =>
-  parseAsUtc(isoStr).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })
+// Returns a formatter function for chart axes based on the selected time range.
+// Short ranges (≤24h) show time only; longer ranges (7d / all) show date + time.
+function makeTimeFormatter(tr: string) {
+  const showDate = tr === '7d' || tr === 'all'
+  return (isoStr: string): string => {
+    try {
+      const d = parseAsUtc(isoStr)
+      if (showDate) {
+        return d.toLocaleDateString(undefined, { month: '2-digit', day: '2-digit' })
+          + ' ' + d.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })
+      }
+      return d.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })
+    } catch {
+      return isoStr
+    }
+  }
+}
 
 export default function AdminPackageDetailPage() {
   const params = useParams()
@@ -81,6 +96,7 @@ export default function AdminPackageDetailPage() {
   const [isLoadingMetrics, setIsLoadingMetrics] = useState(false)
   const [networkVisible, setNetworkVisible] = useState({ in: true, out: true })
   const [diskVisible, setDiskVisible] = useState({ read: true, write: true })
+  const fmtTime = useMemo(() => makeTimeFormatter(timeRange), [timeRange])
   const [isTerminalOpen, setIsTerminalOpen] = useState(false)
   const [showSshKeyConfirm, setShowSshKeyConfirm] = useState(false)
   const [isRequestingSshKey, setIsRequestingSshKey] = useState(false)
@@ -711,7 +727,7 @@ export default function AdminPackageDetailPage() {
                       <ResponsiveContainer width="100%" height="100%">
                         <AreaChart data={metrics.cpu}>
                           <CartesianGrid strokeDasharray="3 3" />
-                          <XAxis dataKey="time" axisLine={false} tickLine={false} className="text-sm" tickFormatter={(t) => parseAsUtc(t).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })} />
+                          <XAxis dataKey="time" axisLine={false} tickLine={false} className="text-sm" tickFormatter={fmtTime} />
                           <YAxis domain={[0, 100]} axisLine={false} tickLine={false} className="text-sm" />
                           <Tooltip labelFormatter={fmtTime} formatter={(v: number) => [`${v.toFixed(2)}%`, 'CPU']} />
                           <Area type="monotone" dataKey="value" stroke="#ef4444" fill="#fecaca" strokeWidth={2} />
@@ -744,7 +760,7 @@ export default function AdminPackageDetailPage() {
                       <ResponsiveContainer width="100%" height="100%">
                         <AreaChart data={metrics.memory}>
                           <CartesianGrid strokeDasharray="3 3" />
-                          <XAxis dataKey="time" axisLine={false} tickLine={false} className="text-sm" tickFormatter={(t) => parseAsUtc(t).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })} />
+                          <XAxis dataKey="time" axisLine={false} tickLine={false} className="text-sm" tickFormatter={fmtTime} />
                           <YAxis domain={[0, 100]} axisLine={false} tickLine={false} className="text-sm" />
                           <Tooltip labelFormatter={fmtTime} formatter={(v: number) => [`${v.toFixed(2)}%`, 'Memory']} />
                           <Area type="monotone" dataKey="value" stroke="#8b5cf6" fill="#ddd6fe" strokeWidth={2} />
@@ -799,7 +815,7 @@ export default function AdminPackageDetailPage() {
                       <ResponsiveContainer width="100%" height="100%">
                         <AreaChart data={getNetworkData()}>
                           <CartesianGrid strokeDasharray="3 3" />
-                          <XAxis dataKey="time" axisLine={false} tickLine={false} className="text-sm" tickFormatter={(t) => parseAsUtc(t).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })} />
+                          <XAxis dataKey="time" axisLine={false} tickLine={false} className="text-sm" tickFormatter={fmtTime} />
                           <YAxis axisLine={false} tickLine={false} className="text-sm" />
                           <Tooltip
                             labelFormatter={fmtTime}
@@ -865,7 +881,7 @@ export default function AdminPackageDetailPage() {
                       <ResponsiveContainer width="100%" height="100%">
                         <AreaChart data={getDiskData()}>
                           <CartesianGrid strokeDasharray="3 3" />
-                          <XAxis dataKey="time" axisLine={false} tickLine={false} className="text-sm" tickFormatter={(t) => parseAsUtc(t).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })} />
+                          <XAxis dataKey="time" axisLine={false} tickLine={false} className="text-sm" tickFormatter={fmtTime} />
                           <YAxis axisLine={false} tickLine={false} className="text-sm" />
                           <Tooltip
                             labelFormatter={fmtTime}
