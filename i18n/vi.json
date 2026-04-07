@@ -364,6 +364,8 @@
           "deleteError": "Lỗi xóa gói"
         },
         "packageCount": "Các gói ({{count}})"
+      }
+    },
     "subscriptions": {
       "title": "Quản lý đăng ký dịch vụ",
       "backButton": "Quay lại",

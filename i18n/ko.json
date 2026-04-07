@@ -364,6 +364,8 @@
           "deleteError": "패키지 삭제 오류"
         },
         "packageCount": "패키지 ({{count}})"
+      }
+    },
     "subscriptions": {
       "title": "구독 관리",
       "backButton": "뒤로 가기",

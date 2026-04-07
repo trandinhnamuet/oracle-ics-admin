@@ -366,6 +366,8 @@
           "deleteError": "パッケージ削除エラー"
         },
         "packageCount": "パッケージ ({{count}})"
+      }
+    },
     "subscriptions": {
       "title": "サブスクリプション管理",
       "backButton": "戻る",

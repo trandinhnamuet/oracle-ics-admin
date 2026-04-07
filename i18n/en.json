@@ -364,6 +364,8 @@
           "deleteError": "Error deleting package"
         },
         "packageCount": "Packages ({{count}})"
+      }
+    },
     "subscriptions": {
       "title": "Subscription Management",
       "backButton": "Go Back",

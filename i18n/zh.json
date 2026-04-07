@@ -364,6 +364,8 @@
           "deleteError": "套餐删除错误"
         },
         "packageCount": "套餐 ({{count}})"
+      }
+    },
     "subscriptions": {
       "title": "订阅管理",
       "backButton": "返回",
