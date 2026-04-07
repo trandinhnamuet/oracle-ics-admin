@@ -344,15 +344,26 @@
           "popular": "人気",
           "noPackagesFound": "サービスパッケージが見つかりません",
           "active": "アクティブ",
-          "inactive": "非アクティブ"
+          "inactive": "非アクティブ",
+          "idLabel": "ID",
+          "specs": {
+            "cpu": "CPU",
+            "ram": "RAM",
+            "ssd": "SSD",
+            "bw": "帯域幅"
+          }
         },
         "toast": {
+          "loadError": "パッケージの読み込みエラー",
           "createSuccess": "成功",
           "createSuccessDesc": "パッケージが正常に作成されました",
+          "createError": "パッケージ作成エラー",
           "updateSuccess": "成功",
           "updateSuccessDesc": "パッケージが正常に更新されました",
+          "updateError": "パッケージ更新エラー",
           "deleteSuccess": "成功",
-          "deleteSuccessDesc": "パッケージが正常に削除されました"
+          "deleteSuccessDesc": "パッケージが正常に削除されました",
+          "deleteError": "パッケージ削除エラー"
         }
       }
     },

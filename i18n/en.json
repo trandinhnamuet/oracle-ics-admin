@@ -342,15 +342,26 @@
           "popular": "Popular",
           "noPackagesFound": "No service packages found",
           "active": "Active",
-          "inactive": "Inactive"
+          "inactive": "Inactive",
+          "idLabel": "ID",
+          "specs": {
+            "cpu": "CPU",
+            "ram": "RAM",
+            "ssd": "SSD",
+            "bw": "Bandwidth"
+          }
         },
         "toast": {
+          "loadError": "Error loading packages",
           "createSuccess": "Success",
           "createSuccessDesc": "Package created successfully",
+          "createError": "Error creating package",
           "updateSuccess": "Success",
           "updateSuccessDesc": "Package updated successfully",
+          "updateError": "Error updating package",
           "deleteSuccess": "Success",
-          "deleteSuccessDesc": "Package deleted successfully"
+          "deleteSuccessDesc": "Package deleted successfully",
+          "deleteError": "Error deleting package"
         }
       }
     },

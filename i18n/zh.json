@@ -342,15 +342,26 @@
           "popular": "热门",
           "noPackagesFound": "未找到服务套餐",
           "active": "活跃",
-          "inactive": "非活跃"
+          "inactive": "非活跃",
+          "idLabel": "ID",
+          "specs": {
+            "cpu": "CPU",
+            "ram": "RAM",
+            "ssd": "SSD",
+            "bw": "带宽"
+          }
         },
         "toast": {
+          "loadError": "套餐加载错误",
           "createSuccess": "成功",
           "createSuccessDesc": "套餐创建成功",
+          "createError": "套餐创建错误",
           "updateSuccess": "成功",
           "updateSuccessDesc": "套餐更新成功",
+          "updateError": "套餐更新错误",
           "deleteSuccess": "成功",
-          "deleteSuccessDesc": "套餐删除成功"
+          "deleteSuccessDesc": "套餐删除成功",
+          "deleteError": "套餐删除错误"
         }
       }
     },

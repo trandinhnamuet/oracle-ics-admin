@@ -342,15 +342,26 @@
           "popular": "Phổ biến",
           "noPackagesFound": "Không tìm thấy gói dịch vụ nào",
           "active": "Đang hoạt động",
-          "inactive": "Không hoạt động"
+          "inactive": "Không hoạt động",
+          "idLabel": "ID",
+          "specs": {
+            "cpu": "CPU",
+            "ram": "RAM",
+            "ssd": "SSD",
+            "bw": "Băng thông"
+          }
         },
         "toast": {
+          "loadError": "Lỗi tải gói",
           "createSuccess": "Thành công",
           "createSuccessDesc": "Tạo gói mới thành công",
+          "createError": "Lỗi tạo gói",
           "updateSuccess": "Thành công",
           "updateSuccessDesc": "Cập nhật gói thành công",
+          "updateError": "Lỗi cập nhật gói",
           "deleteSuccess": "Thành công",
-          "deleteSuccessDesc": "Xóa gói thành công"
+          "deleteSuccessDesc": "Xóa gói thành công",
+          "deleteError": "Lỗi xóa gói"
         }
       }
     },
