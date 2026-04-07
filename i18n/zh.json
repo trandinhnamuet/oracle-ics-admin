@@ -362,9 +362,8 @@
           "deleteSuccess": "成功",
           "deleteSuccessDesc": "套餐删除成功",
           "deleteError": "套餐删除错误"
-        }
-      }
-    },
+        },
+        "packageCount": "套餐 ({{count}})"
     "subscriptions": {
       "title": "订阅管理",
       "backButton": "返回",
@@ -410,7 +409,16 @@
         "no": "否",
         "recordsPerPage": "每页记录数:",
         "goTo": "跳转到页:",
-        "pageOf": "第 {{current}} / {{total}} 页"
+        "pageOf": "第 {{current}} / {{total}} 页",
+        "fromDatePlaceholder": "开始日期",
+        "toDatePlaceholder": "结束日期"
+      },
+      "tooltip": {
+        "viewDetail": "查看详情",
+        "stopVm": "停止VM",
+        "startVm": "启动VM",
+        "deleteVmOnly": "仅删除VM（保留订阅）",
+        "deleteWithVm": "删除订阅和VM"
       },
       "actions": {
         "viewDetail": "查看详情",
@@ -927,6 +935,7 @@
     "costsDesc": "各用户、月份、年份的总余额、充值和消费额",
     "costsStats": "费用 & 积分概览",
     "users": {
+      "editTooltip": "编辑用户",
       "editDialog": {
         "title": "编辑用户信息 #{{id}}",
         "description": "更新用户的详细信息。点击\"保存更改\"以应用。",

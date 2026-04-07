@@ -362,9 +362,8 @@
           "deleteSuccess": "Success",
           "deleteSuccessDesc": "Package deleted successfully",
           "deleteError": "Error deleting package"
-        }
-      }
-    },
+        },
+        "packageCount": "Packages ({{count}})"
     "subscriptions": {
       "title": "Subscription Management",
       "backButton": "Go Back",
@@ -410,7 +409,16 @@
         "no": "No",
         "recordsPerPage": "Records per page:",
         "goTo": "Go to page:",
-        "pageOf": "Page {{current}} of {{total}}"
+        "pageOf": "Page {{current}} of {{total}}",
+        "fromDatePlaceholder": "From date",
+        "toDatePlaceholder": "To date"
+      },
+      "tooltip": {
+        "viewDetail": "View Details",
+        "stopVm": "Stop VM",
+        "startVm": "Start VM",
+        "deleteVmOnly": "Delete VM only (keep subscription)",
+        "deleteWithVm": "Delete subscription and VM"
       },
       "actions": {
         "viewDetail": "View Details",
@@ -910,6 +918,7 @@
     "costsDesc": "Total balance, deposited and spent amounts per user, month, year",
     "costsStats": "Cost & Credit Overview",
     "users": {
+      "editTooltip": "Edit user",
       "editDialog": {
         "title": "Edit User Information #{{id}}",
         "description": "Update user's detailed information. Click \"Save Changes\" to apply.",

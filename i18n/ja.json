@@ -195,7 +195,7 @@
       "title": "ユーザー管理",
       "subtitle": "システム内のユーザーアカウントを管理",
       "exportExcel": "Excelにエクスポート",
-      "searchPlaceholder": "メール、名前、会社で検索...",
+      "searchPlaceholder": "メール、名前、会示で検索...",
       "stats": {
         "total": "ユーザー総数",
         "active": "アクティブ",
@@ -364,9 +364,8 @@
           "deleteSuccess": "成功",
           "deleteSuccessDesc": "パッケージが正常に削除されました",
           "deleteError": "パッケージ削除エラー"
-        }
-      }
-    },
+        },
+        "packageCount": "パッケージ ({{count}})"
     "subscriptions": {
       "title": "サブスクリプション管理",
       "backButton": "戻る",
@@ -412,7 +411,16 @@
         "no": "いいえ",
         "recordsPerPage": "1ページあたりの件数:",
         "goTo": "ページへ移動:",
-        "pageOf": "{{current}} / {{total}} ページ"
+        "pageOf": "{{current}} / {{total}} ページ",
+        "fromDatePlaceholder": "開始日",
+        "toDatePlaceholder": "終了日"
+      },
+      "tooltip": {
+        "viewDetail": "詳細を表示",
+        "stopVm": "VMを停止",
+        "startVm": "VMを起動",
+        "deleteVmOnly": "VMのみ削除（サブスクリプションは保留）",
+        "deleteWithVm": "サブスクリプションとVMを削除"
       },
       "actions": {
         "viewDetail": "詳細を表示",
@@ -929,6 +937,7 @@
     "costsDesc": "ユーザー別、月別、年別の総残高、入金・使用額",
     "costsStats": "コスト & クレジット概要",
     "users": {
+      "editTooltip": "ユーザーを編集",
       "editDialog": {
         "title": "ユーザー情報の編集 #{{id}}",
         "description": "ユーザーの詳細情報を更新してください。\"変更を保存\"をクリックして適用してください。",

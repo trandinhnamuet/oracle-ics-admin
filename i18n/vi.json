@@ -362,9 +362,8 @@
           "deleteSuccess": "Thành công",
           "deleteSuccessDesc": "Xóa gói thành công",
           "deleteError": "Lỗi xóa gói"
-        }
-      }
-    },
+        },
+        "packageCount": "Các gói ({{count}})"
     "subscriptions": {
       "title": "Quản lý đăng ký dịch vụ",
       "backButton": "Quay lại",
@@ -410,7 +409,16 @@
         "no": "Không",
         "recordsPerPage": "Số hàng mỗi trang:",
         "goTo": "Đến trang:",
-        "pageOf": "Trang {{current}} / {{total}}"
+        "pageOf": "Trang {{current}} / {{total}}",
+        "fromDatePlaceholder": "Từ ngày",
+        "toDatePlaceholder": "Đến ngày"
+      },
+      "tooltip": {
+        "viewDetail": "Xem chi tiết",
+        "stopVm": "Dừng VM",
+        "startVm": "Khởi động VM",
+        "deleteVmOnly": "Chỉ xóa VM (giữ subscription)",
+        "deleteWithVm": "Xóa subscription và VM"
       },
       "actions": {
         "viewDetail": "Xem chi tiết",
@@ -910,6 +918,7 @@
     "costsDesc": "Tổng số dư, tiền nạp và tiền dùng của từng người dùng, tháng, năm",
     "costsStats": "Tổng quan chi phí & credit",
     "users": {
+      "editTooltip": "Chỉnh sửa người dùng",
       "editDialog": {
         "title": "Chỉnh sửa thông tin người dùng #{{id}}",
         "description": "Cập nhật thông tin chi tiết của người dùng. Nhấn \"Lưu thay đổi\" để áp dụng.",

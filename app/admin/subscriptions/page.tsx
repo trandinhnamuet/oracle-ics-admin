@@ -562,7 +562,7 @@ export default function AdminSubscriptionsPage() {
                             size="sm"
                             onClick={() => handleViewSubscription(subscription.id)}
                             className="h-7 w-7 p-0"
-                            title="View details"
+                            title={t('admin.subscriptions.tooltip.viewDetail')}
                           >
                             <Eye className="h-3 w-3 text-blue-600" />
                           </Button>
@@ -575,7 +575,7 @@ export default function AdminSubscriptionsPage() {
                               size="sm"
                               onClick={() => handleStopVm(subscription.id)}
                               className="h-7 w-7 p-0 text-orange-600 hover:text-orange-700 hover:bg-orange-50"
-                              title="Stop VM"
+                              title={t('admin.subscriptions.tooltip.stopVm')}
                             >
                               <PowerOff className="h-3 w-3" />
                             </Button>
@@ -589,7 +589,7 @@ export default function AdminSubscriptionsPage() {
                               size="sm"
                               onClick={() => handleStartVm(subscription.id)}
                               className="h-7 w-7 p-0 text-green-600 hover:text-green-700 hover:bg-green-50"
-                              title="Start VM"
+                              title={t('admin.subscriptions.tooltip.startVm')}
                             >
                               <Play className="h-3 w-3" />
                             </Button>
@@ -602,7 +602,7 @@ export default function AdminSubscriptionsPage() {
                               size="sm"
                               onClick={() => handleDeleteVmOnly(subscription.id)}
                               className="h-7 w-7 p-0 text-yellow-600 hover:text-yellow-700 hover:bg-yellow-50"
-                              title="Delete VM only (keep subscription)"
+                              title={t('admin.subscriptions.tooltip.deleteVmOnly')}
                             >
                               <Trash className="h-3 w-3" />
                             </Button>
@@ -614,7 +614,7 @@ export default function AdminSubscriptionsPage() {
                             size="sm"
                             onClick={() => handleDeleteSubscriptionWithVm(subscription.id)}
                             className="h-7 w-7 p-0 text-red-600 hover:text-red-700 hover:bg-red-50"
-                            title="Delete subscription and VM"
+                            title={t('admin.subscriptions.tooltip.deleteWithVm')}
                           >
                             <Trash2 className="h-3 w-3" />
                           </Button>

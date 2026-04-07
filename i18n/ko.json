@@ -362,9 +362,8 @@
           "deleteSuccess": "성공",
           "deleteSuccessDesc": "패키지가 성공적으로 삭제되었습니다",
           "deleteError": "패키지 삭제 오류"
-        }
-      }
-    },
+        },
+        "packageCount": "패키지 ({{count}})"
     "subscriptions": {
       "title": "구독 관리",
       "backButton": "뒤로 가기",
@@ -410,7 +409,16 @@
         "no": "아니오",
         "recordsPerPage": "페이지당 항목 수:",
         "goTo": "페이지로 이동:",
-        "pageOf": "{{current}} / {{total}} 페이지"
+        "pageOf": "{{current}} / {{total}} 페이지",
+        "fromDatePlaceholder": "시작 날짜",
+        "toDatePlaceholder": "종료 날짜"
+      },
+      "tooltip": {
+        "viewDetail": "세부 정보 보기",
+        "stopVm": "VM 중지",
+        "startVm": "VM 시작",
+        "deleteVmOnly": "VM만 삭제 (구독 유지)",
+        "deleteWithVm": "구독 및 VM 삭제"
       },
       "actions": {
         "viewDetail": "세부 정보 보기",
@@ -927,6 +935,7 @@
     "costsDesc": "사용자별, 월별, 연별 총 잔액, 충전 및 사용 금액",
     "costsStats": "비용 & 크레딧 개요",
     "users": {
+      "editTooltip": "사용자 편집",
       "editDialog": {
         "title": "사용자 정보 편집 #{{id}}",
         "description": "사용자의 상세 정보를 업데이트하세요. \"변경 사항 저장\"을 클릭하여 적용하세요.",
