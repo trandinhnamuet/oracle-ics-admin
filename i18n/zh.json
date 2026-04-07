@@ -1581,6 +1581,16 @@
       "resetPasswordWarning": "请立即保存此密码。您可以稍后在 Windows RDP 凭据部分查看。"
     },
     "resetPassword": {
+      "title": "重置Windows密码",
+      "description": "这将为Windows VM生成新密码，当前密码将被替换。",
+      "confirm": "重置密码",
+      "resettingTitle": "正在重置密码...",
+      "resettingDesc": "正在连接Windows VM，可能需要几分钟。",
+      "resettingNote": "此过程可能需要5-10分钟。",
+      "successTitle": "密码重置成功！",
+      "successDesc": "Windows VM密码已更改，请保存以下新密码。",
+      "saveWarning": "请立即保存此密码。",
+      "close": "已保存 — 关闭",
       "newPasswordLabel": "新密码（可选）",
       "newPasswordPlaceholder": "留空则自动生成",
       "newPasswordHint": "14-127个字符 · 必须包含：大写字母(A-Z)、小写字母(a-z)、数字(0-9)和特殊字符",
@@ -1652,7 +1662,13 @@
       "configurateVM": "配置虚拟机",
       "requestSshKey": "申请新 SSH 密钥",
       "generating": "正在生成...",
-      "openTerminal": "打开终端"
+      "openTerminal": "打开终端",
+      "resetPassword": "重置密码",
+      "resettingPassword": "重置中...",
+      "autoRenew": "自动续费",
+      "togglingAutoRenew": "更新中...",
+      "autoRenewOn": "自动续费已开启",
+      "autoRenewOff": "自动续费已关闭"
     },
     "billing": {
       "title": "账单信息",
@@ -1680,7 +1696,16 @@
       "passwordResetSuccess": "密码重置成功",
       "passwordResetSuccessDesc": "新的 Windows 密码已设置。请立即保存。",
       "passwordResetError": "密码重置失败",
-      "passwordResetErrorDesc": "无法重置 Windows 密码。请重试。"
+      "passwordResetErrorDesc": "无法重置 Windows 密码。请重试。",
+      "autoRenewUpdated": "自动续费已更新",
+      "autoRenewEnabled": "自动续费已启用",
+      "autoRenewDisabled": "自动续费已禁用",
+      "autoRenewError": "更新自动续费失败",
+      "renewSuccess": "续费成功",
+      "renewSuccessDesc": "订阅已续费，VM即将启动。",
+      "renewFailed": "续费失败",
+      "renewInsufficientFunds": "钱包余额不足",
+      "renewError": "续费订阅失败"
     },
     "confirmDialog": {
       "cancel": "取消",
@@ -1692,6 +1717,16 @@
       "deleteSubscription": {
         "title": "确认删除订阅",
         "description": "此操作将永久删除Oracle Cloud上的订阅和虚拟机(VM)。所有相关数据将被删除且无法恢复。删除前请备份重要数据。"
+      },
+      "renewAndStart": {
+        "title": "订阅已过期",
+        "description": "此订阅已过期，是否续费并启动VM？",
+        "cost": "续费费用：{{cost}}",
+        "autoRenewLabel": "续费后启用自动续费",
+        "autoRenewHint": "订阅将在到期前自动续费",
+        "insufficientFundsWarning": "确认前请确保钱包余额充足。",
+        "cancel": "取消",
+        "confirm": "续费并启动VM"
       }
     },
     "vmNotConfigured": {

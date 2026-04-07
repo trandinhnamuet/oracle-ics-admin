@@ -7,7 +7,9 @@ import dynamic from 'next/dynamic'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { ArrowLeft, Play, Pause, RotateCcw, Trash2, Download, RefreshCw, Terminal, MonitorUp, Copy, Key, Check, CheckCircle, Eye, EyeOff } from 'lucide-react'
+import { Switch } from '@/components/ui/switch'
+import { Label } from '@/components/ui/label'
+import { ArrowLeft, Play, Pause, RotateCcw, Trash2, Download, RefreshCw, Terminal, Copy, Key, Check, CheckCircle, Lock, Eye, EyeOff } from 'lucide-react'
 import { ConfirmSshKeyRequestDialog } from '@/components/dialogs/confirm-ssh-key-request-dialog'
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from '@/components/ui/alert-dialog'
 import { Input } from '@/components/ui/input'
@@ -31,7 +33,7 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from 'recharts'
-import { getSubscriptionById, deleteSubscription, Subscription } from '@/api/subscription.api'
+import { getSubscriptionById, deleteSubscription, toggleAutoRenew, renewSubscription, Subscription } from '@/api/subscription.api'
 import { getSubscriptionVm, performVmAction, requestNewSshKey, deleteVmOnly, resetWindowsPassword, VmDetails } from '@/api/vm-subscription.api'
 import { getInstanceMetrics, InstanceMetrics } from '@/api/oci.api'
 import { toast } from '@/hooks/use-toast'
@@ -107,6 +109,12 @@ export default function AdminPackageDetailPage() {
   const [newWindowsPassword, setNewWindowsPassword] = useState<string | null>(null)
   const [customPassword, setCustomPassword] = useState('')
   const [showCustomPassword, setShowCustomPassword] = useState(false)
+  const [isTogglingAutoRenew, setIsTogglingAutoRenew] = useState(false)
+  const [renewAndStartDialog, setRenewAndStartDialog] = useState<{
+    open: boolean
+    renewAutoRenew: boolean
+  }>({ open: false, renewAutoRenew: true })
+  const [isRenewingAndStarting, setIsRenewingAndStarting] = useState(false)
   const [confirmDialog, setConfirmDialog] = useState<{
     open: boolean
     title: string
@@ -252,6 +260,91 @@ export default function AdminPackageDetailPage() {
       read: readData.value / 1024 / 1024,
       write: (metrics.disk.write[index]?.value || 0) / 1024 / 1024,
     }))
+  }
+
+  const handleToggleAutoRenew = async () => {
+    if (!subscription) return
+    setIsTogglingAutoRenew(true)
+    try {
+      const updated = await toggleAutoRenew(subscriptionId, !subscription.auto_renew)
+      setSubscription(updated)
+      toast({
+        title: t('packageDetail.toast.autoRenewUpdated'),
+        description: updated.auto_renew
+          ? t('packageDetail.toast.autoRenewEnabled')
+          : t('packageDetail.toast.autoRenewDisabled'),
+      })
+    } catch (error: any) {
+      toast({
+        title: t('packageDetail.toast.autoRenewError'),
+        description: error?.response?.data?.message || error?.message,
+        variant: 'destructive',
+      })
+    } finally {
+      setIsTogglingAutoRenew(false)
+    }
+  }
+
+  const handleStartVm = () => {
+    if (!subscription?.vm_instance_id) {
+      toast({
+        title: t('packageDetail.toast.vmNotConfigured'),
+        description: t('packageDetail.toast.vmNotConfiguredDesc'),
+        variant: 'destructive',
+      })
+      return
+    }
+    // Check if subscription has expired
+    const endDate = parseAsUtc(subscription.end_date)
+    const now = new Date()
+    if (now > endDate) {
+      setRenewAndStartDialog({ open: true, renewAutoRenew: true })
+      return
+    }
+    handleVmAction('START')
+  }
+
+  const handleRenewAndStartVm = async () => {
+    setRenewAndStartDialog(prev => ({ ...prev, open: false }))
+    setIsRenewingAndStarting(true)
+    try {
+      const updatedSub = await renewSubscription(subscriptionId)
+      setSubscription(updatedSub)
+      if (renewAndStartDialog.renewAutoRenew !== updatedSub.auto_renew) {
+        const toggled = await toggleAutoRenew(subscriptionId, renewAndStartDialog.renewAutoRenew)
+        setSubscription(toggled)
+      }
+      toast({
+        title: t('packageDetail.toast.renewSuccess'),
+        description: t('packageDetail.toast.renewSuccessDesc'),
+        duration: 8000,
+      })
+      setTimeout(async () => {
+        try {
+          const vmData = await getSubscriptionVm(subscriptionId)
+          setVmDetails(vmData)
+        } catch (e) {
+          console.error('Error refreshing VM after renew:', e)
+        }
+      }, 2000)
+    } catch (error: any) {
+      const msg: string = error?.response?.data?.message || error?.message || ''
+      const isInsufficient =
+        error?.response?.status === 402 ||
+        msg.toLowerCase().includes('insufficient') ||
+        msg.toLowerCase().includes('not enough') ||
+        msg.toLowerCase().includes('không đủ')
+      toast({
+        title: t('packageDetail.toast.renewFailed'),
+        description: isInsufficient
+          ? t('packageDetail.toast.renewInsufficientFunds')
+          : msg || t('packageDetail.toast.renewError'),
+        variant: 'destructive',
+        duration: 10000,
+      })
+    } finally {
+      setIsRenewingAndStarting(false)
+    }
   }
 
   const handleVmAction = async (action: 'START' | 'STOP' | 'RESTART' | 'TERMINATE') => {
@@ -670,7 +763,7 @@ export default function AdminPackageDetailPage() {
               <CardContent className="p-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <span className="text-sm font-medium">Time Range:</span>
+                    <span className="text-sm font-medium">{t('packageDetail.controls.timeRange')}</span>
                     <div className="flex gap-2">
                       {(['1h', '6h', '24h', '7d', 'all'] as const).map((range) => (
                         <Button
@@ -1022,11 +1115,11 @@ export default function AdminPackageDetailPage() {
                     {vmDetails?.vm && (
                       <>
                         <p className="text-sm text-gray-600 dark:text-muted-foreground">
-                          <strong>VM State:</strong> {vmDetails.vm.lifecycleState}
+                          <strong>{t('packageDetail.serverDetails.vmState')}:</strong> {vmDetails.vm.lifecycleState}
                         </p>
                         {vmDetails.vm.publicIp && (
                           <p className="text-sm text-gray-600 dark:text-muted-foreground">
-                            <strong>Public IP:</strong> {vmDetails.vm.publicIp}
+                            <strong>{t('packageDetail.serverDetails.publicIp')}:</strong> {vmDetails.vm.publicIp}
                           </p>
                         )}
                       </>
@@ -1036,8 +1129,8 @@ export default function AdminPackageDetailPage() {
                   <Button
                     className="w-full justify-start"
                     variant="outline"
-                    onClick={() => handleVmAction('START')}
-                    disabled={isLoading || vmDetails?.vm?.lifecycleState === 'RUNNING' || vmDetails?.vm?.lifecycleState === 'PROVISIONING'}
+                    onClick={() => handleStartVm()}
+                    disabled={isLoading || isRenewingAndStarting || vmDetails?.vm?.lifecycleState === 'RUNNING' || vmDetails?.vm?.lifecycleState === 'PROVISIONING'}
                   >
                     <Play className="h-4 w-4 mr-2" />
                     {t('packageDetail.actions.startVM')}
@@ -1063,15 +1156,27 @@ export default function AdminPackageDetailPage() {
                     {t('packageDetail.actions.restartVM')}
                   </Button>
 
-                  <Button
-                    className="w-full justify-start"
-                    variant="outline"
-                    onClick={handleRequestNewKey}
-                    disabled={isLoading || isRequestingSshKey}
-                  >
-                    <Download className="h-4 w-4 mr-2" />
-                    {isRequestingSshKey ? 'Generating...' : 'Request New SSH Key'}
-                  </Button>
+                  {vmDetails?.vm?.operatingSystem?.toLowerCase().includes('windows') ? (
+                    <Button
+                      className="w-full justify-start"
+                      variant="outline"
+                      onClick={() => setResetPasswordDialog(true)}
+                      disabled={isLoading || isResettingPassword || vmDetails?.vm?.lifecycleState !== 'RUNNING'}
+                    >
+                      <Lock className="h-4 w-4 mr-2" />
+                      {isResettingPassword ? t('packageDetail.actions.resettingPassword') : t('packageDetail.actions.resetPassword')}
+                    </Button>
+                  ) : (
+                    <Button
+                      className="w-full justify-start"
+                      variant="outline"
+                      onClick={handleRequestNewKey}
+                      disabled={isLoading || isRequestingSshKey}
+                    >
+                      <Download className="h-4 w-4 mr-2" />
+                      {isRequestingSshKey ? t('packageDetail.actions.generating') : t('packageDetail.actions.requestSshKey')}
+                    </Button>
+                  )}
 
                   <Button
                     className="w-full justify-start bg-green-600 hover:bg-green-700 text-white"
@@ -1079,10 +1184,39 @@ export default function AdminPackageDetailPage() {
                     disabled={isLoading || vmDetails?.vm?.lifecycleState !== 'RUNNING'}
                   >
                     <Terminal className="h-4 w-4 mr-2" />
-                    Open Terminal
+                    {t('packageDetail.actions.openTerminal')}
                   </Button>
                 </>
               )}
+
+              <div className="pt-2 border-t dark:border-border">
+                {/* Auto Renew Toggle */}
+                <div className={`flex items-center justify-between px-2 py-3 rounded-lg border transition-colors ${
+                  subscription?.auto_renew
+                    ? 'bg-green-50 dark:bg-green-950/20 border-green-200 dark:border-green-900'
+                    : 'bg-gray-50 dark:bg-muted border-gray-200 dark:border-border'
+                }`}>
+                  <div className="flex flex-col gap-0.5">
+                    <Label htmlFor="auto-renew-toggle" className="text-sm font-medium cursor-pointer flex items-center gap-1">
+                      {subscription?.auto_renew ? '🔄' : '⏸️'} {t('packageDetail.actions.autoRenew')}
+                    </Label>
+                    <span className="text-xs text-muted-foreground">
+                      {isTogglingAutoRenew
+                        ? t('packageDetail.actions.togglingAutoRenew')
+                        : subscription?.auto_renew
+                        ? t('packageDetail.actions.autoRenewOn')
+                        : t('packageDetail.actions.autoRenewOff')}
+                    </span>
+                  </div>
+                  <Switch
+                    id="auto-renew-toggle"
+                    className="scale-125 origin-right"
+                    checked={subscription?.auto_renew ?? false}
+                    onCheckedChange={handleToggleAutoRenew}
+                    disabled={isTogglingAutoRenew || isLoading}
+                  />
+                </div>
+              </div>
 
               <div className="pt-2 border-t dark:border-border space-y-2">
                 {subscription?.vm_instance_id && (
@@ -1180,16 +1314,16 @@ export default function AdminPackageDetailPage() {
           <AlertDialogHeader>
             <AlertDialogTitle className="flex items-center gap-2 text-xl">
               <CheckCircle className="h-6 w-6 text-green-500" />
-              SSH Key mới đã tạo thành công!
+              {t('packageDetail.newSshKeyCreated.title')}
             </AlertDialogTitle>
             <AlertDialogDescription asChild>
               <div className="space-y-4 text-left pt-2">
                 <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded">
                   <p className="font-semibold text-red-900 text-sm">
-                    ⚠️ Thông tin này chỉ hiển thị 1 lần duy nhất
+                    {t('packageDetail.newSshKeyCreated.onceWarningTitle')}
                   </p>
                   <p className="text-red-800 text-sm mt-1">
-                    Vui lòng lưu lại ngay bây giờ. Sau khi đóng cửa sổ này, bạn sẽ không thể xem lại private key.
+                    {t('packageDetail.newSshKeyCreated.onceWarningDesc')}
                   </p>
                 </div>
                 <div>
@@ -1212,7 +1346,7 @@ export default function AdminPackageDetailPage() {
                     className="flex-1"
                   >
                     {copiedField === 'newkey' ? <Check className="h-4 w-4 mr-1 text-green-500" /> : <Copy className="h-4 w-4 mr-1" />}
-                    {copiedField === 'newkey' ? 'Đã sao chép!' : 'Sao chép key'}
+                    {copiedField === 'newkey' ? t('packageDetail.newSshKeyCreated.copied') : t('packageDetail.newSshKeyCreated.copy')}
                   </Button>
                   <Button
                     size="sm"
@@ -1220,7 +1354,7 @@ export default function AdminPackageDetailPage() {
                     className="flex-1 bg-blue-600 hover:bg-blue-700"
                   >
                     <Download className="h-4 w-4 mr-1" />
-                    Tải về (.pem)
+                    {t('packageDetail.newSshKeyCreated.download')}
                   </Button>
                 </div>
               </div>
@@ -1231,9 +1365,74 @@ export default function AdminPackageDetailPage() {
               onClick={() => setNewSshKey(null)}
               className="bg-green-600 hover:bg-green-700"
             >
-              Đã lưu — Đóng
+              {t('packageDetail.newSshKeyCreated.close')}
             </AlertDialogAction>
           </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      {/* Renew & Start VM Dialog — subscription expired */}
+      <AlertDialog open={renewAndStartDialog.open} onOpenChange={(open) => !open && setRenewAndStartDialog(prev => ({ ...prev, open: false }))}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>{t('packageDetail.confirmDialog.renewAndStart.title')}</AlertDialogTitle>
+            <AlertDialogDescription asChild>
+              <div className="space-y-4">
+                <p>{t('packageDetail.confirmDialog.renewAndStart.description')}</p>
+                {subscription?.cloudPackage?.cost_vnd && (
+                  <div className="bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-900 p-3 rounded text-sm font-semibold text-blue-800 dark:text-blue-300">
+                    {t('packageDetail.confirmDialog.renewAndStart.cost', {
+                      cost: new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(
+                        parseFloat(subscription.cloudPackage.cost_vnd)
+                      ),
+                    })}
+                  </div>
+                )}
+                <div className="flex items-start justify-between gap-3 p-3 border rounded dark:border-border">
+                  <div className="flex flex-col gap-1">
+                    <Label htmlFor="renew-auto-renew" className="text-sm font-medium cursor-pointer">
+                      {t('packageDetail.confirmDialog.renewAndStart.autoRenewLabel')}
+                    </Label>
+                    <span className="text-xs text-muted-foreground">
+                      {t('packageDetail.confirmDialog.renewAndStart.autoRenewHint')}
+                    </span>
+                  </div>
+                  <Switch
+                    id="renew-auto-renew"
+                    checked={renewAndStartDialog.renewAutoRenew}
+                    onCheckedChange={(checked) => setRenewAndStartDialog(prev => ({ ...prev, renewAutoRenew: checked }))}
+                  />
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  {t('packageDetail.confirmDialog.renewAndStart.insufficientFundsWarning')}
+                </p>
+              </div>
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>{t('packageDetail.confirmDialog.renewAndStart.cancel')}</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleRenewAndStartVm}
+              className="bg-blue-600 hover:bg-blue-700 text-white"
+            >
+              {t('packageDetail.confirmDialog.renewAndStart.confirm')}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      {/* Renew & Start VM — Loading Dialog */}
+      <AlertDialog open={isRenewingAndStarting} onOpenChange={() => {}}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle className="flex items-center gap-2">
+              <RefreshCw className="h-5 w-5 animate-spin" />
+              {t('packageDetail.toast.renewSuccess')}...
+            </AlertDialogTitle>
+            <AlertDialogDescription>
+              {t('packageDetail.toast.renewSuccessDesc')}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
         </AlertDialogContent>
       </AlertDialog>
 
@@ -1244,10 +1443,10 @@ export default function AdminPackageDetailPage() {
       }}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>🔑 {t('packageDetail.serverDetails.resetPasswordTitle')}</AlertDialogTitle>
+            <AlertDialogTitle>🔑 {t('packageDetail.resetPassword.title')}</AlertDialogTitle>
             <AlertDialogDescription asChild>
               <div className="space-y-4">
-                <p>{t('packageDetail.serverDetails.resetPasswordDesc')}</p>
+                <p>{t('packageDetail.resetPassword.description')}</p>
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-foreground">
                     {t('packageDetail.resetPassword.newPasswordLabel')}
@@ -1288,7 +1487,7 @@ export default function AdminPackageDetailPage() {
               className="bg-orange-600 hover:bg-orange-700 text-white"
               disabled={!!customPassword && !!validateWindowsPassword(customPassword)}
             >
-              {t('packageDetail.serverDetails.resetPasswordConfirm')}
+              {t('packageDetail.resetPassword.confirm')}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
@@ -1300,11 +1499,11 @@ export default function AdminPackageDetailPage() {
           <AlertDialogHeader>
             <AlertDialogTitle className="flex items-center gap-2">
               <RefreshCw className="h-5 w-5 animate-spin" />
-              {t('packageDetail.serverDetails.resetPasswordResettingTitle')}
+              {t('packageDetail.resetPassword.resettingTitle')}
             </AlertDialogTitle>
             <AlertDialogDescription>
-              {t('packageDetail.serverDetails.resetPasswordResettingDesc')}
-              <p className="text-sm text-muted-foreground mt-2">{t('packageDetail.serverDetails.resetPasswordResettingNote')}</p>
+              {t('packageDetail.resetPassword.resettingDesc')}
+              <p className="text-sm text-muted-foreground mt-2">{t('packageDetail.resetPassword.resettingNote')}</p>
             </AlertDialogDescription>
           </AlertDialogHeader>
         </AlertDialogContent>
@@ -1315,12 +1514,13 @@ export default function AdminPackageDetailPage() {
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogTitle className="flex items-center gap-2">
-              ✅ {t('packageDetail.serverDetails.resetPasswordSuccessTitle')}
+              <CheckCircle className="h-5 w-5 text-green-500" />
+              {t('packageDetail.resetPassword.successTitle')}
             </AlertDialogTitle>
             <AlertDialogDescription asChild>
               <div className="space-y-4">
                 <p className="text-sm text-muted-foreground">
-                  {t('packageDetail.serverDetails.resetPasswordSuccessDesc')}
+                  {t('packageDetail.resetPassword.successDesc')}
                 </p>
                 <div className="bg-gray-50 dark:bg-muted border rounded p-4 font-mono text-sm space-y-2">
                   <div className="flex items-center justify-between">
@@ -1330,21 +1530,26 @@ export default function AdminPackageDetailPage() {
                     </Button>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span><strong>New password:</strong> {newWindowsPassword}</span>
+                    <span><strong>Password:</strong> {newWindowsPassword}</span>
                     <Button size="sm" variant="ghost" onClick={() => copyToClipboard(newWindowsPassword!, 'new-win-pass')}>
                       {copiedField === 'new-win-pass' ? <Check className="h-3 w-3 text-green-500" /> : <Copy className="h-3 w-3" />}
                     </Button>
                   </div>
                 </div>
-                <p className="text-xs text-orange-600 dark:text-orange-400">
-                  ⚠️ {t('packageDetail.serverDetails.resetPasswordWarning')}
-                </p>
+                <div className="bg-red-50 dark:bg-red-950/20 border-l-4 border-red-500 p-3 rounded">
+                  <p className="text-sm text-red-800 dark:text-red-400 font-semibold">
+                    {t('packageDetail.resetPassword.saveWarning')}
+                  </p>
+                </div>
               </div>
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogAction onClick={() => setNewWindowsPassword(null)}>
-              {t('packageDetail.serverDetails.resetPasswordClose')}
+            <AlertDialogAction
+              onClick={() => setNewWindowsPassword(null)}
+              className="bg-green-600 hover:bg-green-700 text-white"
+            >
+              {t('packageDetail.resetPassword.close')}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

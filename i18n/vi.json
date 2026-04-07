@@ -1563,6 +1563,16 @@
       "resetPasswordWarning": "Vui lòng lưu lại mật khẩu này ngay. Bạn có thể xem lại trong phần Windows RDP Credentials."
     },
     "resetPassword": {
+      "title": "Đặt lại mật khẩu Windows",
+      "description": "Thao tác này sẽ tạo mật khẩu mới cho VM Windows. Mật khẩu hiện tại sẽ bị thay thế.",
+      "confirm": "Đặt lại mật khẩu",
+      "resettingTitle": "Đang đặt lại mật khẩu...",
+      "resettingDesc": "Đang kết nối đến VM Windows. Quá trình này có thể mất vài phút.",
+      "resettingNote": "Quá trình này có thể mất 5-10 phút.",
+      "successTitle": "Đặt lại mật khẩu thành công!",
+      "successDesc": "Mật khẩu VM Windows đã được thay đổi. Vui lòng lưu mật khẩu mới bên dưới.",
+      "saveWarning": "Vui lòng lưu mật khẩu này ngay bây giờ. Bạn có thể xem lại trong phần Windows RDP Credentials.",
+      "close": "Đã lưu — Đóng",
       "newPasswordLabel": "Mật khẩu mới (tùy chọn)",
       "newPasswordPlaceholder": "Để trống để tự động tạo mật khẩu",
       "newPasswordHint": "14-127 ký tự · bắt buộc có đủ: chữ hoa (A-Z), chữ thường (a-z), số (0-9) và ký tự đặc biệt",
@@ -1634,7 +1644,13 @@
       "configurateVM": "Cấu hình VM",
       "requestSshKey": "Yêu cầu SSH Key mới",
       "generating": "Đang tạo...",
-      "openTerminal": "Mở Terminal"
+      "openTerminal": "Mở Terminal",
+      "resetPassword": "Đặt lại mật khẩu",
+      "resettingPassword": "Đang xử lý...",
+      "autoRenew": "Tự động gia hạn",
+      "togglingAutoRenew": "Đang cập nhật...",
+      "autoRenewOn": "Tự động gia hạn ĐANG BẬT",
+      "autoRenewOff": "Tự động gia hạn ĐANG TẮT"
     },
     "billing": {
       "title": "Thông tin thanh toán",
@@ -1662,7 +1678,16 @@
       "passwordResetSuccess": "Đặt lại mật khẩu thành công",
       "passwordResetSuccessDesc": "Mật khẩu Windows mới đã được thiết lập. Vui lòng lưu lại ngay.",
       "passwordResetError": "Đặt lại mật khẩu thất bại",
-      "passwordResetErrorDesc": "Không thể đặt lại mật khẩu Windows. Vui lòng thử lại."
+      "passwordResetErrorDesc": "Không thể đặt lại mật khẩu Windows. Vui lòng thử lại.",
+      "autoRenewUpdated": "Cập nhật tự động gia hạn",
+      "autoRenewEnabled": "Tự động gia hạn đã bật",
+      "autoRenewDisabled": "Tự động gia hạn đã tắt",
+      "autoRenewError": "Không thể cập nhật tự động gia hạn",
+      "renewSuccess": "Gia hạn thành công",
+      "renewSuccessDesc": "Subscription đã được gia hạn. VM sẽ khởi động snớm.",
+      "renewFailed": "Gia hạn thất bại",
+      "renewInsufficientFunds": "Số dư ví không đủ",
+      "renewError": "Không thể gia hạn subscription"
     },
     "confirmDialog": {
       "cancel": "Hủy",
@@ -1674,6 +1699,16 @@
       "deleteSubscription": {
         "title": "Xác nhận xóa subscription",
         "description": "Hành động này sẽ XÓA HOÀN TOÀN subscription và máy ảo (VM) trên Oracle Cloud. Tất cả dữ liệu liên quan sẽ bị xóa và KHÔNG THỂ KHÔI PHỤC. Vui lòng backup dữ liệu quan trọng trước khi xóa."
+      },
+      "renewAndStart": {
+        "title": "Subscription đã hết hạn",
+        "description": "Subscription này đã hết hạn. Bạn có muốn gia hạn và khởi động VM không?",
+        "cost": "Chi phí gia hạn: {{cost}}",
+        "autoRenewLabel": "Bật tự động gia hạn sau khi gia hạn",
+        "autoRenewHint": "Subscription sẽ tự động gia hạn trước khi hết hạn",
+        "insufficientFundsWarning": "Hãy đảm bảo ví của bạn có đủ số dư trước khi xác nhận.",
+        "cancel": "Hủy",
+        "confirm": "Gia hạn & Khởi động VM"
       }
     },
     "vmNotConfigured": {

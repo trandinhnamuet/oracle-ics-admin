@@ -1564,6 +1564,16 @@
       "resetPasswordWarning": "Please save this password now. You can view it later in the Windows RDP Credentials section."
     },
     "resetPassword": {
+      "title": "Reset Windows Password",
+      "description": "This will generate a new password for the Windows VM. The current password will be replaced.",
+      "confirm": "Reset Password",
+      "resettingTitle": "Resetting password...",
+      "resettingDesc": "Connecting to the Windows VM. This may take several minutes.",
+      "resettingNote": "This process may take 5-10 minutes.",
+      "successTitle": "Password Reset Successfully!",
+      "successDesc": "The Windows VM password has been changed. Please save the new password below.",
+      "saveWarning": "Please save this password now. You can view it later in the Windows RDP Credentials section.",
+      "close": "Saved — Close",
       "newPasswordLabel": "New Password (optional)",
       "newPasswordPlaceholder": "Leave blank to auto-generate",
       "newPasswordHint": "14-127 characters · must include: uppercase (A-Z), lowercase (a-z), digits (0-9), and special characters",
@@ -1635,7 +1645,13 @@
       "configurateVM": "Configurate VM",
       "requestSshKey": "Request New SSH Key",
       "generating": "Generating...",
-      "openTerminal": "Open Terminal"
+      "openTerminal": "Open Terminal",
+      "resetPassword": "Reset Password",
+      "resettingPassword": "Resetting...",
+      "autoRenew": "Auto Renew",
+      "togglingAutoRenew": "Updating...",
+      "autoRenewOn": "Auto renew is ON",
+      "autoRenewOff": "Auto renew is OFF"
     },
     "billing": {
       "title": "Billing Information",
@@ -1663,7 +1679,16 @@
       "passwordResetSuccess": "Password reset successfully",
       "passwordResetSuccessDesc": "New Windows password has been set. Please save it now.",
       "passwordResetError": "Password reset failed",
-      "passwordResetErrorDesc": "Failed to reset Windows password. Please try again."
+      "passwordResetErrorDesc": "Failed to reset Windows password. Please try again.",
+      "autoRenewUpdated": "Auto Renew Updated",
+      "autoRenewEnabled": "Auto renew has been enabled",
+      "autoRenewDisabled": "Auto renew has been disabled",
+      "autoRenewError": "Failed to update auto renew",
+      "renewSuccess": "Renew Success",
+      "renewSuccessDesc": "Subscription renewed. VM will start shortly.",
+      "renewFailed": "Renew Failed",
+      "renewInsufficientFunds": "Insufficient funds in wallet",
+      "renewError": "Failed to renew subscription"
     },
     "confirmDialog": {
       "cancel": "Cancel",
@@ -1675,6 +1700,16 @@
       "deleteSubscription": {
         "title": "Confirm Delete Subscription",
         "description": "This action will PERMANENTLY DELETE the subscription and the virtual machine (VM) on Oracle Cloud. All related data will be deleted and CANNOT BE RECOVERED. Please backup important data before deleting."
+      },
+      "renewAndStart": {
+        "title": "Subscription Expired",
+        "description": "This subscription has expired. Do you want to renew it and start the VM?",
+        "cost": "Renewal cost: {{cost}}",
+        "autoRenewLabel": "Enable Auto Renew after renewal",
+        "autoRenewHint": "Subscription will automatically renew before expiry",
+        "insufficientFundsWarning": "Make sure your wallet has sufficient balance before confirming.",
+        "cancel": "Cancel",
+        "confirm": "Renew & Start VM"
       }
     },
     "vmNotConfigured": {

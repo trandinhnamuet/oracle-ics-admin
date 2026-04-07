@@ -1582,6 +1582,16 @@
       "resetPasswordWarning": "今すぐこのパスワードを保存してください。Windows RDP資格情報セクションで後で確認できます。"
     },
     "resetPassword": {
+      "title": "Windowsパスワードのリセット",
+      "description": "Windows VMの新しいパスワードを生成します。現在のパスワードは置き換えられます。",
+      "confirm": "パスワードをリセット",
+      "resettingTitle": "パスワードをリセット中...",
+      "resettingDesc": "Windows VMに接続しています。数分かかる場合があります。",
+      "resettingNote": "このプロセスには5〜10分かかる場合があります。",
+      "successTitle": "パスワードが正常にリセットされました！",
+      "successDesc": "Windows VMのパスワードが変更されました。新しいパスワードを保存してください。",
+      "saveWarning": "今すぐこのパスワードを保存してください。",
+      "close": "保存しました — 閉じる",
       "newPasswordLabel": "新しいパスワード（任意）",
       "newPasswordPlaceholder": "空白の場合は自動生成されます",
       "newPasswordHint": "14〜127文字 · 大文字(A-Z)、小文字(a-z)、数字(0-9)、特殊文字すべて含む必要があります",
@@ -1653,7 +1663,13 @@
       "configurateVM": "VM設定",
       "requestSshKey": "新しいSSHキーをリクエスト",
       "generating": "生成中...",
-      "openTerminal": "ターミナルを開く"
+      "openTerminal": "ターミナルを開く",
+      "resetPassword": "パスワードをリセット",
+      "resettingPassword": "リセット中...",
+      "autoRenew": "自動更新",
+      "togglingAutoRenew": "更新中...",
+      "autoRenewOn": "自動更新はオンです",
+      "autoRenewOff": "自動更新はオフです"
     },
     "billing": {
       "title": "請求情報",
@@ -1681,7 +1697,16 @@
       "passwordResetSuccess": "パスワードのリセット成功",
       "passwordResetSuccessDesc": "新しいWindowsパスワードが設定されました。今すぐ保存してください。",
       "passwordResetError": "パスワードのリセット失敗",
-      "passwordResetErrorDesc": "Windowsパスワードをリセットできませんでした。もう一度お試しください。"
+      "passwordResetErrorDesc": "Windowsパスワードをリセットできませんでした。もう一度お試しください。",
+      "autoRenewUpdated": "自動更新を更新しました",
+      "autoRenewEnabled": "自動更新が有効になりました",
+      "autoRenewDisabled": "自動更新が無効になりました",
+      "autoRenewError": "自動更新の更新に失敗しました",
+      "renewSuccess": "更新成功",
+      "renewSuccessDesc": "サブスクリプションが更新されました。VMはまもなく起動します。",
+      "renewFailed": "更新失敗",
+      "renewInsufficientFunds": "ウォレット残高が不足しています",
+      "renewError": "サブスクリプションの更新に失敗しました"
     },
     "confirmDialog": {
       "cancel": "キャンセル",
@@ -1693,6 +1718,16 @@
       "deleteSubscription": {
         "title": "サブスクリプションの削除を確認",
         "description": "この操作は、Oracle Cloud上のサブスクリプションと仮想マシン(VM)を永久に削除します。関連するすべてのデータが削除され、復元できません。削除前に重要なデータをバックアップしてください。"
+      },
+      "renewAndStart": {
+        "title": "サブスクリプションが期限切れです",
+        "description": "このサブスクリプションは期限切れです。更新してVMを起動しますか？",
+        "cost": "更新費用: {{cost}}",
+        "autoRenewLabel": "更新後に自動更新を有効にする",
+        "autoRenewHint": "有効期限前にサブスクリプションが自動更新されます",
+        "insufficientFundsWarning": "確認前にウォレットに十分な残高があることを確認してください。",
+        "cancel": "キャンセル",
+        "confirm": "更新してVMを起動"
       }
     },
     "vmNotConfigured": {
