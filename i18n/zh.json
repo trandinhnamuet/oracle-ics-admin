@@ -2254,7 +2254,7 @@
     },
     "otpConfirm": {
       "title": "OTP 验证",
-      "subtitle": "请输入发送到您邮筱的6位OTP验证码：",
+      "subtitle": "请输入发送到您邮件的6位OTP验证码：",
       "submitButton": "确认OTP",
       "verifying": "验证中...",
       "resend": "重新发送OTP",
