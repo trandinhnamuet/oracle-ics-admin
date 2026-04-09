@@ -2246,6 +2246,21 @@
       "validation": {
         "otpRequired": "Please enter all 6 OTP digits"
       }
+    },
+    "newPassword": {
+      "title": "Reset Password",
+      "subtitle": "Enter a new password for your account",
+      "passwordLabel": "New Password",
+      "passwordPlaceholder": "Enter new password",
+      "confirmPasswordLabel": "Confirm New Password",
+      "confirmPasswordPlaceholder": "Re-enter new password",
+      "submitButton": "Reset Password",
+      "resetting": "Resetting...",
+      "validation": {
+        "passwordMinLength": "Password must be at least 6 characters",
+        "confirmPasswordMinLength": "Confirm password must be at least 6 characters",
+        "passwordMismatch": "Passwords do not match"
+      }
     }
   },
   "addFundsPayment": {

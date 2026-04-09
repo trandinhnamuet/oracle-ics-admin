@@ -3,6 +3,7 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
+import { useTranslation } from 'react-i18next'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
@@ -16,6 +17,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert'
 import { authApi } from '@/api/auth.api'
 
 export default function NewPasswordPage() {
+  const { t } = useTranslation()
   const router = useRouter()
   const searchParams = useSearchParams()
   const email = searchParams.get('email') || ''
@@ -39,12 +41,12 @@ export default function NewPasswordPage() {
   const passwordSchema = z.object({
     newPassword: z
       .string()
-      .min(6, 'Mật khẩu phải có ít nhất 6 ký tự'),
+      .min(6, ''),
     confirmPassword: z
       .string()
-      .min(6, 'Mật khẩu xác nhận phải có ít nhất 6 ký tự'),
+      .min(6, ''),
   }).refine((data) => data.newPassword === data.confirmPassword, {
-    message: 'Mật khẩu xác nhận không khớp',
+    message: '',
     path: ['confirmPassword'],
   })
 
@@ -96,10 +98,10 @@ export default function NewPasswordPage() {
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl font-bold text-center">
-            Đặt lại mật khẩu
+            {t('forgotPassword.newPassword.title')}
           </CardTitle>
           <CardDescription className="text-center">
-            Nhập mật khẩu mới cho tài khoản của bạn
+            {t('forgotPassword.newPassword.subtitle')}
           </CardDescription>
         </CardHeader>
 
@@ -112,12 +114,12 @@ export default function NewPasswordPage() {
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="newPassword">Mật khẩu mới</Label>
+              <Label htmlFor="newPassword">{t('forgotPassword.newPassword.passwordLabel')}</Label>
               <div className="relative">
                 <Input
                   id="newPassword"
                   type={showPassword ? 'text' : 'password'}
-                  placeholder="Nhập mật khẩu mới"
+                  placeholder={t('forgotPassword.newPassword.passwordPlaceholder')}
                   {...register('newPassword')}
                   className={errors.newPassword ? 'border-red-500' : ''}
                 />
@@ -132,17 +134,19 @@ export default function NewPasswordPage() {
                 </Button>
               </div>
               {errors.newPassword && (
-                <p className="text-sm text-red-500">{errors.newPassword.message}</p>
+                <p className="text-sm text-red-500">
+                  {errors.newPassword.message === '' ? t('forgotPassword.newPassword.validation.passwordMinLength') : errors.newPassword.message}
+                </p>
               )}
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="confirmPassword">Xác nhận mật khẩu mới</Label>
+              <Label htmlFor="confirmPassword">{t('forgotPassword.newPassword.confirmPasswordLabel')}</Label>
               <div className="relative">
                 <Input
                   id="confirmPassword"
                   type={showConfirmPassword ? 'text' : 'password'}
-                  placeholder="Nhập lại mật khẩu mới"
+                  placeholder={t('forgotPassword.newPassword.confirmPasswordPlaceholder')}
                   {...register('confirmPassword')}
                   className={errors.confirmPassword ? 'border-red-500' : ''}
                 />
@@ -157,7 +161,9 @@ export default function NewPasswordPage() {
                 </Button>
               </div>
               {errors.confirmPassword && (
-                <p className="text-sm text-red-500">{errors.confirmPassword.message}</p>
+                <p className="text-sm text-red-500">
+                  {errors.confirmPassword.message === '' ? t('forgotPassword.newPassword.validation.passwordMismatch') : errors.confirmPassword.message}
+                </p>
               )}
             </div>
 
@@ -166,7 +172,7 @@ export default function NewPasswordPage() {
               className="w-full"
               disabled={isLoading}
             >
-              {isLoading ? 'Đang cập nhật...' : 'Đặt lại mật khẩu'}
+              {isLoading ? t('forgotPassword.newPassword.resetting') : t('forgotPassword.newPassword.submitButton')}
             </Button>
           </form>
         </CardContent>

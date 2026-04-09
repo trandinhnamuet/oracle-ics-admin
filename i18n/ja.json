@@ -2264,6 +2264,21 @@
       "validation": {
         "otpRequired": "6桁のOTPをすべて入力してください"
       }
+    },
+    "newPassword": {
+      "title": "パスワードをリセット",
+      "subtitle": "アカウントの新しいパスワードを入力してください",
+      "passwordLabel": "新しいパスワード",
+      "passwordPlaceholder": "新しいパスワードを入力してください",
+      "confirmPasswordLabel": "新しいパスワード確認",
+      "confirmPasswordPlaceholder": "新しいパスワードを再度入力してください",
+      "submitButton": "パスワードをリセット",
+      "resetting": "リセット中...",
+      "validation": {
+        "passwordMinLength": "パスワードは最低6文字である必要があります",
+        "confirmPasswordMinLength": "パスワード確認は最低6文字である必要があります",
+        "passwordMismatch": "パスワードが一致しません"
+      }
     }
   },
   "addFundsPayment": {

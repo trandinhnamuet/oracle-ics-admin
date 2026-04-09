@@ -2245,6 +2245,21 @@
       "validation": {
         "otpRequired": "Vui lòng nhập đầy đủ 6 số OTP"
       }
+    },
+    "newPassword": {
+      "title": "Đặt lại mật khẩu",
+      "subtitle": "Nhập mật khẩu mới cho tài khoản của bạn",
+      "passwordLabel": "Mật khẩu mới",
+      "passwordPlaceholder": "Nhập mật khẩu mới",
+      "confirmPasswordLabel": "Xác nhận mật khẩu mới",
+      "confirmPasswordPlaceholder": "Nhập lại mật khẩu mới",
+      "submitButton": "Đặt lại mật khẩu",
+      "resetting": "Đang đặt lại...",
+      "validation": {
+        "passwordMinLength": "Mật khẩu phải có ít nhất 6 ký tự",
+        "confirmPasswordMinLength": "Mật khẩu xác nhận phải có ít nhất 6 ký tự",
+        "passwordMismatch": "Mật khẩu xác nhận không khớp"
+      }
     }
   },
   "addFundsPayment": {

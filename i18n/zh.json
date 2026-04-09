@@ -2263,6 +2263,21 @@
       "validation": {
         "otpRequired": "请输入完整的6位OTP验证码"
       }
+    },
+    "newPassword": {
+      "title": "重置密码",
+      "subtitle": "为您的账户输入新密码",
+      "passwordLabel": "新密码",
+      "passwordPlaceholder": "请输入新密码",
+      "confirmPasswordLabel": "确认新密码",
+      "confirmPasswordPlaceholder": "请再次输入新密码",
+      "submitButton": "重置密码",
+      "resetting": "重置中...",
+      "validation": {
+        "passwordMinLength": "密码必须至少为6个字符",
+        "confirmPasswordMinLength": "确认密码必须至少为6个字符",
+        "passwordMismatch": "密码不匹配"
+      }
     }
   },
   "addFundsPayment": {
