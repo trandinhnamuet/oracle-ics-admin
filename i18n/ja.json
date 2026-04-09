@@ -582,6 +582,12 @@
         "vms": "VM",
         "withData": "データあり"
       },
+      "deletedVms": {
+        "label": "削除済みVM（集計）",
+        "vmsCount": "台削除済み",
+        "sourceOci": "OCI ライブデータ",
+        "sourceArchived": "アーカイブデータ"
+      },
       "warning": {
         "overLimitTitle": "警告: エグレス制限超過！",
         "overLimitMessage": "このVMは10 GB無料エグレス制限を{{exceeded}} TB超過しました。追加料金が発生する可能性があります。",

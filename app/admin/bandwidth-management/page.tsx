@@ -17,6 +17,7 @@ import {
   RefreshCw,
   Search,
   Server,
+  Trash2,
   Upload,
   Users,
 } from 'lucide-react'
@@ -51,6 +52,13 @@ interface VmBandwidth {
   month: string
 }
 
+interface DeletedVmsSummary {
+  count: number
+  egressTB: number
+  ingressTB: number
+  dataSource: 'oci' | 'archived'
+}
+
 interface CompartmentGroup {
   compartmentId: string
   compartmentName: string
@@ -59,6 +67,7 @@ interface CompartmentGroup {
   egressTB: number
   ingressTB: number
   vms: VmBandwidth[]
+  deletedVmsSummary: DeletedVmsSummary | null
 }
 
 interface BandwidthSummary {
@@ -66,6 +75,9 @@ interface BandwidthSummary {
   vmsWithData: number
   totalEgressTB: number
   totalIngressTB: number
+  totalDeletedVMs?: number
+  totalEgressTBIncDeleted?: number
+  totalIngressTBIncDeleted?: number
 }
 
 interface BandwidthResponse {
@@ -239,6 +251,11 @@ export default function BandwidthManagementPage() {
                 <div>
                   <p className="text-sm opacity-90">{t('admin.bandwidth.summary.totalVMs')}</p>
                   <p className="text-3xl font-bold">{data.summary?.totalVMs ?? 0}</p>
+                  {(data.summary?.totalDeletedVMs ?? 0) > 0 && (
+                    <p className="text-xs opacity-75 mt-1">
+                      +{data.summary.totalDeletedVMs} {t('admin.bandwidth.summary.deleted')}
+                    </p>
+                  )}
                 </div>
                 <Server className="h-12 w-12 opacity-80" />
               </div>
@@ -260,7 +277,14 @@ export default function BandwidthManagementPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm opacity-90">{t('admin.bandwidth.summary.totalEgress')}</p>
-                  <p className="text-3xl font-bold">{(data.summary?.totalEgressTB ?? 0).toFixed(4)} TB</p>
+                  <p className="text-3xl font-bold">
+                    {((data.summary?.totalEgressTBIncDeleted ?? data.summary?.totalEgressTB) ?? 0).toFixed(4)} TB
+                  </p>
+                  {(data.summary?.totalDeletedVMs ?? 0) > 0 && (
+                    <p className="text-xs opacity-75 mt-1">
+                      {t('admin.bandwidth.summary.activeVMs')}: {(data.summary?.totalEgressTB ?? 0).toFixed(4)} TB
+                    </p>
+                  )}
                 </div>
                 <Upload className="h-12 w-12 opacity-80" />
               </div>
@@ -271,7 +295,14 @@ export default function BandwidthManagementPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm opacity-90">{t('admin.bandwidth.summary.totalIngress')}</p>
-                  <p className="text-3xl font-bold">{(data.summary?.totalIngressTB ?? 0).toFixed(4)} TB</p>
+                  <p className="text-3xl font-bold">
+                    {((data.summary?.totalIngressTBIncDeleted ?? data.summary?.totalIngressTB) ?? 0).toFixed(4)} TB
+                  </p>
+                  {(data.summary?.totalDeletedVMs ?? 0) > 0 && (
+                    <p className="text-xs opacity-75 mt-1">
+                      {t('admin.bandwidth.summary.activeVMs')}: {(data.summary?.totalIngressTB ?? 0).toFixed(4)} TB
+                    </p>
+                  )}
                 </div>
                 <Download className="h-12 w-12 opacity-80" />
               </div>
@@ -426,6 +457,67 @@ export default function BandwidthManagementPage() {
                       </div>
                     </div>
                   ))}
+
+                  {/* Deleted VMs aggregated row */}
+                  {compartment.deletedVmsSummary && compartment.deletedVmsSummary.count > 0 && (
+                    <div className="px-6 py-4 bg-red-50 dark:bg-red-950/30 border-t-2 border-red-200 dark:border-red-800">
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-3 flex-wrap">
+                          <Trash2 className="h-5 w-5 text-red-500 flex-shrink-0" />
+                          <h3 className="text-base font-bold text-red-700 dark:text-red-400">
+                            {t('admin.bandwidth.deletedVms.label')}
+                          </h3>
+                          <Badge variant="destructive" className="text-xs">
+                            {compartment.deletedVmsSummary.count} {t('admin.bandwidth.deletedVms.vmsCount')}
+                          </Badge>
+                          <Badge
+                            variant="outline"
+                            className={
+                              compartment.deletedVmsSummary.dataSource === 'archived'
+                                ? 'text-blue-600 border-blue-500 text-xs'
+                                : 'text-green-600 border-green-500 text-xs'
+                            }
+                          >
+                            {compartment.deletedVmsSummary.dataSource === 'archived'
+                              ? t('admin.bandwidth.status.archived')
+                              : t('admin.bandwidth.status.live')}
+                          </Badge>
+                        </div>
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                          <div className="bg-red-100 dark:bg-red-900/40 p-4 rounded-lg">
+                            <p className="text-xs text-muted-foreground mb-1 flex items-center gap-1">
+                              <Upload className="h-3 w-3" />{t('admin.bandwidth.details.egress')}
+                            </p>
+                            <p className="text-2xl font-bold text-red-700 dark:text-red-400">
+                              {formatBytes(compartment.deletedVmsSummary.egressTB * 1024 ** 4)}
+                            </p>
+                            <p className="text-xs text-muted-foreground mt-1">
+                              {compartment.deletedVmsSummary.egressTB.toFixed(6)} TB
+                            </p>
+                          </div>
+                          <div className="bg-red-100 dark:bg-red-900/40 p-4 rounded-lg">
+                            <p className="text-xs text-muted-foreground mb-1 flex items-center gap-1">
+                              <Download className="h-3 w-3" />{t('admin.bandwidth.details.ingress')}
+                            </p>
+                            <p className="text-2xl font-bold text-red-700 dark:text-red-400">
+                              {formatBytes(compartment.deletedVmsSummary.ingressTB * 1024 ** 4)}
+                            </p>
+                            <p className="text-xs text-muted-foreground mt-1">
+                              {compartment.deletedVmsSummary.ingressTB.toFixed(6)} TB
+                            </p>
+                          </div>
+                          <div className="bg-red-100 dark:bg-red-900/40 p-4 rounded-lg">
+                            <p className="text-xs text-muted-foreground mb-1">{t('admin.bandwidth.details.dataSource')}</p>
+                            <p className="text-sm font-medium mt-2 text-red-700 dark:text-red-400">
+                              {compartment.deletedVmsSummary.dataSource === 'oci'
+                                ? t('admin.bandwidth.deletedVms.sourceOci')
+                                : t('admin.bandwidth.deletedVms.sourceArchived')}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
             </Card>

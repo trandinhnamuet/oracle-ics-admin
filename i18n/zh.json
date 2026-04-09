@@ -580,6 +580,12 @@
         "vms": "VM",
         "withData": "有数据"
       },
+      "deletedVms": {
+        "label": "已删除VM（汇总）",
+        "vmsCount": "台已删除",
+        "sourceOci": "OCI实时数据",
+        "sourceArchived": "存档数据"
+      },
       "warning": {
         "overLimitTitle": "警告：出口流量限制已超出！",
         "overLimitMessage": "此VM已超出10 TB免费出口流量限制 {{exceeded}} TB，可能产生额外费用。",

@@ -567,6 +567,12 @@
         "vms": "VM",
         "withData": "có dữ liệu"
       },
+      "deletedVms": {
+        "label": "VM Đã Xóa (Tổng hợp)",
+        "vmsCount": "VM đã xóa",
+        "sourceOci": "Dữ liệu OCI Trực Tiếp",
+        "sourceArchived": "Dữ liệu Lưu Trữ"
+      },
       "warning": {
         "errorMessage": "Không thể lấy dữ liệu băng thông: {{error}}"
       },

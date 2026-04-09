@@ -580,6 +580,12 @@
         "vms": "VM",
         "withData": "데이터 있음"
       },
+      "deletedVms": {
+        "label": "삭제된 VM (집계)",
+        "vmsCount": "VM 삭제됨",
+        "sourceOci": "OCI 실시간 데이터",
+        "sourceArchived": "보관된 데이터"
+      },
       "warning": {
         "overLimitTitle": "경고: 에그레스 한도 초과!",
         "overLimitMessage": "이 VM은 10 TB 무료 에그레스 한도를 {{exceeded}} TB 초과했습니다. 추가 요금이 발생할 수 있습니다.",
