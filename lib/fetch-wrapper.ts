@@ -151,5 +151,10 @@ export async function fetchJsonWithAuth<T>(
     throw new Error(error.message || `API Error: ${response.status}`);
   }
 
+  // 204 No Content — no body to parse
+  if (response.status === 204) {
+    return undefined as unknown as T;
+  }
+
   return response.json();
 }
