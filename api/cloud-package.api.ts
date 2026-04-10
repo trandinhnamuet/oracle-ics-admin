@@ -1,3 +1,5 @@
+import { fetchJsonWithAuth } from '@/lib/fetch-wrapper'
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3003'
 
 export interface CloudPackage {
@@ -30,50 +32,34 @@ export async function getActiveCloudPackages(): Promise<CloudPackage[]> {
 /**
  * Fetch all cloud packages (admin)
  */
-export async function getAllCloudPackages(token: string): Promise<CloudPackage[]> {
-  const res = await fetch(`${API_URL}/cloud-packages`, {
-    headers: { Authorization: `Bearer ${token}` },
-    cache: 'no-store',
-  })
-  if (!res.ok) throw new Error('Failed to fetch cloud packages')
-  return res.json()
+export async function getAllCloudPackages(): Promise<CloudPackage[]> {
+  return fetchJsonWithAuth<CloudPackage[]>('/cloud-packages', { cache: 'no-store' } as RequestInit)
 }
 
-export async function createCloudPackage(token: string, data: Partial<CloudPackage>): Promise<CloudPackage> {
-  const res = await fetch(`${API_URL}/cloud-packages`, {
+export async function createCloudPackage(data: Partial<CloudPackage>): Promise<CloudPackage> {
+  return fetchJsonWithAuth<CloudPackage>('/cloud-packages', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
     body: JSON.stringify(data),
   })
-  if (!res.ok) throw new Error('Failed to create cloud package')
-  return res.json()
 }
 
-export async function updateCloudPackage(token: string, id: number, data: Partial<CloudPackage>): Promise<CloudPackage> {
-  const res = await fetch(`${API_URL}/cloud-packages/${id}`, {
+export async function updateCloudPackage(id: number, data: Partial<CloudPackage>): Promise<CloudPackage> {
+  return fetchJsonWithAuth<CloudPackage>(`/cloud-packages/${id}`, {
     method: 'PATCH',
-    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
     body: JSON.stringify(data),
   })
-  if (!res.ok) throw new Error('Failed to update cloud package')
-  return res.json()
 }
 
-export async function deleteCloudPackage(token: string, id: number): Promise<void> {
-  const res = await fetch(`${API_URL}/cloud-packages/${id}`, {
+export async function deleteCloudPackage(id: number): Promise<void> {
+  return fetchJsonWithAuth<void>(`/cloud-packages/${id}`, {
     method: 'DELETE',
-    headers: { Authorization: `Bearer ${token}` },
   })
-  if (!res.ok) throw new Error('Failed to delete cloud package')
 }
 
-export async function deactivateCloudPackage(token: string, id: number): Promise<CloudPackage> {
-  const res = await fetch(`${API_URL}/cloud-packages/${id}/deactivate`, {
+export async function deactivateCloudPackage(id: number): Promise<CloudPackage> {
+  return fetchJsonWithAuth<CloudPackage>(`/cloud-packages/${id}/deactivate`, {
     method: 'PATCH',
-    headers: { Authorization: `Bearer ${token}` },
   })
-  if (!res.ok) throw new Error('Failed to deactivate cloud package')
-  return res.json()
 }
 
 /**

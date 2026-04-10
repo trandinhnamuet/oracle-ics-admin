@@ -52,10 +52,9 @@ export default function PackagesManagementPage() {
   const [pendingDeleteId, setPendingDeleteId] = useState<number | null>(null)
 
   const fetchPackages = async () => {
-    if (!token) return
     setIsLoading(true)
     try {
-      const data = await getAllCloudPackages(token)
+      const data = await getAllCloudPackages()
       setPackages(data)
     } catch {
       toast({ title: t('admin.packages.management.toast.loadError'), variant: 'destructive' })
@@ -81,9 +80,8 @@ export default function PackagesManagementPage() {
   })
 
   const handleCreatePackage = async (data: Partial<CloudPackage>) => {
-    if (!token) return
     try {
-      await createCloudPackage(token, data)
+      await createCloudPackage(data)
       toast({ title: t('admin.packages.management.toast.createSuccess') })
       await fetchPackages()
     } catch {
@@ -92,9 +90,9 @@ export default function PackagesManagementPage() {
   }
 
   const handleUpdatePackage = async (data: Partial<CloudPackage>) => {
-    if (!token || !editingPackage) return
+    if (!editingPackage) return
     try {
-      await updateCloudPackage(token, editingPackage.id, data)
+      await updateCloudPackage(editingPackage.id, data)
       toast({ title: t('admin.packages.management.toast.updateSuccess') })
       await fetchPackages()
     } catch {
@@ -103,16 +101,15 @@ export default function PackagesManagementPage() {
   }
 
   const handleDeletePackage = (id: number) => {
-    if (!token) return
     setPendingDeleteId(id)
   }
 
   const executeDeletePackage = async () => {
-    if (!token || pendingDeleteId === null) return
+    if (pendingDeleteId === null) return
     const id = pendingDeleteId
     setPendingDeleteId(null)
     try {
-      await deleteCloudPackage(token, id)
+      await deleteCloudPackage(id)
       toast({ title: t('admin.packages.management.toast.deleteSuccess') })
       setPackages((prev) => prev.filter((p) => p.id !== id))
     } catch {
