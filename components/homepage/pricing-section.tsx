@@ -232,7 +232,7 @@ export function PricingSection() {
 
         console.log(`[PAY-DEBUG] Calling subscribeWithBalance API...`)
         // Call API to subscribe with balance
-        await subscribeWithBalance({
+        const subscription = await subscribeWithBalance({
           cloudPackageId: selectedPlan.id,
           monthsCount: monthsCount,
           autoRenew: false
@@ -244,8 +244,12 @@ export function PricingSection() {
         toast({
           title: t('pricingModal.successTitle'),
           description: t('pricingModal.successDesc', { planName: selectedPlan?.name }),
-          variant: 'default'
+          variant: 'default',
+          className: 'bg-green-50 border-green-500 text-green-800 [&>*]:text-green-800',
         })
+
+        // Navigate to VM configuration page
+        router.push(`/cloud/configuration/${subscription.id}`)
 
         // Refresh balance
         const response = await getUserBalance()
