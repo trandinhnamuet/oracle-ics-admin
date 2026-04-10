@@ -1,4 +1,4 @@
-import { fetchJsonWithAuth, fetchWithAuth } from '@/lib/fetch-wrapper'
+import { fetchJsonWithAuth } from '@/lib/fetch-wrapper'
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3003'
 
@@ -51,11 +51,9 @@ export async function updateCloudPackage(id: number, data: Partial<CloudPackage>
 }
 
 export async function deleteCloudPackage(id: number): Promise<void> {
-  const res = await fetchWithAuth(`/cloud-packages/${id}`, { method: 'DELETE' })
-  if (!res.ok) {
-    const error = await res.json().catch(() => ({ message: `HTTP ${res.status}` }))
-    throw new Error(error.message || `Failed to delete cloud package`)
-  }
+  return fetchJsonWithAuth<void>(`/cloud-packages/${id}`, {
+    method: 'DELETE',
+  })
 }
 
 export async function deactivateCloudPackage(id: number): Promise<CloudPackage> {
