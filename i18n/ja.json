@@ -2275,10 +2275,19 @@
       "submitButton": "パスワードをリセット",
       "resetting": "リセット中...",
       "validation": {
-        "passwordMinLength": "パスワードは最低6文字である必要があります",
-        "confirmPasswordMinLength": "パスワード確認は最低6文字である必要があります",
+        "passwordMinLength": "パスワードは最低8文字である必要があります",
+        "passwordStrong": "パスワードが要件を満たしていません",
+        "confirmPasswordMinLength": "パスワード確認は最低8文字である必要があります",
         "passwordMismatch": "パスワードが一致しません"
       }
+    },
+    "passwordRules": {
+      "title": "パスワードに含める必要のあるもの:",
+      "minLength": "8文字以上",
+      "lowercase": "小文字1字以上 (a-z)",
+      "uppercase": "大文字1字以上 (A-Z)",
+      "digit": "数字1字以上 (0-9)",
+      "special": "特殊文字1字以上 (!@#$...)"
     }
   },
   "addFundsPayment": {

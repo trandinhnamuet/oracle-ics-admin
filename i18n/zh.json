@@ -2274,10 +2274,19 @@
       "submitButton": "重置密码",
       "resetting": "重置中...",
       "validation": {
-        "passwordMinLength": "密码必须至少为6个字符",
-        "confirmPasswordMinLength": "确认密码必须至少为6个字符",
+        "passwordMinLength": "密码至少8个字符",
+        "passwordStrong": "密码不符合要求",
+        "confirmPasswordMinLength": "确认密码至少8个字符",
         "passwordMismatch": "密码不匹配"
       }
+    },
+    "passwordRules": {
+      "title": "密码必须包含:",
+      "minLength": "至少8个字符",
+      "lowercase": "至少一个小写字母 (a-z)",
+      "uppercase": "至少一个大写字母 (A-Z)",
+      "digit": "至少一个数字 (0-9)",
+      "special": "至少一个特殊字符 (!@#$...)"
     }
   },
   "addFundsPayment": {

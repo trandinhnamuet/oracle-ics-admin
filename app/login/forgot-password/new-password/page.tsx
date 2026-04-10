@@ -38,15 +38,18 @@ export default function NewPasswordPage() {
     setPageLoading(false)
   }, [router, email, otp])
 
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9]).{8,}$/
+
   const passwordSchema = z.object({
     newPassword: z
       .string()
-      .min(6, ''),
+      .min(8, t('forgotPassword.newPassword.validation.passwordMinLength'))
+      .regex(passwordRegex, t('forgotPassword.newPassword.validation.passwordStrong')),
     confirmPassword: z
       .string()
-      .min(6, ''),
+      .min(1, t('forgotPassword.newPassword.validation.confirmPasswordMinLength')),
   }).refine((data) => data.newPassword === data.confirmPassword, {
-    message: '',
+    message: t('forgotPassword.newPassword.validation.passwordMismatch'),
     path: ['confirmPassword'],
   })
 
@@ -134,9 +137,19 @@ export default function NewPasswordPage() {
                 </Button>
               </div>
               {errors.newPassword && (
-                <p className="text-sm text-red-500">
-                  {errors.newPassword.message === '' ? t('forgotPassword.newPassword.validation.passwordMinLength') : errors.newPassword.message}
-                </p>
+                <div className="space-y-1">
+                  <p className="text-sm text-red-500">{errors.newPassword.message}</p>
+                  <div className="text-xs text-red-400 mt-1">
+                    <p>{t('forgotPassword.passwordRules.title')}</p>
+                    <ul className="list-disc list-inside space-y-0.5 mt-1">
+                      <li>{t('forgotPassword.passwordRules.minLength')}</li>
+                      <li>{t('forgotPassword.passwordRules.lowercase')}</li>
+                      <li>{t('forgotPassword.passwordRules.uppercase')}</li>
+                      <li>{t('forgotPassword.passwordRules.digit')}</li>
+                      <li>{t('forgotPassword.passwordRules.special')}</li>
+                    </ul>
+                  </div>
+                </div>
               )}
             </div>
 
@@ -161,9 +174,7 @@ export default function NewPasswordPage() {
                 </Button>
               </div>
               {errors.confirmPassword && (
-                <p className="text-sm text-red-500">
-                  {errors.confirmPassword.message === '' ? t('forgotPassword.newPassword.validation.passwordMismatch') : errors.confirmPassword.message}
-                </p>
+                <p className="text-sm text-red-500">{errors.confirmPassword.message}</p>
               )}
             </div>
 
