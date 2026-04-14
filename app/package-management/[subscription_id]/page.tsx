@@ -1140,18 +1140,6 @@ export default function AdminPackageDetailPage() {
                     {t('packageDetail.actions.restartVM')}
                   </Button>
 
-                  {vmDetails?.vm?.operatingSystem?.toLowerCase().includes('windows') && (
-                    <Button
-                      className="w-full justify-start"
-                      variant="outline"
-                      onClick={() => setResetPasswordDialog(true)}
-                      disabled={isLoading || isResettingPassword || vmDetails?.vm?.lifecycleState !== 'RUNNING'}
-                    >
-                      <Lock className="h-4 w-4 mr-2" />
-                      {isResettingPassword ? t('packageDetail.actions.resettingPassword') : t('packageDetail.actions.resetPassword')}
-                    </Button>
-                  )}
-
                   <Button
                     className="w-full justify-start bg-green-600 hover:bg-green-700 text-white"
                     onClick={() => setIsTerminalOpen(true)}
