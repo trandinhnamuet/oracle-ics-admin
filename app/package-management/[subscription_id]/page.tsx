@@ -709,22 +709,6 @@ export default function AdminPackageDetailPage() {
                     <p className="text-sm font-semibold flex items-center gap-2">
                       🪟 Windows RDP Credentials
                     </p>
-                    {vmDetails.vm.lifecycleState === 'RUNNING' && (
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        className="text-orange-600 border-orange-300 hover:bg-orange-50 dark:hover:bg-orange-950/20"
-                        onClick={() => setResetPasswordDialog(true)}
-                        disabled={isResettingPassword}
-                      >
-                        {isResettingPassword ? (
-                          <RefreshCw className="h-3 w-3 mr-1 animate-spin" />
-                        ) : (
-                          <Key className="h-3 w-3 mr-1" />
-                        )}
-                        {t('packageDetail.serverDetails.resetPassword')}
-                      </Button>
-                    )}
                   </div>
                   {vmDetails.vm.windowsInitialPassword ? (
                     <div className="bg-gray-50 dark:bg-muted p-3 rounded space-y-2 text-sm font-mono">
@@ -1156,7 +1140,7 @@ export default function AdminPackageDetailPage() {
                     {t('packageDetail.actions.restartVM')}
                   </Button>
 
-                  {vmDetails?.vm?.operatingSystem?.toLowerCase().includes('windows') ? (
+                  {vmDetails?.vm?.operatingSystem?.toLowerCase().includes('windows') && (
                     <Button
                       className="w-full justify-start"
                       variant="outline"
@@ -1165,16 +1149,6 @@ export default function AdminPackageDetailPage() {
                     >
                       <Lock className="h-4 w-4 mr-2" />
                       {isResettingPassword ? t('packageDetail.actions.resettingPassword') : t('packageDetail.actions.resetPassword')}
-                    </Button>
-                  ) : (
-                    <Button
-                      className="w-full justify-start"
-                      variant="outline"
-                      onClick={handleRequestNewKey}
-                      disabled={isLoading || isRequestingSshKey}
-                    >
-                      <Download className="h-4 w-4 mr-2" />
-                      {isRequestingSshKey ? t('packageDetail.actions.generating') : t('packageDetail.actions.requestSshKey')}
                     </Button>
                   )}
 
@@ -1189,34 +1163,7 @@ export default function AdminPackageDetailPage() {
                 </>
               )}
 
-              <div className="pt-2 border-t dark:border-border">
-                {/* Auto Renew Toggle */}
-                <div className={`flex items-center justify-between px-2 py-3 rounded-lg border transition-colors ${
-                  subscription?.auto_renew
-                    ? 'bg-green-50 dark:bg-green-950/20 border-green-200 dark:border-green-900'
-                    : 'bg-gray-50 dark:bg-muted border-gray-200 dark:border-border'
-                }`}>
-                  <div className="flex flex-col gap-0.5">
-                    <Label htmlFor="auto-renew-toggle" className="text-sm font-medium cursor-pointer flex items-center gap-1">
-                      {subscription?.auto_renew ? '🔄' : '⏸️'} {t('packageDetail.actions.autoRenew')}
-                    </Label>
-                    <span className="text-xs text-muted-foreground">
-                      {isTogglingAutoRenew
-                        ? t('packageDetail.actions.togglingAutoRenew')
-                        : subscription?.auto_renew
-                        ? t('packageDetail.actions.autoRenewOn')
-                        : t('packageDetail.actions.autoRenewOff')}
-                    </span>
-                  </div>
-                  <Switch
-                    id="auto-renew-toggle"
-                    className="scale-125 origin-right"
-                    checked={subscription?.auto_renew ?? false}
-                    onCheckedChange={handleToggleAutoRenew}
-                    disabled={isTogglingAutoRenew || isLoading}
-                  />
-                </div>
-              </div>
+
 
               <div className="pt-2 border-t dark:border-border space-y-2">
                 {subscription?.vm_instance_id && (
