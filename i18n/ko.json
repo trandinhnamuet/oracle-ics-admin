@@ -578,7 +578,8 @@
       },
       "compartment": {
         "vms": "VM",
-        "withData": "데이터 있음"
+        "withData": "데이터 있음",
+        "active": "활성만"
       },
       "deletedVms": {
         "label": "삭제된 VM (집계)",

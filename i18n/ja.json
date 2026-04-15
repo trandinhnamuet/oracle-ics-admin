@@ -580,7 +580,8 @@
       },
       "compartment": {
         "vms": "VM",
-        "withData": "データあり"
+        "withData": "データあり",
+        "active": "アクティブのみ"
       },
       "deletedVms": {
         "label": "削除済みVM（集計）",

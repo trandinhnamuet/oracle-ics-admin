@@ -578,7 +578,8 @@
       },
       "compartment": {
         "vms": "VM",
-        "withData": "有数据"
+        "withData": "有数据",
+        "active": "仅活跃"
       },
       "deletedVms": {
         "label": "已删除VM（汇总）",

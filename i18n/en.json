@@ -565,7 +565,8 @@
       },
       "compartment": {
         "vms": "VMs",
-        "withData": "with data"
+        "withData": "with data",
+        "active": "Active only"
       },
       "deletedVms": {
         "label": "Deleted VMs (Aggregated)",

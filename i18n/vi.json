@@ -565,7 +565,8 @@
       },
       "compartment": {
         "vms": "VM",
-        "withData": "có dữ liệu"
+        "withData": "có dữ liệu",
+        "active": "Chỉ đang chạy"
       },
       "deletedVms": {
         "label": "VM Đã Xóa (Tổng hợp)",

@@ -382,11 +382,25 @@ export default function BandwidthManagementPage() {
                   <div className="flex items-center gap-6 flex-shrink-0 ml-4">
                     <div className="text-right hidden sm:block">
                       <p className="text-xs text-muted-foreground">{t('admin.bandwidth.details.egress')}</p>
-                      <p className="font-bold text-orange-600">{compartment.egressTB.toFixed(4)} TB</p>
+                      <p className="font-bold text-orange-600">
+                        {(compartment.egressTB + (compartment.deletedVmsSummary?.egressTB ?? 0)).toFixed(4)} TB
+                      </p>
+                      {(compartment.deletedVmsSummary?.egressTB ?? 0) > 0 && (
+                        <p className="text-xs text-muted-foreground">
+                          {t('admin.bandwidth.compartment.active')}: {compartment.egressTB.toFixed(4)} TB
+                        </p>
+                      )}
                     </div>
                     <div className="text-right hidden sm:block">
                       <p className="text-xs text-muted-foreground">{t('admin.bandwidth.details.ingress')}</p>
-                      <p className="font-bold text-blue-600">{compartment.ingressTB.toFixed(4)} TB</p>
+                      <p className="font-bold text-blue-600">
+                        {(compartment.ingressTB + (compartment.deletedVmsSummary?.ingressTB ?? 0)).toFixed(4)} TB
+                      </p>
+                      {(compartment.deletedVmsSummary?.ingressTB ?? 0) > 0 && (
+                        <p className="text-xs text-muted-foreground">
+                          {t('admin.bandwidth.compartment.active')}: {compartment.ingressTB.toFixed(4)} TB
+                        </p>
+                      )}
                     </div>
                     {isExpanded
                       ? <ChevronDown className="h-5 w-5 text-muted-foreground" />
