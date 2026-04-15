@@ -26,7 +26,7 @@ export default function CompartmentManagementPage() {
   const [loading, setLoading] = useState(true)
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false)
   const [selectedCompartment, setSelectedCompartment] = useState<Compartment | null>(null)
-  const [deleting, setDeleting] = useState(false)
+  const [deletingIds, setDeletingIds] = useState<Set<string>>(new Set())
   const { toast } = useToast()
 
   const loadCompartments = async () => {
@@ -56,14 +56,19 @@ export default function CompartmentManagementPage() {
 
   const handleDeleteConfirm = async () => {
     if (!selectedCompartment) return
+    const compartmentToDelete = selectedCompartment
+
+    // Close dialog immediately so user can delete other compartments right away
+    setDeleteDialogOpen(false)
+    setSelectedCompartment(null)
+    setDeletingIds(prev => new Set(prev).add(compartmentToDelete.id))
 
     try {
-      setDeleting(true)
-      await deleteCompartment(selectedCompartment.name)
+      await deleteCompartment(compartmentToDelete.name)
       
       toast({
         title: t('admin.compartment.toast.deleteSuccess', { name: '' }).split('"')[0],
-        description: t('admin.compartment.toast.deleteSuccess', { name: selectedCompartment.name }),
+        description: t('admin.compartment.toast.deleteSuccess', { name: compartmentToDelete.name }),
       })
 
       // Reload danh sách sau khi xóa
@@ -75,8 +80,11 @@ export default function CompartmentManagementPage() {
         variant: 'destructive',
       })
     } finally {
-      setDeleting(false)
-      setSelectedCompartment(null)
+      setDeletingIds(prev => {
+        const next = new Set(prev)
+        next.delete(compartmentToDelete.id)
+        return next
+      })
     }
   }
 
@@ -157,10 +165,19 @@ export default function CompartmentManagementPage() {
                     variant="destructive"
                     size="sm"
                     onClick={() => handleDeleteClick(compartment)}
-                    disabled={compartment.lifecycleState !== 'ACTIVE'}
+                    disabled={compartment.lifecycleState !== 'ACTIVE' || deletingIds.has(compartment.id)}
                   >
-                    <Trash2 className="mr-2 h-4 w-4" />
-                    {t('admin.compartment.deleteButton')}
+                    {deletingIds.has(compartment.id) ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        {t('admin.compartment.dialog.deleting')}
+                      </>
+                    ) : (
+                      <>
+                        <Trash2 className="mr-2 h-4 w-4" />
+                        {t('admin.compartment.deleteButton')}
+                      </>
+                    )}
                   </Button>
                 </div>
               </CardContent>
@@ -200,23 +217,13 @@ export default function CompartmentManagementPage() {
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel disabled={deleting}>{t('admin.compartment.dialog.cancelButton')}</AlertDialogCancel>
+            <AlertDialogCancel>{t('admin.compartment.dialog.cancelButton')}</AlertDialogCancel>
             <AlertDialogAction
               onClick={handleDeleteConfirm}
-              disabled={deleting}
               className="bg-destructive hover:bg-destructive/90"
             >
-              {deleting ? (
-                <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  {t('admin.compartment.dialog.deleting')}
-                </>
-              ) : (
-                <>
-                  <Trash2 className="mr-2 h-4 w-4" />
-                  {t('admin.compartment.dialog.confirmButton')}
-                </>
-              )}
+              <Trash2 className="mr-2 h-4 w-4" />
+              {t('admin.compartment.dialog.confirmButton')}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
