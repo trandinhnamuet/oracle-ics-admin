@@ -474,7 +474,6 @@ export default function AdminPackageDetailPage() {
         title: t('packageDetail.toast.passwordResetError'),
         description: error?.response?.data?.message || error?.message || t('packageDetail.toast.passwordResetErrorDesc'),
         variant: 'destructive',
-        duration: 8000,
       })
     } finally {
       setIsResettingPassword(false)
