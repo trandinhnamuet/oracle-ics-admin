@@ -584,7 +584,8 @@
         "label": "已删除VM（汇总）",
         "vmsCount": "台已删除",
         "sourceOci": "OCI实时数据",
-        "sourceArchived": "存档数据"
+        "sourceArchived": "存档数据",
+        "noDeletedVms": "没有已删除的VM"
       },
       "warning": {
         "overLimitTitle": "警告：出口流量限制已超出！",

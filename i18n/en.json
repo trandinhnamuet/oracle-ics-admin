@@ -571,7 +571,8 @@
         "label": "Deleted VMs (Aggregated)",
         "vmsCount": "VMs deleted",
         "sourceOci": "Live OCI Data",
-        "sourceArchived": "Archived Data"
+        "sourceArchived": "Archived Data",
+        "noDeletedVms": "No VMs deleted"
       },
       "warning": {
         "errorMessage": "Cannot retrieve bandwidth data: {{error}}"

@@ -584,7 +584,8 @@
         "label": "삭제된 VM (집계)",
         "vmsCount": "VM 삭제됨",
         "sourceOci": "OCI 실시간 데이터",
-        "sourceArchived": "보관된 데이터"
+        "sourceArchived": "보관된 데이터",
+        "noDeletedVms": "삭제된 VM 없음"
       },
       "warning": {
         "overLimitTitle": "경고: 에그레스 한도 초과!",

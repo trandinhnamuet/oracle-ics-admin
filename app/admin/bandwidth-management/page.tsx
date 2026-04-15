@@ -195,7 +195,7 @@ export default function BandwidthManagementPage() {
         })
         return { ...compartment, vms: sortedVms }
       })
-      .filter(c => c.vms.length > 0)
+      .filter(c => c.vms.length > 0 || (c.deletedVmsSummary && c.deletedVmsSummary.count > 0))
   }, [data, filterText, sortBy])
 
   const totalFilteredVMs = useMemo(
@@ -458,8 +458,8 @@ export default function BandwidthManagementPage() {
                     </div>
                   ))}
 
-                  {/* Deleted VMs aggregated row */}
-                  {compartment.deletedVmsSummary && compartment.deletedVmsSummary.count > 0 && (
+                  {/* Deleted VMs aggregated row — always shown */}
+                  {compartment.deletedVmsSummary && (
                     <div className="px-6 py-4 bg-red-50 dark:bg-red-950/30 border-t-2 border-red-200 dark:border-red-800">
                       <div className="space-y-3">
                         <div className="flex items-center gap-3 flex-wrap">
@@ -470,18 +470,20 @@ export default function BandwidthManagementPage() {
                           <Badge variant="destructive" className="text-xs">
                             {compartment.deletedVmsSummary.count} {t('admin.bandwidth.deletedVms.vmsCount')}
                           </Badge>
-                          <Badge
-                            variant="outline"
-                            className={
-                              compartment.deletedVmsSummary.dataSource === 'archived'
-                                ? 'text-blue-600 border-blue-500 text-xs'
-                                : 'text-green-600 border-green-500 text-xs'
-                            }
-                          >
-                            {compartment.deletedVmsSummary.dataSource === 'archived'
-                              ? t('admin.bandwidth.status.archived')
-                              : t('admin.bandwidth.status.live')}
-                          </Badge>
+                          {compartment.deletedVmsSummary.count > 0 && (
+                            <Badge
+                              variant="outline"
+                              className={
+                                compartment.deletedVmsSummary.dataSource === 'archived'
+                                  ? 'text-blue-600 border-blue-500 text-xs'
+                                  : 'text-green-600 border-green-500 text-xs'
+                              }
+                            >
+                              {compartment.deletedVmsSummary.dataSource === 'archived'
+                                ? t('admin.bandwidth.status.archived')
+                                : t('admin.bandwidth.status.live')}
+                            </Badge>
+                          )}
                         </div>
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                           <div className="bg-red-100 dark:bg-red-900/40 p-4 rounded-lg">
@@ -489,7 +491,9 @@ export default function BandwidthManagementPage() {
                               <Upload className="h-3 w-3" />{t('admin.bandwidth.details.egress')}
                             </p>
                             <p className="text-2xl font-bold text-red-700 dark:text-red-400">
-                              {formatBytes(compartment.deletedVmsSummary.egressTB * 1024 ** 4)}
+                              {compartment.deletedVmsSummary.count > 0
+                                ? formatBytes(compartment.deletedVmsSummary.egressTB * 1024 ** 4)
+                                : '0 B'}
                             </p>
                             <p className="text-xs text-muted-foreground mt-1">
                               {compartment.deletedVmsSummary.egressTB.toFixed(6)} TB
@@ -500,7 +504,9 @@ export default function BandwidthManagementPage() {
                               <Download className="h-3 w-3" />{t('admin.bandwidth.details.ingress')}
                             </p>
                             <p className="text-2xl font-bold text-red-700 dark:text-red-400">
-                              {formatBytes(compartment.deletedVmsSummary.ingressTB * 1024 ** 4)}
+                              {compartment.deletedVmsSummary.count > 0
+                                ? formatBytes(compartment.deletedVmsSummary.ingressTB * 1024 ** 4)
+                                : '0 B'}
                             </p>
                             <p className="text-xs text-muted-foreground mt-1">
                               {compartment.deletedVmsSummary.ingressTB.toFixed(6)} TB
@@ -509,9 +515,11 @@ export default function BandwidthManagementPage() {
                           <div className="bg-red-100 dark:bg-red-900/40 p-4 rounded-lg">
                             <p className="text-xs text-muted-foreground mb-1">{t('admin.bandwidth.details.dataSource')}</p>
                             <p className="text-sm font-medium mt-2 text-red-700 dark:text-red-400">
-                              {compartment.deletedVmsSummary.dataSource === 'oci'
-                                ? t('admin.bandwidth.deletedVms.sourceOci')
-                                : t('admin.bandwidth.deletedVms.sourceArchived')}
+                              {compartment.deletedVmsSummary.count === 0
+                                ? t('admin.bandwidth.deletedVms.noDeletedVms')
+                                : compartment.deletedVmsSummary.dataSource === 'oci'
+                                  ? t('admin.bandwidth.deletedVms.sourceOci')
+                                  : t('admin.bandwidth.deletedVms.sourceArchived')}
                             </p>
                           </div>
                         </div>

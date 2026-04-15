@@ -571,7 +571,8 @@
         "label": "VM Đã Xóa (Tổng hợp)",
         "vmsCount": "VM đã xóa",
         "sourceOci": "Dữ liệu OCI Trực Tiếp",
-        "sourceArchived": "Dữ liệu Lưu Trữ"
+        "sourceArchived": "Dữ liệu Lưu Trữ",
+        "noDeletedVms": "Chưa có VM nào bị xóa"
       },
       "warning": {
         "errorMessage": "Không thể lấy dữ liệu băng thông: {{error}}"

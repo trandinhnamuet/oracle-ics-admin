@@ -586,7 +586,8 @@
         "label": "削除済みVM（集計）",
         "vmsCount": "台削除済み",
         "sourceOci": "OCI ライブデータ",
-        "sourceArchived": "アーカイブデータ"
+        "sourceArchived": "アーカイブデータ",
+        "noDeletedVms": "削除されたVMはありません"
       },
       "warning": {
         "overLimitTitle": "警告: エグレス制限超過！",
