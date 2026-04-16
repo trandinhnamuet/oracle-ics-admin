@@ -63,7 +63,7 @@ interface CloudPackageDetail {
   }
 }
 
-// Returns a formatter function for chart axes based on the selected time range.
+// Returns a formatter function for chart X-axis ticks based on the selected time range.
 // Short ranges (≤24h) show time only (HH:mm); longer ranges (>24h) show date only (dd/MM).
 function makeTimeFormatter(tr: string) {
   const dateOnly = tr === '7d' || tr === 'all'
@@ -77,6 +77,17 @@ function makeTimeFormatter(tr: string) {
     } catch {
       return isoStr
     }
+  }
+}
+
+// Always shows full date + time for tooltip labels regardless of time range.
+function tooltipDateTimeFormatter(isoStr: string): string {
+  try {
+    const d = parseAsUtc(isoStr)
+    return d.toLocaleDateString(undefined, { month: '2-digit', day: '2-digit' }) +
+      ' ' + d.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })
+  } catch {
+    return isoStr
   }
 }
 
@@ -804,7 +815,7 @@ export default function AdminPackageDetailPage() {
                           <CartesianGrid strokeDasharray="3 3" />
                           <XAxis dataKey="time" axisLine={false} tickLine={false} className="text-sm" tickFormatter={fmtTime} />
                           <YAxis domain={[0, 100]} axisLine={false} tickLine={false} className="text-sm" />
-                          <Tooltip labelFormatter={fmtTime} formatter={(v: number) => [`${v.toFixed(2)}%`, 'CPU']} />
+                          <Tooltip labelFormatter={tooltipDateTimeFormatter} formatter={(v: number) => [`${v.toFixed(2)}%`, 'CPU']} />
                           <Area type="monotone" dataKey="value" stroke="#ef4444" fill="#fecaca" strokeWidth={2} />
                         </AreaChart>
                       </ResponsiveContainer>
@@ -837,7 +848,7 @@ export default function AdminPackageDetailPage() {
                           <CartesianGrid strokeDasharray="3 3" />
                           <XAxis dataKey="time" axisLine={false} tickLine={false} className="text-sm" tickFormatter={fmtTime} />
                           <YAxis domain={[0, 100]} axisLine={false} tickLine={false} className="text-sm" />
-                          <Tooltip labelFormatter={fmtTime} formatter={(v: number) => [`${v.toFixed(2)}%`, 'Memory']} />
+                          <Tooltip labelFormatter={tooltipDateTimeFormatter} formatter={(v: number) => [`${v.toFixed(2)}%`, 'Memory']} />
                           <Area type="monotone" dataKey="value" stroke="#8b5cf6" fill="#ddd6fe" strokeWidth={2} />
                         </AreaChart>
                       </ResponsiveContainer>
@@ -893,7 +904,7 @@ export default function AdminPackageDetailPage() {
                           <XAxis dataKey="time" axisLine={false} tickLine={false} className="text-sm" tickFormatter={fmtTime} />
                           <YAxis axisLine={false} tickLine={false} className="text-sm" />
                           <Tooltip
-                            labelFormatter={fmtTime}
+                            labelFormatter={tooltipDateTimeFormatter}
                             formatter={(v: number, name: string) => [
                               `${v.toFixed(3)} MB`,
                               name === 'in' ? 'In (nhận)' : 'Out (gửi)',
@@ -959,7 +970,7 @@ export default function AdminPackageDetailPage() {
                           <XAxis dataKey="time" axisLine={false} tickLine={false} className="text-sm" tickFormatter={fmtTime} />
                           <YAxis axisLine={false} tickLine={false} className="text-sm" />
                           <Tooltip
-                            labelFormatter={fmtTime}
+                            labelFormatter={tooltipDateTimeFormatter}
                             formatter={(v: number, name: string) => [
                               `${v.toFixed(3)} MB`,
                               name === 'read' ? 'Read (đọc)' : 'Write (ghi)',
