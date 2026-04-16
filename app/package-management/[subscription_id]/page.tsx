@@ -80,6 +80,23 @@ function makeTimeFormatter(tr: string) {
   }
 }
 
+// Returns one representative timestamp per unique day (first point of each day) from a data array.
+// Used to deduplicate X-axis ticks when displaying date-only labels for 7d/all ranges.
+function makeDateTicks(data: Array<{ time: string }>): string[] {
+  const seen = new Set<string>()
+  const ticks: string[] = []
+  for (const d of data) {
+    try {
+      const key = parseAsUtc(d.time).toLocaleDateString(undefined, { month: '2-digit', day: '2-digit' })
+      if (!seen.has(key)) {
+        seen.add(key)
+        ticks.push(d.time)
+      }
+    } catch { /* skip */ }
+  }
+  return ticks
+}
+
 // Always shows full date + time for tooltip labels regardless of time range.
 function tooltipDateTimeFormatter(isoStr: string): string {
   try {
@@ -109,6 +126,11 @@ export default function AdminPackageDetailPage() {
   const [networkVisible, setNetworkVisible] = useState({ in: true, out: true })
   const [diskVisible, setDiskVisible] = useState({ read: true, write: true })
   const fmtTime = useMemo(() => makeTimeFormatter(timeRange), [timeRange])
+  const chartTicks = useMemo(() => {
+    if (timeRange !== '7d' && timeRange !== 'all') return undefined
+    const src = metrics?.cpu ?? metrics?.memory ?? []
+    return makeDateTicks(src)
+  }, [timeRange, metrics])
   const [isTerminalOpen, setIsTerminalOpen] = useState(false)
   const [showSshKeyConfirm, setShowSshKeyConfirm] = useState(false)
   const [isRequestingSshKey, setIsRequestingSshKey] = useState(false)
@@ -813,7 +835,7 @@ export default function AdminPackageDetailPage() {
                       <ResponsiveContainer width="100%" height="100%">
                         <AreaChart data={metrics.cpu}>
                           <CartesianGrid strokeDasharray="3 3" />
-                          <XAxis dataKey="time" axisLine={false} tickLine={false} className="text-sm" tickFormatter={fmtTime} />
+                          <XAxis dataKey="time" axisLine={false} tickLine={false} className="text-sm" tickFormatter={fmtTime} ticks={chartTicks} />
                           <YAxis domain={[0, 100]} axisLine={false} tickLine={false} className="text-sm" />
                           <Tooltip labelFormatter={tooltipDateTimeFormatter} formatter={(v: number) => [`${v.toFixed(2)}%`, 'CPU']} />
                           <Area type="monotone" dataKey="value" stroke="#ef4444" fill="#fecaca" strokeWidth={2} />
@@ -846,7 +868,7 @@ export default function AdminPackageDetailPage() {
                       <ResponsiveContainer width="100%" height="100%">
                         <AreaChart data={metrics.memory}>
                           <CartesianGrid strokeDasharray="3 3" />
-                          <XAxis dataKey="time" axisLine={false} tickLine={false} className="text-sm" tickFormatter={fmtTime} />
+                          <XAxis dataKey="time" axisLine={false} tickLine={false} className="text-sm" tickFormatter={fmtTime} ticks={chartTicks} />
                           <YAxis domain={[0, 100]} axisLine={false} tickLine={false} className="text-sm" />
                           <Tooltip labelFormatter={tooltipDateTimeFormatter} formatter={(v: number) => [`${v.toFixed(2)}%`, 'Memory']} />
                           <Area type="monotone" dataKey="value" stroke="#8b5cf6" fill="#ddd6fe" strokeWidth={2} />
@@ -901,7 +923,7 @@ export default function AdminPackageDetailPage() {
                       <ResponsiveContainer width="100%" height="100%">
                         <AreaChart data={getNetworkData()}>
                           <CartesianGrid strokeDasharray="3 3" />
-                          <XAxis dataKey="time" axisLine={false} tickLine={false} className="text-sm" tickFormatter={fmtTime} />
+                          <XAxis dataKey="time" axisLine={false} tickLine={false} className="text-sm" tickFormatter={fmtTime} ticks={chartTicks} />
                           <YAxis axisLine={false} tickLine={false} className="text-sm" />
                           <Tooltip
                             labelFormatter={tooltipDateTimeFormatter}
@@ -967,7 +989,7 @@ export default function AdminPackageDetailPage() {
                       <ResponsiveContainer width="100%" height="100%">
                         <AreaChart data={getDiskData()}>
                           <CartesianGrid strokeDasharray="3 3" />
-                          <XAxis dataKey="time" axisLine={false} tickLine={false} className="text-sm" tickFormatter={fmtTime} />
+                          <XAxis dataKey="time" axisLine={false} tickLine={false} className="text-sm" tickFormatter={fmtTime} ticks={chartTicks} />
                           <YAxis axisLine={false} tickLine={false} className="text-sm" />
                           <Tooltip
                             labelFormatter={tooltipDateTimeFormatter}
