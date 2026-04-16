@@ -64,15 +64,14 @@ interface CloudPackageDetail {
 }
 
 // Returns a formatter function for chart axes based on the selected time range.
-// Short ranges (≤24h) show time only; longer ranges (7d / all) show date + time.
+// Short ranges (≤24h) show time only (HH:mm); longer ranges (>24h) show date only (dd/MM).
 function makeTimeFormatter(tr: string) {
-  const showDate = tr === '7d' || tr === 'all'
+  const dateOnly = tr === '7d' || tr === 'all'
   return (isoStr: string): string => {
     try {
       const d = parseAsUtc(isoStr)
-      if (showDate) {
+      if (dateOnly) {
         return d.toLocaleDateString(undefined, { month: '2-digit', day: '2-digit' })
-          + ' ' + d.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })
       }
       return d.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })
     } catch {
