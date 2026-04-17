@@ -1,6 +1,6 @@
 ﻿'use client'
 
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, useRef } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import { useTranslation } from 'react-i18next'
 import dynamic from 'next/dynamic'
@@ -252,6 +252,47 @@ export default function AdminPackageDetailPage() {
       fetchVmDetails()
     }
   }, [subscription, subscriptionId])
+
+  // Auto-poll VM details for Windows VMs that are still provisioning or missing password
+  const windowsPollRef = useRef<NodeJS.Timeout | null>(null)
+  useEffect(() => {
+    if (windowsPollRef.current) {
+      clearInterval(windowsPollRef.current)
+      windowsPollRef.current = null
+    }
+
+    const isWindows = vmDetails?.vm?.operatingSystem?.toLowerCase().includes('windows')
+    const needsPolling = isWindows && (!vmDetails?.vm?.windowsInitialPassword || vmDetails?.vm?.lifecycleState !== 'RUNNING')
+
+    if (!needsPolling || !subscriptionId) return
+
+    let pollCount = 0
+    const MAX_POLLS = 40 // ~10 minutes at 15s intervals
+
+    windowsPollRef.current = setInterval(async () => {
+      pollCount++
+      if (pollCount > MAX_POLLS) {
+        if (windowsPollRef.current) clearInterval(windowsPollRef.current)
+        return
+      }
+      try {
+        const vmData = await getSubscriptionVm(subscriptionId)
+        setVmDetails(vmData)
+        if (vmData?.vm?.windowsInitialPassword && vmData?.vm?.lifecycleState === 'RUNNING') {
+          if (windowsPollRef.current) clearInterval(windowsPollRef.current)
+        }
+      } catch (err) {
+        console.error('Error polling VM details:', err)
+      }
+    }, 15000)
+
+    return () => {
+      if (windowsPollRef.current) {
+        clearInterval(windowsPollRef.current)
+        windowsPollRef.current = null
+      }
+    }
+  }, [vmDetails?.vm?.operatingSystem, vmDetails?.vm?.windowsInitialPassword, vmDetails?.vm?.lifecycleState, subscriptionId])
 
   // Fetch metrics when VM is running
   useEffect(() => {
@@ -738,19 +779,19 @@ export default function AdminPackageDetailPage() {
                 <div className="mt-4 border-t pt-4">
                   <div className="flex items-center justify-between mb-2">
                     <p className="text-sm font-semibold flex items-center gap-2">
-                      🪟 Windows RDP Credentials
+                      {t('packageDetail.serverDetails.windowsRdpCredentials')}
                     </p>
                   </div>
                   {vmDetails.vm.windowsInitialPassword ? (
                     <div className="bg-gray-50 dark:bg-muted p-3 rounded space-y-2 text-sm font-mono">
                       <div className="flex items-center justify-between">
-                        <span><strong>Username:</strong> opc</span>
+                        <span><strong>{t('packageDetail.serverDetails.username')}:</strong> opc</span>
                         <Button size="sm" variant="ghost" onClick={() => copyToClipboard('opc', 'win-user')}>
                           {copiedField === 'win-user' ? <Check className="h-3 w-3 text-green-500" /> : <Copy className="h-3 w-3" />}
                         </Button>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span><strong>Initial password:</strong> {vmDetails.vm.windowsInitialPassword}</span>
+                        <span><strong>{t('packageDetail.serverDetails.initialPassword')}:</strong> {vmDetails.vm.windowsInitialPassword}</span>
                         <Button size="sm" variant="ghost" onClick={() => copyToClipboard(vmDetails.vm!.windowsInitialPassword!, 'win-pass')}>
                           {copiedField === 'win-pass' ? <Check className="h-3 w-3 text-green-500" /> : <Copy className="h-3 w-3" />}
                         </Button>
@@ -759,8 +800,7 @@ export default function AdminPackageDetailPage() {
                   ) : (
                     <div className="bg-yellow-50 dark:bg-yellow-950/20 border border-yellow-200 dark:border-yellow-900 p-3 rounded text-sm">
                       <p className="text-yellow-800 dark:text-yellow-400">
-                        ⏳ Mật khẩu đang được tạo (5–10 phút sau khi VM khởi động).
-                        Hãy làm mới trang sau vài phút.
+                        {t('packageDetail.serverDetails.windowsPasswordPending')}
                       </p>
                     </div>
                   )}
