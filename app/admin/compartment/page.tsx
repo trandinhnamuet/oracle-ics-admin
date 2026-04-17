@@ -66,13 +66,15 @@ export default function CompartmentManagementPage() {
     try {
       await deleteCompartment(compartmentToDelete.name)
       
+      // Backend returns 202 - deletion initiated in background
       toast({
-        title: t('admin.compartment.toast.deleteSuccess', { name: '' }).split('"')[0],
-        description: t('admin.compartment.toast.deleteSuccess', { name: compartmentToDelete.name }),
+        title: t('admin.compartment.toast.deleteInitiated', { name: compartmentToDelete.name }),
+        description: t('admin.compartment.toast.deleteInitiatedDesc'),
       })
 
-      // Reload danh sách sau khi xóa
+      // Reload immediately to show DELETING state, then auto-refresh after 10s
       await loadCompartments()
+      setTimeout(() => loadCompartments(), 10000)
     } catch (error: any) {
       toast({
         title: t('admin.compartment.toast.deleteError', { message: '' }).split(':')[0],

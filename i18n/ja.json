@@ -674,6 +674,8 @@
       "toast": {
         "loadError": "コンパートメントリストを読み込めません: {{message}}",
         "deleteSuccess": "コンパートメント\"{{name}}\"と内部のすべてのリソースが削除されました",
+        "deleteInitiated": "コンパートメント\"{{name}}\"を削除中...",
+        "deleteInitiatedDesc": "削除がバックグラウンドで開始されました。完了まで数分かかる場合があります。リストは自動的に更新されます。",
         "deleteError": "コンパートメントを削除できません: {{message}}"
       }
     },
@@ -2230,6 +2232,8 @@
     "securityNote": "🔒 このコードは10分後に期限切れになります。誰とも共有しないでください。",
     "errorInvalidOtp": "無効なOTPコードです。もう一度確認してください。",
     "errorIncomplete": "6桁のコードを完全に入力してください",
+    "errorHourlyLimit": "1時間内のOTP送信限度（6回）に達しました。{{minutes}}分後に再試行してください。",
+    "errorResendCooldown": "OTPを再送信する前に{{seconds}}秒お待ちください。",
     "status": {
       "sending": "確認コードを送信中...",
       "sentTitle": "確認コードを送信しました！",

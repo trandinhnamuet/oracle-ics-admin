@@ -10,6 +10,7 @@ import { ArrowLeft } from 'lucide-react';
 import { authApi } from '@/api/auth.api';
 import { getClientIp } from '@/lib/ip-service';
 import { useTranslation } from 'react-i18next';
+import { parseOtpError } from '@/lib/otp-error';
 
 interface VerifyOtpPageProps {
   email: string;
@@ -95,7 +96,7 @@ export function VerifyOtpPage({ email, customMessage, onBack, onSuccess }: Verif
       setOtpCode(''); // Clear current input
     } catch (error: any) {
       console.error('Resend OTP error:', error);
-      setError(t('verifyOtp.errorInvalidOtp'));
+      setError(parseOtpError(error, t));
       setStatus('error');
     }
   };

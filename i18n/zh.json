@@ -672,6 +672,8 @@
       "toast": {
         "loadError": "无法加载分区列表: {{message}}",
         "deleteSuccess": "已删除分区\"{{name}}\"及其内部所有资源",
+        "deleteInitiated": "正在删除分区\"{{name}}\"...",
+        "deleteInitiatedDesc": "删除已在后台启动，可能需要几分钟完成。列表将自动更新。",
         "deleteError": "无法删除分区: {{message}}"
       }
     },
@@ -2229,6 +2231,8 @@
     "securityNote": "🔒 此验证码 10 分钟后过期，请勿与任何人分享。",
     "errorInvalidOtp": "OTP 验证码错误，请重新检查。",
     "errorIncomplete": "请输入完整的6位验证码",
+    "errorHourlyLimit": "您每小时内发送OTP次数已达上限（6次）。请等待 {{minutes}} 分钟后再试。",
+    "errorResendCooldown": "请等待 {{seconds}} 秒后再重新发送OTP。",
     "status": {
       "sending": "正在发送验证码...",
       "sentTitle": "验证码已发送！",

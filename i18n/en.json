@@ -655,6 +655,8 @@
       "toast": {
         "loadError": "Cannot load compartment list: {{message}}",
         "deleteSuccess": "Successfully deleted compartment \"{{name}}\" and all resources inside",
+        "deleteInitiated": "Deleting compartment \"{{name}}\"...",
+        "deleteInitiatedDesc": "Deletion has been started in the background. This may take a few minutes. The list will refresh automatically.",
         "deleteError": "Cannot delete compartment: {{message}}"
       }
     },
@@ -2212,6 +2214,8 @@
     "securityNote": "🔒 This code expires in 10 minutes. Don't share it with anyone.",
     "errorInvalidOtp": "Invalid OTP code. Please check and try again.",
     "errorIncomplete": "Please enter a complete 6-digit code",
+    "errorHourlyLimit": "You have reached the OTP limit (6/hour). Please wait {{minutes}} minute(s) before requesting again.",
+    "errorResendCooldown": "Please wait {{seconds}} seconds before resending OTP.",
     "status": {
       "sending": "Sending verification code...",
       "sentTitle": "Verification code sent!",

@@ -655,6 +655,8 @@
       "toast": {
         "loadError": "Không thể tải danh sách compartments: {{message}}",
         "deleteSuccess": "Đã xóa compartment \"{{name}}\" và tất cả tài nguyên bên trong",
+        "deleteInitiated": "Đang xóa compartment \"{{name}}\"...",
+        "deleteInitiatedDesc": "Quá trình xóa đã được bắt đầu. Có thể mất vài phút để hoàn thành. Danh sách sẽ tự động cập nhật.",
         "deleteError": "Không thể xóa compartment: {{message}}"
       }
     },
@@ -2211,6 +2213,8 @@
     "securityNote": "🔒 Mã này có hiệu lực trong 10 phút. Không chia sẻ với bất kỳ ai.",
     "errorInvalidOtp": "Mã OTP không đúng. Vui lòng kiểm tra lại.",
     "errorIncomplete": "Vui lòng nhập đầy đủ mã 6 số",
+    "errorHourlyLimit": "Bạn đã đạt giới hạn 6 lần gửi OTP trong 1 giờ. Vui lòng chờ {{minutes}} phút trước khi yêu cầu lại.",
+    "errorResendCooldown": "Vui lòng chờ {{seconds}} giây trước khi gửi lại OTP.",
     "status": {
       "sending": "Đang gửi mã xác thực...",
       "sentTitle": "Đã gửi mã xác thực!",
