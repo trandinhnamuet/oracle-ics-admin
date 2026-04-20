@@ -41,10 +41,10 @@ export interface ConfigureVmDto {
   displayName?: string
   imageId: string
   shape: string
-  ocpus: number
-  memoryInGBs: number
-  bootVolumeSizeInGBs: number
-  notificationEmail: string
+  ocpus?: number
+  memoryInGBs?: number
+  bootVolumeSizeInGBs?: number
+  notificationEmail?: string
   description?: string
 }
 
