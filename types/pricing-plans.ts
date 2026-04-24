@@ -7,6 +7,7 @@ export const customPlan: PricingPlan = {
   name: "custom",
   description: "pricing.plans.custom.description",
   price: "pricing.plans.custom.price",
+  priceVnd: 0,
   period: "",
   icon: Star,
   popular: false,

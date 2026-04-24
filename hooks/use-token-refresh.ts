@@ -22,9 +22,9 @@ export function useTokenRefresh() {
       try {
         // Try refresh token - backend sẽ validate access_token từ cookie
         const refreshResponse = await authApi.refreshToken()
-        if (refreshResponse.access_token) {
+        if (refreshResponse.accessToken) {
           // Update token in store
-          setToken(refreshResponse.access_token)
+          setToken(refreshResponse.accessToken)
           console.log('✅ Token đã được refresh thành công')
         }
       } catch (error) {

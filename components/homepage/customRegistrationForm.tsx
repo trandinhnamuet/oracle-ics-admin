@@ -101,7 +101,7 @@ export default function CustomRegistrationForm({ open, onOpenChange }: CustomReg
       }
 
       const payload = {
-        userId: user?.id ? parseInt(user.id) : undefined,
+        userId: user?.id ?? undefined,
         phoneNumber: values.phoneNumber,
         email: values.email,
         company: values.company || '',

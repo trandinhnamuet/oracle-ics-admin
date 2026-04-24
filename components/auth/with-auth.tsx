@@ -35,7 +35,11 @@ function withAuth<P extends object>(
           if (token && !user) {
             try {
               const userData = await authApi.getCurrentUser()
-              login(userData, token)
+              if (userData) {
+                login(userData, token)
+              } else {
+                logout()
+              }
             } catch (error) {
               console.error('Failed to fetch user data:', error)
               logout()
@@ -106,7 +110,11 @@ export function useAuth() {
         if (authStore.token && !authStore.user) {
           try {
             const userData = await authApi.getCurrentUser()
-            authStore.login(userData, authStore.token)
+            if (userData) {
+              authStore.login(userData, authStore.token!)
+            } else {
+              authStore.logout()
+            }
           } catch (error) {
             console.error('Failed to fetch user data:', error)
             authStore.logout()
