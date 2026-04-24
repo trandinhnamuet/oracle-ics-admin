@@ -699,7 +699,7 @@ export function PricingSection() {
 
       {/* Payment Method Selection Popup */}
       <Dialog open={showPaymentMethodPopup} onOpenChange={setShowPaymentMethodPopup}>
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="w-[calc(100vw-1rem)] sm:w-[calc(100vw-2rem)] max-w-[41rem] max-h-[calc(100dvh-1rem)] overflow-y-auto sm:max-h-[calc(100dvh-2rem)]">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold text-center">
               {t('pricingModal.title')}
