@@ -1,0 +1,2343 @@
+{
+  "packageManagement": {
+    "title": "訂閱套餐管理",
+    "subtitle": "追蹤和管理您正在使用的服務套餐",
+    "searchPlaceholder": "按套餐名稱、電子郵件搜尋...",
+    "status": "狀態",
+    "type": "套餐類型",
+    "filter": {
+      "all": "全部",
+      "active": "活躍",
+      "inactive": "非活躍"
+    },
+    "stats": {
+      "total": "總套餐數",
+      "active": "活躍",
+      "pending": "待付款",
+      "suspended": "已過期/暫停"
+    },
+    "table": {
+      "title": "訂閱套餐列表 ({{count}})",
+      "packageName": "套餐名稱",
+      "type": "類型",
+      "paidAmount": "已支付金額",
+      "createdAt": "訂閱日期",
+      "updatedAt": "最後更新",
+      "status": "狀態",
+      "actions": "操作",
+      "noMatch": "未找到匹配的套餐",
+      "noPackage": "暫無訂閱套餐",
+      "customPackage": "自訂套餐",
+      "active": "活躍",
+      "inactive": "非活躍",
+      "pending": "待處理",
+      "suspended": "已暫停",
+      "cancelled": "已取消",
+      "expired": "已過期",
+      "pauseTitle": "暫停套餐",
+      "activateTitle": "啟動套餐",
+      "deleteTitle": "刪除套餐",
+      "imageDetail": "作業系統"
+    },
+    "confirmDialog": {
+      "cancel": "取消",
+      "confirm": "確認",
+      "deleteSubscription": {
+        "title": "確認刪除訂閱",
+        "description": "此操作將永久刪除Oracle Cloud上的訂閱和虛擬機(VM)。所有相關資料將被刪除且無法恢復。刪除前請備份重要資料。"
+      },
+      "stopVm": {
+        "title": "確認停止VM",
+        "description": "您確定要停止此VM嗎？"
+      },
+      "startVm": {
+        "title": "確認啟動VM",
+        "description": "您確定要啟動此VM嗎？"
+      },
+      "renewSubscription": {
+        "title": "確認續費訂閱",
+        "description": "您確定要續費\"{{packageName}}\"套餐嗎？將從您的錢包中扣除{{cost}}。"
+      }
+    },
+    "toast": {
+      "loadingList": "正在載入訂閱列表...",
+      "vmNotConfigured": "VM未配置",
+      "vmStopSent": "已傳送VM停止命令",
+      "vmStartSent": "已傳送VM啟動命令",
+      "vmActionPending": "完成後狀態將自動更新。",
+      "vmStopError": "停止VM出錯",
+      "vmStartError": "啟動VM出錯",
+      "renewSuccess": "訂閱續費成功！",
+      "renewSuccessDesc": "您的訂閱已啟動，VM已啟動。",
+      "renewFailed": "續費失敗",
+      "renewInsufficientFunds": "帳戶餘額不足，無法續費，請儲值。",
+      "renewError": "續費訂閱時出錯",
+      "deleteSuccess": "訂閱和VM已成功刪除！",
+      "deleteError": "刪除訂閱時發生錯誤"
+    },
+    "notConfigured": "未配置",
+    "tooltip": {
+      "stopVm": "停止VM",
+      "startVm": "啟動VM",
+      "stopping": "VM停止中...",
+      "starting": "VM啟動中...",
+      "transitioning": "VM正在過渡狀態",
+      "renewSubscription": "續費訂閱"
+    },
+    "fetchError": {
+      "title": "錯誤",
+      "system": "載入訂閱列表時出現系統錯誤。請稍後再試。",
+      "network": "無法載入訂閱列表。請檢查您的網路連線。"
+    }
+  },
+  "contactInfo": {
+    "heroTitle": "聯絡我們",
+    "heroDesc": "越南官方Oracle合作夥伴，隨時為您提供24/7支援",
+    "companyInfo": "公司資訊",
+    "companyName": "國際網路安全股份有限公司 - ICS",
+    "officeHanoi": "河內辦公室",
+    "officeAddress": "河內市定功新大金城市區TT3-5",
+    "contactInfo": "聯絡方式",
+    "phoneHotline": "電話與熱線",
+    "email": "電子郵件",
+    "website": "網站",
+    "mapTitle": "地圖位置",
+    "mapDesc": "查找我們辦公室的路線",
+    "learnMore": "了解更多關於我們 →",
+    "openInMaps": "在地圖中開啟"
+  },
+  "dashboard": {
+    "title": "系統管理",
+    "user": {
+      "title": "使用者管理",
+      "desc": "查看、編輯和管理使用者帳戶",
+      "stats": "共{{count}}個使用者"
+    },
+    "customRegistration": {
+      "title": "自訂套餐註冊",
+      "desc": "管理自訂服務套餐註冊請求",
+      "stats": "{{count}}個新請求"
+    },
+    "access": "存取"
+  },
+  "admin": {
+    "title": "管理儀表板",
+    "userTitle": "使用者管理",
+    "userDesc": "查看、編輯和管理使用者帳戶",
+    "userStats": "共{{count}}位使用者",
+    "customRegTitle": "自訂套餐申請管理",
+    "customRegDesc": "追蹤和處理自訂套餐申請",
+    "customRegStats": "{{count}}條新申請",
+    "access": "存取",
+    "packagesTitle": "管理雲包",
+    "packagesDesc": "建立、編輯和管理雲服務包",
+    "packagesStats": "總計：{{count}}個包",
+    "subscriptionsTitle": "管理服務訂閱",
+    "subscriptionsDesc": "查看和管理使用者訂閱的服務包（訂閱）",
+    "subscriptionsStats": "查看和管理使用者訂閱的服務包（訂閱）",
+    "walletTransactionsTitle": "錢包交易管理",
+    "walletTransactionsDesc": "查看使用者的錢包交易歷史",
+    "walletTransactionsStats": "所有交易",
+    "termsTitle": "條款管理",
+    "termsDesc": "管理儲存在資料庫中的服務條款章節",
+    "termsStats": "編輯條款內容",
+    "terms": {
+      "title": "條款管理",
+      "subtitle": "無需修改程式碼即可分別編輯越南語和英語條款",
+      "refresh": "重新整理",
+      "loading": "正在載入條款章節...",
+      "createTitle": "建立新章節",
+      "create": "建立章節",
+      "creating": "建立中...",
+      "save": "儲存",
+      "delete": "刪除",
+      "sectionLabel": "章節 #{{id}}",
+      "articleLabel": "條款 #{{index}}",
+      "addArticle": "新增條款",
+      "removeArticle": "刪除條款",
+      "copyViToEn": "複製 VI -> EN",
+      "copySectionViToEn": "整節複製 VI -> EN",
+      "paragraphHint": "每行一個段落",
+      "confirmDelete": "刪除此章節？此操作無法撤銷。",
+      "fields": {
+        "sectionTitle": "章節標題",
+        "sectionTitleVi": "章節標題（越南語）",
+        "sectionTitleEn": "章節標題（英語）",
+        "orderIndex": "排序索引",
+        "active": "啟用",
+        "articlesJson": "文章 JSON",
+        "articleNumber": "條款編號",
+        "headingVi": "標題（越南語）",
+        "headingEn": "標題（英語）",
+        "paragraphsVi": "段落內容（越南語）",
+        "paragraphsEn": "段落內容（英語）"
+      },
+      "toast": {
+        "saved": "章節更新成功",
+        "deleted": "章節刪除成功",
+        "created": "章節建立成功",
+        "error": "操作失敗",
+        "loadError": "無法載入條款章節",
+        "saveError": "無法儲存章節",
+        "deleteError": "無法刪除章節",
+        "createError": "無法建立章節",
+        "invalidJson": "文章 JSON 無效",
+        "invalidStructure": "文章 JSON 結構無效",
+        "titleRequired": "章節標題為必填項",
+        "titleViRequired": "越南語章節標題為必填項",
+        "titleEnRequired": "英語章節標題為必填項",
+        "articleRequired": "至少需要一個條款",
+        "headingViRequired": "越南語條款標題為必填項",
+        "headingEnRequired": "英語條款標題為必填項"
+      }
+    },
+    "user": {
+      "title": "使用者管理",
+      "subtitle": "管理系統中的使用者帳戶",
+      "exportExcel": "匯出到Excel",
+      "searchPlaceholder": "按電子郵件、姓名、公司搜尋...",
+      "stats": {
+        "total": "總使用者數",
+        "active": "活躍",
+        "inactive": "已鎖定"
+      },
+      "table": {
+        "id": "ID",
+        "email": "電子郵件",
+        "name": "全名",
+        "phone": "電話號碼",
+        "company": "公司",
+        "role": "角色",
+        "status": "狀態",
+        "createdAt": "建立日期",
+        "updatedAt": "更新日期",
+        "actions": "操作",
+        "noUserFound": "未找到使用者",
+        "noUser": "暫無使用者",
+        "noData": "暫無資料",
+        "admin": "管理員",
+        "customer": "客戶",
+        "active": "活躍",
+        "inactive": "鎖定"
+      },
+      "actions": {
+        "grantAdmin": "授予管理員權限",
+        "revokeAdmin": "撤銷管理員權限",
+        "delete": "刪除使用者"
+      },
+      "loading": "載入中..."
+    },
+    "customRegistration": {
+      "title": "自訂套餐註冊管理",
+      "subtitle": "追蹤和處理自訂服務套餐註冊請求",
+      "exportExcel": "匯出到Excel",
+      "stats": {
+        "total": "總註冊數",
+        "processed": "已處理",
+        "unprocessed": "未處理"
+      },
+      "searchPlaceholder": "按電子郵件、電話號碼、姓名、公司搜尋...",
+      "filter": {
+        "all": "全部",
+        "processed": "已處理",
+        "unprocessed": "未處理"
+      },
+      "table": {
+        "id": "ID",
+        "user": "註冊人",
+        "contact": "聯絡方式",
+        "company": "公司",
+        "config": "配置",
+        "note": "備註",
+        "time": "時間",
+        "status": "狀態",
+        "noData": "無匹配資料",
+        "noCompany": "無",
+        "cpu": "CPU",
+        "ram": "記憶體",
+        "storage": "儲存",
+        "bandwidth": "頻寬"
+      },
+      "footer": "顯示 {{current}} / {{total}} 註冊",
+      "loading": "載入資料中...",
+      "export": {
+        "phone": "電話號碼",
+        "detail": "詳情",
+        "createdAt": "註冊日期",
+        "createdBy": "建立人",
+        "notAvailable": "無",
+        "sheetName": "自訂註冊列表",
+        "system": "系統"
+      }
+    },
+    "packages": {
+      "createPackage": {
+        "title": {
+          "create": "建立新套餐",
+          "edit": "編輯套餐"
+        },
+        "form": {
+          "packageName": "套餐名稱",
+          "packageNamePlaceholder": "例如：Starter 1",
+          "category": "類別",
+          "categoryOptions": {
+            "starter": "Starter",
+            "professional": "Professional",
+            "enterprise": "Enterprise",
+            "ai": "AI-GPU",
+            "custom": "Custom"
+          },
+          "description": "描述",
+          "descriptionPlaceholder": "服務套餐描述",
+          "price": "價格 ($)",
+          "period": "週期",
+          "periodOptions": {
+            "month": "月",
+            "year": "年"
+          },
+          "popularPackage": "熱門套餐",
+          "features": "功能",
+          "featurePlaceholder": "例如：4 vCPU",
+          "addFeature": "新增功能"
+        },
+        "buttons": {
+          "cancel": "取消",
+          "create": "建立套餐",
+          "update": "更新"
+        },
+        "validation": {
+          "error": "錯誤",
+          "fillAllFields": "請填寫所有必需資訊"
+        }
+      },
+      "management": {
+        "title": "套餐管理",
+        "subtitle": "建立、編輯和管理雲服務套餐",
+        "createNewPackage": "建立新套餐",
+        "searchPlaceholder": "搜尋服務套餐...",
+        "filter": {
+          "allCategories": "所有類別",
+          "starter": "Starter",
+          "professional": "Professional",
+          "enterprise": "Enterprise",
+          "ai": "AI-GPU",
+          "custom": "Custom"
+        },
+        "categories": {
+          "starter": "Starter",
+          "professional": "Professional",
+          "enterprise": "Enterprise",
+          "ai": "AI-GPU",
+          "custom": "Custom"
+        },
+        "table": {
+          "servicePackage": "服務套餐",
+          "category": "類別",
+          "price": "價格",
+          "description": "描述",
+          "features": "功能",
+          "status": "狀態",
+          "actions": "操作",
+          "moreFeatures": "更多功能",
+          "popular": "熱門",
+          "noPackagesFound": "未找到服務套餐",
+          "active": "活躍",
+          "inactive": "非活躍",
+          "idLabel": "ID",
+          "specs": {
+            "cpu": "CPU",
+            "ram": "RAM",
+            "ssd": "SSD",
+            "bw": "頻寬"
+          }
+        },
+        "toast": {
+          "loadError": "套餐載入錯誤",
+          "createSuccess": "成功",
+          "createSuccessDesc": "套餐建立成功",
+          "createError": "套餐建立錯誤",
+          "updateSuccess": "成功",
+          "updateSuccessDesc": "套餐更新成功",
+          "updateError": "套餐更新錯誤",
+          "deleteSuccess": "成功",
+          "deleteSuccessDesc": "套餐刪除成功",
+          "deleteError": "套餐刪除錯誤"
+        },
+        "packageCount": "套餐 ({{count}})"
+      }
+    },
+    "subscriptions": {
+      "title": "訂閱管理",
+      "backButton": "返回",
+      "searchPlaceholder": "按使用者名稱、信箱、套餐名稱、VM名稱、IPv4、ID搜尋...",
+      "filterByStatus": "按狀態篩選",
+      "confirmDelete": "您確定要刪除此訂閱嗎？",
+      "filter": {
+        "allStatus": "所有狀態"
+      },
+      "status": {
+        "active": "活躍",
+        "pending": "保留中",
+        "inactive": "非活躍",
+        "expired": "已過期",
+        "suspended": "已暫停",
+        "cancelled": "已取消"
+      },
+      "stats": {
+        "total": "總訂閱數",
+        "pending": "保留中",
+        "active": "活躍",
+        "expired": "已過期",
+        "cancelled": "已取消"
+      },
+      "table": {
+        "title": "訂閱列表",
+        "showing": "顯示 {{from}} - {{to}} / {{total}} 個訂閱",
+        "noData": "未找到訂閱",
+        "id": "ID",
+        "user": "使用者",
+        "package": "套餐",
+        "vmInfo": "虛擬機資訊",
+        "noPublicIp": "無公網IP",
+        "notConfigured": "未配置",
+        "startDate": "開始日期",
+        "endDate": "結束日期",
+        "status": "狀態",
+        "autoRenew": "自動續費",
+        "price": "價格",
+        "createdAt": "建立日期",
+        "actions": "操作",
+        "yes": "是",
+        "no": "否",
+        "recordsPerPage": "每頁記錄數:",
+        "goTo": "跳轉到頁:",
+        "pageOf": "第 {{current}} / {{total}} 頁",
+        "fromDatePlaceholder": "開始日期",
+        "toDatePlaceholder": "結束日期"
+      },
+      "tooltip": {
+        "viewDetail": "查看詳情",
+        "stopVm": "停止VM",
+        "startVm": "啟動VM",
+        "deleteVmOnly": "僅刪除VM（保留訂閱）",
+        "deleteWithVm": "刪除訂閱和VM"
+      },
+      "actions": {
+        "viewDetail": "查看詳情",
+        "edit": "編輯",
+        "delete": "刪除"
+      },
+      "toast": {
+        "success": "成功",
+        "error": "錯誤",
+        "info": "資訊",
+        "loadError": "無法載入訂閱列表",
+        "deleteSuccess": "訂閱刪除成功",
+        "deleteError": "無法刪除訂閱",
+        "deleteWithVmSuccess": "訂閱和VM刪除成功。",
+        "deleteVmOnlySuccess": "VM已刪除。訂閱仍然有效。",
+        "deleteVmOnlyError": "無法刪除VM",
+        "stopVmSuccess": "VM停止成功。",
+        "stopVmError": "無法停止VM",
+        "startVmSuccess": "VM啟動成功。",
+        "startVmError": "無法啟動VM",
+        "editInDevelopment": "編輯功能正在開發中"
+      },
+      "confirmDialog": {
+        "deleteSub": {
+          "title": "確認刪除訂閱",
+          "description": "您確定要刪除此訂閱嗎？此操作無法撤銷。"
+        },
+        "deleteWithVm": {
+          "title": "確認刪除訂閱和VM",
+          "description": "刪除整個訂閱和虛擬機(VM)？此操作無法撤銷。"
+        },
+        "deleteVmOnly": {
+          "title": "確認刪除VM",
+          "description": "僅刪除虛擬機(VM)？訂閱仍然有效，但需要配置新VM。"
+        },
+        "stopVm": {
+          "title": "確認停止VM",
+          "description": "您確定要停止此VM嗎？"
+        },
+        "startVm": {
+          "title": "確認啟動VM",
+          "description": "您確定要啟動此VM嗎？"
+        },
+        "cancel": "取消",
+        "confirm": "確認"
+      }
+    },
+    "analytics": {
+      "title": "分析儀表板",
+      "subtitle": "網站流量和訪客統計",
+      "dateRange": {
+        "last7Days": "過去7天",
+        "last30Days": "過去30天",
+        "last90Days": "過去90天",
+        "refresh": "重新整理"
+      },
+      "summary": {
+        "totalPageViews": "總頁面瀏覽量",
+        "totalPageViewsDesc": "所選時間段的頁面瀏覽量",
+        "uniqueUsers": "獨立使用者",
+        "uniqueUsersDesc": "網站的獨立訪客",
+        "bounceRate": "跳出率",
+        "bounceRateDesc": "未互動即離開的訪客",
+        "avgLoadTime": "平均載入時間",
+        "avgLoadTimeDesc": "平均頁面載入時間"
+      },
+      "charts": {
+        "pageViewsOverTime": "頁面瀏覽量趨勢",
+        "topPages": "熱門頁面",
+        "userEvents": "使用者事件",
+        "allEvents": "所有事件",
+        "googleAnalytics": "Google Analytics整合",
+        "googleAnalyticsDesc": "此儀表板顯示您網站的分析資料。要啟用Google Analytics追蹤:",
+        "gaStep1": "在.env.local檔案中將Google Analytics測量ID設定為NEXT_PUBLIC_GA_MEASUREMENT_ID",
+        "gaStep2": "部署更改以啟動Google Analytics追蹤",
+        "gaStep3": "在Google Analytics控制台中查看詳細分析"
+      },
+      "loading": "載入分析資料中...",
+      "error": "錯誤",
+      "retry": "重試",
+      "noData": "無資料",
+      "noPageData": "無頁面資料",
+      "noEventData": "無事件資料"
+    },
+    "bandwidth": {
+      "title": "頻寬監控",
+      "subtitle": "按月追蹤每台VM的出口流量 (VnicBytesOut) — Partner計劃每月免費包含10 TB",
+      "loading": "載入頻寬資料中...",
+      "refresh": "重新整理",
+      "month": {
+        "label": "月份:",
+        "current": "(目前)"
+      },
+      "summary": {
+        "totalVMs": "VM總數",
+        "vmsWithData": "有資料的VM",
+        "overLimit": "超出限制",
+        "nearLimit": "接近限制",
+        "totalEgress": "總出口流量",
+        "totalIngress": "總入口流量",
+        "average": "平均值"
+      },
+      "filter": {
+        "searchPlaceholder": "按VM名稱、信箱或IP搜尋...",
+        "matchingCount": "{{matched}} / {{total}} 台VM",
+        "label": "篩選:",
+        "all": "全部",
+        "over": "超出限制",
+        "near": "警告",
+        "normal": "正常"
+      },
+      "sort": {
+        "label": "排序:",
+        "usage": "使用量",
+        "name": "VM名稱",
+        "user": "使用者"
+      },
+      "status": {
+        "live": "即時",
+        "archived": "歸檔",
+        "noData": "無資料",
+        "overLimit": "超出限制",
+        "warning": "警告",
+        "normal": "正常",
+        "error": "錯誤"
+      },
+      "source": {
+        "oci": "即時 (OCI)",
+        "archived": "已歸檔",
+        "none": "無資料"
+      },
+      "info": {
+        "text": "追蹤 VnicBytesOut (oci_vcn 命名空間) — 每台VM的VNIC出站位元組數。OCI Partner計劃每月包含10 TB免費出口流量。"
+      },
+      "details": {
+        "egress": "出口流量 (計費)",
+        "ingress": "入口流量 (免費)",
+        "remaining": "剩餘",
+        "exceeded": "超出",
+        "package": "套餐",
+        "company": "公司",
+        "dataSource": "資料來源",
+        "email": "信箱",
+        "ip": "IP",
+        "notAvailable": "N/A"
+      },
+      "lifecycle": {
+        "RUNNING": "運行中",
+        "STOPPED": "已停止",
+        "STARTING": "啟動中",
+        "STOPPING": "停止中",
+        "PROVISIONING": "配置中",
+        "TERMINATED": "已終止",
+        "UNKNOWN": "未知"
+      },
+      "compartment": {
+        "vms": "VM",
+        "withData": "有資料",
+        "active": "僅活躍"
+      },
+      "deletedVms": {
+        "label": "已刪除VM（彙總）",
+        "vmsCount": "台已刪除",
+        "sourceOci": "OCI即時資料",
+        "sourceArchived": "存檔資料",
+        "noDeletedVms": "沒有已刪除的VM"
+      },
+      "warning": {
+        "overLimitTitle": "警告：出口流量限制已超出！",
+        "overLimitMessage": "此VM已超出10 TB免費出口流量限制 {{exceeded}} TB，可能產生額外費用。",
+        "nearLimitTitle": "警告：出口流量即將達到限制！",
+        "nearLimitMessage": "此VM已使用{{usage}}%出口頻寬。距限制還有{{remaining}} TB。",
+        "errorMessage": "無法取得頻寬資料: {{error}}"
+      },
+      "noVms": "沒有VM符合目前篩選條件"
+    },
+    "walletTransactions": {
+      "title": "錢包交易管理",
+      "subtitle": "查看所有使用者的錢包交易歷史",
+      "refresh": "重新整理",
+      "loading": "載入中...",
+      "empty": "暫無交易記錄",
+      "walletFallback": "錢包 #{{id}}",
+      "log": {
+        "totalAmount": "篩選後共 {{total}} 條記錄的總金額"
+      },
+      "toast": {
+        "loadError": "載入資料失敗"
+      },
+      "filters": {
+        "user": "按使用者篩選",
+        "allUsers": "所有使用者",
+        "searchPlaceholder": "搜尋信箱、姓名...",
+        "noUserFound": "未找到使用者",
+        "month": "按月份篩選",
+        "enabled": "啟用",
+        "amountDirection": "按資金方向篩選",
+        "amountAll": "全部",
+        "amountPositive": "僅入帳 (+)",
+        "amountNegative": "僅出帳 (-)"
+      },
+      "table": {
+        "title": "交易列表（{{total}} 條）"
+      },
+      "columns": {
+        "user": "使用者",
+        "type": "交易類型",
+        "amount": "金額",
+        "balanceAfter": "交易後餘額",
+        "paymentId": "Payment ID",
+        "time": "時間"
+      },
+      "type": {
+        "deposit": "儲值",
+        "subscription_payment": "套餐支付",
+        "auto_renewal": "自動續費",
+        "manual_renewal": "手動續費"
+      },
+      "pagination": {
+        "summary": "第 {{page}}/{{totalPages}} 頁 - 共 {{total}} 條"
+      }
+    },
+    "compartment": {
+      "title": "分區管理",
+      "subtitle": "OCI租戶中的分區列表",
+      "refresh": "重新整理",
+      "loading": "載入分區中...",
+      "noCompartments": "無分區",
+      "noDescription": "無描述",
+      "createdAt": "建立日期",
+      "deleteButton": "刪除分區",
+      "dialog": {
+        "title": "確認刪除分區",
+        "description1": "您確定要刪除分區",
+        "description2": "嗎？",
+        "warning": "⚠️ 此操作將刪除分區內的所有資源，包括:",
+        "items": {
+          "vms": "所有VM實例",
+          "vcns": "所有VCN（虛擬雲網路）",
+          "subnets": "所有子網",
+          "gateways": "所有網際網路閘道",
+          "routes": "所有路由表"
+        },
+        "irreversible": "此操作無法撤銷！",
+        "deleting": "刪除中...",
+        "confirmButton": "確認刪除",
+        "cancelButton": "取消"
+      },
+      "toast": {
+        "loadError": "無法載入分區列表: {{message}}",
+        "deleteSuccess": "已刪除分區\"{{name}}\"及其內部所有資源",
+        "deleteInitiated": "正在刪除分區\"{{name}}\"...",
+        "deleteInitiatedDesc": "刪除已在後台啟動，可能需要幾分鐘完成。列表將自動更新。",
+        "deleteError": "無法刪除分區: {{message}}"
+      }
+    },
+    "costs": {
+      "title": "費用 & 積分",
+      "subtitle": "所有使用者的財務概覽",
+      "back": "返回",
+      "refresh": "重新整理",
+      "loading": "載入費用資料中...",
+      "summary": {
+        "totalBalance": "總剩餘餘額",
+        "totalBalanceDesc": "所有使用者錢包的總和",
+        "totalDeposited": "總儲值金額",
+        "totalDepositedDesc": "所有儲值交易的累計",
+        "totalSpent": "總消費金額",
+        "totalSpentDesc": "所有扣款交易的累計",
+        "users": "使用者數量",
+        "usersDesc": "擁有活躍錢包的使用者"
+      },
+      "timeBreakdown": {
+        "title": "按時間統計",
+        "monthly": "按月",
+        "yearly": "按年"
+      },
+      "months": {
+        "jan": "1月", "feb": "2月", "mar": "3月",
+        "apr": "4月", "may": "5月", "jun": "6月",
+        "jul": "7月", "aug": "8月", "sep": "9月",
+        "oct": "10月", "nov": "11月", "dec": "12月"
+      },
+      "table": {
+        "month": "月份",
+        "year": "年份",
+        "deposited": "儲值",
+        "spent": "消費",
+        "difference": "差額"
+      },
+      "perUser": {
+        "title": "按使用者明細",
+        "searchPlaceholder": "搜尋信箱或姓名...",
+        "user": "使用者",
+        "currentBalance": "目前餘額",
+        "totalDeposited": "總儲值",
+        "totalSpent": "總消費",
+        "status": "狀態",
+        "low": "低",
+        "normal": "正常",
+        "noUser": "未找到使用者"
+      }
+    },
+    "loginHistory": {
+      "title": "登入歷史",
+      "subtitle": "追蹤和監控所有管理員登入活動",
+      "stats": {
+        "totalLogins": "總登入次數",
+        "last30Days": "過去30天",
+        "successRate": "成功率",
+        "successful": "{{count}}次成功",
+        "failedAttempts": "失敗次數",
+        "locked": "鎖定: {{count}}",
+        "uniqueDevices": "獨立裝置",
+        "countries": "{{count}}個國家"
+      },
+      "suspicious": {
+        "alert": "⚠️ 檢測到{{count}}次可疑登入嘗試",
+        "failedFrom": "{{date}}從{{ip}}登入失敗",
+        "more": "...還有{{count}}條"
+      },
+      "filters": {
+        "status": "狀態",
+        "all": "全部",
+        "success": "成功",
+        "failed": "失敗",
+        "locked": "已鎖定",
+        "fromDate": "開始日期",
+        "toDate": "結束日期",
+        "sortBy": "排序方式",
+        "loginTime": "登入時間",
+        "username": "使用者名稱",
+        "statusSort": "狀態",
+        "refresh": "重新整理",
+        "loading": "載入中..."
+      },
+      "showing": "顯示第{{from}}至{{to}}條，共{{total}}條",
+      "export": "匯出CSV",
+      "exportLoading": "匯出中...",
+      "exportToastSuccess": "匯出成功",
+      "exportSuccess": "登入歷史已匯出為CSV",
+      "exportToastError": "匯出失敗",
+      "exportError": "匯出登入歷史失敗",
+      "table": {
+        "account": "帳戶",
+        "loginTime": "登入時間",
+        "status": "狀態",
+        "ip": "IP地址",
+        "location": "位置",
+        "browser": "瀏覽器",
+        "os": "系統",
+        "device": "裝置",
+        "duration": "時長",
+        "newDevice": "新裝置"
+      },
+      "noRecords": "無登入記錄",
+      "loading": "載入中...",
+      "active": "活躍",
+      "new": "新",
+      "known": "已知",
+      "pagination": {
+        "recordsPerPage": "每頁記錄數:",
+        "page": "第{{current}} / {{total}}頁",
+        "prev": "上一頁",
+        "next": "下一頁"
+      }
+    },
+    "payments": {
+      "title": "支付管理",
+      "subtitle": "所有支付交易列表",
+      "refresh": "重新整理",
+      "summary": {
+        "total": "總支付",
+        "pending": "待處理",
+        "expired": "已過期",
+        "success": "成功"
+      },
+      "list": {
+        "title": "支付列表 ({{count}})",
+        "searchPlaceholder": "按交易碼、信箱、姓名搜尋..."
+      },
+      "table": {
+        "transactionCode": "交易碼",
+        "subscriptionId": "訂閱ID",
+        "user": "使用者",
+        "amount": "金額",
+        "type": "類型",
+        "method": "方式",
+        "status": "狀態",
+        "createdAt": "建立日期",
+        "actions": "操作"
+      },
+      "status": {
+        "success": "成功",
+        "pending": "待處理",
+        "failed": "失敗",
+        "expired": "已過期",
+        "deleted": "已刪除"
+      },
+      "paymentType": {
+        "deposit": "儲值",
+        "subscription": "訂閱"
+      },
+      "actions": {
+        "accept": "接受",
+        "processing": "處理中...",
+        "completed": "已完成",
+        "failed": "失敗",
+        "expired": "已過期",
+        "deleted": "已刪除"
+      },
+      "pagination": {
+        "info": "第{{current}} / {{total}}頁 — 共{{count}}筆"
+      },
+      "confirm": {
+        "title": "確認接受支付",
+        "description": "您確定要接受此支付嗎？這將啟動訂閱或為使用者新增資金。",
+        "confirm": "確認",
+        "cancel": "取消"
+      },
+      "loading": "載入資料中...",
+      "noPayments": "未找到支付記錄",
+      "toast": {
+        "acceptSuccess": "支付已成功接受！",
+        "acceptError": "支付錯誤",
+        "acceptErrorDesc": "接受支付時發生錯誤"
+      }
+    },
+    "supportTickets": {
+      "title": "支援請求管理",
+      "subtitle": "追蹤和處理使用者支援請求",
+      "refresh": "重新整理",
+      "stats": {
+        "total": "總請求",
+        "open": "開放",
+        "inProgress": "處理中",
+        "resolved": "已解決",
+        "urgent": "緊急"
+      },
+      "filters": {
+        "searchPlaceholder": "按標題、信箱、姓名搜尋...",
+        "status": "狀態",
+        "priority": "優先級",
+        "allStatus": "所有狀態",
+        "allPriority": "所有優先級"
+      },
+      "status": {
+        "open": "開放",
+        "inProgress": "處理中",
+        "resolved": "已解決",
+        "closed": "已關閉"
+      },
+      "priority": {
+        "low": "低",
+        "medium": "中",
+        "high": "高",
+        "urgent": "緊急"
+      },
+      "services": {
+        "cloud": "雲伺服器",
+        "storage": "物件儲存",
+        "network": "網路 / VPN",
+        "billing": "帳單",
+        "account": "帳戶",
+        "other": "其他"
+      },
+      "table": {
+        "title": "請求 ({{count}})",
+        "id": "#",
+        "titleHeader": "標題 / 客戶",
+        "service": "服務",
+        "status": "狀態",
+        "priority": "優先級",
+        "date": "提交日期",
+        "actions": "操作",
+        "noData": "無請求"
+      },
+      "detail": {
+        "phone": "電話",
+        "address": "地址",
+        "content": "請求內容",
+        "attachments": "附件",
+        "statusLabel": "狀態",
+        "priorityLabel": "優先級",
+        "resolvedAt": "解決時間",
+        "adminNote": "備註 / 客戶回覆",
+        "adminNotePlaceholder": "輸入客戶回覆... (客戶將看到此內容)",
+        "save": "儲存回覆",
+        "saving": "儲存中..."
+      },
+      "delete": {
+        "title": "確認刪除支援請求",
+        "description": "您確定要刪除此支援請求嗎？此操作無法撤銷。",
+        "confirm": "刪除",
+        "cancel": "取消"
+      },
+      "toast": {
+        "loadError": "無法載入支援請求列表",
+        "updated": "已更新",
+        "updateSuccess": "工單更新成功",
+        "deleted": "工單已刪除",
+        "error": "錯誤"
+      }
+    },
+    "paymentsTitle": "支付管理",
+    "paymentsDesc": "查看和接受支付",
+    "paymentsStats": "支付管理",
+    "loginHistoryTitle": "登入歷史",
+    "loginHistoryDesc": "追蹤管理員登入活動",
+    "loginHistoryStats": "安全稽核",
+    "compartmentTitle": "分區管理",
+    "compartmentDesc": "查看和刪除OCI中的分區",
+    "compartmentStats": "OCI資源",
+    "analyticsTitle": "分析",
+    "analyticsDesc": "查看頁面瀏覽量和使用者互動統計",
+    "analyticsStats": "網站分析",
+    "bandwidthTitle": "頻寬監控",
+    "bandwidthDesc": "監控所有虛擬機的頻寬（限制10TB）",
+    "bandwidthStats": "頻寬監控",
+    "supportTicketsTitle": "支援請求",
+    "supportTicketsDesc": "追蹤和處理使用者支援請求",
+    "supportTicketsStats": "支援工單",
+    "costsTitle": "費用 & 積分",
+    "costsDesc": "各使用者、月份、年份的總餘額、儲值和消費額",
+    "costsStats": "費用 & 積分概覽",
+    "users": {
+      "editTooltip": "編輯使用者",
+      "editDialog": {
+        "title": "編輯使用者資訊 #{{id}}",
+        "description": "更新使用者的詳細資訊。點擊「儲存更改」以套用。",
+        "lastName": "姓",
+        "firstName": "名",
+        "email": "信箱",
+        "phone": "電話號碼",
+        "backupEmail": "備用信箱",
+        "company": "公司",
+        "address": "地址",
+        "idCard": "身份證號",
+        "gender": "性別",
+        "genderPlaceholder": "選擇性別",
+        "male": "男",
+        "female": "女",
+        "other": "其他",
+        "role": "角色",
+        "roleCustomer": "客戶",
+        "roleAdmin": "管理員",
+        "statusLabel": "狀態",
+        "active": "活躍",
+        "locked": "已鎖定",
+        "cancel": "取消",
+        "save": "儲存更改",
+        "saving": "儲存中..."
+      },
+      "deleteDialog": {
+        "title": "確認刪除使用者",
+        "description": "您確定要刪除此使用者嗎？此操作無法撤銷。",
+        "confirm": "刪除",
+        "cancel": "取消"
+      },
+      "pagination": {
+        "info": "第{{current}} / {{total}}頁 — 共{{count}}名使用者"
+      },
+      "toast": {
+        "updateSuccess": "使用者資訊更新成功",
+        "updateError": "無法更新使用者資訊",
+        "deleteSuccess": "使用者刪除成功",
+        "deleteError": "無法刪除使用者"
+      },
+      "export": {
+        "fullName": "全名",
+        "phone": "電話號碼",
+        "company": "公司",
+        "role": "角色",
+        "status": "狀態",
+        "createdAt": "建立日期",
+        "updatedAt": "更新日期",
+        "notAvailable": "無",
+        "sheetName": "使用者列表",
+        "active": "活躍",
+        "locked": "鎖定"
+      }
+    },
+    "packagesExtra": {
+      "dialog": {
+        "deleteTitle": "確認刪除服務套餐",
+        "deleteDesc": "您確定要刪除此套餐嗎？此操作無法撤銷。",
+        "cancel": "取消",
+        "delete": "刪除"
+      },
+      "table": {
+        "package": "套餐",
+        "type": "類型",
+        "price": "價格",
+        "specs": "規格",
+        "features": "功能",
+        "status": "狀態",
+        "actions": "操作"
+      },
+      "createForm": {
+        "priceUSD": "價格 (USD / 月)",
+        "priceVND": "價格 (VND / 月)",
+        "storage": "儲存",
+        "storagePlaceholder": "例如: 80 GB SSD",
+        "bandwidthLabel": "頻寬",
+        "bandwidthPlaceholder": "例如: 1 TB",
+        "feature": "功能 / 備註",
+        "featurePlaceholder": "附加功能或備註...",
+        "isActive": "啟用（對使用者可見）",
+        "saving": "儲存中..."
+      }
+    }
+  },
+  "homepage": {
+    "hero": {
+      "title": "越南領先的Oracle雲解決方案",
+      "subtitle": "越南官方Oracle合作夥伴",
+      "description": "我們提供基於Oracle Cloud Infrastructure (OCI)的全面雲端運算解決方案，幫助企業優化成本並提升效能。",
+      "getStarted": "立即開始",
+      "dashboard": "查看儀表板",
+      "contact": "聯絡諮詢",
+      "viewPricing": "查看配置和價格",
+      "imageAlt": "Oracle雲儀表板",
+      "features": {
+        "security": {
+          "title": "絕對安全",
+          "description": "99.9%正常運作時間"
+        },
+        "performance": {
+          "title": "高效能",
+          "description": "卓越速度"
+        },
+        "global": {
+          "title": "全球化",
+          "description": "36+資料中心"
+        }
+      },
+      "trustIndicators": {
+        "customers": "客戶",
+        "uptime": "正常運作時間",
+        "support": "支援"
+      },
+      "floatingElements": {
+        "costSaving": "節省40%成本",
+        "quickDeploy": "24小時內部署"
+      }
+    },
+    "services": {
+      "title": "服務",
+      "subtitle": "全面的雲解決方案",
+      "description": "從資料庫到人工智慧，我們提供全方位的雲服務，滿足企業數位轉型的各種需求。",
+      "keyFeatures": "主要功能：",
+      "serviceList": {
+        "database": {
+          "title": "Oracle資料庫雲",
+          "description": "具有高效能和絕對安全的自管理Oracle資料庫",
+          "features": ["自主資料庫", "即時應用叢集", "資料保護", "進階安全"]
+        },
+        "compute": {
+          "title": "運算雲",
+          "description": "彈性的虛擬伺服器，可根據企業需求自訂配置",
+          "features": ["裸金屬", "虛擬機", "容器引擎", "函數"]
+        },
+        "storage": {
+          "title": "儲存解決方案",
+          "description": "從區塊儲存到物件儲存的多樣化儲存解決方案",
+          "features": ["區塊儲存", "物件儲存", "檔案儲存", "歸檔儲存"]
+        },
+        "networking": {
+          "title": "網路",
+          "description": "低延遲和高頻寬的全球網路基礎設施",
+          "features": ["虛擬雲網路", "負載平衡器", "VPN連線", "快速連線"]
+        },
+        "security": {
+          "title": "安全與身份",
+          "description": "多層安全與進階身份和存取管理",
+          "features": ["身份管理", "金鑰管理", "Web應用程式防火牆", "安全區域"]
+        },
+        "analytics": {
+          "title": "分析與人工智慧",
+          "description": "整合機器學習的智慧資料分析",
+          "features": ["分析雲", "資料科學", "機器學習", "大資料服務"]
+        }
+      },
+      "benefits": {
+        "fastDeploy": {
+          "title": "快速部署",
+          "description": "幾分鐘內完成設定"
+        },
+        "globalCoverage": {
+          "title": "全球覆蓋",
+          "description": "36+資料中心"
+        },
+        "enterpriseSecurity": {
+          "title": "企業級安全",
+          "description": "符合國際標準"
+        },
+        "costOptimization": {
+          "title": "成本優化",
+          "description": "節省高達40%"
+        }
+      }
+    },
+    "pricing": {
+      "title": "定價",
+      "subtitle": "適合各種規模企業的服務套餐",
+      "description": "彈性且可擴展的Oracle雲服務套餐，提供越南市場上最具競爭力的價格。",
+      "plans": {
+        "starter": "標準",
+        "professional": "高級",
+        "enterprise": "企業",
+        "ai": "AI-GPU",
+        "custom": "自訂"
+      },
+      "buttons": {
+        "viewDetails": "查看詳情",
+        "hideDetails": "隱藏",
+        "showDetails": "顯示",
+        "packages": "套餐",
+        "selectPlan": "選擇此套餐",
+        "contactConsult": "聯絡諮詢",
+        "close": "關閉"
+      },
+      "tooltips": {
+        "exchangeRate": "價格根據目前匯率計算。",
+        "todayRate": "今日匯率："
+      },
+      "sections": {
+        "selectSuitable": "選擇最適合您的套餐",
+        "moreFeatures": "更多功能",
+        "showLess": "收起"
+      },
+      "auth": {
+        "loginRequired": "請登入",
+        "loginToRegister": "請登入以註冊自訂套餐"
+      },
+      "additionalInfo": {
+        "support247": "所有套餐均包含24/7技術支援和99.9%正常運作時間保證",
+        "noSetupFee": "無設定費用",
+        "cancelAnytime": "隨時取消",
+        "flexiblePayment": "彈性的支付選項",
+        "freeConsult": "免費諮詢",
+        "hotlineSupport": "支援熱線："
+      }
+    },
+    "form": {
+      "customRegistration": {
+        "title": "自訂套餐註冊",
+        "description": "請填寫詳細資訊，以便我們為您推薦最適合的服務套餐。",
+        "userName": "使用者名稱",
+        "email": "電子郵件",
+        "phoneNumber": "電話號碼",
+        "company": "公司名稱",
+        "configRequirements": "配置要求",
+        "cpu": "CPU",
+        "ram": "記憶體",
+        "storage": "儲存",
+        "bandwidth": "頻寬",
+        "additionalNotes": "附加備註",
+        "placeholders": {
+          "userName": "輸入您的姓名",
+          "email": "example@company.com",
+          "phoneNumber": "0987654321",
+          "company": "ABC公司",
+          "cpu": "例如：4核，Intel Xeon",
+          "ram": "例如：16GB，32GB",
+          "storage": "例如：500GB SSD，1TB HDD",
+          "bandwidth": "例如：100Mbps，1Gbps",
+          "additionalNotes": "描述特殊要求、部署時間、預計預算等..."
+        },
+        "validation": {
+          "userNameMin": "使用者名稱至少2個字元",
+          "emailInvalid": "電子郵件無效",
+          "phoneNumberMin": "電話號碼至少10位",
+          "phoneNumberMax": "電話號碼不得超過20位",
+          "cpuRequired": "請輸入CPU資訊",
+          "ramRequired": "請輸入記憶體資訊"
+        },
+        "buttons": {
+          "cancel": "取消",
+          "register": "註冊"
+        },
+        "success": {
+          "title": "註冊成功！",
+          "description": "我們將盡快與您聯絡。"
+        },
+        "error": {
+          "title": "發生錯誤",
+          "description": "請稍後重試或聯絡支援。"
+        }
+      }
+    }
+  },
+  "pricing": {
+    "loginRequired": "請登入以註冊套餐",
+    "plans": {
+      "starter": {
+        "1": {
+          "description": "2 vCPU，1GB 記憶體，20GB SSD 儲存"
+        },
+        "2": {
+          "description": "2 vCPU，2GB 記憶體，40GB SSD 儲存"
+        },
+        "3": {
+          "description": "4 vCPU，4GB 記憶體，80GB SSD 儲存"
+        },
+        "4": {
+          "description": "4 vCPU，8GB 記憶體，80GB SSD 儲存"
+        },
+        "5": {
+          "description": "8 vCPU，8GB 記憶體，100GB SSD 儲存"
+        }
+      },
+      "professional": {
+        "1": {
+          "description": "4 vCPU，6GB 記憶體，100GB SSD 儲存"
+        },
+        "2": {
+          "description": "6 vCPU，8GB 記憶體，150GB SSD 儲存"
+        },
+        "3": {
+          "description": "8 vCPU，10GB 記憶體，150GB SSD 儲存"
+        },
+        "4": {
+          "description": "8 vCPU，12GB 記憶體，150GB SSD 儲存"
+        },
+        "5": {
+          "description": "8 vCPU，16GB 記憶體，200GB SSD 儲存"
+        },
+        "6": {
+          "description": "8 vCPU，32GB 記憶體，200GB SSD 儲存"
+        }
+      },
+      "enterprise": {
+        "1": {
+          "description": "10 vCPU，16GB 記憶體，250GB SSD 儲存"
+        },
+        "2": {
+          "description": "12 vCPU，16GB 記憶體，250GB SSD 儲存"
+        },
+        "3": {
+          "description": "12 vCPU，18GB 記憶體，500GB SSD 儲存"
+        },
+        "4": {
+          "description": "16 vCPU，32GB 記憶體，500GB SSD 儲存"
+        },
+        "5": {
+          "description": "16 vCPU，32GB 記憶體，1024GB SSD 儲存"
+        },
+        "6": {
+          "description": "24 vCPU，32GB 記憶體，1024GB SSD 儲存"
+        },
+        "7": {
+          "description": "36 vCPU，64GB 記憶體，1024GB SSD 儲存"
+        },
+        "8": {
+          "description": "48 vCPU，128GB 記憶體，1024GB SSD 儲存"
+        },
+        "9": {
+          "description": "您甚至不需要註冊此套餐即可獲得諮詢。只需直接撥打熱線！"
+        }
+      },
+      "ai": {
+        "1": {
+          "description": "1 GPU P100，16GB 記憶體，1024 GB"
+        },
+        "2": {
+          "description": "1 GPU A10，24GB 記憶體，1024 GB"
+        },
+        "3": {
+          "description": "2 GPU P100，32GB 記憶體，1024 GB"
+        },
+        "4": {
+          "description": "2 GPU A10，48GB 記憶體，1024GB"
+        }
+      },
+      "custom": {
+        "description": "根據企業要求定制的解決方案",
+        "price": "聯絡我們",
+        "features": {
+          "flexible": "彈性配置",
+          "integration": "私有系統整合",
+          "consulting": "深度架構諮詢",
+          "onsite": "現場部署支援"
+        }
+      }
+    },
+    "categories": {
+      "starter": {
+        "description": "適合小型企業"
+      },
+      "professional": {
+        "description": "中型企業的熱門選擇"
+      },
+      "enterprise": {
+        "description": "大型企業的全面解決方案"
+      },
+      "ai": {
+        "description": "在雲端部署您的LLM模型"
+      }
+    }
+  },
+  "header": {
+    "home": "首頁",
+    "services": "服務",
+    "pricing": "定價",
+    "support": "支援",
+    "contact": "聯絡",
+    "login": "登入",
+    "register": "註冊",
+    "hello": "你好",
+    "hotline": "熱線: 0707.806.860",
+    "profile": "個人資料",
+    "settings": "設定",
+    "logout": "登出",
+    "logoTitle": "越南Oracle雲",
+    "logoSubtitle": "官方合作夥伴",
+    "languageLabel": "語言",
+    "admin": "管理員",
+    "packageManagement": "我的雲",
+    "supportRequest": "支援請求",
+    "adminPanel": "管理面板"
+  },
+  "footer": {
+    "companyName": "越南Oracle雲",
+    "officialPartner": "官方合作夥伴",
+    "companyDescription": "越南官方Oracle合作夥伴，為企業提供領先的雲端運算解決方案，擁有超過10年的經驗。",
+    "services": "服務",
+    "serviceList": {
+      "database": "Oracle資料庫雲",
+      "compute": "運算雲",
+      "storage": "儲存解決方案",
+      "networking": "網路",
+      "security": "安全與身份",
+      "analytics": "分析與人工智慧"
+    },
+    "support": "支援",
+    "supportList": {
+      "docs": "技術文件",
+      "videos": "指導影片",
+      "forum": "社群論壇",
+      "ticket": "支援工單",
+      "training": "培訓與認證",
+      "api": "API文件"
+    },
+    "contact": "聯絡",
+    "companyFull": "國際網路安全股份有限公司 - ICS",
+    "office": "辦公室：河內市定功新大金城市區TT3-5",
+    "phone": "電話：0931.487.231",
+    "hotline": "熱線：0707.806.860",
+    "email": "電子郵件：info@icss.com.vn",
+    "website": "www.icss.com.vn",
+    "newsletter": "訂閱新聞",
+    "newsletterPlaceholder": "您的電子郵件",
+    "newsletterButton": "訂閱",
+    "privacy": "隱私政策",
+    "terms": "使用條款",
+    "sla": "服務級別協議",
+    "sitemap": "網站地圖",
+    "copyright": "© 2024 越南Oracle雲。保留所有權利。"
+  },
+  "unauthorized": {
+    "title": "您無權存取此頁面",
+    "description": "請檢查您的存取權限或聯絡管理員以確認是否為錯誤。"
+  },
+  "common": {
+    "loading": "載入中...",
+    "logoutSuccess": "登出成功！",
+    "error": "錯誤"
+  },
+  "checkout": {
+    "title": "結帳",
+    "backButton": "返回",
+    "success": {
+      "title": "購買成功！",
+      "desc": "感謝您訂閱服務套餐。我們已將確認電子郵件和使用說明傳送到您的電子郵件地址。",
+      "configBtn": "配置虛擬機",
+      "manageBtn": "管理訂閱套餐",
+      "homeBtn": "返回首頁",
+      "note": "注意：如果您在5分鐘內未收到電子郵件，請檢查垃圾郵件資料夾或聯絡我們。"
+    },
+    "packageInfo": "服務套餐資訊",
+    "packageName": "套餐名稱",
+    "description": "描述",
+    "packageType": "套餐類型",
+    "features": "包含功能",
+    "totalAmount": "總金額",
+    "paymentQR": "透過QR支付",
+    "scanQR": "使用銀行應用程式掃描QR碼進行支付",
+    "bankName": "銀行",
+    "accountNumber": "帳戶號碼",
+    "amount": "金額",
+    "content": "內容",
+    "copyInfo": "複製轉帳資訊",
+    "copiedSuccess": "成功複製轉帳資訊",
+    "note": "注意：請確保轉帳內容準確，以便系統自動啟動服務。",
+    "contactSupport": "聯絡支援",
+    "support247": "24/7技術支援",
+    "noSetupFee": "無設定費用",
+    "uptimeGuarantee": "99.9%正常運作時間保證",
+    "flexiblePayment": "彈性的支付選項",
+    "creatingQR": "正在建立QR碼...",
+    "paidSuccessRedirect": "支付成功！正在重新導向...",
+    "checkingPayment": "正在檢查支付...",
+    "transferContentExact": "轉帳內容必須準確",
+    "paymentId": "支付ID",
+    "autoConfirmNote": "系統將在轉帳成功後自動確認。",
+    "monthsSubscription": "訂閱月數",
+    "months": "個月",
+    "forMonths": "(共{{n}}個月)"
+  },
+  "login": {
+    "title": "登入",
+    "subtitle": "歡迎回來！請登入以繼續。",
+    "email": "信箱",
+    "emailPlaceholder": "請輸入信箱",
+    "password": "密碼",
+    "passwordPlaceholder": "請輸入密碼",
+    "loginButton": "登入",
+    "loggingIn": "正在登入...",
+    "forgotPassword": "忘記密碼？",
+    "noAccount": "還沒有帳號？",
+    "registerNow": "立即註冊",
+    "or": "或",
+    "loginWithGoogle": "使用Google登入",
+    "googleLoginComingSoon": "Google登入功能即將上線。",
+    "fillTestData": "填充測試資料 (test@gmail.com / 123123)",
+    "validationEmailRequired": "請輸入信箱",
+    "validationEmailInvalid": "信箱格式不正確",
+    "validationPasswordRequired": "請輸入密碼",
+    "validationPasswordMinLength": "密碼至少為{{length}}個字元",
+    "successEmailVerified": "郵件驗證成功！請登入。",
+    "successPasswordReset": "密碼重置成功！請使用新密碼登入。",
+    "errorInvalidCredentials": "信箱或密碼不正確，請檢查您的登入資訊。",
+    "errorEmailAlreadyExists": "此信箱已被註冊，請使用其他信箱或登入。",
+    "errorDefault": "登入失敗，請重試。"
+  },
+  "profile": {
+    "title": "個人資料",
+    "subtitle": "管理您的帳戶資訊",
+    "loadingUser": "正在載入使用者資訊...",
+    "id": "ID",
+    "createdAt": "建立日期",
+    "updatedAt": "最後更新",
+    "editInfo": "編輯資訊",
+    "editDescription": "更新您的個人資訊",
+    "editDialogTitle": "編輯個人資料",
+    "editDialogDesc": "更新您的個人資訊。完成後點擊儲存。",
+    "updateSuccess": "資訊已成功更新！",
+    "updateFailed": "更新資訊失敗",
+    "firstName": "名字",
+    "lastName": "姓氏",
+    "fullName": "全名",
+    "email": "電子郵件",
+    "emailDescription": "電子郵件用於登入和接收通知",
+    "phoneNumber": "電話號碼",
+    "company": "公司",
+    "gender": "性別",
+    "genderMale": "男",
+    "genderFemale": "女",
+    "genderOther": "其他",
+    "idCard": "身份證號碼",
+    "backupEmail": "備用郵件",
+    "address": "地址",
+    "notProvided": "未提供",
+    "accountStatus": "帳戶狀態",
+    "accountActive": "活躍",
+    "accountInactive": "不活躍",
+    "adminBadge": "管理員",
+    "userBadge": "使用者",
+    "sections": {
+      "basicInfo": "基本資訊",
+      "contactInfo": "聯絡資訊",
+      "personalDetails": "個人詳情",
+      "security": "安全"
+    },
+    "tabs": {
+      "profile": "個人資料",
+      "security": "安全"
+    },
+    "cancel": "取消",
+    "saving": "正在儲存...",
+    "saveChanges": "儲存更改",
+    "edit": "編輯",
+    "changePassword": "修改密碼",
+    "changePasswordDescription": "更新您的密碼以保護帳戶安全",
+    "changePasswordButton": "修改密碼",
+    "changePasswordDialogTitle": "修改密碼",
+    "changePasswordDialogDesc": "請輸入目前密碼和新密碼。密碼必須至少6個字元。",
+    "currentPassword": "目前密碼",
+    "newPassword": "新密碼",
+    "confirmNewPassword": "確認新密碼",
+    "changePasswordSuccess": "密碼修改成功！",
+    "changePasswordFailed": "密碼修改失敗",
+    "passwordsNotMatch": "兩次密碼輸入不一致",
+    "changingPassword": "修改中...",
+    "avatarUploadSuccess": "頭像更新成功",
+    "avatarUploadError": "頭像更新失敗",
+    "avatarSizeError": "檔案大小不能超過5MB",
+    "avatarTypeError": "請選擇圖片檔案",
+    "validation": {
+      "firstNameRequired": "名字不能為空",
+      "firstNameMax": "名字不能超過50個字元",
+      "lastNameRequired": "姓氏不能為空",
+      "lastNameMax": "姓氏不能超過50個字元",
+      "emailRequired": "電子郵件不能為空",
+      "emailInvalid": "電子郵件格式不正確",
+      "phoneInvalid": "電話號碼格式不正確",
+      "backupEmailInvalid": "備用郵件格式不正確",
+      "idCardInvalid": "身份證號碼格式不正確",
+      "currentPasswordRequired": "請輸入目前密碼",
+      "newPasswordMin": "新密碼必須至少6個字元",
+      "confirmPasswordRequired": "請確認新密碼",
+      "passwordSameAsCurrent": "新密碼必須與目前密碼不同"
+    }
+  },
+  "packageDetail": {
+    "title": "顯示設備負載狀態",
+    "subtitle": "監控和管理您的雲包效能",
+    "loading": {
+      "subscription": "正在載入訂閱資訊..."
+    },
+    "error": {
+      "notFound": "未找到訂閱"
+    },
+    "buttons": {
+      "back": "返回"
+    },
+    "status": {
+      "active": "活躍",
+      "inactive": "非活躍",
+      "expired": "已過期",
+      "suspended": "已暫停",
+      "cancelled": "已取消",
+      "pending": "待處理"
+    },
+    "serverDetails": {
+      "title": "伺服器詳情",
+      "demoData": "示範資料",
+      "status": "狀態",
+      "on": "開啟",
+      "refresh": "重新整理",
+      "hostname": "域名/主機名稱",
+      "username": "使用者名稱",
+      "password": "密碼",
+      "initialPassword": "初始密碼",
+      "ip": "IP地址",
+      "uptime": "運行時間",
+      "days": "天",
+      "vmState": "VM狀態",
+      "vmStatus": "VM狀態",
+      "createdDate": "建立日期",
+      "publicIp": "公網IP",
+      "operatingSystem": "作業系統",
+      "osVersion": "系統版本",
+      "imageName": "鏡像",
+      "windowsRdpCredentials": "🪟 Windows RDP 登入憑證",
+      "windowsPasswordPending": "⏳ 密碼正在產生中（VM 啟動後約 5-10 分鐘）。請幾分鐘後重新整理頁面。",
+      "resetPassword": "重置密碼",
+      "resetPasswordTitle": "重置 Windows 密碼",
+      "resetPasswordDesc": "此操作將為 Windows VM 產生新密碼。目前密碼將被替換。",
+      "resetPasswordConfirm": "重置密碼",
+      "resetPasswordResettingTitle": "正在重置密碼...",
+      "resetPasswordResettingDesc": "正在連線到 Windows VM。此過程可能需要幾分鐘。",
+      "resetPasswordResettingNote": "該過程可能需要5-10分鐘。",
+      "resetPasswordSuccessTitle": "密碼重置成功！",
+      "resetPasswordSuccessDesc": "Windows VM 密碼已更改。請儲存以下新密碼。",
+      "resetPasswordWarning": "請立即儲存此密碼。您可以稍後在 Windows RDP 憑證部分查看。"
+    },
+    "resetPassword": {
+      "title": "重置Windows密碼",
+      "description": "這將為Windows VM產生新密碼，目前密碼將被替換。",
+      "confirm": "重置密碼",
+      "resettingTitle": "正在重置密碼...",
+      "resettingDesc": "正在連線Windows VM，可能需要幾分鐘。",
+      "resettingNote": "此過程可能需要5-10分鐘。",
+      "successTitle": "密碼重置成功！",
+      "successDesc": "Windows VM密碼已更改，請儲存以下新密碼。",
+      "saveWarning": "請立即儲存此密碼。",
+      "close": "已儲存 — 關閉",
+      "newPasswordLabel": "新密碼（選用）",
+      "newPasswordPlaceholder": "留空則自動產生",
+      "newPasswordHint": "14-127個字元 · 必須包含：大寫字母(A-Z)、小寫字母(a-z)、數字(0-9)和特殊字元",
+      "validation": {
+        "minLength": "密碼至少需要14個字元",
+        "maxLength": "密碼不得超過127個字元",
+        "noUsername": "密碼不得包含使用者名稱 \"opc\"",
+        "needUpper": "密碼必須包含至少一個大寫字母(A-Z)",
+        "needLower": "密碼必須包含至少一個小寫字母(a-z)",
+        "needDigit": "密碼必須包含至少一個數字(0-9)",
+        "needSpecial": "密碼必須包含至少一個特殊字元(如!@#$%)",
+        "valid": "密碼符合Windows要求"
+      }
+    },
+    "controls": {
+      "vmName": "虛擬機名稱：",
+      "time": "時間：",
+      "theme": "主題：",
+      "timeRange": "時間範圍：",
+      "showPerformance": "顯示效能使用情況",
+      "timeOptions": {
+        "oneHour": "1小時前",
+        "sixHours": "6小時前",
+        "twentyFourHours": "24小時前",
+        "sevenDays": "7天前"
+      },
+      "themeOptions": {
+        "light": "淺色",
+        "dark": "深色"
+      }
+    },
+    "charts": {
+      "cpuUsage": "CPU使用率 (%)",
+      "memoryUsage": "記憶體使用率 (%)",
+      "cpuTitle": "CPU使用率 (%)",
+      "memoryTitle": "記憶體使用率 (%)",
+      "networkTraffic": "網路流量 (MB/s)",
+      "diskIO": "磁碟I/O (MB/s)",
+      "noData": "暫無資料"
+    },
+    "packageInfo": {
+      "title": "包資訊",
+      "packageName": "包名稱",
+      "vmName": "虛擬機名稱",
+      "cpu": "CPU",
+      "memory": "記憶體",
+      "storage": "儲存",
+      "bandwidth": "頻寬",
+      "feature": "功能",
+      "ipAddress": "IP地址",
+      "subscriber": "訂閱者",
+      "email": "信箱",
+      "startDate": "開始日期",
+      "endDate": "結束日期",
+      "autoRenew": "自動續費",
+      "monthlyCost": "月費用",
+      "yes": "是",
+      "no": "否"
+    },
+    "actions": {
+      "title": "管理包",
+      "startVM": "啟動虛擬機",
+      "pauseVM": "暫停虛擬機",
+      "restartVM": "重新啟動虛擬機",
+      "createBackup": "建立備份",
+      "console": "控制台",
+      "changeOS": "更改/重裝作業系統",
+      "deletePackage": "刪除包",
+      "configurateVM": "配置虛擬機",
+      "requestSshKey": "申請新 SSH 金鑰",
+      "generating": "正在產生...",
+      "openTerminal": "開啟終端機",
+      "resetPassword": "重置密碼",
+      "resettingPassword": "重置中...",
+      "autoRenew": "自動續費",
+      "togglingAutoRenew": "更新中...",
+      "autoRenewOn": "自動續費已開啟",
+      "autoRenewOff": "自動續費已關閉"
+    },
+    "billing": {
+      "title": "帳單資訊",
+      "createdDate": "建立日期",
+      "nextBilling": "下次帳單",
+      "monthlyCost": "月費用"
+    },
+    "vmInfoTitle": "您的虛擬機資訊",
+    "toast": {
+      "error": "錯誤",
+      "loadError": "無法載入訂閱資訊",
+      "vmNotConfigured": "VM未配置",
+      "vmNotConfiguredDesc": "請先配置VM",
+      "vmActionSuccess": "成功",
+      "vmActionSuccessDesc": "VM命令已成功傳送",
+      "vmActionFailed": "操作失敗",
+      "vmActionFailedDesc": "VM操作失敗",
+      "deleteVmSuccess": "VM刪除成功",
+      "deleteVmSuccessDesc": "VM已刪除。訂閱仍然有效。",
+      "deleteVmFailed": "VM刪除失敗",
+      "deleteVmFailedDesc": "請稍後再試或聯絡支援。",
+      "deleteSuccess": "刪除成功",
+      "deleteSuccessDesc": "訂閱和VM已完全刪除",
+      "deleteError": "刪除訂閱出錯",
+      "passwordResetSuccess": "密碼重置成功",
+      "passwordResetSuccessDesc": "新的 Windows 密碼已設定。請立即儲存。",
+      "passwordResetError": "密碼重置失敗",
+      "passwordResetErrorDesc": "無法重置 Windows 密碼。請重試。",
+      "autoRenewUpdated": "自動續費已更新",
+      "autoRenewEnabled": "自動續費已啟用",
+      "autoRenewDisabled": "自動續費已停用",
+      "autoRenewError": "更新自動續費失敗",
+      "renewSuccess": "續費成功",
+      "renewSuccessDesc": "訂閱已續費，VM即將啟動。",
+      "renewFailed": "續費失敗",
+      "renewInsufficientFunds": "錢包餘額不足",
+      "renewError": "續費訂閱失敗"
+    },
+    "confirmDialog": {
+      "cancel": "取消",
+      "confirm": "確認",
+      "deleteVmOnly": {
+        "title": "刪除訂閱的VM",
+        "description": "訂閱將保持有效但虛擬機將被刪除。您需要配置新VM才能繼續使用服務。"
+      },
+      "deleteSubscription": {
+        "title": "確認刪除訂閱",
+        "description": "此操作將永久刪除Oracle Cloud上的訂閱和虛擬機(VM)。所有相關資料將被刪除且無法恢復。刪除前請備份重要資料。"
+      },
+      "renewAndStart": {
+        "title": "訂閱已過期",
+        "description": "此訂閱已過期，是否續費並啟動VM？",
+        "cost": "續費費用：{{cost}}",
+        "autoRenewLabel": "續費後啟用自動續費",
+        "autoRenewHint": "訂閱將在到期前自動續費",
+        "insufficientFundsWarning": "確認前請確保錢包餘額充足。",
+        "cancel": "取消",
+        "confirm": "續費並啟動VM"
+      }
+    },
+    "vmNotConfigured": {
+      "message1": "VM尚未配置。請配置您的VM以查看伺服器詳情。",
+      "message2": "未配置VM。請先配置您的VM。",
+      "message3": "VM配置後圖表可用",
+      "message4": "VM運行時圖表可用",
+      "label": "VM尚未配置",
+      "deleteButton": "刪除VM（保留訂閱）"
+    },
+    "sshKeyRequest": {
+      "title": "確認產生新 SSH 金鑰",
+      "warningTitle": "重要安全提示",
+      "warningItem1": "將建立新的 SSH 金鑰並新增到您的 VM",
+      "warningItem2": "舊金鑰繼續正常工作 — 您可以繼續使用",
+      "warningItem3": "最多 2 個使用者 SSH 金鑰 + 1 個管理員金鑰（共 3 個）",
+      "warningItem4": "如果已有 2 個使用者金鑰，最舊的使用者金鑰將被自動刪除",
+      "vmInfoTitle": "VM 資訊：",
+      "privateKeyOnScreen": "私鑰將直接顯示在螢幕上供您下載",
+      "processTitle": "🔐 金鑰產生流程：",
+      "processStep1": "系統產生新的 RSA 4096 位 SSH 金鑰對",
+      "processStep2": "公鑰被新增到 VM 中繼資料",
+      "processStep3": "私鑰直接顯示在螢幕上供您下載（僅一次）",
+      "processStep4": "舊金鑰繼續工作，超出限制時自動刪除",
+      "importantLabel": "重要：",
+      "importantNote1": "私鑰將",
+      "importantOnce": "僅顯示一次",
+      "importantNote2": "請在建立後立即儲存。",
+      "cancel": "取消",
+      "creating": "正在產生金鑰...",
+      "confirm": "確認產生新 SSH 金鑰"
+    },
+    "newSshKeyCreated": {
+      "title": "新 SSH 金鑰建立成功！",
+      "onceWarningTitle": "⚠️ 此資訊僅顯示一次",
+      "onceWarningDesc": "請立即儲存。關閉此視窗後，您將無法再次查看私鑰。",
+      "copy": "複製金鑰",
+      "copied": "已複製！",
+      "download": "下載 (.pem)",
+      "close": "已儲存 — 關閉"
+    }
+  },
+  "support": {
+    "title": "支援請求",
+    "subtitle": "提交技術支援請求並快速獲得回覆",
+    "submit": "提交支援請求",
+    "submitting": "提交中...",
+    "uploadingFiles": "正在上傳檔案...",
+    "attachmentsLabel": "附件",
+    "files": {
+      "tooMany": "最多允許 {{max}} 個檔案",
+      "tooLarge": "檔案超過 {{maxMB}}MB 限制",
+      "limits": "最多 {{max}} 個檔案 · 每個 ≤ {{maxMB}}MB · 圖片、PDF、Word、文字"
+    },
+    "submitSuccess": "請求提交成功！",
+    "submitSuccessDesc": "我們將盡快回覆",
+    "submitError": "請求提交失敗",
+    "fields": {
+      "title": "主題",
+      "titlePlaceholder": "簡要描述您的問題",
+      "name": "客戶名稱",
+      "namePlaceholder": "姓名",
+      "email": "信箱",
+      "emailPlaceholder": "聯絡信箱",
+      "phone": "電話號碼",
+      "phonePlaceholder": "聯絡電話",
+      "address": "地址",
+      "addressPlaceholder": "您的地址",
+      "service": "服務",
+      "servicePlaceholder": "選擇服務",
+      "content": "內容",
+      "contentPlaceholder": "詳細描述您遇到的問題...",
+      "attachments": "附件",
+      "attachmentsPlaceholder": "拖放檔案到此處或",
+      "attachmentsBrowse": "從電腦瀏覽"
+    },
+    "services": {
+      "cloud": "雲伺服器",
+      "storage": "物件儲存",
+      "network": "網路 / VPN",
+      "billing": "帳單",
+      "account": "帳戶",
+      "other": "其他"
+    },
+    "myTickets": "我的工單",
+    "myTicketsSubtitle": "追蹤已提交請求的狀態",
+    "noTickets": "暫無支援請求",
+    "loadingTickets": "正在載入您的請求...",
+    "fetchErrorTitle": "無法載入資料",
+    "retryBtn": "重試",
+    "emptyTitle": "暫無請求",
+    "emptySubtitle": "您的請求將顯示在此處",
+    "ticketSubmittedOn": "提交於",
+    "statusLabel": "狀態:",
+    "resolvedAt": "解決於:",
+    "serviceLabel": "服務:",
+    "requestContent": "請求內容:",
+    "adminReplyTitle": "支援團隊回覆:",
+    "waitingReply": "我們正在處理您的請求。請等待支援團隊的回覆。",
+    "hasReply": "有回覆",
+    "formNote": "請填寫完整資訊，以便我們清楚了解您的問題",
+    "status": {
+      "open": "開放",
+      "in_progress": "處理中",
+      "resolved": "已解決",
+      "closed": "已關閉"
+    },
+    "validation": {
+      "titleMin": "標題至少4字元以上",
+      "nameMin": "請輸入您的姓名",
+      "emailInvalid": "無效的電子郵件地址",
+      "contentMin": "內容至少10字元以上"
+    },
+    "priority": {
+      "low": "低",
+      "medium": "中",
+      "high": "高",
+      "urgent": "緊急"
+    }
+  },
+  "adminSupport": {
+    "title": "支援工單管理",
+    "subtitle": "追蹤和處理使用者的支援請求",
+    "totalTickets": "總工單",
+    "openTickets": "開放",
+    "inProgressTickets": "處理中",
+    "resolvedTickets": "已解決",
+    "updateSuccess": "更新成功",
+    "updateError": "更新失敗",
+    "deleteConfirm": "確定要刪除此工單嗎？",
+    "adminNote": "管理員備註",
+    "adminNotePlaceholder": "輸入處理備註..."
+  },
+  "walletSidebar": {
+    "title": "我的帳戶",
+    "subtitle": "管理雲和付款",
+    "myCloud": "我的雲",
+    "myCloudDesc": "管理已購套餐",
+    "paymentManagement": "付款管理",
+    "paymentManagementDesc": "查看交易歷史",
+    "needHelp": "需要幫助?",
+    "contactSupport": "聯絡支援",
+    "account": "帳戶"
+  },
+  "paymentHistory": {
+    "title": "交易歷史",
+    "loading": "正在載入交易歷史...",
+    "totalDeposit": "累計儲值",
+    "totalPaid": "總付款金額",
+    "depositCount": "儲值次數",
+    "paymentCount": "支付次數",
+    "packagesBought": "已購套餐",
+    "processing": "處理中",
+    "filterTitle": "篩選和搜尋",
+    "exportExcel": "匯出Excel",
+    "searchPlaceholder": "按ID或交易碼搜尋...",
+    "allStatus": "所有狀態",
+    "statusSuccess": "成功",
+    "statusPending": "處理中",
+    "statusFailed": "失敗",
+    "allTypes": "所有交易類型",
+    "deposit": "儲值",
+    "subscriptionPayment": "套餐付款",
+    "advancedFilter": "進階篩選",
+    "transactionHistory": "交易歷史 ({{count}} 筆交易)",
+    "noTransactions": "未找到交易記錄",
+    "months": "個月",
+    "viewDetail": "查看詳情",
+    "viewDetailDesc": "交易詳情 {{code}}",
+    "viewPaymentDetail": "查看支付詳情",
+    "paymentDetailError": "無法載入支付資訊",
+    "exportSuccess": "Excel匯出成功",
+    "exportSuccessDesc": "已匯出 {{count}} 筆交易",
+    "exportError": "Excel匯出錯誤",
+    "exportErrorDesc": "無法匯出Excel檔案，請重試",
+    "loadError": "錯誤",
+    "loadErrorDesc": "無法載入交易歷史",
+    "depositDescription": "儲值到帳戶",
+    "payment": "付款",
+    "unknown": "未知",
+    "transaction": "交易",
+    "accountBalance": "帳戶餘額",
+    "qrCode": "QR碼",
+    "bankTransfer": "銀行轉帳",
+    "excelSummary": "總計: {{count}} 筆交易",
+    "showing": "顯示 {{total}} 中的 {{count}} 筆交易",
+    "prevPage": "上一頁",
+    "nextPage": "下一頁",
+    "labels": {
+      "id": "ID",
+      "ref": "Ref",
+      "balance": "交易後餘額",
+      "subscriptionId": "訂閱 ID"
+    },
+    "types": {
+      "deposit": "儲值",
+      "subscriptionPayment": "套餐付款",
+      "autoRenewal": "自動續費",
+      "manualRenewal": "手動續費",
+      "default": "交易"
+    },
+    "excel": {
+      "sheetName": "錢包交易歷史",
+      "filePrefix": "wallet-transaction-history",
+      "no": "序號",
+      "transactionType": "交易類型",
+      "amountVnd": "金額 (VND)",
+      "balanceAfterVnd": "交易後餘額 (VND)",
+      "referenceCode": "參考支付碼",
+      "transactionId": "交易 ID",
+      "time": "時間"
+    },
+    "detail": {
+      "title": "交易詳情",
+      "amount": "金額",
+      "balanceAfter": "交易後餘額",
+      "paymentId": "支付ID",
+      "subscriptionId": "訂閱ID",
+      "transactionCode": "交易代碼",
+      "paymentMethod": "支付方式",
+      "description": "描述",
+      "package": "服務套餐",
+      "createdAt": "建立時間",
+      "updatedAt": "最後更新",
+      "close": "關閉",
+      "copied": "已複製"
+    },
+    "paymentDetail": {
+      "title": "支付詳情",
+      "amount": "金額",
+      "type": "支付類型",
+      "method": "支付方式",
+      "transactionCode": "交易代碼",
+      "subscriptionId": "訂閱ID",
+      "package": "服務套餐",
+      "description": "內容",
+      "time": "時間",
+      "close": "關閉",
+      "statuses": {
+        "pending": "待處理",
+        "success": "成功",
+        "failed": "失敗",
+        "expired": "已過期"
+      },
+      "methods": {
+        "sepayQr": "SePay QR",
+        "accountBalance": "帳戶餘額",
+        "bankTransfer": "銀行轉帳"
+      },
+      "types": {
+        "deposit": "儲值",
+        "subscription": "訂閱套餐"
+      }
+    }
+  },
+  "balanceDisplay": {
+    "label": "餘額:",
+    "addFunds": "儲值",
+    "loading": "載入中...",
+    "error": "無法載入餘額",
+    "refresh": "重新整理餘額"
+  },
+  "subscriptionCheckout": {
+    "title": "訂閱付款",
+    "back": "返回",
+    "transactionInfo": "交易資訊",
+    "transactionType": "交易類型：",
+    "subscriptionRegistration": "訂閱註冊",
+    "paymentMethodLabel": "支付方式：",
+    "bankTransfer": "銀行轉帳",
+    "subscriptionIdLabel": "訂閱ID：",
+    "paymentAmount": "付款金額：",
+    "timeLeft": "剩餘時間：",
+    "expireWarning": "交易將在上述時間後過期。請在到期前完成付款。",
+    "transactionCode": "交易碼：",
+    "autoConfirm": "收到付款後，交易將自動確認。",
+    "benefit1": "訂閱將立即啟動",
+    "benefit2": "無交易費用",
+    "benefit3": "24/7支援",
+    "benefit4": "安全加密交易",
+    "scanQR": "掃碼付款",
+    "loadingPaymentInfo": "正在載入付款資訊...",
+    "paymentSuccessRedirect": "✅ 支付成功！正在重新導向...",
+    "checkingPayment": "正在檢查付款...",
+    "scanQRDesc": "使用銀行應用程式掃描QR碼進行支付",
+    "bankLabel": "銀行：",
+    "accountNumberLabel": "帳戶號碼：",
+    "accountHolderLabel": "帳戶持有人：",
+    "amountLabel": "金額：",
+    "contentLabel": "內容：",
+    "copyTransferInfo": "複製轉帳資訊",
+    "importantNote": "重要提示：",
+    "importantNoteDesc": "請轉帳正確的金額和正確的內容，以便系統可以自動確認交易。",
+    "contactSupport": "聯絡支援",
+    "alreadyTransferred": "已轉帳",
+    "invalidInfo": "資訊無效",
+    "invalidInfoDesc": "找不到付款資訊。請重試。",
+    "backHome": "返回首頁",
+    "copiedTransferInfo": "已複製轉帳資訊",
+    "paymentSuccess": "支付成功！",
+    "subscriptionActivated": "訂閱已啟動。",
+    "qrReadyToast": "QR碼準備就緒",
+    "qrReadyToastDesc": "請掃描二維碼，或使用以下資訊手動轉帳。",
+    "alreadyTransferredToast": "感謝您！",
+    "alreadyTransferredToastDesc": "我們已記錄您的付款，收到轉帳後交易將自動確認。"
+  },
+  "cloudConfig": {
+    "title": "配置VM實例",
+    "subscriptionLabel": "訂閱ID: {{id}}",
+    "back": "返回套餐管理",
+    "vmDetails": "VM實例詳情",
+    "vmInstanceName": "VM實例名稱",
+    "vmNameNote": "VM名稱將根據您的電子郵件地址自動產生，格式為：",
+    "notificationSettings": "通知設定",
+    "emailLabel": "電子郵件地址 * (SSH金鑰將傳送至此)",
+    "emailNote": "",
+    "vmShape": "VM規格 *",
+    "vmShapeNote": "首先選擇VM規格 - OS選項將根據相容性進行過濾",
+    "recommended": "推薦",
+    "armCapacityLimited": "⚠️ ARM容量有限",
+    "armCapacityNote": "A1.Flex (ARM) 實例在新加坡區域的容量通常有限。如果由於容量問題導致配置失敗，請稍後重試或切換到可用性更好的x86規格 (E2.1.Micro, E3.Flex)。",
+    "armImageNote": "注意：ARM鏡像 (🔷) 僅適用於A1.Flex。x86鏡像 (🔵) 適用於E2、E3、E4、Standard規格。",
+    "operatingSystem": "作業系統",
+    "showingCompatible": "顯示與 {{shape}} 相容的鏡像",
+    "selectOS": "選擇作業系統 *",
+    "versions": "版本",
+    "searchVersion": "搜尋版本...",
+    "noImagesFound": "未找到鏡像",
+    "loadingOsImages": "正在載入OS鏡像...",
+    "configSummary": "配置摘要",
+    "osLabel": "作業系統",
+    "notSelected": "未選擇",
+    "vmShapeLabel": "VM規格",
+    "ocpus": "OCPUs",
+    "memory": "記憶體",
+    "bootVolume": "啟動卷",
+    "notificationEmail": "通知郵件",
+    "notSpecified": "未指定",
+    "allFieldsCompleted": "所有必填欄位已完成",
+    "incompleteFields": "請填寫所有必填欄位：",
+    "needOS": "選擇作業系統",
+    "needOSVersion": "選擇OS版本",
+    "needEmail": "帳戶上未找到電子郵件地址",
+    "configureVM": "配置VM",
+    "configuring": "配置中...",
+    "cancelBtn": "取消",
+    "confirmTitle": "確認重裝作業系統",
+    "confirmDesc": "舊VM及所有資料和已安裝軟體將遺失。您確定嗎？",
+    "confirmCancel": "取消",
+    "confirmOk": "確認",
+    "creatingVM": "正在建立 VM 實例",
+    "creatingVMDesc": "您的虛擬機正在配置中...",
+    "provisionStep1": "正在配置分區和網路",
+    "provisionStep2": "正在啟動運算實例",
+    "provisionStep3": "正在配置網路和安全性",
+    "provisionStep4": "正在準備存取憑證",
+    "timeEstimate": "這可能需要2-5分鐘",
+    "doNotClose": "⚠️ 請勿關閉此視窗或導航離開",
+    "loadingSubscription": "正在載入訂閱詳情...",
+    "subscriptionNotFound": "找不到訂閱",
+    "subscriptionNotFoundBtn": "返回套餐管理",
+    "validationError": "驗證錯誤",
+    "validationErrorDesc": "請為所有必填欄位填寫有效值",
+    "configSuccess": "成功",
+    "armCapacityUnavailable": "ARM容量不可用",
+    "capacityUnavailable": "容量不可用",
+    "configFailed": "配置失敗",
+    "vmCreated": {
+      "title": "虛擬機建立成功！",
+      "warningTitle": "⚠️ 此資訊僅顯示一次",
+      "warningDesc": "請立即儲存。關閉此視窗後，您將無法再次查看。",
+      "sshKeyLabel": "SSH 私鑰",
+      "copyKey": "複製金鑰",
+      "copied": "已複製！",
+      "downloadPem": "下載 (.pem)",
+      "connectLabel": "連線: ",
+      "downloadCredentials": "下載登入資訊 (.txt)",
+      "windowsPendingTitle": "⏳ Windows 密碼正在產生",
+      "windowsPendingDesc1": "初始密碼將在 5–10 分鐘內準備好。",
+      "windowsPendingDesc2": "關閉此螢幕後，請轉到 VM 管理頁面查看密碼。",
+      "savedGotoVM": "已儲存 — 前往 VM 管理頁面"
+    }
+  },
+  "addFunds": {
+    "title": "儲值到帳戶",
+    "back": "返回",
+    "selectPaymentMethod": "選擇支付方式",
+    "enterAmount": "輸入儲值金額",
+    "amountLabel": "金額 (VND)",
+    "amountPlaceholder": "輸入金額...",
+    "amountDisplay": "金額：",
+    "quickAmounts": "或選擇快速金額",
+    "processing": "處理中...",
+    "confirm": "確認儲值 {{amount}} VND",
+    "comingSoon": "即將推出",
+    "noteTitle": "注意：",
+    "noteMin": "最小儲值金額：10,000 VND",
+    "noteMax": "最大儲值金額：100,000,000 VND",
+    "noteCredit": "付款確認後儲值將被計入帳戶",
+    "errorMin": "最小儲值金額為10,000 VND",
+    "errorMax": "最大儲值金額為100,000,000 VND",
+    "errorSelectMethod": "請選擇支付方式",
+    "errorMethodUnavailable": "此支付方式暫不可用",
+    "errorLogin": "請登入以繼續",
+    "errorGeneral": "錯誤",
+    "successTitle": "成功",
+    "successDesc": "儲值請求已建立，正在跳轉到支付頁面...",
+    "methods": {
+      "momo": { "name": "MoMo錢包", "description": "透過MoMo電子錢包支付" },
+      "card": { "name": "國際支付卡", "description": "Visa、Mastercard、JCB" },
+      "bank_transfer": { "name": "銀行轉帳", "description": "掃描QR碼或手動轉帳" }
+    }
+  },
+  "pricingModal": {
+    "title": "選擇支付方式",
+    "subtitle": "為 {{planName}} 套餐選擇合適的支付方式",
+    "accountBalance": "帳戶餘額扣款",
+    "accountBalanceDesc": "使用帳戶中的可用餘額進行支付",
+    "currentBalance": "目前餘額",
+    "addFundsBtn": "儲值",
+    "instantPayment": "即時支付",
+    "noFees": "無手續費",
+    "directPayment": "直接付款",
+    "directPaymentDesc": "透過銀行轉帳或QR碼支付",
+    "monthsLabel": "訂閱月數",
+    "totalDeduction": "錢包扣款總額",
+    "totalPayment": "總支付金額",
+    "perMonthCalc": "{{price}} × {{months}} 個月",
+    "termsPrefix": "我已閱讀並同意",
+    "termsLink": "服務條款",
+    "termsSuffix": "（OracleCloud Vietnam）。",
+    "closeBtn": "關閉",
+    "confirmBtn": "確認",
+    "processing": "處理中...",
+    "errorTitle": "錯誤",
+    "errorSelectMethod": "請選擇支付方式",
+    "errorMonths": "月數必須在 1 到 24 之間",
+    "insufficientBalanceTitle": "餘額不足",
+    "insufficientBalanceDesc": "您的餘額不足，請儲值。",
+    "successTitle": "註冊成功！",
+    "successDesc": "已成功購買 {{planName}} 套餐。費用已從帳戶中扣除。",
+    "errorGeneral": "發生錯誤，請重試。"
+  },
+  "register": {
+    "title": "建立帳戶",
+    "subtitle": "建立新帳戶以開始使用我們的服務",
+    "firstName": "姓",
+    "firstNamePlaceholder": "張",
+    "lastName": "名",
+    "lastNamePlaceholder": "三",
+    "email": "電子郵件",
+    "emailPlaceholder": "your@email.com",
+    "password": "密碼",
+    "passwordPlaceholder": "········",
+    "confirmPassword": "確認密碼",
+    "confirmPasswordPlaceholder": "········",
+    "registerButton": "註冊",
+    "registering": "註冊中...",
+    "or": "或",
+    "registerWithGoogle": "使用 Google 註冊",
+    "googleComingSoon": "Google 註冊功能即將推出",
+    "haveAccount": "已有帳戶？",
+    "loginNow": "立即登入",
+    "validation": {
+      "firstNameRequired": "姓不能為空",
+      "firstNameMaxLength": "姓不能超過50個字元",
+      "lastNameRequired": "名不能為空",
+      "lastNameMaxLength": "名不能超過50個字元",
+      "emailRequired": "電子郵件不能為空",
+      "emailInvalid": "電子郵件格式無效",
+      "passwordMinLength": "密碼至少6個字元",
+      "passwordMaxLength": "密碼不能超過100個字元",
+      "confirmPasswordRequired": "請確認您的密碼",
+      "passwordsMismatch": "密碼不一致"
+    },
+    "errorEmailAlreadyExists": "此信箱已被註冊，請使用其他信箱或登入。",
+    "errorDefault": "註冊失敗，請重試。"
+  },
+  "verifyOtp": {
+    "title": "驗證郵件",
+    "unverifiedWarning": "⚠️ 帳戶未驗證",
+    "otpSentToEmail": "OTP 已傳送至您的信箱",
+    "pleaseEnterOtp": "請輸入 OTP 以驗證您的帳戶",
+    "enterCodeSentTo": "請輸入傳送至以下地址的6位驗證碼",
+    "codeInstruction": "請輸入郵件中的6位驗證碼",
+    "verifyButton": "驗證郵件",
+    "verifying": "驗證中...",
+    "didntReceiveCode": "沒有收到驗證碼？",
+    "sending": "傳送中...",
+    "resendIn": "{{time}}秒後重新傳送",
+    "resendCode": "重新傳送驗證碼",
+    "securityNote": "🔒 此驗證碼 10 分鐘後過期，請勿與任何人分享。",
+    "errorInvalidOtp": "OTP 驗證碼錯誤，請重新檢查。",
+    "errorIncomplete": "請輸入完整的6位驗證碼",
+    "errorHourlyLimit": "您每小時內傳送OTP次數已達上限（6次）。請等待 {{minutes}} 分鐘後再試。",
+    "errorResendCooldown": "請等待 {{seconds}} 秒後再重新傳送OTP。",
+    "status": {
+      "sending": "正在傳送驗證碼...",
+      "sentTitle": "驗證碼已傳送！",
+      "sentCheckEmail": "請檢查您的郵件: {{email}}",
+      "verifyingCode": "正在驗證...",
+      "successMessage": "郵件驗證成功！",
+      "errorTitle": "驗證失敗",
+      "resendAvailableIn": "{{time}}秒後可重新傳送"
+    }
+  },
+  "forgotPassword": {
+    "recoverEmail": {
+      "title": "忘記密碼",
+      "subtitle": "請輸入您的電子郵件以接收重置密碼的OTP驗證碼",
+      "emailLabel": "電子郵件",
+      "emailPlaceholder": "example@email.com",
+      "submitButton": "傳送OTP",
+      "sending": "傳送中...",
+      "rememberPassword": "記起密碼了？",
+      "loginLink": "登入",
+      "validation": {
+        "emailRequired": "電子郵件不能為空",
+        "emailInvalid": "電子郵件格式無效"
+      }
+    },
+    "otpConfirm": {
+      "title": "OTP 驗證",
+      "subtitle": "請輸入傳送到您郵件的6位OTP驗證碼：",
+      "submitButton": "確認OTP",
+      "verifying": "驗證中...",
+      "resend": "重新傳送OTP",
+      "resendCountdown": "{{countdown}}秒後重新傳送",
+      "backToLogin": "← 返回登入",
+      "validation": {
+        "otpRequired": "請輸入完整的6位OTP驗證碼"
+      }
+    },
+    "newPassword": {
+      "title": "重置密碼",
+      "subtitle": "為您的帳戶輸入新密碼",
+      "passwordLabel": "新密碼",
+      "passwordPlaceholder": "請輸入新密碼",
+      "confirmPasswordLabel": "確認新密碼",
+      "confirmPasswordPlaceholder": "請再次輸入新密碼",
+      "submitButton": "重置密碼",
+      "resetting": "重置中...",
+      "validation": {
+        "passwordMinLength": "密碼至少8個字元",
+        "passwordStrong": "密碼不符合要求",
+        "confirmPasswordMinLength": "確認密碼至少8個字元",
+        "passwordMismatch": "密碼不匹配"
+      }
+    },
+    "passwordRules": {
+      "title": "密碼必須包含:",
+      "minLength": "至少8個字元",
+      "lowercase": "至少一個小寫字母 (a-z)",
+      "uppercase": "至少一個大寫字母 (A-Z)",
+      "digit": "至少一個數字 (0-9)",
+      "special": "至少一個特殊字元 (!@#$...)"
+    }
+  },
+  "addFundsPayment": {
+    "title": "帳戶儲值",
+    "back": "返回",
+    "invalidInfo": "無效資訊",
+    "invalidInfoDesc": "未找到支付資訊，請重試。",
+    "backToAddFunds": "返回儲值頁面",
+    "transactionInfo": "交易資訊",
+    "transactionType": "交易類型:",
+    "addFundsType": "儲值",
+    "paymentMethodLabel": "支付方式:",
+    "bankTransfer": "銀行轉帳",
+    "depositAmount": "儲值金額:",
+    "timeLeft": "剩餘時間:",
+    "expireWarning": "交易將在上述時間後過期，請在過期前完成付款。",
+    "transactionCode": "交易代碼:",
+    "autoConfirm": "收到付款後，交易將自動確認。",
+    "benefit1": "儲值將立即反映到您的帳戶",
+    "benefit2": "無手續費",
+    "benefit3": "7×24小時支援",
+    "benefit4": "加密安全交易",
+    "scanQR": "掃描二維碼支付",
+    "loadingPaymentInfo": "載入支付資訊中...",
+    "paymentSuccessRedirect": "✅ 儲值成功！正在跳轉...",
+    "checkingPayment": "正在檢查支付...",
+    "scanQRDesc": "使用銀行APP掃描二維碼進行支付",
+    "bankLabel": "銀行:",
+    "accountNumberLabel": "帳號:",
+    "accountHolderLabel": "帳戶名:",
+    "amountLabel": "金額:",
+    "contentLabel": "備註:",
+    "copyTransferInfo": "複製轉帳資訊",
+    "importantNote": "重要提示:",
+    "importantNoteDesc": "請按照正確金額和轉帳內容進行轉帳，以便系統自動確認交易。",
+    "contactSupport": "聯絡支援",
+    "alreadyTransferred": "我已轉帳",
+    "alreadyTransferredToast": "感謝您！",
+    "alreadyTransferredToastDesc": "我們已記錄您的付款，收到轉帳後交易將自動確認。",
+    "copiedTransferInfo": "轉帳資訊已複製",
+    "paymentSuccess": "儲值成功！",
+    "paymentSuccessDesc": "資金已新增到您的帳戶。",
+    "successWithAmount": "已成功向您的帳戶儲值 {{amount}}。",
+    "loading": "載入中...",
+    "qrReadyToast": "QR碼準備就緒",
+    "qrReadyToastDesc": "請掃描二維碼，或使用以下資訊手動轉帳。",
+    "transferInfo": "銀行: {{bank}}\n帳號: {{account}}\n金額: {{amount}} VND\n備註: {{content}}"
+  }
+}

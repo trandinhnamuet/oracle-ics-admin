@@ -3,6 +3,7 @@ import { initReactI18next } from 'react-i18next'
 import vi from './vi.json'
 import en from './en.json'
 import zh from './zh.json'
+import zht from './zht.json'
 import ja from './ja.json'
 import ko from './ko.json'
 
@@ -15,7 +16,7 @@ const getInitialLanguage = (): string => {
       const { cookies } = require('next/headers')
       const cookieStore = cookies()
       const languageCookie = cookieStore.get('language')
-      if (languageCookie && ['vi', 'en', 'zh', 'ja', 'ko'].includes(languageCookie.value)) {
+      if (languageCookie && ['vi', 'en', 'zh', 'zht', 'zht', 'ja', 'ko'].includes(languageCookie.value)) {
         return languageCookie.value
       }
     } catch (e) {
@@ -31,14 +32,14 @@ const getInitialLanguage = (): string => {
       .find(row => row.startsWith('language='))
       ?.split('=')[1]
     
-    if (cookieLanguage && ['vi', 'en', 'zh', 'ja', 'ko'].includes(cookieLanguage)) {
+    if (cookieLanguage && ['vi', 'en', 'zh', 'zht', 'ja', 'ko'].includes(cookieLanguage)) {
       return cookieLanguage
     }
   }
   
   // Fallback to localStorage for client-side
   const stored = localStorage.getItem('selectedLanguage')
-  if (stored && ['vi', 'en', 'zh', 'ja', 'ko'].includes(stored)) {
+  if (stored && ['vi', 'en', 'zh', 'zht', 'ja', 'ko'].includes(stored)) {
     return stored
   }
   
@@ -89,6 +90,7 @@ i18n
       vi: { translation: vi },
       en: { translation: en },
       zh: { translation: zh },
+      zht: { translation: zht },
       ja: { translation: ja },
       ko: { translation: ko },
     },
