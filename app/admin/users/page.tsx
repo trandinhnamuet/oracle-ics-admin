@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState, useCallback, useRef } from 'react'
-import axios from 'axios'
+import { fetchJsonWithAuth } from '@/lib/fetch-wrapper'
 import * as XLSX from 'xlsx'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
@@ -112,12 +112,12 @@ export default function UserManagementPage() {
         sortBy: col,
         sortOrder: order,
       })
-      const res = await axios.get<PaginatedResponse>(`${API_URL}/users?${params}`)
-      setUsers(res.data.data)
-      setTotal(res.data.total)
-      setTotalActive(res.data.totalActive)
-      setTotalInactive(res.data.totalInactive)
-      setTotalPages(res.data.totalPages)
+      const res = await fetchJsonWithAuth<PaginatedResponse>(`${API_URL}/users?${params}`)
+      setUsers(res.data)
+      setTotal(res.total)
+      setTotalActive(res.totalActive)
+      setTotalInactive(res.totalInactive)
+      setTotalPages(res.totalPages)
     } catch (error) {
       console.error('Error fetching users:', error)
       setUsers([])
@@ -175,18 +175,21 @@ export default function UserManagementPage() {
     if (!editingUser) return
     setEditSaving(true)
     try {
-      await axios.patch(`${API_URL}/users/${editingUser.id}`, {
-        firstName: editForm.firstName,
-        lastName: editForm.lastName,
-        email: editForm.email,
-        phoneNumber: editForm.phoneNumber || null,
-        company: editForm.company || null,
-        role: editForm.role,
-        isActive: editForm.isActive,
-        gender: editForm.gender || null,
-        idCard: editForm.idCard || null,
-        backupEmail: editForm.backupEmail || null,
-        address: editForm.address || null,
+      await fetchJsonWithAuth<any>(`${API_URL}/users/${editingUser.id}`, {
+        method: 'PATCH',
+        body: JSON.stringify({
+          firstName: editForm.firstName,
+          lastName: editForm.lastName,
+          email: editForm.email,
+          phoneNumber: editForm.phoneNumber || null,
+          company: editForm.company || null,
+          role: editForm.role,
+          isActive: editForm.isActive,
+          gender: editForm.gender || null,
+          idCard: editForm.idCard || null,
+          backupEmail: editForm.backupEmail || null,
+          address: editForm.address || null,
+        }),
       })
       toast({ title: t('admin.users.toast.updateSuccess') })
       setEditDialogOpen(false)
@@ -202,7 +205,7 @@ export default function UserManagementPage() {
   // Toggle user active status
   const toggleUserStatus = async (userId: number, currentStatus: boolean) => {
     try {
-      await axios.patch(`${API_URL}/users/${userId}`, { isActive: !currentStatus })
+      await fetchJsonWithAuth<any>(`${API_URL}/users/${userId}`, { method: 'PATCH', body: JSON.stringify({ isActive: !currentStatus }) })
       setUsers(prev => prev.map(user => 
         user.id === userId ? { ...user, isActive: !currentStatus } : user
       ))
@@ -221,7 +224,7 @@ export default function UserManagementPage() {
     const userId = pendingDeleteUserId
     setPendingDeleteUserId(null)
     try {
-      await axios.delete(`${API_URL}/users/${userId}`)
+      await fetchJsonWithAuth<any>(`${API_URL}/users/${userId}`, { method: 'DELETE' })
       toast({ title: t('admin.users.toast.deleteSuccess') })
       fetchUsers(page, debouncedSearch, sortBy, sortOrder)
     } catch (error) {
@@ -271,8 +274,8 @@ export default function UserManagementPage() {
         sortBy,
         sortOrder,
       })
-      const res = await axios.get<PaginatedResponse>(`${API_URL}/users?${params}`)
-      const allUsers = res.data.data
+      const res = await fetchJsonWithAuth<PaginatedResponse>(`${API_URL}/users?${params}`)
+      const allUsers = res.data
 
       const exportData = allUsers.map(user => ({
         'ID': user.id,
