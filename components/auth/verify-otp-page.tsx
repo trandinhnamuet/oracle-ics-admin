@@ -8,7 +8,6 @@ import { OtpInput } from '@/components/auth/otp-input';
 import { OtpStatus } from '@/components/auth/otp-status';
 import { ArrowLeft } from 'lucide-react';
 import { authApi } from '@/api/auth.api';
-import { getClientIp } from '@/lib/ip-service';
 import { useTranslation } from 'react-i18next';
 import { parseOtpError } from '@/lib/otp-error';
 
@@ -50,15 +49,9 @@ export function VerifyOtpPage({ email, customMessage, onBack, onSuccess }: Verif
     setError('');
 
     try {
-      // Get client IP (same as Vietguard)
-      const ipData = await getClientIp();
-      console.log('Client IP data in OTP verify:', ipData);
-
       const response = await authApi.verifyOtp({
         email,
         otp: otpCode,
-        ipv4: ipData.ipv4,
-        ipv6: ipData.ipv6,
       });
 
       setStatus('success');

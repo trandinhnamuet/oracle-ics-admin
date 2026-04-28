@@ -8,8 +8,6 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3003';
 export interface LoginRequest {
   email: string;
   password: string;
-  ipv4?: string;
-  ipv6?: string;
 }
 
 export interface RegisterRequest {
@@ -28,8 +26,6 @@ export interface RegisterResponse {
 export interface VerifyOtpRequest {
   email: string;
   otp: string;
-  ipv4?: string;
-  ipv6?: string;
 }
 
 export interface VerifyOtpResponse {

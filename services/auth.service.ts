@@ -1,5 +1,4 @@
 import { fetchWithAuth, fetchJsonWithAuth, getCurrentLang } from '@/lib/fetch-wrapper';
-import { getClientIp } from '@/lib/ip-service';
 import { clearAllAuthCookies, deleteCookie } from '@/lib/cookie-utils';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3003';
@@ -44,9 +43,6 @@ class AuthService {
   }
 
   async login(email: string, password: string): Promise<LoginResponse> {
-    // Get client IP from ipify.org (public IP)
-    const ipData = await getClientIp();
-    console.log('🔐 [AUTH SERVICE] IP data:', ipData);
     // Gọi qua Next.js proxy để strip domain attribute khỏi Set-Cookie,
     // đảm bảo cookie chỉ bind vào exact host (admin.oraclecloud.vn), không lan sang oraclecloud.vn
     const apiUrl = '/api/auth/login';
@@ -60,7 +56,7 @@ class AuthService {
         'Accept-Language': getCurrentLang(),
       },
       credentials: 'include', // Important: send cookies
-      body: JSON.stringify({ email, password, ipv4: ipData.ipv4, ipv6: ipData.ipv6 }),
+      body: JSON.stringify({ email, password }),
     });
 
     console.log('🔐 [AUTH SERVICE] Response status:', response.status);
