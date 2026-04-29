@@ -178,7 +178,8 @@ export default function AdminPackageDetailPage() {
       return typeof v === 'number' ? v.toFixed(4) : String(v)
     }).join(','))
     const csv = [headers.join(','), ...rows].join('\n')
-    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' })
+    // Prepend UTF-8 BOM (\uFEFF) so Excel on all locales correctly interprets the file as UTF-8.
+    const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' })
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
     a.href = url
@@ -949,7 +950,7 @@ export default function AdminPackageDetailPage() {
                       </label>
                     </div>
                   </div>
-                  <Button variant="ghost" size="sm" onClick={() => downloadChartCSV(getNetworkData(), `network-${subscriptionId}-${timeRange}.csv`)}>
+                  <Button variant="ghost" size="sm" onClick={() => downloadChartCSV(getNetworkData().map(d => ({ ...d, time: tooltipDateTimeFormatter(d.time) })), `network-${subscriptionId}-${timeRange}.csv`)}>
                     <Download className="h-4 w-4" />
                   </Button>
                 </CardHeader>
@@ -1015,7 +1016,7 @@ export default function AdminPackageDetailPage() {
                       </label>
                     </div>
                   </div>
-                  <Button variant="ghost" size="sm" onClick={() => downloadChartCSV(getDiskData(), `disk-${subscriptionId}-${timeRange}.csv`)}>
+                  <Button variant="ghost" size="sm" onClick={() => downloadChartCSV(getDiskData().map(d => ({ ...d, time: tooltipDateTimeFormatter(d.time) })), `disk-${subscriptionId}-${timeRange}.csv`)}>
                     <Download className="h-4 w-4" />
                   </Button>
                 </CardHeader>
