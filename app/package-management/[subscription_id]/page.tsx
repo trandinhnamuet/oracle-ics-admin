@@ -121,7 +121,7 @@ export default function AdminPackageDetailPage() {
   const [isDataLoading, setIsDataLoading] = useState(true)
   const [isLoadingVm, setIsLoadingVm] = useState(false)
   const [metrics, setMetrics] = useState<InstanceMetrics | null>(null)
-  const [timeRange, setTimeRange] = useState<'1h' | '6h' | '24h' | '7d' | 'all'>('7d')
+  const [timeRange, setTimeRange] = useState<'1h' | '6h' | '24h' | '7d' | 'all'>('1h')
   const [isLoadingMetrics, setIsLoadingMetrics] = useState(false)
   const [networkVisible, setNetworkVisible] = useState({ in: true, out: true })
   const [diskVisible, setDiskVisible] = useState({ read: true, write: true })
