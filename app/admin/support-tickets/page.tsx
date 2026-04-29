@@ -141,7 +141,7 @@ export default function AdminSupportTicketsPage() {
   const handleUpdate = async (id: number, data: { status?: string; priority?: string; admin_note?: string }) => {
     // Optimistic update: apply the changed field immediately so the Select
     // reflects the new value without waiting for the API round-trip.
-    setTickets(prev => prev.map(t => t.id === id ? { ...t, ...data } : t))
+    setTickets(prev => prev.map(t => t.id === id ? { ...t, ...data } as SupportTicket : t))
     setSaving(prev => ({ ...prev, [id]: true }))
     try {
       const updated = await updateTicket(id, data)
@@ -155,7 +155,7 @@ export default function AdminSupportTicketsPage() {
       toast({ title: t('admin.supportTickets.toast.updated'), description: t('admin.supportTickets.toast.updateSuccess') })
     } catch (e: any) {
       // Revert optimistic update on error
-      setTickets(prev => prev.map(t => t.id === id ? { ...t, ...data } : t))
+      setTickets(prev => prev.map(t => t.id === id ? { ...t, ...data } as SupportTicket : t))
       toast({ title: t('admin.supportTickets.toast.error'), description: e.message, variant: 'destructive' })
     } finally {
       setSaving(prev => ({ ...prev, [id]: false }))
