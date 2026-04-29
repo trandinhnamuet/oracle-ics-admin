@@ -225,7 +225,7 @@ export default function AdminLoginHistoryPage() {
         ...rows.map(row => row.map(cell => `"${cell}"`).join(','))
       ].join('\n')
 
-      const blob = new Blob([csv], { type: 'text/csv' })
+      const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' })
       const url = window.URL.createObjectURL(blob)
       const a = document.createElement('a')
       a.href = url
