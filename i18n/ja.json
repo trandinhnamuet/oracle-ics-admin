@@ -771,6 +771,7 @@
         "loginTime": "ログイン時間",
         "status": "ステータス",
         "ip": "IPアドレス",
+        "ipv6": "IPv6",
         "location": "場所",
         "browser": "ブラウザ",
         "os": "OS",

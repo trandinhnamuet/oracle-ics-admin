@@ -769,6 +769,7 @@
         "loginTime": "로그인 시간",
         "status": "상태",
         "ip": "IP 주소",
+        "ipv6": "IPv6",
         "location": "위치",
         "browser": "브라우저",
         "os": "OS",

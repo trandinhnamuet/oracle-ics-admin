@@ -211,8 +211,7 @@ export default function AdminLoginHistoryPage() {
         record.role,
         formatDateTime(record.loginTime, i18n.language),
         record.loginStatus,
-        // Prefer IPv4 then IPv6; show both if available
-        (record.ipV4 ? record.ipV4 : (record.ipV6 ? record.ipV6 : t('admin.loginHistory.csvNA'))),
+        record.ipV4 || record.ipV6 || t('admin.loginHistory.csvNA'),
         record.country || t('admin.loginHistory.csvNA'),
         record.browser,
         record.os,
@@ -433,6 +432,9 @@ export default function AdminLoginHistoryPage() {
                     {t('admin.loginHistory.table.ip')}
                   </th>
                   <th className="px-4 py-3 text-left text-xs font-medium text-gray-700 dark:text-muted-foreground uppercase tracking-wider">
+                    {t('admin.loginHistory.table.ipv6')}
+                  </th>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-700 dark:text-muted-foreground uppercase tracking-wider">
                     {t('admin.loginHistory.table.location')}
                   </th>
                   <th className="px-4 py-3 text-left text-xs font-medium text-gray-700 dark:text-muted-foreground uppercase tracking-wider">
@@ -455,13 +457,13 @@ export default function AdminLoginHistoryPage() {
               <tbody className="bg-white dark:bg-card divide-y divide-gray-200 dark:divide-border">
                 {loading ? (
                   <tr>
-                    <td colSpan={10} className="px-6 py-4 text-center text-gray-500 dark:text-muted-foreground">
+                    <td colSpan={11} className="px-6 py-4 text-center text-gray-500 dark:text-muted-foreground">
                       {t('admin.loginHistory.loading')}
                     </td>
                   </tr>
                 ) : loginHistory.length === 0 ? (
                   <tr>
-                    <td colSpan={10} className="px-6 py-4 text-center text-gray-500 dark:text-muted-foreground">
+                    <td colSpan={11} className="px-6 py-4 text-center text-gray-500 dark:text-muted-foreground">
                       {t('admin.loginHistory.noRecords')}
                     </td>
                   </tr>
@@ -491,9 +493,13 @@ export default function AdminLoginHistoryPage() {
                           {record.loginStatus.charAt(0).toUpperCase() + record.loginStatus.slice(1)}
                         </span>
                       </td>
-                      <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-foreground">
-                        {/* Show IPv4 if present, else IPv6. Also display both if both exist */}
-                        {record.ipV4 && record.ipV6 ? `${record.ipV4} / ${record.ipV6}` : (record.ipV4 || record.ipV6 || 'N/A')}
+                      <td className="px-4 py-4 whitespace-nowrap text-sm font-mono text-gray-900 dark:text-foreground">
+                        {record.ipV4 || <span className="text-gray-400 dark:text-muted-foreground">—</span>}
+                      </td>
+                      <td className="px-4 py-4 whitespace-nowrap text-sm font-mono text-gray-500 dark:text-muted-foreground">
+                        {record.ipV6
+                          ? <span title={record.ipV6} className="truncate block max-w-[160px]">{record.ipV6}</span>
+                          : <span className="text-gray-400 dark:text-muted-foreground">—</span>}
                       </td>
                       <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-foreground">
                         {record.country && record.city ? `${record.city}, ${record.country}` : record.country || 'N/A'}

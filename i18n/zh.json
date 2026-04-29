@@ -769,6 +769,7 @@
         "loginTime": "登录时间",
         "status": "状态",
         "ip": "IP地址",
+        "ipv6": "IPv6",
         "location": "位置",
         "browser": "浏览器",
         "os": "系统",

@@ -9,14 +9,25 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
     const acceptLang = request.headers.get('accept-language') || ''
+    // Forward the browser's User-Agent so the backend can parse browser/OS correctly.
+    const userAgent = request.headers.get('user-agent') || ''
+    // Forward real client IP: NextRequest exposes forwarded headers set by the reverse proxy.
+    const xForwardedFor = request.headers.get('x-forwarded-for') || ''
+    const xRealIP = request.headers.get('x-real-ip') || ''
+    const clientIP = xForwardedFor ? xForwardedFor.split(',')[0].trim() : xRealIP
+
+    const forwardedHeaders: Record<string, string> = {
+      'Content-Type': 'application/json',
+      'Accept-Language': acceptLang,
+      'Origin': 'https://admin.oraclecloud.vn',
+    }
+    if (userAgent) forwardedHeaders['User-Agent'] = userAgent
+    if (xForwardedFor) forwardedHeaders['X-Forwarded-For'] = xForwardedFor
+    if (clientIP) forwardedHeaders['X-Real-IP'] = clientIP
 
     const backendRes = await fetch(`${API_BASE_URL}/auth/admin-login`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept-Language': acceptLang,
-        'Origin': 'https://admin.oraclecloud.vn',
-      },
+      headers: forwardedHeaders,
       body: JSON.stringify(body),
     })
 

@@ -752,6 +752,7 @@
         "loginTime": "Thời gian đăng nhập",
         "status": "Trạng thái",
         "ip": "Địa chỉ IP",
+        "ipv6": "IPv6",
         "location": "Vị trí",
         "browser": "Trình duyệt",
         "os": "Hệ điều hành",

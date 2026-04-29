@@ -22,12 +22,20 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Forward User-Agent and real client IP so the backend can record accurate info.
+    const userAgent = request.headers.get('user-agent') || ''
+    const xForwardedFor = request.headers.get('x-forwarded-for') || ''
+    const xRealIP = request.headers.get('x-real-ip') || ''
+    const clientIP = xForwardedFor ? xForwardedFor.split(',')[0].trim() : xRealIP
+    const otpHeaders: Record<string, string> = { 'Content-Type': 'application/json' }
+    if (userAgent) otpHeaders['User-Agent'] = userAgent
+    if (xForwardedFor) otpHeaders['X-Forwarded-For'] = xForwardedFor
+    if (clientIP) otpHeaders['X-Real-IP'] = clientIP
+
     // Forward request to backend
     const response = await fetch(`${API_BASE_URL}/auth/verify-otp`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: otpHeaders,
       body: JSON.stringify({ email, otp }),
     });
 
