@@ -2272,6 +2272,10 @@
       "validation": {
         "emailRequired": "電子郵件不能為空",
         "emailInvalid": "電子郵件格式無效"
+      },
+      "errors": {
+        "emailNotRegistered": "此電子郵件尚未註冊。",
+        "generic": "發生錯誤，請重試。"
       }
     },
     "otpConfirm": {

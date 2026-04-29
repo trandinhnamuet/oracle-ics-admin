@@ -2274,6 +2274,10 @@
       "validation": {
         "emailRequired": "メールアドレスを入力してください",
         "emailInvalid": "無効なメールアドレスです"
+      },
+      "errors": {
+        "emailNotRegistered": "このメールアドレスは登録されていません。",
+        "generic": "エラーが発生しました。もう一度お試しください。"
       }
     },
     "otpConfirm": {

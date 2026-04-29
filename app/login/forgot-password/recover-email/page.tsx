@@ -19,7 +19,7 @@ import { useTranslation } from 'react-i18next'
 export default function RecoverEmailPage() {
   const { t } = useTranslation()
   const router = useRouter()
-  const [error, setError] = useState<string | null>(null)
+  const [errorKey, setErrorKey] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)
 
   const emailSchema = z.object({
@@ -46,7 +46,7 @@ export default function RecoverEmailPage() {
   const onSubmit = async (data: EmailFormData) => {
     try {
       setIsLoading(true)
-      setError(null)
+      setErrorKey(null)
       
       const response = await authApi.forgotPassword(data.email)
       
@@ -55,7 +55,13 @@ export default function RecoverEmailPage() {
       // Navigate to OTP confirmation page
       router.push(`/login/forgot-password/otp-confirm?email=${encodeURIComponent(data.email)}`)
     } catch (error: any) {
-      setError(error.message)
+      // Map known backend error messages to i18n keys so the UI reacts to language changes
+      const msg: string = error?.message || ''
+      if (msg.includes('chưa được đăng ký') || msg.includes('not registered') || msg.includes('not found')) {
+        setErrorKey('forgotPassword.recoverEmail.errors.emailNotRegistered')
+      } else {
+        setErrorKey('forgotPassword.recoverEmail.errors.generic')
+      }
     } finally {
       setIsLoading(false)
     }
@@ -74,9 +80,9 @@ export default function RecoverEmailPage() {
         </CardHeader>
 
         <CardContent className="space-y-4">
-          {error && (
+          {errorKey && (
             <Alert variant="destructive">
-              <AlertDescription>{error}</AlertDescription>
+              <AlertDescription>{t(errorKey)}</AlertDescription>
             </Alert>
           )}
 

@@ -2255,6 +2255,10 @@
       "validation": {
         "emailRequired": "Email là bắt buộc",
         "emailInvalid": "Email không hợp lệ"
+      },
+      "errors": {
+        "emailNotRegistered": "Email này chưa được đăng ký.",
+        "generic": "Có lỗi xảy ra. Vui lòng thử lại."
       }
     },
     "otpConfirm": {
