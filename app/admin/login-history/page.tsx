@@ -211,7 +211,8 @@ export default function AdminLoginHistoryPage() {
         record.role,
         formatDateTime(record.loginTime, i18n.language),
         record.loginStatus,
-        record.ipV4 || record.ipV6 || t('admin.loginHistory.csvNA'),
+        // Prefer IPv4 then IPv6; show both if available
+        (record.ipV4 ? record.ipV4 : (record.ipV6 ? record.ipV6 : t('admin.loginHistory.csvNA'))),
         record.country || t('admin.loginHistory.csvNA'),
         record.browser,
         record.os,
@@ -491,7 +492,8 @@ export default function AdminLoginHistoryPage() {
                         </span>
                       </td>
                       <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-foreground">
-                        {record.ipV4 || record.ipV6 || 'N/A'}
+                        {/* Show IPv4 if present, else IPv6. Also display both if both exist */}
+                        {record.ipV4 && record.ipV6 ? `${record.ipV4} / ${record.ipV6}` : (record.ipV4 || record.ipV6 || 'N/A')}
                       </td>
                       <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-foreground">
                         {record.country && record.city ? `${record.city}, ${record.country}` : record.country || 'N/A'}
