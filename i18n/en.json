@@ -769,7 +769,24 @@
         "page": "Page {{current}} of {{total}}",
         "prev": "Previous",
         "next": "Next"
-      }
+      },
+      "csvHeaders": {
+        "id": "ID",
+        "username": "Username",
+        "role": "Role",
+        "loginTime": "Login Time",
+        "status": "Status",
+        "ipAddress": "IP Address",
+        "country": "Country",
+        "browser": "Browser",
+        "os": "OS",
+        "deviceType": "Device Type",
+        "sessionDuration": "Session Duration",
+        "newDevice": "New Device"
+      },
+      "csvNA": "N/A",
+      "csvYes": "Yes",
+      "csvNo": "No"
     },
     "payments": {
       "title": "Payment Management",

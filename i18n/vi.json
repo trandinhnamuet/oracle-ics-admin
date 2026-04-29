@@ -769,7 +769,24 @@
         "page": "Trang {{current}} / {{total}}",
         "prev": "Trước",
         "next": "Tiếp"
-      }
+      },
+      "csvHeaders": {
+        "id": "ID",
+        "username": "Tên đăng nhập",
+        "role": "Vai trò",
+        "loginTime": "Thời gian đăng nhập",
+        "status": "Trạng thái",
+        "ipAddress": "Địa chỉ IP",
+        "country": "Quốc gia",
+        "browser": "Trình duyệt",
+        "os": "Hệ điều hành",
+        "deviceType": "Loại thiết bị",
+        "sessionDuration": "Thời lượng phiên",
+        "newDevice": "Thiết bị mới"
+      },
+      "csvNA": "N/A",
+      "csvYes": "Có",
+      "csvNo": "Không"
     },
     "payments": {
       "title": "Quản lý Thanh toán",

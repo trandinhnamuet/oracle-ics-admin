@@ -781,6 +781,23 @@
       "active": "활성",
       "new": "새로운",
       "known": "알려진",
+      "csvHeaders": {
+        "id": "ID",
+        "username": "사용자명",
+        "role": "역할",
+        "loginTime": "로그인 시간",
+        "status": "상태",
+        "ipAddress": "IP 주소",
+        "country": "국가",
+        "browser": "브라우저",
+        "os": "OS",
+        "deviceType": "기기 유형",
+        "sessionDuration": "세션 시간",
+        "newDevice": "새 기기"
+      },
+      "csvNA": "해당 없음",
+      "csvYes": "예",
+      "csvNo": "아니오",
       "pagination": {
         "recordsPerPage": "페이지당 레코드:",
         "page": "{{current}} / {{total}} 페이지",

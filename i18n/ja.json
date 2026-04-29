@@ -788,7 +788,24 @@
         "page": "{{current}} / {{total}} ページ",
         "prev": "前へ",
         "next": "次へ"
-      }
+      },
+      "csvHeaders": {
+        "id": "ID",
+        "username": "ユーザー名",
+        "role": "役割",
+        "loginTime": "ログイン時刻",
+        "status": "ステータス",
+        "ipAddress": "IPアドレス",
+        "country": "国",
+        "browser": "ブラウザ",
+        "os": "OS",
+        "deviceType": "デバイスタイプ",
+        "sessionDuration": "セッション時間",
+        "newDevice": "新しいデバイス"
+      },
+      "csvNA": "N/A",
+      "csvYes": "はい",
+      "csvNo": "いいえ"
     },
     "payments": {
       "title": "支払い管理",

@@ -781,6 +781,23 @@
       "active": "活跃",
       "new": "新",
       "known": "已知",
+      "csvHeaders": {
+        "id": "ID",
+        "username": "用户名",
+        "role": "角色",
+        "loginTime": "登录时间",
+        "status": "状态",
+        "ipAddress": "IP地址",
+        "country": "国家",
+        "browser": "浏览器",
+        "os": "操作系统",
+        "deviceType": "设备类型",
+        "sessionDuration": "会话时长",
+        "newDevice": "新设备"
+      },
+      "csvNA": "不适用",
+      "csvYes": "是",
+      "csvNo": "否",
       "pagination": {
         "recordsPerPage": "每页记录数:",
         "page": "第{{current}} / {{total}}页",

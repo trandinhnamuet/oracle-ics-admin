@@ -781,6 +781,23 @@
       "active": "活躍",
       "new": "新",
       "known": "已知",
+      "csvHeaders": {
+        "id": "ID",
+        "username": "用戶名",
+        "role": "角色",
+        "loginTime": "登入時間",
+        "status": "狀態",
+        "ipAddress": "IP位址",
+        "country": "國家",
+        "browser": "瀏覽器",
+        "os": "作業系統",
+        "deviceType": "裝置類型",
+        "sessionDuration": "工作階段時長",
+        "newDevice": "新裝置"
+      },
+      "csvNA": "不適用",
+      "csvYes": "是",
+      "csvNo": "否",
       "pagination": {
         "recordsPerPage": "每頁記錄數:",
         "page": "第{{current}} / {{total}}頁",
