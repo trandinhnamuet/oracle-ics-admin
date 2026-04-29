@@ -139,16 +139,23 @@ export default function AdminSupportTicketsPage() {
   }, [search, filterStatus, filterPriority, tickets])
 
   const handleUpdate = async (id: number, data: { status?: string; priority?: string; admin_note?: string }) => {
+    // Optimistic update: apply the changed field immediately so the Select
+    // reflects the new value without waiting for the API round-trip.
+    setTickets(prev => prev.map(t => t.id === id ? { ...t, ...data } : t))
     setSaving(prev => ({ ...prev, [id]: true }))
     try {
       const updated = await updateTicket(id, data)
-      setTickets(prev => prev.map(t => t.id === id ? updated : t))
+      // Merge (not replace) so that any field the server omits doesn't wipe
+      // out the existing value that was already showing correctly.
+      setTickets(prev => prev.map(t => t.id === id ? { ...t, ...updated } : t))
       // Clear local edit state so the textarea reflects the saved value
       if ('admin_note' in data) {
         setEditNote(prev => { const n = { ...prev }; delete n[id]; return n })
       }
       toast({ title: t('admin.supportTickets.toast.updated'), description: t('admin.supportTickets.toast.updateSuccess') })
     } catch (e: any) {
+      // Revert optimistic update on error
+      setTickets(prev => prev.map(t => t.id === id ? { ...t, ...data } : t))
       toast({ title: t('admin.supportTickets.toast.error'), description: e.message, variant: 'destructive' })
     } finally {
       setSaving(prev => ({ ...prev, [id]: false }))
@@ -387,7 +394,11 @@ export default function AdminSupportTicketsPage() {
                                       onValueChange={v => handleUpdate(ticket.id, { status: v })}
                                     >
                                       <SelectTrigger className="h-8 text-sm">
-                                        <SelectValue />
+                                        <SelectValue>
+                                          {ticket.status === 'in_progress'
+                                            ? t('admin.supportTickets.status.inProgress')
+                                            : t(`admin.supportTickets.status.${ticket.status}`)}
+                                        </SelectValue>
                                       </SelectTrigger>
                                       <SelectContent>
                                         <SelectItem value="open">{t('admin.supportTickets.status.open')}</SelectItem>
@@ -402,11 +413,13 @@ export default function AdminSupportTicketsPage() {
                                   <div className="space-y-1.5">
                                     <p className="text-xs font-medium text-muted-foreground">{t('admin.supportTickets.detail.priorityLabel')}</p>
                                     <Select
-                                      value={ticket.priority}
+                                      value={ticket.priority ?? 'medium'}
                                       onValueChange={v => handleUpdate(ticket.id, { priority: v })}
                                     >
                                       <SelectTrigger className="h-8 text-sm">
-                                        <SelectValue />
+                                        <SelectValue>
+                                          {t(`admin.supportTickets.priority.${ticket.priority ?? 'medium'}`)}
+                                        </SelectValue>
                                       </SelectTrigger>
                                       <SelectContent>
                                         <SelectItem value="low">{t('admin.supportTickets.priority.low')}</SelectItem>
