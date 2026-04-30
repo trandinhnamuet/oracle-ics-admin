@@ -119,7 +119,29 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const login = useCallback(async (email: string, password: string) => {
     try {
       console.log('🔐 [AUTH CONTEXT] Starting login for:', email)
-      const response = await authService.login(email, password)
+
+      // Request browser geolocation before sending credentials
+      let latitude: number | undefined
+      let longitude: number | undefined
+      await new Promise<void>((resolve, reject) => {
+        if (!navigator.geolocation) {
+          reject(new Error('GEOLOCATION_NOT_SUPPORTED'))
+          return
+        }
+        navigator.geolocation.getCurrentPosition(
+          (pos) => {
+            latitude = pos.coords.latitude
+            longitude = pos.coords.longitude
+            resolve()
+          },
+          () => {
+            reject(new Error('GEOLOCATION_DENIED'))
+          },
+          { timeout: 15000, maximumAge: 60000 },
+        )
+      })
+
+      const response = await authService.login(email, password, latitude, longitude)
       console.log('🔐 [AUTH CONTEXT] Got response:', { hasUser: !!response.user, hasToken: !!response.accessToken })
       
       // Check if email verification is required

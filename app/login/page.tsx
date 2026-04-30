@@ -93,6 +93,10 @@ export default function LoginPage() {
         // Don't reset form, don't show error - just let redirect happen
         return
       }
+      if (error.message === 'GEOLOCATION_DENIED' || error.message === 'GEOLOCATION_NOT_SUPPORTED') {
+        setError('Bạn cần cấp quyền truy cập vị trí để đăng nhập. Vui lòng bật quyền định vị trong cài đặt trình duyệt và thử lại.')
+        return
+      }
       const msg: string = error.message || ''
       if (msg.includes('mật khẩu không đúng') || msg.includes('Invalid credentials') || msg.includes('Unauthorized') || msg.includes('incorrect') || msg.toLowerCase().includes('invalid password') || msg.toLowerCase().includes('invalid email')) {
         setError(t('login.errorInvalidCredentials'))
@@ -139,6 +143,12 @@ export default function LoginPage() {
               <AlertDescription>{error}</AlertDescription>
             </Alert>
           )}
+
+          <Alert className="border-blue-300 bg-blue-50">
+            <AlertDescription className="text-blue-700 text-xs">
+              📍 Hệ thống yêu cầu quyền truy cập vị trí khi đăng nhập để ghi nhận lịch sử chính xác. Vui lòng cho phép khi trình duyệt hỏi.
+            </AlertDescription>
+          </Alert>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             {process.env.NODE_ENV === 'development' && (
