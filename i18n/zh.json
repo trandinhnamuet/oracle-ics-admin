@@ -1474,7 +1474,8 @@
     "successPasswordReset": "密码重置成功！请使用新密码登录。",
     "errorInvalidCredentials": "邮箱或密码不正确，请检查您的登录信息。",
     "errorEmailAlreadyExists": "此邮箱已被注册，请使用其他邮箱或登录。",
-    "errorDefault": "登录失败，请重试。"
+    "errorDefault": "登录失败，请重试。",
+    "geolocationRequired": "系统在登录时需要位置访问权限以记录准确的历史记录。当浏览器要求时请允许访问。"
   },
   "profile": {
     "title": "个人资料",

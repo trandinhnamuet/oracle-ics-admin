@@ -1473,7 +1473,8 @@
     "successPasswordReset": "密碼重置成功！請使用新密碼登入。",
     "errorInvalidCredentials": "信箱或密碼不正確，請檢查您的登入資訊。",
     "errorEmailAlreadyExists": "此信箱已被註冊，請使用其他信箱或登入。",
-    "errorDefault": "登入失敗，請重試。"
+    "errorDefault": "登入失敗，請重試。",
+    "geolocationRequired": "系統在登入時需要位置訪問權限以記錄準確的歷史記錄。當瀏覽器要求時請允許訪問。"
   },
   "profile": {
     "title": "個人資料",

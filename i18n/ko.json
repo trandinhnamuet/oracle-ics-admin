@@ -1473,7 +1473,8 @@
     "successPasswordReset": "비밀번호가 성공적으로 재설정되었습니다! 새 비밀번호로 로그인해 주세요.",
     "errorInvalidCredentials": "이메일 또는 비밀번호가 잘못되었습니다. 로그인 정보를 확인해 주세요.",
     "errorEmailAlreadyExists": "이 이메일은 이미 등록되어 있습니다. 다른 이메일을 사용하거나 로그인해 주세요.",
-    "errorDefault": "로그인 실패. 다시 시도해 주세요."
+    "errorDefault": "로그인 실패. 다시 시도해 주세요.",
+    "geolocationRequired": "시스템은 로그인 시 정확한 기록을 유지하기 위해 위치 접근 권한을 요청합니다. 브라우저에서 요청할 때 허용해주세요."
   },
   "profile": {
     "title": "프로필 정보",

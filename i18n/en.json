@@ -1457,7 +1457,8 @@
     "successPasswordReset": "Password reset successfully! Please login with your new password.",
     "errorInvalidCredentials": "Incorrect email or password. Please check your login information.",
     "errorEmailAlreadyExists": "This email is already registered. Please use a different email or login.",
-    "errorDefault": "Login failed. Please try again."
+    "errorDefault": "Login failed. Please try again.",
+    "geolocationRequired": "The system requires location access permission when logging in to record accurate history. Please allow when the browser asks."
   },
   "profile": {
     "title": "Profile Information",

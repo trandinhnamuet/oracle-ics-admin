@@ -146,7 +146,7 @@ export default function LoginPage() {
 
           <Alert className="border-blue-300 bg-blue-50">
             <AlertDescription className="text-blue-700 text-xs">
-              📍 Hệ thống yêu cầu quyền truy cập vị trí khi đăng nhập để ghi nhận lịch sử chính xác. Vui lòng cho phép khi trình duyệt hỏi.
+              📍 {t('login.geolocationRequired')}
             </AlertDescription>
           </Alert>
 
