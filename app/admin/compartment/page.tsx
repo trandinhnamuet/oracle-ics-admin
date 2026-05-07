@@ -23,6 +23,45 @@ import {
 
 const PAGE_SIZE = 10
 const POLL_INTERVAL_MS = 60_000 // 1 minute
+const LS_KEY = 'compartment-deleting-ids' // localStorage key
+const MAX_STALE_MS = 4 * 60 * 60 * 1000 // 4 hours — auto-clear old entries
+
+interface StoredEntry { id: string; ts: number }
+
+function loadStoredDeletingIds(): Set<string> {
+  if (typeof window === 'undefined') return new Set()
+  try {
+    const raw = localStorage.getItem(LS_KEY)
+    if (!raw) return new Set()
+    const entries: StoredEntry[] = JSON.parse(raw)
+    const now = Date.now()
+    const valid = entries.filter(e => now - e.ts < MAX_STALE_MS)
+    return new Set(valid.map(e => e.id))
+  } catch {
+    return new Set()
+  }
+}
+
+function saveStoredDeletingIds(ids: Set<string>) {
+  if (typeof window === 'undefined') return
+  try {
+    const existing: StoredEntry[] = (() => {
+      try { return JSON.parse(localStorage.getItem(LS_KEY) ?? '[]') } catch { return [] }
+    })()
+    const now = Date.now()
+    // Merge: keep existing timestamps, add new ones
+    const map = new Map<string, number>(existing.map(e => [e.id, e.ts]))
+    for (const id of ids) {
+      if (!map.has(id)) map.set(id, now)
+    }
+    // Remove ids no longer in the set
+    for (const id of map.keys()) {
+      if (!ids.has(id)) map.delete(id)
+    }
+    const entries: StoredEntry[] = [...map.entries()].map(([id, ts]) => ({ id, ts }))
+    localStorage.setItem(LS_KEY, JSON.stringify(entries))
+  } catch {}
+}
 
 export default function CompartmentManagementPage() {
   const { t } = useTranslation()
@@ -30,12 +69,17 @@ export default function CompartmentManagementPage() {
   const [loading, setLoading] = useState(true)
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false)
   const [selectedCompartment, setSelectedCompartment] = useState<Compartment | null>(null)
-  // Map<id, true> — compartments currently being deleted (spinner on their row)
-  const [deletingIds, setDeletingIds] = useState<Set<string>>(new Set())
+  // Hydrate from localStorage so deleting state survives F5
+  const [deletingIds, setDeletingIds] = useState<Set<string>>(() => loadStoredDeletingIds())
   const [search, setSearch] = useState('')
   const [page, setPage] = useState(1)
   const { toast } = useToast()
   const pollTimerRef = useRef<ReturnType<typeof setInterval> | null>(null)
+
+  // Keep localStorage in sync whenever deletingIds changes
+  useEffect(() => {
+    saveStoredDeletingIds(deletingIds)
+  }, [deletingIds])
 
   // Initial load (full reload with spinner)
   const loadCompartments = async () => {
@@ -43,6 +87,13 @@ export default function CompartmentManagementPage() {
       setLoading(true)
       const data = await getCompartments()
       setCompartments(data)
+      // Clean up deletingIds that are no longer in OCI (deletion completed while user was away)
+      const freshIds = new Set(data.map(c => c.id))
+      setDeletingIds(prev => {
+        if (prev.size === 0) return prev
+        const next = new Set([...prev].filter(id => freshIds.has(id)))
+        return next.size === prev.size ? prev : next
+      })
     } catch (error: any) {
       toast({
         title: t('admin.compartment.toast.loadError', { message: '' }).split(':')[0],
@@ -113,7 +164,6 @@ export default function CompartmentManagementPage() {
       if (pollTimerRef.current) clearInterval(pollTimerRef.current)
     }
   }, [])
-
   const handleDeleteClick = (compartment: Compartment) => {
     setSelectedCompartment(compartment)
     setDeleteDialogOpen(true)
