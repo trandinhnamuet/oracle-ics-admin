@@ -15,6 +15,6 @@ git checkout "$BRANCH"
 git pull --ff-only origin "$BRANCH"
 
 npm run build
-pm2 restart oracle-ics-admin
+pm2 startOrRestart ecosystem.config.js --env production
 
 echo "==> [admin] Deploy completed"
