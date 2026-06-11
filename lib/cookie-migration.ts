@@ -11,8 +11,13 @@ export function migrateCookies() {
     ?.split('=')[1]
   
   if (oldToken) {
+    // Strip CR/LF and validate JWT structure before writing to cookie
+    const sanitized = oldToken.replace(/[\r\n]/g, '')
+    const isValidJwt = /^[A-Za-z0-9\-_=]+\.[A-Za-z0-9\-_=]+\.[A-Za-z0-9\-_.+/=]*$/.test(sanitized)
+    if (!isValidJwt) return
+
     // Set cookie mới với tên đúng
-    document.cookie = `access_token=${oldToken}; path=/; max-age=${24 * 60 * 60}; SameSite=strict${
+    document.cookie = `access_token=${sanitized}; path=/; max-age=${24 * 60 * 60}; SameSite=strict${
       process.env.NODE_ENV === 'production' ? '; Secure' : ''
     }`
     
