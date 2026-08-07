@@ -32,7 +32,7 @@
       "inactive": "Inactive",
       "pending": "Pending",
       "suspended": "Suspended",
-      "cancelled": "Cancelled", 
+      "cancelled": "Cancelled",
       "expired": "Expired",
       "pauseTitle": "Pause Package",
       "activateTitle": "Activate Package",
@@ -682,10 +682,18 @@
         "yearly": "By Year"
       },
       "months": {
-        "jan": "January", "feb": "February", "mar": "March",
-        "apr": "April", "may": "May", "jun": "June",
-        "jul": "July", "aug": "August", "sep": "September",
-        "oct": "October", "nov": "November", "dec": "December"
+        "jan": "January",
+        "feb": "February",
+        "mar": "March",
+        "apr": "April",
+        "may": "May",
+        "jun": "June",
+        "jul": "July",
+        "aug": "August",
+        "sep": "September",
+        "oct": "October",
+        "nov": "November",
+        "dec": "December"
       },
       "table": {
         "month": "Month",
@@ -1077,32 +1085,62 @@
         "database": {
           "title": "Oracle Database Cloud",
           "description": "Self-managed Oracle database with high performance and absolute security",
-          "features": ["Autonomous Database", "Real Application Clusters", "Data Guard", "Advanced Security"]
+          "features": [
+            "Autonomous Database",
+            "Real Application Clusters",
+            "Data Guard",
+            "Advanced Security"
+          ]
         },
         "compute": {
           "title": "Compute Cloud",
           "description": "Flexible virtual servers with customizable configurations for business needs",
-          "features": ["Bare Metal", "Virtual Machines", "Container Engine", "Functions"]
+          "features": [
+            "Bare Metal",
+            "Virtual Machines",
+            "Container Engine",
+            "Functions"
+          ]
         },
         "storage": {
           "title": "Storage Solutions",
           "description": "Diverse storage solutions from block storage to object storage",
-          "features": ["Block Volume", "Object Storage", "File Storage", "Archive Storage"]
+          "features": [
+            "Block Volume",
+            "Object Storage",
+            "File Storage",
+            "Archive Storage"
+          ]
         },
         "networking": {
           "title": "Networking",
           "description": "Global network infrastructure with low latency and high bandwidth",
-          "features": ["Virtual Cloud Network", "Load Balancer", "VPN Connect", "FastConnect"]
+          "features": [
+            "Virtual Cloud Network",
+            "Load Balancer",
+            "VPN Connect",
+            "FastConnect"
+          ]
         },
         "security": {
           "title": "Security & Identity",
           "description": "Multi-layered security with advanced identity and access management",
-          "features": ["Identity Management", "Key Management", "Web Application Firewall", "Security Zones"]
+          "features": [
+            "Identity Management",
+            "Key Management",
+            "Web Application Firewall",
+            "Security Zones"
+          ]
         },
         "analytics": {
           "title": "Analytics & AI",
           "description": "Intelligent data analytics with integrated machine learning",
-          "features": ["Analytics Cloud", "Data Science", "Machine Learning", "Big Data Service"]
+          "features": [
+            "Analytics Cloud",
+            "Data Science",
+            "Machine Learning",
+            "Big Data Service"
+          ]
         }
       },
       "benefits": {
@@ -1215,7 +1253,7 @@
     }
   },
   "pricing": {
-    "loginRequired": "Please log in to register for a package", 
+    "loginRequired": "Please log in to register for a package",
     "plans": {
       "starter": {
         "1": {
@@ -1343,7 +1381,6 @@
     "packageManagement": "My Cloud",
     "supportRequest": "Support Request",
     "adminPanel": "Admin Panel"
-
   },
   "footer": {
     "companyName": "Oracle Cloud Vietnam",
@@ -1555,7 +1592,7 @@
       "active": "Active",
       "inactive": "Inactive",
       "expired": "Expired",
-      "suspended": "Suspended", 
+      "suspended": "Suspended",
       "cancelled": "Cancelled",
       "pending": "Pending"
     },
@@ -1590,7 +1627,10 @@
       "resetPasswordResettingNote": "This process may take 5-10 minutes.",
       "resetPasswordSuccessTitle": "Password Reset Successfully!",
       "resetPasswordSuccessDesc": "The Windows VM password has been changed. Please save the new password below.",
-      "resetPasswordWarning": "Please save this password now. You can view it later in the Windows RDP Credentials section."
+      "resetPasswordWarning": "Please save this password now. You can view it later in the Windows RDP Credentials section.",
+      "passwordShownOnce": "⚠️ Shown only once — save it now. It cannot be displayed again; reset the password if you lose it.",
+      "passwordRevealFailed": "Could not retrieve the password.",
+      "passwordOwnerOnly": "Visible to the VM owner only"
     },
     "resetPassword": {
       "title": "Reset Windows Password",
@@ -1615,7 +1655,8 @@
         "needDigit": "Password must include at least one digit (0-9)",
         "needSpecial": "Password must include at least one special character (e.g. !@#$%)",
         "valid": "Password meets Windows requirements"
-      }
+      },
+      "sentToOwner": "Sent to the VM owner"
     },
     "controls": {
       "vmName": "VM Name:",
@@ -1626,7 +1667,7 @@
       "timeOptions": {
         "oneHour": "1 hour ago",
         "sixHours": "6 hours ago",
-        "twentyFourHours": "24 hours ago", 
+        "twentyFourHours": "24 hours ago",
         "sevenDays": "7 days ago"
       },
       "themeOptions": {
@@ -2147,9 +2188,18 @@
     "successTitle": "Success",
     "successDesc": "Deposit request created, redirecting to payment page...",
     "methods": {
-      "momo": { "name": "MoMo Wallet", "description": "Pay via MoMo e-wallet" },
-      "card": { "name": "International Card", "description": "Visa, Mastercard, JCB" },
-      "bank_transfer": { "name": "Bank Transfer", "description": "Scan QR Code or manual transfer" }
+      "momo": {
+        "name": "MoMo Wallet",
+        "description": "Pay via MoMo e-wallet"
+      },
+      "card": {
+        "name": "International Card",
+        "description": "Visa, Mastercard, JCB"
+      },
+      "bank_transfer": {
+        "name": "Bank Transfer",
+        "description": "Scan QR Code or manual transfer"
+      }
     }
   },
   "pricingModal": {
@@ -2192,9 +2242,9 @@
     "email": "Email",
     "emailPlaceholder": "your@email.com",
     "password": "Password",
-    "passwordPlaceholder": "\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7",
+    "passwordPlaceholder": "········",
     "confirmPassword": "Confirm Password",
-    "confirmPasswordPlaceholder": "\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7",
+    "confirmPasswordPlaceholder": "········",
     "registerButton": "Register",
     "registering": "Registering...",
     "or": "Or",
@@ -2271,7 +2321,7 @@
       "verifying": "Verifying...",
       "resend": "Resend OTP",
       "resendCountdown": "Resend after {{countdown}}s",
-      "backToLogin": "\u2190 Back to login",
+      "backToLogin": "← Back to login",
       "validation": {
         "otpRequired": "Please enter all 6 OTP digits"
       }
@@ -2323,7 +2373,7 @@
     "benefit4": "Secure encrypted transactions",
     "scanQR": "Scan QR to Pay",
     "loadingPaymentInfo": "Loading payment information...",
-    "paymentSuccessRedirect": "\u2705 Deposit Successful! Redirecting...",
+    "paymentSuccessRedirect": "✅ Deposit Successful! Redirecting...",
     "checkingPayment": "Checking payment...",
     "scanQRDesc": "Scan the QR code with your banking app to pay",
     "bankLabel": "Bank:",

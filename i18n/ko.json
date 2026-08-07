@@ -699,10 +699,18 @@
         "yearly": "연별"
       },
       "months": {
-        "jan": "1월", "feb": "2월", "mar": "3월",
-        "apr": "4월", "may": "5월", "jun": "6월",
-        "jul": "7월", "aug": "8월", "sep": "9월",
-        "oct": "10월", "nov": "11월", "dec": "12월"
+        "jan": "1월",
+        "feb": "2월",
+        "mar": "3월",
+        "apr": "4월",
+        "may": "5월",
+        "jun": "6월",
+        "jul": "7월",
+        "aug": "8월",
+        "sep": "9월",
+        "oct": "10월",
+        "nov": "11월",
+        "dec": "12월"
       },
       "table": {
         "month": "월",
@@ -1094,32 +1102,62 @@
         "database": {
           "title": "Oracle 데이터베이스 클라우드",
           "description": "고성능 및 절대적인 보안을 제공하는 자가 관리 Oracle 데이터베이스",
-          "features": ["자율 데이터베이스", "실시간 애플리케이션 클러스터", "데이터 가드", "고급 보안"]
+          "features": [
+            "자율 데이터베이스",
+            "실시간 애플리케이션 클러스터",
+            "데이터 가드",
+            "고급 보안"
+          ]
         },
         "compute": {
           "title": "컴퓨트 클라우드",
           "description": "기업 요구에 맞춘 유연한 가상 서버 구성",
-          "features": ["베어 메탈", "가상 머신", "컨테이너 엔진", "함수"]
+          "features": [
+            "베어 메탈",
+            "가상 머신",
+            "컨테이너 엔진",
+            "함수"
+          ]
         },
         "storage": {
           "title": "저장소 솔루션",
           "description": "블록 저장소에서 객체 저장소까지 다양한 저장소 솔루션",
-          "features": ["블록 볼륨", "객체 저장소", "파일 저장소", "아카이브 저장소"]
+          "features": [
+            "블록 볼륨",
+            "객체 저장소",
+            "파일 저장소",
+            "아카이브 저장소"
+          ]
         },
         "networking": {
           "title": "네트워킹",
           "description": "낮은 지연 시간과 높은 대역폭의 글로벌 네트워크 인프라",
-          "features": ["가상 클라우드 네트워크", "로드 밸런서", "VPN 연결", "패스트커넥트"]
+          "features": [
+            "가상 클라우드 네트워크",
+            "로드 밸런서",
+            "VPN 연결",
+            "패스트커넥트"
+          ]
         },
         "security": {
           "title": "보안 및 신원",
           "description": "고급 신원 및 접근 관리를 포함한 다층 보안",
-          "features": ["신원 관리", "키 관리", "웹 애플리케이션 방화벽", "보안 존"]
+          "features": [
+            "신원 관리",
+            "키 관리",
+            "웹 애플리케이션 방화벽",
+            "보안 존"
+          ]
         },
         "analytics": {
           "title": "분석 및 AI",
           "description": "통합된 머신 러닝을 활용한 지능형 데이터 분석",
-          "features": ["분석 클라우드", "데이터 사이언스", "머신 러닝", "빅 데이터 서비스"]
+          "features": [
+            "분석 클라우드",
+            "데이터 사이언스",
+            "머신 러닝",
+            "빅 데이터 서비스"
+          ]
         }
       },
       "benefits": {
@@ -1606,7 +1644,10 @@
       "resetPasswordResettingNote": "이 과정은 5-10분 정도 소요될 수 있습니다.",
       "resetPasswordSuccessTitle": "비밀번호 재설정 성공!",
       "resetPasswordSuccessDesc": "Windows VM 비밀번호가 변경되었습니다. 아래에서 새 비밀번호를 저장하세요.",
-      "resetPasswordWarning": "지금 비밀번호를 저장하세요. Windows RDP 자격 증명 섹션에서 나중에 확인할 수 있습니다."
+      "resetPasswordWarning": "지금 비밀번호를 저장하세요. Windows RDP 자격 증명 섹션에서 나중에 확인할 수 있습니다.",
+      "passwordShownOnce": "⚠️ 한 번만 표시됩니다. 지금 저장하세요. 다시 표시할 수 없습니다.",
+      "passwordRevealFailed": "비밀번호를 가져오지 못했습니다.",
+      "passwordOwnerOnly": "VM 소유자만 볼 수 있습니다"
     },
     "resetPassword": {
       "title": "Windows 비밀번호 재설정",
@@ -1631,7 +1672,8 @@
         "needDigit": "숫자(0-9)를 최소 1자 포함해야 합니다",
         "needSpecial": "특수문자(예: !@#$%)를 최소 1자 포함해야 합니다",
         "valid": "비밀번호가 Windows 요구 사항을 충족합니다"
-      }
+      },
+      "sentToOwner": "VM 소유자에게 전송됨"
     },
     "controls": {
       "vmName": "VM 이름:",
@@ -2163,9 +2205,18 @@
     "successTitle": "성공",
     "successDesc": "충전 요청이 생성되었습니다. 결제 페이지로 이동 중...",
     "methods": {
-      "momo": { "name": "MoMo 지갑", "description": "MoMo 전자지갑으로 결제" },
-      "card": { "name": "국제 카드", "description": "Visa, Mastercard, JCB" },
-      "bank_transfer": { "name": "계좌 이체", "description": "QR 코드 스캔 또는 수동 이체" }
+      "momo": {
+        "name": "MoMo 지갑",
+        "description": "MoMo 전자지갑으로 결제"
+      },
+      "card": {
+        "name": "국제 카드",
+        "description": "Visa, Mastercard, JCB"
+      },
+      "bank_transfer": {
+        "name": "계좌 이체",
+        "description": "QR 코드 스캔 또는 수동 이체"
+      }
     }
   },
   "pricingModal": {
@@ -2208,9 +2259,9 @@
     "email": "이메일",
     "emailPlaceholder": "your@email.com",
     "password": "비밀번호",
-    "passwordPlaceholder": "\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7",
+    "passwordPlaceholder": "········",
     "confirmPassword": "비밀번호 확인",
-    "confirmPasswordPlaceholder": "\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7",
+    "confirmPasswordPlaceholder": "········",
     "registerButton": "등록",
     "registering": "등록 중...",
     "or": "또는",
@@ -2287,7 +2338,7 @@
       "verifying": "인증 중...",
       "resend": "OTP 재전송",
       "resendCountdown": "{{countdown}}초 후 재전송",
-      "backToLogin": "\u2190 로그인으로 돌아가기",
+      "backToLogin": "← 로그인으로 돌아가기",
       "validation": {
         "otpRequired": "6자리 OTP를 모두 입력해주세요"
       }
@@ -2339,7 +2390,7 @@
     "benefit4": "암호화된 보안 거래",
     "scanQR": "QR 코드 스캔하여 결제",
     "loadingPaymentInfo": "결제 정보 로딩 중...",
-    "paymentSuccessRedirect": "\u2705 충전 성공! 리다이렉트 중...",
+    "paymentSuccessRedirect": "✅ 충전 성공! 리다이렉트 중...",
     "checkingPayment": "결제 확인 중...",
     "scanQRDesc": "뱅킹 앱으로 QR 코드를 스캔하여 결제하세요",
     "bankLabel": "은행:",

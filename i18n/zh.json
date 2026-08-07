@@ -699,10 +699,18 @@
         "yearly": "按年"
       },
       "months": {
-        "jan": "1月", "feb": "2月", "mar": "3月",
-        "apr": "4月", "may": "5月", "jun": "6月",
-        "jul": "7月", "aug": "8月", "sep": "9月",
-        "oct": "10月", "nov": "11月", "dec": "12月"
+        "jan": "1月",
+        "feb": "2月",
+        "mar": "3月",
+        "apr": "4月",
+        "may": "5月",
+        "jun": "6月",
+        "jul": "7月",
+        "aug": "8月",
+        "sep": "9月",
+        "oct": "10月",
+        "nov": "11月",
+        "dec": "12月"
       },
       "table": {
         "month": "月份",
@@ -1094,32 +1102,62 @@
         "database": {
           "title": "Oracle数据库云",
           "description": "具有高性能和绝对安全的自管理Oracle数据库",
-          "features": ["自主数据库", "实时应用集群", "数据保护", "高级安全"]
+          "features": [
+            "自主数据库",
+            "实时应用集群",
+            "数据保护",
+            "高级安全"
+          ]
         },
         "compute": {
           "title": "计算云",
           "description": "灵活的虚拟服务器，可根据企业需求自定义配置",
-          "features": ["裸金属", "虚拟机", "容器引擎", "函数"]
+          "features": [
+            "裸金属",
+            "虚拟机",
+            "容器引擎",
+            "函数"
+          ]
         },
         "storage": {
           "title": "存储解决方案",
           "description": "从块存储到对象存储的多样化存储解决方案",
-          "features": ["块存储", "对象存储", "文件存储", "归档存储"]
+          "features": [
+            "块存储",
+            "对象存储",
+            "文件存储",
+            "归档存储"
+          ]
         },
         "networking": {
           "title": "网络",
           "description": "低延迟和高带宽的全球网络基础设施",
-          "features": ["虚拟云网络", "负载均衡器", "VPN连接", "快速连接"]
+          "features": [
+            "虚拟云网络",
+            "负载均衡器",
+            "VPN连接",
+            "快速连接"
+          ]
         },
         "security": {
           "title": "安全与身份",
           "description": "多层安全与高级身份和访问管理",
-          "features": ["身份管理", "密钥管理", "Web应用程序防火墙", "安全区域"]
+          "features": [
+            "身份管理",
+            "密钥管理",
+            "Web应用程序防火墙",
+            "安全区域"
+          ]
         },
         "analytics": {
           "title": "分析与人工智能",
           "description": "集成机器学习智能数据分析",
-          "features": ["分析云", "数据科学", "机器学习", "大数据服务"]
+          "features": [
+            "分析云",
+            "数据科学",
+            "机器学习",
+            "大数据服务"
+          ]
         }
       },
       "benefits": {
@@ -1360,7 +1398,6 @@
     "packageManagement": "我的云",
     "supportRequest": "支持请求",
     "adminPanel": "管理面板"
-    
   },
   "footer": {
     "companyName": "越南Oracle云",
@@ -1607,7 +1644,10 @@
       "resetPasswordResettingNote": "该过程可能需要5-10分钟。",
       "resetPasswordSuccessTitle": "密码重置成功！",
       "resetPasswordSuccessDesc": "Windows VM 密码已更改。请保存以下新密码。",
-      "resetPasswordWarning": "请立即保存此密码。您可以稍后在 Windows RDP 凭据部分查看。"
+      "resetPasswordWarning": "请立即保存此密码。您可以稍后在 Windows RDP 凭据部分查看。",
+      "passwordShownOnce": "⚠️ 仅显示一次，请立即保存。无法再次显示；如遗失请重置密码。",
+      "passwordRevealFailed": "无法获取密码。",
+      "passwordOwnerOnly": "仅 VM 拥有者可见"
     },
     "resetPassword": {
       "title": "重置Windows密码",
@@ -1632,7 +1672,8 @@
         "needDigit": "密码必须包含至少一个数字(0-9)",
         "needSpecial": "密码必须包含至少一个特殊字符(如!@#$%)",
         "valid": "密码符合Windows要求"
-      }
+      },
+      "sentToOwner": "已发送给 VM 拥有者"
     },
     "controls": {
       "vmName": "虚拟机名称：",
@@ -2164,9 +2205,18 @@
     "successTitle": "成功",
     "successDesc": "充値请求已创建，正在跳转到支付页面...",
     "methods": {
-      "momo": { "name": "MoMo钱包", "description": "通过MoMo电子钱包支付" },
-      "card": { "name": "国际支付卡", "description": "Visa、Mastercard、JCB" },
-      "bank_transfer": { "name": "银行转账", "description": "扫描QR码或手动转账" }
+      "momo": {
+        "name": "MoMo钱包",
+        "description": "通过MoMo电子钱包支付"
+      },
+      "card": {
+        "name": "国际支付卡",
+        "description": "Visa、Mastercard、JCB"
+      },
+      "bank_transfer": {
+        "name": "银行转账",
+        "description": "扫描QR码或手动转账"
+      }
     }
   },
   "pricingModal": {
@@ -2209,9 +2259,9 @@
     "email": "电子邮件",
     "emailPlaceholder": "your@email.com",
     "password": "密码",
-    "passwordPlaceholder": "\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7",
+    "passwordPlaceholder": "········",
     "confirmPassword": "确认密码",
-    "confirmPasswordPlaceholder": "\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7",
+    "confirmPasswordPlaceholder": "········",
     "registerButton": "注册",
     "registering": "注册中...",
     "or": "或",
@@ -2288,7 +2338,7 @@
       "verifying": "验证中...",
       "resend": "重新发送OTP",
       "resendCountdown": "{{countdown}}秒后重新发送",
-      "backToLogin": "\u2190 返回登录",
+      "backToLogin": "← 返回登录",
       "validation": {
         "otpRequired": "请输入完整的6位OTP验证码"
       }
@@ -2340,7 +2390,7 @@
     "benefit4": "加密安全交易",
     "scanQR": "扫描二维码支付",
     "loadingPaymentInfo": "加载支付信息中...",
-    "paymentSuccessRedirect": "\u2705 充值成功！正在跳转...",
+    "paymentSuccessRedirect": "✅ 充值成功！正在跳转...",
     "checkingPayment": "正在检查支付...",
     "scanQRDesc": "使用银行APP扫描二维码进行支付",
     "bankLabel": "银行:",

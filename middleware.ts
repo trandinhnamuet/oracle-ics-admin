@@ -6,14 +6,17 @@ const publicRoutes = ['/login', '/unauthorized']
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
-  // Admin uses 'adminRefreshToken' to isolate session from oraclecloud.vn (which uses 'refreshToken')
-  const refreshToken = request.cookies.get('adminRefreshToken')?.value
+  // The admin refresh token is scoped to /api/auth and is not sent to page
+  // routes, so routing decisions read the companion session-hint cookie: a
+  // site-wide marker holding only the role, never a token. Admin keeps its own
+  // cookie name to stay isolated from oraclecloud.vn.
+  const sessionHint = request.cookies.get('adminSessionHint')?.value
 
   // Debug logging
   const allCookies = request.cookies.getAll();
   console.log('🔍 [MIDDLEWARE] Path:', pathname);
   console.log('🔍 [MIDDLEWARE] All cookies:', allCookies.map(c => c.name));
-  console.log('🔍 [MIDDLEWARE] adminRefreshToken:', refreshToken ? '✅ Found' : '❌ Not found');
+  console.log('🔍 [MIDDLEWARE] adminSessionHint:', sessionHint ? '✅ Found' : '❌ Not found');
 
   // Set language cookie nếu chưa có
   const response = NextResponse.next()
@@ -29,43 +32,25 @@ export function middleware(request: NextRequest) {
   const isPublicRoute = publicRoutes.some(route => pathname.startsWith(route))
 
   // SECURITY NOTE:
-  // The JWT is decoded WITHOUT signature verification here. This is intentional
-  // and SAFE for the following reasons:
-  //   1. The decoded role is used only as a UI ROUTING HINT (e.g. redirect non
-  //      admins to /unauthorized). It is NEVER used as the source of
-  //      authorization.
-  //   2. All real authorization decisions are enforced server-side by the
-  //      backend on every API call (JwtAuthGuard + AdminGuard verify the
-  //      signature with the server's secret).
-  //   3. A malicious user can craft a token claiming role="admin", but the
-  //      backend will reject it on the first protected API call, so they gain
-  //      nothing beyond seeing an empty admin shell page.
-  // DO NOT use this decoded payload for any authorization or trust decision.
-  let userRole: string | null = null
-  if (refreshToken) {
-    try {
-      const payload = refreshToken.split('.')[1]
-      if (payload) {
-        const decoded = JSON.parse(Buffer.from(payload, 'base64').toString('utf-8'))
-        userRole = decoded.role
-        console.log('🔍 [MIDDLEWARE] User role:', userRole);
-      }
-    } catch {
-      // invalid token
-      console.log('🔍 [MIDDLEWARE] Failed to decode token');
-    }
-  }
+  // `userRole` comes from the session-hint cookie and is NOT authenticated. It is
+  // used only as a UI ROUTING HINT (redirect non-admins to /unauthorized) and is
+  // NEVER the source of authorization. Every real authorization decision is
+  // enforced server-side on each API call (JwtAuthGuard + AdminGuard verify the
+  // JWT signature). Forging this cookie yields an empty admin shell and nothing
+  // more — the same exposure as the previous unverified JWT decode.
+  // DO NOT use this value for any authorization or trust decision.
+  const userRole: string | null = sessionHint || null
 
   // Chưa đăng nhập + không phải public route → về /login
-  if (!refreshToken && !isPublicRoute) {
-    console.log('🔍 [MIDDLEWARE] No refreshToken and not public route, redirecting to /login');
+  if (!sessionHint && !isPublicRoute) {
+    console.log('🔍 [MIDDLEWARE] No session hint and not public route, redirecting to /login');
     const loginUrl = new URL('/login', request.url)
     // Never set /unauthorized as returnUrl — it causes confusion when admin logs in
     if (pathname !== '/unauthorized') {
       loginUrl.searchParams.set('returnUrl', pathname)
     }
     const loginResponse = NextResponse.redirect(loginUrl)
-    loginResponse.cookies.delete('adminRefreshToken')
+    loginResponse.cookies.delete('adminSessionHint')
     if (currentLanguage) {
       loginResponse.cookies.set('language', currentLanguage, { path: '/', maxAge: 60 * 60 * 24 * 365, sameSite: 'lax' })
     }
@@ -73,7 +58,7 @@ export function middleware(request: NextRequest) {
   }
 
   // Đã đăng nhập nhưng không phải admin → /unauthorized
-  if (refreshToken && !isPublicRoute && userRole !== 'admin') {
+  if (sessionHint && !isPublicRoute && userRole !== 'admin') {
     console.log('🔍 [MIDDLEWARE] User is not admin, redirecting to /unauthorized');
     const unauthorizedResponse = NextResponse.redirect(new URL('/unauthorized', request.url))
     if (currentLanguage) {
@@ -83,7 +68,7 @@ export function middleware(request: NextRequest) {
   }
 
   // Đã đăng nhập + là admin + đang ở /login → redirect về /admin
-  if (refreshToken && userRole === 'admin' && pathname.startsWith('/login')) {
+  if (sessionHint && userRole === 'admin' && pathname.startsWith('/login')) {
     console.log('🔍 [MIDDLEWARE] Authenticated admin at /login, redirecting to /admin');
     return NextResponse.redirect(new URL('/admin', request.url))
   }

@@ -29,7 +29,11 @@ export interface VmDetails {
     vcnId?: string
     subnetId?: string
     sshPublicKey?: string
-    windowsInitialPassword?: string
+    /** The password itself is never returned by the detail API — it is handed to
+     *  the owner once via revealInitialWindowsPassword(). These only say whether
+     *  provisioning has produced one yet and whether it was already retrieved. */
+    windowsPasswordReady?: boolean
+    windowsInitialPasswordRevealed?: boolean
     createdAt: string
     startedAt?: string
     updatedAt: string
@@ -61,7 +65,11 @@ export interface ConfigureVmResponse {
     operatingSystem?: string
     publicIp?: string
     lifecycleState: string
-    windowsInitialPassword?: string
+    /** The password itself is never returned by the detail API — it is handed to
+     *  the owner once via revealInitialWindowsPassword(). These only say whether
+     *  provisioning has produced one yet and whether it was already retrieved. */
+    windowsPasswordReady?: boolean
+    windowsInitialPasswordRevealed?: boolean
   }
   sshKey?: {
     publicKey: string

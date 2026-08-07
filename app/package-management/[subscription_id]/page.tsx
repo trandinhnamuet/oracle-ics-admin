@@ -265,7 +265,7 @@ export default function AdminPackageDetailPage() {
     }
 
     const isWindows = vmDetails?.vm?.operatingSystem?.toLowerCase().includes('windows')
-    const needsPolling = isWindows && (!vmDetails?.vm?.windowsInitialPassword || vmDetails?.vm?.lifecycleState !== 'RUNNING')
+    const needsPolling = isWindows && (!vmDetails?.vm?.windowsPasswordReady || vmDetails?.vm?.lifecycleState !== 'RUNNING')
 
     if (!needsPolling || !subscriptionId) return
 
@@ -281,7 +281,7 @@ export default function AdminPackageDetailPage() {
       try {
         const vmData = await getSubscriptionVm(subscriptionId)
         setVmDetails(vmData)
-        if (vmData?.vm?.windowsInitialPassword && vmData?.vm?.lifecycleState === 'RUNNING') {
+        if (vmData?.vm?.windowsPasswordReady && vmData?.vm?.lifecycleState === 'RUNNING') {
           if (windowsPollRef.current) clearInterval(windowsPollRef.current)
         }
       } catch (err) {
@@ -295,7 +295,7 @@ export default function AdminPackageDetailPage() {
         windowsPollRef.current = null
       }
     }
-  }, [vmDetails?.vm?.operatingSystem, vmDetails?.vm?.windowsInitialPassword, vmDetails?.vm?.lifecycleState, subscriptionId])
+  }, [vmDetails?.vm?.operatingSystem, vmDetails?.vm?.windowsPasswordReady, vmDetails?.vm?.lifecycleState, subscriptionId])
 
   // Fetch metrics when VM is running
   useEffect(() => {
@@ -785,7 +785,15 @@ export default function AdminPackageDetailPage() {
                       {t('packageDetail.serverDetails.windowsRdpCredentials')}
                     </p>
                   </div>
-                  {vmDetails.vm.windowsInitialPassword ? (
+                  {/*
+                    SECURITY: the back-office never renders a customer's VM password.
+                    Administrators do not need it to operate the service, and showing
+                    it here made an admin-account compromise equivalent to a compromise
+                    of every customer VM (least privilege / separation of duties).
+                    The API no longer returns the value at all; admins may trigger a
+                    reset, and the new password goes only to the VM owner.
+                  */}
+                  {vmDetails.vm.windowsPasswordReady ? (
                     <div className="bg-gray-50 dark:bg-muted p-3 rounded space-y-2 text-sm font-mono">
                       <div className="flex items-center justify-between">
                         <span><strong>{t('packageDetail.serverDetails.username')}:</strong> opc</span>
@@ -794,15 +802,9 @@ export default function AdminPackageDetailPage() {
                         </Button>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span><strong>{t('packageDetail.serverDetails.initialPassword')}:</strong> {showInitialWinPassword ? vmDetails.vm.windowsInitialPassword : '••••••••••••'}</span>
-                        <div className="flex gap-1">
-                          <Button size="sm" variant="ghost" onClick={() => setShowInitialWinPassword(v => !v)}>
-                            {showInitialWinPassword ? <EyeOff className="h-3 w-3" /> : <Eye className="h-3 w-3" />}
-                          </Button>
-                          <Button size="sm" variant="ghost" onClick={() => copyToClipboard(vmDetails.vm!.windowsInitialPassword!, 'win-pass')}>
-                            {copiedField === 'win-pass' ? <Check className="h-3 w-3 text-green-500" /> : <Copy className="h-3 w-3" />}
-                          </Button>
-                        </div>
+                        <span className="text-muted-foreground not-italic">
+                          <strong>{t('packageDetail.serverDetails.initialPassword')}:</strong> {t('packageDetail.serverDetails.passwordOwnerOnly')}
+                        </span>
                       </div>
                     </div>
                   ) : (
@@ -1536,6 +1538,13 @@ export default function AdminPackageDetailPage() {
                 <p className="text-sm text-muted-foreground">
                   {t('packageDetail.resetPassword.successDesc')}
                 </p>
+                {/*
+                  SECURITY: the reset password is delivered to the VM owner (email /
+                  their own portal), never shown to the administrator who triggered
+                  the reset. A back-office operator receiving a customer's plaintext
+                  credential creates insider-abuse and account-takeover risk and makes
+                  accountability impossible after an incident.
+                */}
                 <div className="bg-gray-50 dark:bg-muted border rounded p-4 font-mono text-sm space-y-2">
                   <div className="flex items-center justify-between">
                     <span><strong>Username:</strong> opc</span>
@@ -1544,15 +1553,9 @@ export default function AdminPackageDetailPage() {
                     </Button>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span><strong>Password:</strong> {showNewWinPassword ? newWindowsPassword : '••••••••••••'}</span>
-                    <div className="flex gap-1">
-                      <Button size="sm" variant="ghost" onClick={() => setShowNewWinPassword(v => !v)}>
-                        {showNewWinPassword ? <EyeOff className="h-3 w-3" /> : <Eye className="h-3 w-3" />}
-                      </Button>
-                      <Button size="sm" variant="ghost" onClick={() => copyToClipboard(newWindowsPassword!, 'new-win-pass')}>
-                        {copiedField === 'new-win-pass' ? <Check className="h-3 w-3 text-green-500" /> : <Copy className="h-3 w-3" />}
-                      </Button>
-                    </div>
+                    <span className="text-muted-foreground">
+                      <strong>Password:</strong> {t('packageDetail.resetPassword.sentToOwner')}
+                    </span>
                   </div>
                 </div>
                 <div className="bg-red-50 dark:bg-red-950/20 border-l-4 border-red-500 p-3 rounded">

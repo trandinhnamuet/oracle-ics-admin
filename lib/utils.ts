@@ -121,6 +121,13 @@ export function printEnv() {
  * Có thể gọi từ console trình duyệt: userInfo()
  */
 export function userInfo() {
+  // SECURITY: this is an authentication debug helper. It must never run in a
+  // production build — the browser console is readable by XSS payloads, browser
+  // extensions, remote debuggers and support screen-shares, so printing account
+  // and session details there is an information-disclosure risk in its own right.
+  if (process.env.NODE_ENV === 'production') {
+    return null;
+  }
   if (typeof window !== 'undefined') {
     try {
       // Truy cập zustand store từ window object
@@ -186,7 +193,8 @@ export function userInfo() {
         console.log('   🍪 Legacy Cookie Token (auth-token):', !!legacyCookieToken);
         // Thông tin từ localStorage
         const localStorageAuth = localStorage.getItem('auth-storage');
-        console.log('   💾 LocalStorage Auth:', localStorageAuth ? JSON.parse(localStorageAuth) : 'No localStorage data');
+        // Presence only: the parsed object can carry tokens, ids, email and role.
+        console.log('   💾 LocalStorage Auth present:', !!localStorageAuth);
         return {
           user,
           token,

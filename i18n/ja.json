@@ -701,10 +701,18 @@
         "yearly": "年別"
       },
       "months": {
-        "jan": "1月", "feb": "2月", "mar": "3月",
-        "apr": "4月", "may": "5月", "jun": "6月",
-        "jul": "7月", "aug": "8月", "sep": "9月",
-        "oct": "10月", "nov": "11月", "dec": "12月"
+        "jan": "1月",
+        "feb": "2月",
+        "mar": "3月",
+        "apr": "4月",
+        "may": "5月",
+        "jun": "6月",
+        "jul": "7月",
+        "aug": "8月",
+        "sep": "9月",
+        "oct": "10月",
+        "nov": "11月",
+        "dec": "12月"
       },
       "table": {
         "month": "月",
@@ -1096,32 +1104,62 @@
         "database": {
           "title": "Oracleデータベースクラウド",
           "description": "高性能で絶対的なセキュリティを備えた自己管理型Oracleデータベース",
-          "features": ["自律型データベース", "リアルアプリケーションクラスタ", "データガード", "高度なセキュリティ"]
+          "features": [
+            "自律型データベース",
+            "リアルアプリケーションクラスタ",
+            "データガード",
+            "高度なセキュリティ"
+          ]
         },
         "compute": {
           "title": "コンピュートクラウド",
           "description": "ビジネスニーズに応じた柔軟な仮想サーバー構成",
-          "features": ["ベアメタル", "仮想マシン", "コンテナエンジン", "ファンクション"]
+          "features": [
+            "ベアメタル",
+            "仮想マシン",
+            "コンテナエンジン",
+            "ファンクション"
+          ]
         },
         "storage": {
           "title": "ストレージソリューション",
           "description": "ブロックストレージからオブジェクトストレージまで多様なストレージソリューション",
-          "features": ["ブロックボリューム", "オブジェクトストレージ", "ファイルストレージ", "アーカイブストレージ"]
+          "features": [
+            "ブロックボリューム",
+            "オブジェクトストレージ",
+            "ファイルストレージ",
+            "アーカイブストレージ"
+          ]
         },
         "networking": {
           "title": "ネットワーキング",
           "description": "低遅延かつ高帯域幅のグローバルネットワークインフラ",
-          "features": ["仮想クラウドネットワーク", "ロードバランサー", "VPN接続", "ファストコネクト"]
+          "features": [
+            "仮想クラウドネットワーク",
+            "ロードバランサー",
+            "VPN接続",
+            "ファストコネクト"
+          ]
         },
         "security": {
           "title": "セキュリティとアイデンティティ",
           "description": "高度なアイデンティティおよびアクセス管理を備えた多層セキュリティ",
-          "features": ["アイデンティティ管理", "キー管理", "ウェブアプリケーションファイアウォール", "セキュリティゾーン"]
+          "features": [
+            "アイデンティティ管理",
+            "キー管理",
+            "ウェブアプリケーションファイアウォール",
+            "セキュリティゾーン"
+          ]
         },
         "analytics": {
           "title": "分析とAI",
           "description": "統合された機械学習によるインテリジェントなデータ分析",
-          "features": ["分析クラウド", "データサイエンス", "機械学習", "ビッグデータサービス"]
+          "features": [
+            "分析クラウド",
+            "データサイエンス",
+            "機械学習",
+            "ビッグデータサービス"
+          ]
         }
       },
       "benefits": {
@@ -1608,7 +1646,10 @@
       "resetPasswordResettingNote": "この処理は5〜10分かかる場合があります。",
       "resetPasswordSuccessTitle": "パスワードリセット成功！",
       "resetPasswordSuccessDesc": "Windows VMのパスワードが変更されました。以下の新しいパスワードを保存してください。",
-      "resetPasswordWarning": "今すぐこのパスワードを保存してください。Windows RDP資格情報セクションで後で確認できます。"
+      "resetPasswordWarning": "今すぐこのパスワードを保存してください。Windows RDP資格情報セクションで後で確認できます。",
+      "passwordShownOnce": "⚠️ 一度だけ表示されます。今すぐ保存してください。再表示はできません。",
+      "passwordRevealFailed": "パスワードを取得できませんでした。",
+      "passwordOwnerOnly": "VM 所有者のみ表示可能"
     },
     "resetPassword": {
       "title": "Windowsパスワードのリセット",
@@ -1633,7 +1674,8 @@
         "needDigit": "数字(0-9)を少なくとも1文字含める必要があります",
         "needSpecial": "特殊文字(例: !@#$%)を少なくとも1文字含める必要があります",
         "valid": "パスワードはWindowsの要件を満たしています"
-      }
+      },
+      "sentToOwner": "VM 所有者に送信されました"
     },
     "controls": {
       "vmName": "VM名：",
@@ -2165,9 +2207,18 @@
     "successTitle": "成功",
     "successDesc": "チャージリクエストが作成されました。支払いページに移動中...",
     "methods": {
-      "momo": { "name": "MoMoウォレット", "description": "MoMo電子ウォレットで支払い" },
-      "card": { "name": "国際カード", "description": "Visa、Mastercard、JCB" },
-      "bank_transfer": { "name": "銀行振込", "description": "QRコードをスキャンまたは手動振込" }
+      "momo": {
+        "name": "MoMoウォレット",
+        "description": "MoMo電子ウォレットで支払い"
+      },
+      "card": {
+        "name": "国際カード",
+        "description": "Visa、Mastercard、JCB"
+      },
+      "bank_transfer": {
+        "name": "銀行振込",
+        "description": "QRコードをスキャンまたは手動振込"
+      }
     }
   },
   "pricingModal": {
@@ -2210,9 +2261,9 @@
     "email": "メールアドレス",
     "emailPlaceholder": "your@email.com",
     "password": "パスワード",
-    "passwordPlaceholder": "\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7",
+    "passwordPlaceholder": "········",
     "confirmPassword": "パスワード確認",
-    "confirmPasswordPlaceholder": "\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7",
+    "confirmPasswordPlaceholder": "········",
     "registerButton": "登録",
     "registering": "登録中...",
     "or": "または",
@@ -2289,7 +2340,7 @@
       "verifying": "認証中...",
       "resend": "OTPを再送信",
       "resendCountdown": "{{countdown}}秒後に再送信",
-      "backToLogin": "\u2190 ログインに戻る",
+      "backToLogin": "← ログインに戻る",
       "validation": {
         "otpRequired": "6桁のOTPをすべて入力してください"
       }
@@ -2341,7 +2392,7 @@
     "benefit4": "暗号化されたセキュア取引",
     "scanQR": "QRコードをスキャンして支払い",
     "loadingPaymentInfo": "決済情報読み込み中...",
-    "paymentSuccessRedirect": "\u2705 チャージ成功！リダイレクト中...",
+    "paymentSuccessRedirect": "✅ チャージ成功！リダイレクト中...",
     "checkingPayment": "決済確認中...",
     "scanQRDesc": "バンキングアプリでQRコードをスキャンして支払ってください",
     "bankLabel": "銀行:",
