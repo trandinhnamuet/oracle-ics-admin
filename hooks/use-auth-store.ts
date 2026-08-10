@@ -106,11 +106,16 @@ const useAuthStore = create<AuthState>()(
           try {
             const parsed = JSON.parse(storedState)
             if (parsed.state?.user && parsed.state?.isAuthenticated) {
-              set({ 
+              // Only the display identity is restored. Tokens are no longer kept
+              // here: the refresh token lives in an HttpOnly cookie and the access
+              // token is re-obtained in memory via /auth/refresh on load. These
+              // placeholders exist so UI code that merely checks "is there a
+              // token?" keeps working — they are never sent to the API.
+              set({
                 user: parsed.state.user,
                 isAuthenticated: parsed.state.isAuthenticated,
-                token: parsed.state.token || 'token-in-httponly-cookie',
-                refreshToken: parsed.state.refreshToken || 'token-in-httponly-cookie'
+                token: 'token-in-httponly-cookie',
+                refreshToken: 'token-in-httponly-cookie'
               })
               console.log('✅ Auth state restored from localStorage')
             }
@@ -122,11 +127,17 @@ const useAuthStore = create<AuthState>()(
     }),
     {
       name: 'auth-storage',
-      // Persist user info và tokens
-      partialize: (state: any) => ({ 
+      // SECURITY: persist non-secret UI state ONLY.
+      // `token` and `refreshToken` used to be written here, which put credentials
+      // in localStorage where any XSS payload, malicious browser extension or
+      // remote debugger could read them. The refresh token's authoritative copy is
+      // the HttpOnly cookie the backend sets (JavaScript cannot read it) and the
+      // access token now lives in memory only, so both copies here were redundant
+      // as well as dangerous. What remains is the display identity used to render
+      // the UI before the session is re-established; it grants no access on its
+      // own, because every API call is authorized server-side.
+      partialize: (state: any) => ({
         user: state.user,
-        token: state.token,
-        refreshToken: state.refreshToken,
         isAuthenticated: state.isAuthenticated
       }),
     }

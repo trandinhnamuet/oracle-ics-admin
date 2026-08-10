@@ -30,16 +30,27 @@ export interface LoginResponse {
   message?: string;
 }
 
-const ACCESS_TOKEN_KEY = 'oracle_access_token';
+// SECURITY: the access token is deliberately NOT persisted. It lives in the
+// `accessToken` field below for the lifetime of the page only. Keeping it in
+// localStorage made it readable by any XSS payload, malicious browser
+// extension or remote debugger. After a reload the field is empty and the app
+// silently obtains a new one via refresh(), which authenticates with the
+// HttpOnly refresh cookie that JavaScript cannot read.
 
 class AuthService {
   private accessToken: string | null = null;
+  /**
+   * In-flight refresh, if any. The backend ROTATES the refresh token — each
+   * successful refresh deletes the old session and issues a new one — so two
+   * concurrent refreshes would race: the second presents an already-consumed
+   * token and gets 401, logging the user out. Callers therefore share a single
+   * request instead of each firing their own.
+   */
+  private refreshInFlight: Promise<string> | null = null;
 
   constructor() {
-    // Restore access token from localStorage on initialization
-    if (typeof window !== 'undefined') {
-      this.accessToken = localStorage.getItem(ACCESS_TOKEN_KEY);
-    }
+    // Nothing to restore: the token is memory-only and is re-acquired through
+    // refresh() on first use after a page load.
   }
 
   async login(email: string, password: string, latitude?: number, longitude?: number): Promise<LoginResponse> {
@@ -95,17 +106,21 @@ class AuthService {
     // Normal login flow
     if (data.accessToken) {
       this.accessToken = data.accessToken;
-      // Save to localStorage
-      if (typeof window !== 'undefined') {
-        localStorage.setItem(ACCESS_TOKEN_KEY, data.accessToken);
-        console.log('✅ [AUTH SERVICE] Access token saved to localStorage');
-      }
     }
     console.log('✅ [AUTH SERVICE] Login completed successfully');
     return data;
   }
 
   async refresh(): Promise<string> {
+    // Coalesce concurrent callers onto one request (see refreshInFlight above).
+    if (this.refreshInFlight) return this.refreshInFlight;
+    this.refreshInFlight = this.performRefresh().finally(() => {
+      this.refreshInFlight = null;
+    });
+    return this.refreshInFlight;
+  }
+
+  private async performRefresh(): Promise<string> {
     // Gọi qua Next.js proxy để đảm bảo cookie rotation không bị cross-domain
     const response = await fetch('/api/auth/refresh', {
       method: 'POST',
@@ -118,18 +133,11 @@ class AuthService {
 
     if (!response.ok) {
       this.accessToken = null;
-      if (typeof window !== 'undefined') {
-        localStorage.removeItem(ACCESS_TOKEN_KEY);
-      }
       throw new Error('Failed to refresh token');
     }
 
     const data = await response.json();
     this.accessToken = data.accessToken;
-    // Save to localStorage
-    if (typeof window !== 'undefined') {
-      localStorage.setItem(ACCESS_TOKEN_KEY, data.accessToken);
-    }
     return data.accessToken;
   }
 
@@ -150,7 +158,6 @@ class AuthService {
     } finally {
       this.accessToken = null;
       if (typeof window !== 'undefined') {
-        localStorage.removeItem(ACCESS_TOKEN_KEY);
         // Force clear all auth cookies from client-side as backup
         clearAllAuthCookies();
       }
@@ -170,7 +177,6 @@ class AuthService {
     } finally {
       this.accessToken = null;
       if (typeof window !== 'undefined') {
-        localStorage.removeItem(ACCESS_TOKEN_KEY);
         // Force clear all auth cookies from client-side as backup
         clearAllAuthCookies();
       }
@@ -209,9 +215,6 @@ class AuthService {
         if (response.status === 401) {
           // Token is invalid, clear it
           this.accessToken = null;
-          if (typeof window !== 'undefined') {
-            localStorage.removeItem(ACCESS_TOKEN_KEY);
-          }
         }
         return null;
       }
@@ -223,9 +226,6 @@ class AuthService {
       console.error('Error fetching current user:', error);
       // On any error, clear token and return null
       this.accessToken = null;
-      if (typeof window !== 'undefined') {
-        localStorage.removeItem(ACCESS_TOKEN_KEY);
-      }
       return null;
     }
   }
@@ -236,16 +236,10 @@ class AuthService {
 
   setAccessToken(token: string): void {
     this.accessToken = token;
-    if (typeof window !== 'undefined') {
-      localStorage.setItem(ACCESS_TOKEN_KEY, token);
-    }
   }
 
   clearAccessToken(): void {
     this.accessToken = null;
-    if (typeof window !== 'undefined') {
-      localStorage.removeItem(ACCESS_TOKEN_KEY);
-    }
   }
 
   isAuthenticated(): boolean {
