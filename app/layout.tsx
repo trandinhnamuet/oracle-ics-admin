@@ -3,6 +3,7 @@ import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import { ThemeProvider } from '@/components/theme-provider'
 import { AuthProvider } from '@/lib/auth-context'
+import { AuthGuard } from '@/components/auth/auth-guard'
 import { AuthStoreInitializer } from '@/components/providers/auth-store-initializer'
 import { I18nProvider } from '@/components/providers/i18n-provider'
 import { AnalyticsProvider } from '@/components/providers/analytics-provider'
@@ -53,7 +54,7 @@ export default function RootLayout({
                 <div className="min-h-screen flex flex-col">
                   <AdminHeader />
                   <main className="flex-1">
-                    {children}
+                    <AuthGuard>{children}</AuthGuard>
                   </main>
                   <Toaster />
                 </div>
