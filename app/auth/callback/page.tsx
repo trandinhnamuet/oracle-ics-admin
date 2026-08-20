@@ -10,45 +10,39 @@ export default function AuthCallback() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    const token = searchParams.get('token');
     const error = searchParams.get('error');
 
     if (error) {
-      // Handle error
       console.error('Google OAuth error:', error);
       router.push('/login?error=Xác thực Google thất bại');
       return;
     }
 
-    if (token) {
-      // Store access token
-      authService.setAccessToken(token);
-
-      // Fetch user profile and update auth state
-      authService.getCurrentUser()
-        .then((user) => {
-          if (user) {
-            // Update Zustand store
-            useAuthStore.setState({
-              user,
-              isAuthenticated: true,
-              isLoading: false,
-              token
-            });
-            console.log('✅ Google login successful:', user);
-            router.push('/admin');
-          } else {
-            router.push('/login?error=Không lấy được thông tin người dùng');
-          }
-        })
-        .catch((err: any) => {
-          console.error('Failed to fetch user profile:', err);
-          router.push('/login?error=Xác thực thất bại');
+    // The access token is deliberately NOT passed in the URL any more: a query
+    // string ends up in browser history, server and proxy logs, the Referer of
+    // anything this page loads, and any screenshot of the address bar. The
+    // backend set an HttpOnly refresh cookie before redirecting here, so we
+    // exchange that for an access token that only ever lives in memory.
+    authService
+      .refresh()
+      .then(() => authService.getCurrentUser())
+      .then((user) => {
+        if (!user) {
+          router.push('/login?error=Không lấy được thông tin người dùng');
+          return;
+        }
+        useAuthStore.setState({
+          user,
+          isAuthenticated: true,
+          isLoading: false,
+          token: authService.getAccessToken() ?? undefined,
         });
-    } else {
-      // No token received
-      router.push('/login?error=Không nhận được token xác thực');
-    }
+        router.push('/');
+      })
+      .catch((err: any) => {
+        console.error('Google sign-in could not be completed:', err);
+        router.push('/login?error=Xác thực thất bại');
+      });
   }, [searchParams, router]);
 
   return (
