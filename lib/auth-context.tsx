@@ -152,9 +152,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           localStorage.setItem('pendingVerificationEmail', response.email || email)
           localStorage.setItem('pendingVerificationMessage', response.message || '')
         }
-        // Redirect to OTP verification page immediately
-        router.push(`/verify-otp?email=${encodeURIComponent(response.email || email)}`)
-        // Throw a special error to let login page know about redirect
+        // The admin app has no /verify-otp page (that flow lives in the customer
+        // app). Redirecting there previously produced a hard 404 that locked the
+        // admin out. Surface a clear message on the login page instead of a 404.
         throw new Error('VERIFICATION_REQUIRED')
       }
       

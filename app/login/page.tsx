@@ -87,10 +87,10 @@ export default function LoginPage() {
       reset()
     } catch (error: any) {
       console.error('❌ [LOGIN PAGE] Login error:', error)
-      // Don't show error if it's a verification redirect
+      // The admin app has no OTP verification UI; show a clear message instead of
+      // silently dead-ending (previously a redirect to a non-existent /verify-otp).
       if (error.message === 'VERIFICATION_REQUIRED') {
-        console.log('🔄 Redirecting to OTP verification...')
-        // Don't reset form, don't show error - just let redirect happen
+        setError('Tài khoản cần xác minh email trước khi đăng nhập quản trị. Vui lòng liên hệ quản trị viên hệ thống.')
         return
       }
       if (error.message === 'GEOLOCATION_DENIED' || error.message === 'GEOLOCATION_NOT_SUPPORTED') {

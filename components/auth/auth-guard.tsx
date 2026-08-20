@@ -39,6 +39,20 @@ export function AuthGuard({ children }: { children: React.ReactNode }) {
         if (!authService.getAccessToken()) {
           await authService.refresh()
         }
+        // Enforce the admin role at the UI layer too: a valid customer session
+        // must never render the admin dashboard (defense-in-depth; the backend
+        // still authorises every admin API call).
+        const user = await authService.getCurrentUser()
+        if (!user) {
+          throw new Error('No session')
+        }
+        if (user.role !== 'admin') {
+          if (!cancelled) {
+            setAllowed(false)
+            router.replace('/unauthorized')
+          }
+          return
+        }
         if (!cancelled) setAllowed(true)
       } catch {
         if (!cancelled) {
