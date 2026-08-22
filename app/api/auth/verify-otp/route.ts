@@ -48,10 +48,22 @@ export async function POST(request: NextRequest) {
         message: data.message || 'Email verified successfully',
       });
 
-      // Forward cookies from backend
-      const setCookieHeaders = response.headers.get('set-cookie');
-      if (setCookieHeaders) {
-        nextResponse.headers.set('set-cookie', setCookieHeaders);
+      // Re-issue only the adminRefreshToken as a HOST-ONLY cookie instead of forwarding
+      // the backend's raw (possibly Domain-scoped) Set-Cookie — a Domain-scoped cookie
+      // would survive the host-only logout deletion (F3). Mirrors the login route.
+      const rawCookies: string[] =
+        (response.headers as any).getSetCookie?.() ??
+        (response.headers.get('set-cookie') ? [response.headers.get('set-cookie') as string] : []);
+      for (const c of rawCookies) {
+        const m = /(?:^|;\s*)adminRefreshToken=([^;]+)/.exec(c);
+        if (m) {
+          nextResponse.cookies.set('adminRefreshToken', decodeURIComponent(m[1]), {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'lax',
+            path: '/',
+          });
+        }
       }
 
       return nextResponse;

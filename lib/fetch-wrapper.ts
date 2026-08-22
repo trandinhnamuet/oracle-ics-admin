@@ -62,9 +62,19 @@ export async function fetchWithAuth(
     ...(options.headers as Record<string, string> || {}),
   };
 
-  // Add Authorization header if token exists
+  // Only attach the bearer to requests targeting the known API origin — never leak
+  // the access token cross-origin if a caller ever passes an absolute URL (F1).
   const accessToken = authService.getAccessToken();
-  if (accessToken) {
+  const sameOrigin = (() => {
+    try {
+      if (!/^https?:\/\//i.test(url)) return true; // relative → prefixed with the API base
+      if (!baseUrl) return false;
+      return new URL(finalUrl).origin === new URL(baseUrl).origin;
+    } catch {
+      return false;
+    }
+  })();
+  if (accessToken && sameOrigin) {
     headers['Authorization'] = `Bearer ${accessToken}`;
   }
 
