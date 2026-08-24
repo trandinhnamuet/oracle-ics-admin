@@ -68,7 +68,8 @@ const useAuthStore = create<AuthState>()(
       },
 
       login: (user: User, token: string, refreshToken?: string) => {
-        console.log('🔐 Login action called with user:', user, 'token:', token)
+        // Never log the access token or the full user object (Privacy Violation).
+        console.log('🔐 Login action called', { userId: user?.id, hasToken: !!token })
         set({ 
           user, 
           token, 

@@ -77,10 +77,8 @@ class AuthService {
     });
 
     console.log('🔐 [AUTH SERVICE] Response status:', response.status);
-    console.log('🔐 [AUTH SERVICE] Response headers:', {
-      contentType: response.headers.get('content-type'),
-      setCookie: response.headers.get('set-cookie'),
-    });
+    // Do not log Set-Cookie (refresh-token) — Privacy Violation. Log only content-type.
+    console.log('🔐 [AUTH SERVICE] Response content-type:', response.headers.get('content-type'));
 
     if (!response.ok) {
       const error = await response.json().catch(() => ({ message: 'Login failed' }));

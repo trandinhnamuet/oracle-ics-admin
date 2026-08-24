@@ -22,15 +22,20 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Forward User-Agent and real client IP so the backend can record accurate info.
+    // Forward User-Agent so the backend can record accurate info.
     const userAgent = request.headers.get('user-agent') || ''
-    const xForwardedFor = request.headers.get('x-forwarded-for') || ''
-    const xRealIP = request.headers.get('x-real-ip') || ''
-    const clientIP = xForwardedFor ? xForwardedFor.split(',')[0].trim() : xRealIP
+    // SECURITY: Do NOT forward the inbound browser-supplied X-Forwarded-For /
+    // X-Real-IP headers — a client can forge them to spoof the recorded source
+    // IP in admin login-history (evading IP alerting / framing another IP).
+    // Derive the client IP from the trusted platform signal only: Next's
+    // connection IP (request.ip), which is set by the trusted fronting proxy.
+    const clientIP = request.ip || ''
     const otpHeaders: Record<string, string> = { 'Content-Type': 'application/json' }
     if (userAgent) otpHeaders['User-Agent'] = userAgent
-    if (xForwardedFor) otpHeaders['X-Forwarded-For'] = xForwardedFor
-    if (clientIP) otpHeaders['X-Real-IP'] = clientIP
+    if (clientIP) {
+      otpHeaders['X-Forwarded-For'] = clientIP
+      otpHeaders['X-Real-IP'] = clientIP
+    }
 
     // Forward request to backend
     const response = await fetch(`${API_BASE_URL}/auth/verify-otp`, {
@@ -61,7 +66,7 @@ export async function POST(request: NextRequest) {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
             sameSite: 'lax',
-            path: '/',
+            path: '/api/auth',
           });
         }
       }

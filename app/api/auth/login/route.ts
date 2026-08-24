@@ -11,10 +11,12 @@ export async function POST(request: NextRequest) {
     const acceptLang = request.headers.get('accept-language') || ''
     // Forward the browser's User-Agent so the backend can parse browser/OS correctly.
     const userAgent = request.headers.get('user-agent') || ''
-    // Forward real client IP: NextRequest exposes forwarded headers set by the reverse proxy.
-    const xForwardedFor = request.headers.get('x-forwarded-for') || ''
-    const xRealIP = request.headers.get('x-real-ip') || ''
-    const clientIP = xForwardedFor ? xForwardedFor.split(',')[0].trim() : xRealIP
+    // SECURITY: Do NOT forward the inbound browser-supplied X-Forwarded-For /
+    // X-Real-IP headers — a client can forge them to spoof the recorded source
+    // IP in admin login-history (evading IP alerting / framing another IP).
+    // Derive the client IP from the trusted platform signal only: Next's
+    // connection IP (request.ip), which is set by the trusted fronting proxy.
+    const clientIP = request.ip || ''
 
     const forwardedHeaders: Record<string, string> = {
       'Content-Type': 'application/json',
@@ -22,8 +24,10 @@ export async function POST(request: NextRequest) {
       'Origin': 'https://admin.oraclecloud.vn',
     }
     if (userAgent) forwardedHeaders['User-Agent'] = userAgent
-    if (xForwardedFor) forwardedHeaders['X-Forwarded-For'] = xForwardedFor
-    if (clientIP) forwardedHeaders['X-Real-IP'] = clientIP
+    if (clientIP) {
+      forwardedHeaders['X-Forwarded-For'] = clientIP
+      forwardedHeaders['X-Real-IP'] = clientIP
+    }
 
     const backendRes = await fetch(`${API_BASE_URL}/auth/admin-login`, {
       method: 'POST',
@@ -43,7 +47,7 @@ export async function POST(request: NextRequest) {
           httpOnly: true,
           secure: IS_PROD,
           sameSite: 'lax',
-          path: '/',
+          path: '/api/auth',
           maxAge: COOKIE_MAX_AGE,
         })
       }
