@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { resolveClientIp } from '@/lib/server-client-ip';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3003';
 
@@ -27,9 +28,10 @@ export async function POST(request: NextRequest) {
     // SECURITY: Do NOT forward the inbound browser-supplied X-Forwarded-For /
     // X-Real-IP headers — a client can forge them to spoof the recorded source
     // IP in admin login-history (evading IP alerting / framing another IP).
-    // Derive the client IP from the trusted platform signal only: Next's
-    // connection IP (request.ip), which is set by the trusted fronting proxy.
-    const clientIP = request.ip || ''
+    // resolveClientIp() takes only what our own nginx wrote (see its doc block);
+    // `request.ip` alone is always undefined on self-hosted Next and made every
+    // login record the proxy's loopback address.
+    const clientIP = resolveClientIp(request)
     const otpHeaders: Record<string, string> = { 'Content-Type': 'application/json' }
     if (userAgent) otpHeaders['User-Agent'] = userAgent
     if (clientIP) {
