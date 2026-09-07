@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3003'
+// Loopback for the server-side hop — see the note in app/api/auth/login/route.ts.
+const API_BASE_URL =
+  process.env.BACKEND_INTERNAL_URL || process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3003'
 const IS_PROD = process.env.NODE_ENV === 'production'
 const COOKIE_NAME = 'adminRefreshToken'
 const COOKIE_MAX_AGE = 30 * 24 * 60 * 60 // 30 days in seconds

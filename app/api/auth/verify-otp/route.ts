@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { resolveClientIp } from '@/lib/server-client-ip';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3003';
+// Loopback for the server-side hop — see the note in app/api/auth/login/route.ts.
+const API_BASE_URL =
+  process.env.BACKEND_INTERNAL_URL || process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3003';
 
 export async function POST(request: NextRequest) {
   try {

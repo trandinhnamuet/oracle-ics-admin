@@ -1,7 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { resolveClientIp } from '@/lib/server-client-ip'
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3003'
+// Server-to-server hop stays on loopback. Routing it back out through the public
+// URL adds a second nginx hop that appends this box's own public IP to
+// X-Forwarded-For, and `trust proxy: 'loopback'` stops there — which made admin
+// login-history record the server's IP instead of the operator's. Deliberately
+// NOT a NEXT_PUBLIC_* name: it must never be inlined into the browser bundle.
+const API_BASE_URL =
+  process.env.BACKEND_INTERNAL_URL || process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3003'
 const IS_PROD = process.env.NODE_ENV === 'production'
 const COOKIE_NAME = 'adminRefreshToken'
 const COOKIE_MAX_AGE = 30 * 24 * 60 * 60 // 30 days in seconds
