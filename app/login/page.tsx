@@ -258,15 +258,6 @@ export default function LoginPage() {
               {t('login.forgotPassword')}
             </Link>
           </div>
-          <div className="text-sm text-center">
-            {t('login.noAccount')}{' '}
-            <Link
-              href="/register"
-              className="text-primary hover:underline font-medium"
-            >
-              {t('login.registerNow')}
-            </Link>
-          </div>
         </CardFooter>
       </Card>
     </div>

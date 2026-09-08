@@ -205,9 +205,6 @@ export function Header() {
                 <Button variant="outline" onClick={handleLoginClick}>
                   {t('header.login')}
                 </Button>
-                <Button asChild>
-                  <Link href="/register">{t('header.register')}</Link>
-                </Button>
                 <LanguageSelector />
                 <ThemeToggle />
               </div>
@@ -294,9 +291,6 @@ export function Header() {
                   </div>
                   <Button variant="outline" onClick={handleLoginClick} className="w-full bg-transparent">
                     {t('header.login')}
-                  </Button>
-                  <Button asChild className="w-full">
-                    <Link href="/register">{t('header.register')}</Link>
                   </Button>
                 </div>
               )}
