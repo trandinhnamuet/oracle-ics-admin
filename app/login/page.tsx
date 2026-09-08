@@ -93,10 +93,10 @@ export default function LoginPage() {
         setError('Tài khoản cần xác minh email trước khi đăng nhập quản trị. Vui lòng liên hệ quản trị viên hệ thống.')
         return
       }
-      if (error.message === 'GEOLOCATION_DENIED' || error.message === 'GEOLOCATION_NOT_SUPPORTED') {
-        setError('Bạn cần cấp quyền truy cập vị trí để đăng nhập. Vui lòng bật quyền định vị trong cài đặt trình duyệt và thử lại.')
-        return
-      }
+      // No GEOLOCATION_* branch here on purpose: a failed position lookup no longer
+      // aborts the login (see lib/auth-context.tsx), so it can never reach this
+      // handler. The old branch told admins to grant a permission they usually had
+      // already granted, and there was no way past it.
       const msg: string = error.message || ''
       if (msg.includes('mật khẩu không đúng') || msg.includes('Invalid credentials') || msg.includes('Unauthorized') || msg.includes('incorrect') || msg.toLowerCase().includes('invalid password') || msg.toLowerCase().includes('invalid email')) {
         setError(t('login.errorInvalidCredentials'))

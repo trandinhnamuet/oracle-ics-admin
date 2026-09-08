@@ -120,12 +120,25 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     try {
       console.log('🔐 [AUTH CONTEXT] Starting login for:', email)
 
-      // Request browser geolocation before sending credentials
+      // Best-effort browser geolocation. Coordinates give a more precise city than
+      // the IP lookup, so we still ask for them — but they must NEVER gate the login.
+      //
+      // The previous version rejected on ANY GeolocationPositionError and reported
+      // every one of them as "permission denied", so an admin who had granted the
+      // site permission was still locked out whenever the OS location provider was
+      // unavailable (POSITION_UNAVAILABLE) or slow (TIMEOUT). On Windows, Chrome
+      // also returns PERMISSION_DENIED when location is switched off system-wide,
+      // no matter what the site permission says — so the gate could not be cleared
+      // from the browser at all. It bought nothing in exchange: these coordinates
+      // come from the client and are trivially forgeable, while the backend's IP
+      // lookup — which the operator cannot fake — fills in country/city on its own
+      // whenever they are absent.
       let latitude: number | undefined
       let longitude: number | undefined
-      await new Promise<void>((resolve, reject) => {
+      await new Promise<void>((resolve) => {
         if (!navigator.geolocation) {
-          reject(new Error('GEOLOCATION_NOT_SUPPORTED'))
+          console.warn('📍 [AUTH CONTEXT] Geolocation unsupported; backend will fall back to IP lookup')
+          resolve()
           return
         }
         navigator.geolocation.getCurrentPosition(
@@ -134,10 +147,24 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             longitude = pos.coords.longitude
             resolve()
           },
-          () => {
-            reject(new Error('GEOLOCATION_DENIED'))
+          (err) => {
+            // Name the actual cause: the old catch-all message sent admins to fix a
+            // browser permission that was often already granted.
+            const reason =
+              err.code === err.PERMISSION_DENIED
+                ? 'PERMISSION_DENIED (browser or OS-level location is off)'
+                : err.code === err.POSITION_UNAVAILABLE
+                  ? 'POSITION_UNAVAILABLE (no OS/network location provider)'
+                  : err.code === err.TIMEOUT
+                    ? 'TIMEOUT'
+                    : `code ${err.code}`
+            console.warn(
+              `📍 [AUTH CONTEXT] Geolocation failed — ${reason}: ${err.message}. ` +
+                'Continuing; the backend will resolve the location from the IP address.',
+            )
+            resolve()
           },
-          { timeout: 15000, maximumAge: 60000 },
+          { timeout: 8000, maximumAge: 60000 },
         )
       })
 
