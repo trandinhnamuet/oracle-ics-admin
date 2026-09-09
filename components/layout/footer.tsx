@@ -160,17 +160,18 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-white/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          {/* Các trang pháp lý nằm trên site công khai, nên dùng URL tuyệt đối. */}
           <div className="flex flex-wrap gap-6 text-sm opacity-80">
-            <a href="#" className="hover:opacity-100 hover:text-primary transition-colors">
+            <a href="https://oraclecloud.vn/privacy" className="hover:opacity-100 hover:text-primary transition-colors">
               {t('footer.privacy')}
             </a>
-            <a href="#" className="hover:opacity-100 hover:text-primary transition-colors">
+            <a href="https://oraclecloud.vn/terms" className="hover:opacity-100 hover:text-primary transition-colors">
               {t('footer.terms')}
             </a>
-            <a href="#" className="hover:opacity-100 hover:text-primary transition-colors">
+            <a href="https://oraclecloud.vn/sla" className="hover:opacity-100 hover:text-primary transition-colors">
               {t('footer.sla')}
             </a>
-            <a href="#" className="hover:opacity-100 hover:text-primary transition-colors">
+            <a href="https://oraclecloud.vn/sitemap" className="hover:opacity-100 hover:text-primary transition-colors">
               {t('footer.sitemap')}
             </a>
           </div>
