@@ -1644,7 +1644,8 @@
       "resetPasswordWarning": "請立即儲存此密碼。您可以稍後在 Windows RDP 憑證部分查看。",
       "passwordShownOnce": "⚠️ 僅顯示一次，請立即儲存。無法再次顯示；如遺失請重設密碼。",
       "passwordRevealFailed": "無法取得密碼。",
-      "passwordOwnerOnly": "僅 VM 擁有者可見"
+      "passwordOwnerOnly": "僅 VM 擁有者可見",
+      "windowsPasswordAlreadyRevealed": "🔐 初始密碼已被取回一次，無法再次顯示。如果您已不再持有該密碼，請使用“重設密碼”功能。"
     },
     "resetPassword": {
       "title": "重置Windows密碼",

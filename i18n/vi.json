@@ -1627,7 +1627,8 @@
       "resetPasswordWarning": "Vui lòng lưu lại mật khẩu này ngay. Bạn có thể xem lại trong phần Windows RDP Credentials.",
       "passwordShownOnce": "⚠️ Chỉ hiển thị một lần — hãy lưu lại ngay. Mật khẩu không thể xem lại; nếu mất hãy đặt lại mật khẩu.",
       "passwordRevealFailed": "Không lấy được mật khẩu.",
-      "passwordOwnerOnly": "Chỉ chủ sở hữu VM mới xem được"
+      "passwordOwnerOnly": "Chỉ chủ sở hữu VM mới xem được",
+      "windowsPasswordAlreadyRevealed": "🔐 Mật khẩu ban đầu đã được lấy một lần và không thể hiển thị lại. Nếu bạn không còn giữ mật khẩu, hãy dùng chức năng “Đặt lại mật khẩu”."
     },
     "resetPassword": {
       "title": "Đặt lại mật khẩu Windows",

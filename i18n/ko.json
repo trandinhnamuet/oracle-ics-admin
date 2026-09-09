@@ -1644,7 +1644,8 @@
       "resetPasswordWarning": "지금 비밀번호를 저장하세요. Windows RDP 자격 증명 섹션에서 나중에 확인할 수 있습니다.",
       "passwordShownOnce": "⚠️ 한 번만 표시됩니다. 지금 저장하세요. 다시 표시할 수 없습니다.",
       "passwordRevealFailed": "비밀번호를 가져오지 못했습니다.",
-      "passwordOwnerOnly": "VM 소유자만 볼 수 있습니다"
+      "passwordOwnerOnly": "VM 소유자만 볼 수 있습니다",
+      "windowsPasswordAlreadyRevealed": "🔐 초기 비밀번호는 한 번만 확인할 수 있으며 다시 표시할 수 없습니다. 비밀번호가 없다면 “비밀번호 재설정”을 사용하세요."
     },
     "resetPassword": {
       "title": "Windows 비밀번호 재설정",

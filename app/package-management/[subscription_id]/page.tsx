@@ -265,7 +265,11 @@ export default function AdminPackageDetailPage() {
     }
 
     const isWindows = vmDetails?.vm?.operatingSystem?.toLowerCase().includes('windows')
-    const needsPolling = isWindows && (!vmDetails?.vm?.windowsPasswordReady || vmDetails?.vm?.lifecycleState !== 'RUNNING')
+    // A revealed password is gone for good (the server burns it on reveal), so
+    // windowsPasswordReady stays false forever — polling for it would never end.
+    const needsPolling = isWindows
+      && !vmDetails?.vm?.windowsInitialPasswordRevealed
+      && (!vmDetails?.vm?.windowsPasswordReady || vmDetails?.vm?.lifecycleState !== 'RUNNING')
 
     if (!needsPolling || !subscriptionId) return
 
@@ -806,6 +810,12 @@ export default function AdminPackageDetailPage() {
                           <strong>{t('packageDetail.serverDetails.initialPassword')}:</strong> {t('packageDetail.serverDetails.passwordOwnerOnly')}
                         </span>
                       </div>
+                    </div>
+                  ) : vmDetails?.vm?.windowsInitialPasswordRevealed ? (
+                    <div className="bg-gray-50 dark:bg-muted border p-3 rounded text-sm">
+                      <p className="text-gray-700 dark:text-muted-foreground">
+                        {t('packageDetail.serverDetails.windowsPasswordAlreadyRevealed')}
+                      </p>
                     </div>
                   ) : (
                     <div className="bg-yellow-50 dark:bg-yellow-950/20 border border-yellow-200 dark:border-yellow-900 p-3 rounded text-sm">

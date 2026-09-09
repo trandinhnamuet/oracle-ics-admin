@@ -1646,7 +1646,8 @@
       "resetPasswordWarning": "今すぐこのパスワードを保存してください。Windows RDP資格情報セクションで後で確認できます。",
       "passwordShownOnce": "⚠️ 一度だけ表示されます。今すぐ保存してください。再表示はできません。",
       "passwordRevealFailed": "パスワードを取得できませんでした。",
-      "passwordOwnerOnly": "VM 所有者のみ表示可能"
+      "passwordOwnerOnly": "VM 所有者のみ表示可能",
+      "windowsPasswordAlreadyRevealed": "🔐 初期パスワードは一度だけ取得済みで、再表示できません。お手元にない場合は「パスワードのリセット」をご利用ください。"
     },
     "resetPassword": {
       "title": "Windowsパスワードのリセット",

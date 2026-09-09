@@ -1627,7 +1627,8 @@
       "resetPasswordWarning": "Please save this password now. You can view it later in the Windows RDP Credentials section.",
       "passwordShownOnce": "⚠️ Shown only once — save it now. It cannot be displayed again; reset the password if you lose it.",
       "passwordRevealFailed": "Could not retrieve the password.",
-      "passwordOwnerOnly": "Visible to the VM owner only"
+      "passwordOwnerOnly": "Visible to the VM owner only",
+      "windowsPasswordAlreadyRevealed": "🔐 The initial password was retrieved once and cannot be shown again. If you no longer have it, use “Reset password”."
     },
     "resetPassword": {
       "title": "Reset Windows Password",
