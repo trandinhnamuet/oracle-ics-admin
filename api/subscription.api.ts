@@ -228,10 +228,12 @@ export const updateSubscription = async (subscriptionId: string, updateData: any
   }
 }
 
-// Toggle auto renew
+// Toggle auto renew — uses the general admin PATCH /:id endpoint. There is no
+// dedicated /auto-renew route in the backend; calling one returned 404 and broke
+// both the Switch and the Renew & Start dialog (QA 2026-09-10, SUBS/auto-renew).
 export const toggleAutoRenew = async (subscriptionId: string, autoRenew: boolean): Promise<Subscription> => {
   try {
-    const result = await fetchJsonWithAuth<Subscription>(`${API_URL}/subscriptions/${subscriptionId}/auto-renew`, {
+    const result = await fetchJsonWithAuth<Subscription>(`${API_URL}/subscriptions/${subscriptionId}`, {
       method: 'PATCH',
       body: JSON.stringify({
         auto_renew: autoRenew

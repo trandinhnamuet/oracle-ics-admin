@@ -228,6 +228,8 @@
       "loading": "Đang tải..."
     },
     "customRegistration": {
+      "loadFailed": "Không tải được danh sách đăng ký",
+      "updateFailed": "Không lưu được trạng thái",
       "title": "Quản lý đăng ký gói tùy chỉnh",
       "subtitle": "Theo dõi và xử lý các yêu cầu đăng ký gói dịch vụ tùy chỉnh",
       "exportExcel": "Xuất Excel",

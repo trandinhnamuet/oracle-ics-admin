@@ -230,6 +230,8 @@
       "loading": "読み込み中..."
     },
     "customRegistration": {
+      "loadFailed": "登録リストを読み込めませんでした",
+      "updateFailed": "ステータスを保存できませんでした",
       "title": "カスタムパッケージ登録管理",
       "subtitle": "カスタムサービスパッケージの登録リクエストを追跡および処理",
       "exportExcel": "Excelにエクスポート",

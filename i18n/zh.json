@@ -228,6 +228,8 @@
       "loading": "加载中..."
     },
     "customRegistration": {
+      "loadFailed": "无法加载注册列表",
+      "updateFailed": "无法保存状态",
       "title": "自定义套餐注册管理",
       "subtitle": "跟踪和处理自定义服务套餐注册请求",
       "exportExcel": "导出到Excel",

@@ -2,7 +2,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import axios from 'axios'
+import { fetchJsonWithAuth, fetchWithAuth } from '@/lib/fetch-wrapper'
+import { useToast } from '@/hooks/use-toast'
 import * as XLSX from 'xlsx'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
@@ -28,19 +29,35 @@ interface CustomRegistration {
 
 export default function CustomRegistrationAdminPage() {
   const { t, i18n } = useTranslation()
+  const { toast } = useToast()
   const [data, setData] = useState<CustomRegistration[]>([])
   const [filteredData, setFilteredData] = useState<CustomRegistration[]>([])
   const [loading, setLoading] = useState(true)
   const [searchTerm, setSearchTerm] = useState('')
   const [isVisible, setIsVisible] = useState(false)
   const [filterProcessed, setFilterProcessed] = useState<'all' | 'processed' | 'unprocessed'>('all')
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3003'
+  const [loadError, setLoadError] = useState<string | null>(null)
 
   const handleProcessedChange = async (id: number, value: boolean) => {
+    // Optimistic flip, rolled back if the request fails. This MUST go through
+    // fetchWithAuth: the endpoint is JwtAuthGuard + AdminGuard, and the raw
+    // axios call used here before sent no Authorization header, so every save
+    // silently 401'd (QA 2026-09-10, CUSTOMREG/ui-axios-patch).
+    setData((prev) => prev.map(item => item.id === id ? { ...item, processed: value } : item))
     try {
-      await axios.patch(`${API_URL}/custom-package-registrations/${id}`, { processed: value })
-      setData((prev) => prev.map(item => item.id === id ? { ...item, processed: value } : item))
-    } catch {}
+      const res = await fetchWithAuth(`/custom-package-registrations/${id}`, {
+        method: 'PATCH',
+        body: JSON.stringify({ processed: value }),
+      })
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+    } catch (err) {
+      setData((prev) => prev.map(item => item.id === id ? { ...item, processed: !value } : item))
+      toast({
+        variant: 'destructive',
+        title: t('admin.customRegistration.updateFailed', 'Không lưu được trạng thái'),
+        description: err instanceof Error ? err.message : String(err),
+      })
+    }
   }
 
   // Hàm xuất Excel
@@ -83,13 +100,18 @@ export default function CustomRegistrationAdminPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3003'
-        const res = await axios.get(`${API_URL}/custom-package-registrations`)
-        setData(res.data)
-        setFilteredData(res.data)
+        // Same reason as handleProcessedChange: this list is admin-guarded, so it
+        // needs the auth wrapper. Failures are surfaced instead of being
+        // swallowed into an empty table.
+        const rows = await fetchJsonWithAuth<CustomRegistration[]>('/custom-package-registrations')
+        const list = Array.isArray(rows) ? rows : []
+        setData(list)
+        setFilteredData(list)
+        setLoadError(null)
       } catch (err) {
         setData([])
         setFilteredData([])
+        setLoadError(err instanceof Error ? err.message : String(err))
       } finally {
         setLoading(false)
       }
@@ -220,6 +242,12 @@ export default function CustomRegistrationAdminPage() {
           </div>
         </div>
       </div>
+
+      {loadError && (
+        <div className="rounded-md border border-destructive/40 bg-destructive/10 px-4 py-3 text-sm text-destructive">
+          {t('admin.customRegistration.loadFailed', 'Không tải được danh sách đăng ký')}: {loadError}
+        </div>
+      )}
 
       {/* Table Section */}
 

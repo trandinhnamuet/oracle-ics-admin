@@ -137,64 +137,15 @@ export const performVmAction = async (
   return result
 }
 
-/**
- * Reset Windows VM password via SSH
- * @param newPassword Optional. If provided, sets the VM password to this value.
- *                    If omitted, the server auto-generates a random password.
+/*
+ * resetWindowsPassword() and requestNewSshKey() used to live here. Both endpoints
+ * are owner-only in the backend — the service scopes the subscription by user_id
+ * and the mandatory OTP is mailed to the VM owner — so an administrator can never
+ * complete them, and the versions here also omitted the required otpCode and so
+ * always answered 400 (QA 2026-09-10). Removed rather than left as a trap for the
+ * next person to wire a button to. Customers use the equivalents in
+ * oracle-ics-frontend/api/vm-subscription.api.ts, which carry the OTP flow.
  */
-export const resetWindowsPassword = async (
-  subscriptionId: string,
-  newPassword?: string,
-): Promise<{ success: boolean; username: string; newPassword: string; message: string }> => {
-  return fetchJsonWithAuth(
-    `${API_BASE_URL}/vm-subscription/${subscriptionId}/reset-windows-password`,
-    {
-      method: 'POST',
-      ...(newPassword ? { body: JSON.stringify({ newPassword }) } : {}),
-    }
-  )
-}
-
-/**
- * Request new SSH key for VM
- */
-export const requestNewSshKey = async (
-  subscriptionId: string,
-  email: string
-): Promise<{ 
-  success: boolean
-  message: string
-  sshKey?: {
-    publicKey: string
-    privateKey: string
-    fingerprint: string
-  }
-  keysInfo?: {
-    totalKeys: number
-    removedOldest: boolean
-  }
-}> => {
-  const result = await fetchJsonWithAuth<{ 
-    success: boolean
-    message: string
-    sshKey?: {
-      publicKey: string
-      privateKey: string
-      fingerprint: string
-    }
-    keysInfo?: {
-      totalKeys: number
-      removedOldest: boolean
-    }
-  }>(
-    `${API_BASE_URL}/vm-subscription/${subscriptionId}/request-key`,
-    {
-      method: 'POST',
-      body: JSON.stringify({ email })
-    }
-  )
-  return result
-}
 
 /**
  * Start VM

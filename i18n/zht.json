@@ -228,6 +228,8 @@
       "loading": "載入中..."
     },
     "customRegistration": {
+      "loadFailed": "無法載入註冊列表",
+      "updateFailed": "無法儲存狀態",
       "title": "自訂套餐註冊管理",
       "subtitle": "追蹤和處理自訂服務套餐註冊請求",
       "exportExcel": "匯出到Excel",

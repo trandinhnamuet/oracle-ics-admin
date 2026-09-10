@@ -228,6 +228,8 @@
       "loading": "Loading..."
     },
     "customRegistration": {
+      "loadFailed": "Could not load the registration list",
+      "updateFailed": "Could not save the status",
       "title": "Custom Package Registration Management",
       "subtitle": "Track and process custom service package registration requests",
       "exportExcel": "Export to Excel",

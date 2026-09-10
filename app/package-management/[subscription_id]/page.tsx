@@ -9,8 +9,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Switch } from '@/components/ui/switch'
 import { Label } from '@/components/ui/label'
-import { ArrowLeft, Play, Pause, RotateCcw, Trash2, Download, RefreshCw, Terminal, Copy, Key, Check, CheckCircle, Lock, Eye, EyeOff } from 'lucide-react'
-import { ConfirmSshKeyRequestDialog } from '@/components/dialogs/confirm-ssh-key-request-dialog'
+import { ArrowLeft, Play, Pause, RotateCcw, Trash2, Download, RefreshCw, Terminal, Copy, Check } from 'lucide-react'
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from '@/components/ui/alert-dialog'
 import { Input } from '@/components/ui/input'
 
@@ -34,7 +33,13 @@ import {
   Tooltip,
 } from 'recharts'
 import { getSubscriptionById, deleteSubscription, toggleAutoRenew, renewSubscription, Subscription } from '@/api/subscription.api'
-import { getSubscriptionVm, performVmAction, requestNewSshKey, deleteVmOnly, resetWindowsPassword, VmDetails } from '@/api/vm-subscription.api'
+// SSH-key reissue and Windows password reset are deliberately owner-only in the
+// backend (checkSubscriptionEligibility scopes by user_id and the OTP goes to the
+// VM owner's mailbox), so the back-office cannot perform them. The unused
+// handlers and dialogs that still called those endpoints were removed — they had
+// no trigger in the UI and would have 400'd on the missing otpCode
+// (QA 2026-09-10, VM/request-key-nootp + VM/reset-winpw-nootp).
+import { getSubscriptionVm, performVmAction, deleteVmOnly, VmDetails } from '@/api/vm-subscription.api'
 import { getInstanceMetrics, InstanceMetrics } from '@/api/oci.api'
 import { toast } from '@/hooks/use-toast'
 import { formatDateOnly, formatDateTime, parseAsUtc } from '@/lib/utils'
@@ -132,17 +137,7 @@ export default function AdminPackageDetailPage() {
     return makeDateTicks(src)
   }, [timeRange, metrics])
   const [isTerminalOpen, setIsTerminalOpen] = useState(false)
-  const [showSshKeyConfirm, setShowSshKeyConfirm] = useState(false)
-  const [isRequestingSshKey, setIsRequestingSshKey] = useState(false)
-  const [newSshKey, setNewSshKey] = useState<{ privateKey: string; instanceName: string } | null>(null)
   const [copiedField, setCopiedField] = useState<string | null>(null)
-  const [isResettingPassword, setIsResettingPassword] = useState(false)
-  const [resetPasswordDialog, setResetPasswordDialog] = useState(false)
-  const [newWindowsPassword, setNewWindowsPassword] = useState<string | null>(null)
-  const [customPassword, setCustomPassword] = useState('')
-  const [showCustomPassword, setShowCustomPassword] = useState(false)
-  const [showInitialWinPassword, setShowInitialWinPassword] = useState(false)
-  const [showNewWinPassword, setShowNewWinPassword] = useState(false)
   const [isTogglingAutoRenew, setIsTogglingAutoRenew] = useState(false)
   const [renewAndStartDialog, setRenewAndStartDialog] = useState<{
     open: boolean
@@ -465,100 +460,6 @@ export default function AdminPackageDetailPage() {
     }
   }
 
-  const handleRequestNewKey = async () => {
-    if (!subscription?.vm_instance_id) {
-      toast({
-        title: t('packageDetail.toast.vmNotConfigured'),
-        description: t('packageDetail.toast.vmNotConfiguredDesc'),
-        variant: 'destructive',
-      })
-      return
-    }
-    const email = subscription.user?.email
-    if (!email) {
-      toast({
-        title: 'Email Required',
-        description: 'User email not found. Please contact support.',
-        variant: 'destructive',
-      })
-      return
-    }
-    setShowSshKeyConfirm(true)
-  }
-
-  const handleConfirmSshKeyRequest = async () => {
-    const email = subscription?.user?.email
-    if (!email) return
-
-    setIsRequestingSshKey(true)
-    try {
-      const result = await requestNewSshKey(subscriptionId, email)
-      setShowSshKeyConfirm(false)
-      if (result.sshKey?.privateKey) {
-        setNewSshKey({
-          privateKey: result.sshKey.privateKey,
-          instanceName: vmDetails?.vm?.instanceName || 'VM',
-        })
-      } else {
-        toast({
-          title: 'SSH Key Created',
-          description: result.message,
-          variant: 'default',
-          duration: 8000,
-        })
-      }
-    } catch (error: any) {
-      console.error('Error requesting new SSH key:', error)
-      setShowSshKeyConfirm(false)
-      toast({
-        title: 'Request Failed',
-        description: error.response?.data?.message || 'Failed to generate new SSH key. Please try again.',
-        variant: 'destructive',
-        duration: 8000,
-      })
-    } finally {
-      setIsRequestingSshKey(false)
-    }
-  }
-
-  const validateWindowsPassword = (pwd: string): string | null => {
-    if (pwd.length < 14) return t('packageDetail.resetPassword.validation.minLength')
-    if (pwd.length > 127) return t('packageDetail.resetPassword.validation.maxLength')
-    if (pwd.toLowerCase().includes('opc')) return t('packageDetail.resetPassword.validation.noUsername')
-    if (!/[A-Z]/.test(pwd)) return t('packageDetail.resetPassword.validation.needUpper')
-    if (!/[a-z]/.test(pwd)) return t('packageDetail.resetPassword.validation.needLower')
-    if (!/[0-9]/.test(pwd)) return t('packageDetail.resetPassword.validation.needDigit')
-    if (!/[^A-Za-z0-9]/.test(pwd)) return t('packageDetail.resetPassword.validation.needSpecial')
-    return null
-  }
-
-  const handleResetWindowsPassword = async () => {
-    setIsResettingPassword(true)
-    setResetPasswordDialog(false)
-    const passwordToUse = customPassword.trim() || undefined
-    setCustomPassword('')
-    setShowCustomPassword(false)
-    try {
-      const result = await resetWindowsPassword(subscriptionId, passwordToUse)
-      setNewWindowsPassword(result.newPassword)
-      const updatedVm = await getSubscriptionVm(subscriptionId)
-      setVmDetails(updatedVm)
-      toast({
-        title: t('packageDetail.toast.passwordResetSuccess'),
-        description: t('packageDetail.toast.passwordResetSuccessDesc'),
-        duration: 8000,
-      })
-    } catch (error: any) {
-      console.error('Error resetting Windows password:', error)
-      toast({
-        title: t('packageDetail.toast.passwordResetError'),
-        description: error?.response?.data?.message || error?.message || t('packageDetail.toast.passwordResetErrorDesc'),
-        variant: 'destructive',
-      })
-    } finally {
-      setIsResettingPassword(false)
-    }
-  }
 
   const handleDeleteVmOnly = () => {
     setConfirmDialog({
@@ -1309,15 +1210,6 @@ export default function AdminPackageDetailPage() {
         />
       )}
 
-      {/* SSH Key Request Confirmation Dialog */}
-      <ConfirmSshKeyRequestDialog
-        isOpen={showSshKeyConfirm}
-        onClose={() => !isRequestingSshKey && setShowSshKeyConfirm(false)}
-        onConfirm={handleConfirmSshKeyRequest}
-        email={subscription?.user?.email || ''}
-        vmName={vmDetails?.vm?.instanceName}
-        isLoading={isRequestingSshKey}
-      />
 
       <AlertDialog open={confirmDialog.open} onOpenChange={(open) => !open && setConfirmDialog(prev => ({ ...prev, open: false }))}>
         <AlertDialogContent>
@@ -1334,68 +1226,6 @@ export default function AdminPackageDetailPage() {
         </AlertDialogContent>
       </AlertDialog>
 
-      {/* One-time SSH Key Display Dialog */}
-      <AlertDialog open={!!newSshKey} onOpenChange={() => {}}>
-        <AlertDialogContent className="max-w-2xl">
-          <AlertDialogHeader>
-            <AlertDialogTitle className="flex items-center gap-2 text-xl">
-              <CheckCircle className="h-6 w-6 text-green-500" />
-              {t('packageDetail.newSshKeyCreated.title')}
-            </AlertDialogTitle>
-            <AlertDialogDescription asChild>
-              <div className="space-y-4 text-left pt-2">
-                <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded">
-                  <p className="font-semibold text-red-900 text-sm">
-                    {t('packageDetail.newSshKeyCreated.onceWarningTitle')}
-                  </p>
-                  <p className="text-red-800 text-sm mt-1">
-                    {t('packageDetail.newSshKeyCreated.onceWarningDesc')}
-                  </p>
-                </div>
-                <div>
-                  <p className="font-semibold mb-2 flex items-center gap-2 text-sm">
-                    <Key className="h-4 w-4" /> SSH Private Key — {newSshKey?.instanceName}
-                  </p>
-                  <div className="relative">
-                    <textarea
-                      readOnly
-                      value={newSshKey?.privateKey || ''}
-                      className="w-full h-40 font-mono text-xs p-3 bg-gray-900 text-green-400 rounded border resize-none"
-                    />
-                  </div>
-                </div>
-                <div className="flex gap-2">
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    onClick={() => copyToClipboard(newSshKey!.privateKey, 'newkey')}
-                    className="flex-1"
-                  >
-                    {copiedField === 'newkey' ? <Check className="h-4 w-4 mr-1 text-green-500" /> : <Copy className="h-4 w-4 mr-1" />}
-                    {copiedField === 'newkey' ? t('packageDetail.newSshKeyCreated.copied') : t('packageDetail.newSshKeyCreated.copy')}
-                  </Button>
-                  <Button
-                    size="sm"
-                    onClick={() => downloadFile(newSshKey!.privateKey, `${newSshKey?.instanceName || 'vm'}-new-key.pem`)}
-                    className="flex-1 bg-blue-600 hover:bg-blue-700"
-                  >
-                    <Download className="h-4 w-4 mr-1" />
-                    {t('packageDetail.newSshKeyCreated.download')}
-                  </Button>
-                </div>
-              </div>
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogAction
-              onClick={() => setNewSshKey(null)}
-              className="bg-green-600 hover:bg-green-700"
-            >
-              {t('packageDetail.newSshKeyCreated.close')}
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
 
       {/* Renew & Start VM Dialog — subscription expired */}
       <AlertDialog open={renewAndStartDialog.open} onOpenChange={(open) => !open && setRenewAndStartDialog(prev => ({ ...prev, open: false }))}>
@@ -1462,130 +1292,6 @@ export default function AdminPackageDetailPage() {
         </AlertDialogContent>
       </AlertDialog>
 
-      {/* Reset Windows Password — Confirmation dialog */}
-      <AlertDialog open={resetPasswordDialog} onOpenChange={(open) => {
-        if (!open) { setCustomPassword(''); setShowCustomPassword(false) }
-        setResetPasswordDialog(open)
-      }}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>🔑 {t('packageDetail.resetPassword.title')}</AlertDialogTitle>
-            <AlertDialogDescription asChild>
-              <div className="space-y-4">
-                <p>{t('packageDetail.resetPassword.description')}</p>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground">
-                    {t('packageDetail.resetPassword.newPasswordLabel')}
-                  </label>
-                  <div className="relative">
-                    <Input
-                      type={showCustomPassword ? 'text' : 'password'}
-                      placeholder={t('packageDetail.resetPassword.newPasswordPlaceholder')}
-                      value={customPassword}
-                      onChange={(e) => setCustomPassword(e.target.value)}
-                      className="pr-10"
-                    />
-                    <button
-                      type="button"
-                      onClick={() => setShowCustomPassword(v => !v)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
-                    >
-                      {showCustomPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-                    </button>
-                  </div>
-                  {customPassword && (() => {
-                    const err = validateWindowsPassword(customPassword)
-                    return err
-                      ? <p className="text-xs text-destructive">{err}</p>
-                      : <p className="text-xs text-green-600 dark:text-green-400">✓ {t('packageDetail.resetPassword.validation.valid')}</p>
-                  })()}
-                  <p className="text-xs text-muted-foreground">{t('packageDetail.resetPassword.newPasswordHint')}</p>
-                </div>
-              </div>
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel onClick={() => { setCustomPassword(''); setShowCustomPassword(false) }}>
-              {t('packageDetail.confirmDialog.cancel')}
-            </AlertDialogCancel>
-            <AlertDialogAction
-              onClick={handleResetWindowsPassword}
-              className="bg-orange-600 hover:bg-orange-700 text-white"
-              disabled={!!customPassword && !!validateWindowsPassword(customPassword)}
-            >
-              {t('packageDetail.resetPassword.confirm')}
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
-
-      {/* Reset Windows Password — Loading Dialog */}
-      <AlertDialog open={isResettingPassword} onOpenChange={() => {}}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle className="flex items-center gap-2">
-              <RefreshCw className="h-5 w-5 animate-spin" />
-              {t('packageDetail.resetPassword.resettingTitle')}
-            </AlertDialogTitle>
-            <AlertDialogDescription>
-              {t('packageDetail.resetPassword.resettingDesc')}
-              <p className="text-sm text-muted-foreground mt-2">{t('packageDetail.resetPassword.resettingNote')}</p>
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-        </AlertDialogContent>
-      </AlertDialog>
-
-      {/* Reset Windows Password — New password display (one-time) */}
-      <AlertDialog open={!!newWindowsPassword} onOpenChange={() => {}}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle className="flex items-center gap-2">
-              <CheckCircle className="h-5 w-5 text-green-500" />
-              {t('packageDetail.resetPassword.successTitle')}
-            </AlertDialogTitle>
-            <AlertDialogDescription asChild>
-              <div className="space-y-4">
-                <p className="text-sm text-muted-foreground">
-                  {t('packageDetail.resetPassword.successDesc')}
-                </p>
-                {/*
-                  SECURITY: the reset password is delivered to the VM owner (email /
-                  their own portal), never shown to the administrator who triggered
-                  the reset. A back-office operator receiving a customer's plaintext
-                  credential creates insider-abuse and account-takeover risk and makes
-                  accountability impossible after an incident.
-                */}
-                <div className="bg-gray-50 dark:bg-muted border rounded p-4 font-mono text-sm space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span><strong>Username:</strong> opc</span>
-                    <Button size="sm" variant="ghost" onClick={() => copyToClipboard('opc', 'new-win-user')}>
-                      {copiedField === 'new-win-user' ? <Check className="h-3 w-3 text-green-500" /> : <Copy className="h-3 w-3" />}
-                    </Button>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-muted-foreground">
-                      <strong>Password:</strong> {t('packageDetail.resetPassword.sentToOwner')}
-                    </span>
-                  </div>
-                </div>
-                <div className="bg-red-50 dark:bg-red-950/20 border-l-4 border-red-500 p-3 rounded">
-                  <p className="text-sm text-red-800 dark:text-red-400 font-semibold">
-                    {t('packageDetail.resetPassword.saveWarning')}
-                  </p>
-                </div>
-              </div>
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogAction
-              onClick={() => setNewWindowsPassword(null)}
-              className="bg-green-600 hover:bg-green-700 text-white"
-            >
-              {t('packageDetail.resetPassword.close')}
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
     </div>
   )
 }
