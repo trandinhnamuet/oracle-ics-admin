@@ -970,7 +970,117 @@
     "supportTicketsStats": "Support Tickets",
     "costsTitle": "Costs & Credit",
     "costsDesc": "Total balance, deposited and spent amounts per user, month, year",
-    "costsStats": "Cost & Credit Overview",
+    "costsStats": "Cost & Credit Overview",
+    "oracleCostsTitle": "Oracle (OCI) Costs",
+    "oracleCostsDesc": "Estimated monthly Oracle bill — vCPU, RAM, storage, egress, Windows — reconciled against what customers paid",
+    "oracleCostsStats": "Oracle cost reconciliation",
+    "oracleCosts": {
+      "title": "Oracle (OCI) Costs",
+      "subtitle": "What ICS owes Oracle for the month, based on the hours each VM actually existed/ran, versus what customers paid",
+      "back": "Back",
+      "refresh": "Refresh",
+      "exportCsv": "Export CSV",
+      "loading": "Computing Oracle costs (querying OCI, this can take a while)...",
+      "error": "Could not load the Oracle cost report",
+      "month": {
+        "label": "Month",
+        "current": "(current)"
+      },
+      "currentMonthNote": "The current month is not closed yet: figures are as of now ({{elapsed}}/{{total}} hours). Running VMs keep accruing cost.",
+      "warnings": {
+        "egress_unavailable": "Bandwidth data could not be fetched from OCI — egress cost in this report is 0.",
+        "shape_sync_failed": "Shape config could not be synced from OCI for {{count}} VM(s) — cached/package values used."
+      },
+      "summary": {
+        "oracleBill": "Owed to Oracle (estimate)",
+        "oracleBillDesc": "List {{list}}, blended dealer discount {{discount}}%",
+        "collected": "Collected from customers this month",
+        "collectedDesc": "Includes {{unattributed}} from subscriptions without a VM yet",
+        "margin": "Gross margin before tax",
+        "marginDesc": "{{pct}}% of collected revenue (before VAT and foreign contractor tax)",
+        "marginNoRevenue": "No revenue collected this month",
+        "vms": "Billed VMs",
+        "vmsDesc": "{{running}} running · {{terminated}} terminated this month · {{windows}} Windows"
+      },
+      "components": {
+        "title": "Cost by component",
+        "component": "Component",
+        "listUsd": "List price (USD)",
+        "discount": "Discount",
+        "netUsd": "Owed (USD)",
+        "netVnd": "Owed (VND)",
+        "share": "Share",
+        "cpu": "vCPU (OCPU)",
+        "ram": "RAM",
+        "storage": "Storage (boot volume)",
+        "egress": "Outbound bandwidth (egress)",
+        "windows": "Windows license",
+        "other": "Other (GPU/BM)",
+        "total": "Total",
+        "egressNote": "Total {{total}} GB (VMs no longer in DB: {{unattributed}} GB) · free {{free}} GB · billable {{billable}} GB"
+      },
+      "fxNote": "Converted at {{rate}} ₫/USD — {{source}} {{date}}",
+      "fxSource": {
+        "query": "user-supplied rate",
+        "exchange_rate_table": "Vietcombank USD sell rate",
+        "env": "OCI_COST_USD_TO_VND setting",
+        "default": "price-table default rate"
+      },
+      "tabs": {
+        "byVm": "By VM",
+        "byUser": "By customer",
+        "byPackage": "By package",
+        "assumptions": "Rates & assumptions"
+      },
+      "table": {
+        "customer": "Customer",
+        "vm": "VM",
+        "package": "Package",
+        "period": "Running / existing hours",
+        "spec": "Billed configuration",
+        "totalUsd": "Total (USD)",
+        "totalVnd": "Total (VND)",
+        "paid": "Paid this month",
+        "margin": "Difference",
+        "search": "Search customer, VM, package...",
+        "noData": "No VM incurred cost in this month",
+        "vmCount": "VMs",
+        "until": "Until",
+        "coverage": "{{pct}}% of month",
+        "terminated": "Terminated"
+      },
+      "assumptions": {
+        "no_state_history": "No state history — VM assumed running continuously from creation to termination",
+        "ocpus_from_package": "OCPU count parsed from the package description (not synced from OCI)",
+        "memory_from_package": "RAM parsed from the package description (not synced from OCI)",
+        "boot_volume_from_package": "Boot volume size parsed from the package description (minimum 50 GB)",
+        "baseline_unknown_assumed_100pct": "Burstable baseline unknown — billed at 100% OCPU (conservative, may overstate)",
+        "gpu_priced_from_package": "GPU/BM shape: priced from the package (USD/month) prorated by existence"
+      },
+      "rates": {
+        "title": "Oracle rates in effect",
+        "ocpuHour": "OCPU / hour ({{family}})",
+        "memGbHour": "Memory / GB / hour ({{family}})",
+        "blockGbMonth": "Block volume / GB-month",
+        "blockVpu": "Block volume performance / VPU / GB-month (default {{vpus}} VPU)",
+        "egressGb": "Egress / GB (APAC, SKU B93455)",
+        "egressFree": "Free egress per month (tenancy)",
+        "windowsLicense": "Windows license / OCPU / hour",
+        "discounts": "Dealer discounts",
+        "fx": "USD → VND rate",
+        "envNote": "Every rate and discount can be overridden with OCI_COST_* environment variables on the backend, no code change needed. Default discounts come from the Jun–Jul 2026 invoices (compute 22%, storage/egress 8%, Windows 0%)."
+      },
+      "method": {
+        "title": "Method",
+        "compute": "vCPU and RAM accrue only while the VM is in a running state (RUNNING/STARTING/STOPPING); STOPPED hours are free. OCPU is billed at the burstable baseline (50% for BASELINE_1_2); RAM in full.",
+        "storage": "Boot volume accrues from VM creation until termination (terminated_at), including while stopped, prorated by hours over the month.",
+        "egress": "Outbound bandwidth comes from OCI Monitoring (or the monthly archive) at $/GB; the free quota defaults to 0 because the dealer currently bills from the first GB.",
+        "windows": "Windows packages add the license on the full OCPU count (no baseline) times running hours.",
+        "revenue": "\"Paid this month\" sums the wallet debits linked to the subscription that landed in the month (purchase, renewal, QR payment) — cash basis. A customer who buys on the 1st and cancels mid-month: 100% collected, ~50% Oracle cost.",
+        "partial": "The current month is computed up to now. Terminated VMs are counted only up to their termination time.",
+        "excluded": "Not included: block volume backups, reserved IPs, telemetry, foreign contractor tax and VAT. This is an estimate for reconciling against the dealer invoice, not an accounting figure."
+      }
+    },
     "users": {
       "editTooltip": "Edit user",
       "editDialog": {

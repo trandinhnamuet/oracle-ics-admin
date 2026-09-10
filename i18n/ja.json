@@ -989,7 +989,117 @@
     "supportTicketsStats": "サポートチケット",
     "costsTitle": "コスト & クレジット",
     "costsDesc": "ユーザー別、月別、年別の総残高、入金・使用額",
-    "costsStats": "コスト & クレジット概要",
+    "costsStats": "コスト & クレジット概要",
+    "oracleCostsTitle": "Oracle (OCI) コスト",
+    "oracleCostsDesc": "月次のOracle支払見込み（vCPU・RAM・ストレージ・転送量・Windows）を顧客の支払額と照合",
+    "oracleCostsStats": "Oracleコスト照合",
+    "oracleCosts": {
+      "title": "Oracle (OCI) コスト",
+      "subtitle": "各VMが実際に存在・稼働した時間に基づく当月のOracle支払見込みと、顧客の支払額の比較",
+      "back": "戻る",
+      "refresh": "更新",
+      "exportCsv": "CSV出力",
+      "loading": "Oracleコストを計算中（OCI照会のため時間がかかる場合があります）...",
+      "error": "Oracleコストレポートを読み込めませんでした",
+      "month": {
+        "label": "月",
+        "current": "（今月）"
+      },
+      "currentMonthNote": "今月はまだ締まっていません。数値は現時点まで（{{elapsed}}/{{total}}時間）です。稼働中のVMは引き続きコストが発生します。",
+      "warnings": {
+        "egress_unavailable": "OCIから転送量データを取得できませんでした。本レポートのegressコストは0です。",
+        "shape_sync_failed": "{{count}}台のVMでOCIからシェイプ構成を同期できませんでした。キャッシュ/パッケージ値を使用しています。"
+      },
+      "summary": {
+        "oracleBill": "Oracle支払見込み",
+        "oracleBillDesc": "定価 {{list}}、代理店割引（加重） {{discount}}%",
+        "collected": "当月の顧客入金",
+        "collectedDesc": "うち {{unattributed}} はVM未作成のサブスクリプション分",
+        "margin": "税引前粗利",
+        "marginDesc": "入金額の {{pct}}%（VAT・外国契約者税を除く）",
+        "marginNoRevenue": "当月の入金はありません",
+        "vms": "課金対象VM",
+        "vmsDesc": "稼働 {{running}} · 当月削除 {{terminated}} · Windows {{windows}}"
+      },
+      "components": {
+        "title": "項目別コスト",
+        "component": "項目",
+        "listUsd": "定価 (USD)",
+        "discount": "割引",
+        "netUsd": "支払額 (USD)",
+        "netVnd": "支払額 (VND)",
+        "share": "構成比",
+        "cpu": "vCPU (OCPU)",
+        "ram": "RAM",
+        "storage": "ストレージ（ブートボリューム）",
+        "egress": "送信転送量 (egress)",
+        "windows": "Windowsライセンス",
+        "other": "その他 (GPU/BM)",
+        "total": "合計",
+        "egressNote": "合計 {{total}} GB（DBに無いVM: {{unattributed}} GB）· 無料 {{free}} GB · 課金 {{billable}} GB"
+      },
+      "fxNote": "換算レート {{rate}} ₫/USD — {{source}} {{date}}",
+      "fxSource": {
+        "query": "ユーザー指定レート",
+        "exchange_rate_table": "Vietcombank USD売レート",
+        "env": "OCI_COST_USD_TO_VND 設定",
+        "default": "価格表の既定レート"
+      },
+      "tabs": {
+        "byVm": "VM別",
+        "byUser": "顧客別",
+        "byPackage": "パッケージ別",
+        "assumptions": "単価と前提"
+      },
+      "table": {
+        "customer": "顧客",
+        "vm": "VM",
+        "package": "パッケージ",
+        "period": "稼働 / 存在時間",
+        "spec": "課金構成",
+        "totalUsd": "合計 (USD)",
+        "totalVnd": "合計 (VND)",
+        "paid": "当月支払額",
+        "margin": "差額",
+        "search": "顧客・VM・パッケージで検索...",
+        "noData": "当月にコストが発生したVMはありません",
+        "vmCount": "VM数",
+        "until": "期限",
+        "coverage": "月の {{pct}}%",
+        "terminated": "削除"
+      },
+      "assumptions": {
+        "no_state_history": "状態履歴なし — 作成から削除まで連続稼働と仮定",
+        "ocpus_from_package": "OCPU数はパッケージ説明から解析（OCI未同期）",
+        "memory_from_package": "RAMはパッケージ説明から解析（OCI未同期）",
+        "boot_volume_from_package": "ブートボリュームはパッケージ説明から解析（最小50 GB）",
+        "baseline_unknown_assumed_100pct": "バースト可能ベースライン不明 — OCPU 100%で計算（保守的、過大の可能性）",
+        "gpu_priced_from_package": "GPU/BMシェイプ: パッケージ価格（USD/月）を存在時間で按分"
+      },
+      "rates": {
+        "title": "適用中のOracle単価",
+        "ocpuHour": "OCPU / 時 ({{family}})",
+        "memGbHour": "メモリ / GB / 時 ({{family}})",
+        "blockGbMonth": "ブロックボリューム / GB-月",
+        "blockVpu": "ブロックボリューム性能 / VPU / GB-月（既定 {{vpus}} VPU）",
+        "egressGb": "Egress / GB (APAC, SKU B93455)",
+        "egressFree": "月間無料egress（テナンシー）",
+        "windowsLicense": "Windowsライセンス / OCPU / 時",
+        "discounts": "代理店割引",
+        "fx": "USD → VND レート",
+        "envNote": "単価と割引はバックエンドの環境変数 OCI_COST_* で変更できます（コード変更不要）。既定の割引は2026年6–7月の請求書に基づきます（コンピュート22%、ストレージ/egress 8%、Windows 0%）。"
+      },
+      "method": {
+        "title": "計算方法",
+        "compute": "vCPUとRAMはVMが稼働状態（RUNNING/STARTING/STOPPING）の時間のみ課金。STOPPED時間は無料。OCPUはバースト可能ベースライン（BASELINE_1_2なら50%）で、RAMは全量で計算。",
+        "storage": "ブートボリュームはVM作成から削除（terminated_at）まで、停止中も含めて月内時間比で課金。",
+        "egress": "送信転送量はOCI Monitoring（または月次アーカイブ）から取得し $/GB で計算。代理店が1 GB目から請求しているため無料枠の既定は0。",
+        "windows": "WindowsパッケージはフルOCPU数（ベースライン不適用）× 稼働時間でライセンスを加算。",
+        "revenue": "「当月支払額」は当月に発生したサブスクリプション紐付きのウォレット引落合計（新規・更新・QR決済）— 現金主義。月初に購入し月中に解約した場合、入金100%に対しOracleコストは約50%。",
+        "partial": "今月は現時点までで計算。削除済みVMは削除時刻までを計上。",
+        "excluded": "未計上: ブロックボリュームバックアップ、予約IP、テレメトリ、外国契約者税、VAT。代理店請求書との照合用の見積であり会計数値ではありません。"
+      }
+    },
     "users": {
       "editTooltip": "ユーザーを編集",
       "editDialog": {

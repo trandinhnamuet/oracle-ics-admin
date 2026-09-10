@@ -10,7 +10,7 @@ import {
   Menu, X, User, LogOut, ChevronDown,
   LayoutDashboard, Users, CreditCard, Package,
   Wallet, LifeBuoy, ArrowLeftRight, BarChart2,
-  History, Activity, Server, DollarSign, FileText, UserPlus
+  History, Activity, Server, DollarSign, FileText, UserPlus, Cloud
 } from "lucide-react"
 import { LanguageSelector } from "@/components/ui/language-selector"
 import { ThemeToggle } from "@/components/ui/theme-toggle"
@@ -33,6 +33,7 @@ const adminNavItems = [
   { href: "/admin/bandwidth-management", label: "admin.bandwidthTitle", icon: Activity },
   { href: "/admin/compartment", label: "admin.compartmentTitle", icon: Server },
   { href: "/admin/costs", label: "admin.costsTitle", icon: DollarSign },
+  { href: "/admin/oracle-costs", label: "admin.oracleCostsTitle", icon: Cloud },
   { href: "/admin/terms", label: "admin.termsTitle", icon: FileText },
   { href: "/admin/custom-registration", label: "admin.customRegTitle", icon: UserPlus },
 ]

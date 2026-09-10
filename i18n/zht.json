@@ -987,7 +987,117 @@
     "supportTicketsStats": "支援工單",
     "costsTitle": "費用 & 積分",
     "costsDesc": "各使用者、月份、年份的總餘額、儲值和消費額",
-    "costsStats": "費用 & 積分概覽",
+    "costsStats": "費用 & 積分概覽",
+    "oracleCostsTitle": "Oracle (OCI) 成本",
+    "oracleCostsDesc": "按月估算應付 Oracle 的費用（vCPU、記憶體、儲存、出站流量、Windows），並與客戶已付款對帳",
+    "oracleCostsStats": "Oracle 成本對帳",
+    "oracleCosts": {
+      "title": "Oracle (OCI) 成本",
+      "subtitle": "依各 VM 實際存在/運行時數計算的當月應付 Oracle 金額，與客戶已付款比較",
+      "back": "返回",
+      "refresh": "重新整理",
+      "exportCsv": "匯出 CSV",
+      "loading": "正在計算 Oracle 成本（需查詢 OCI，可能需要一段時間）...",
+      "error": "無法載入 Oracle 成本報告",
+      "month": {
+        "label": "月份",
+        "current": "（本月）"
+      },
+      "currentMonthNote": "本月尚未結束：資料截至目前（{{elapsed}}/{{total}} 小時）。運行中的 VM 將持續產生費用。",
+      "warnings": {
+        "egress_unavailable": "無法從 OCI 取得流量資料，本報告的出站流量費用為 0。",
+        "shape_sync_failed": "{{count}} 台 VM 無法從 OCI 同步規格設定，已使用快取/方案值。"
+      },
+      "summary": {
+        "oracleBill": "應付 Oracle（估算）",
+        "oracleBillDesc": "定價 {{list}}，代理商綜合折扣 {{discount}}%",
+        "collected": "本月客戶已付款",
+        "collectedDesc": "其中 {{unattributed}} 來自尚未建立 VM 的訂閱",
+        "margin": "稅前毛利",
+        "marginDesc": "佔收款的 {{pct}}%（不含營業稅與外國承包商稅）",
+        "marginNoRevenue": "本月無收款",
+        "vms": "計費 VM 數",
+        "vmsDesc": "運行中 {{running}} · 本月刪除 {{terminated}} · Windows {{windows}}"
+      },
+      "components": {
+        "title": "依成本項目",
+        "component": "成本項目",
+        "listUsd": "定價 (USD)",
+        "discount": "折扣",
+        "netUsd": "應付 (USD)",
+        "netVnd": "應付 (VND)",
+        "share": "佔比",
+        "cpu": "vCPU (OCPU)",
+        "ram": "記憶體",
+        "storage": "儲存（開機磁碟區）",
+        "egress": "出站流量 (egress)",
+        "windows": "Windows 授權",
+        "other": "其他 (GPU/BM)",
+        "total": "合計",
+        "egressNote": "合計 {{total}} GB（資料庫中已無紀錄的 VM：{{unattributed}} GB）· 免費 {{free}} GB · 計費 {{billable}} GB"
+      },
+      "fxNote": "以 {{rate}} ₫/USD 換算 — {{source}} {{date}}",
+      "fxSource": {
+        "query": "使用者指定匯率",
+        "exchange_rate_table": "Vietcombank 美元賣出價",
+        "env": "OCI_COST_USD_TO_VND 設定",
+        "default": "價目表預設匯率"
+      },
+      "tabs": {
+        "byVm": "依 VM",
+        "byUser": "依客戶",
+        "byPackage": "依方案",
+        "assumptions": "單價與假設"
+      },
+      "table": {
+        "customer": "客戶",
+        "vm": "VM",
+        "package": "方案",
+        "period": "運行 / 存在時數",
+        "spec": "計費設定",
+        "totalUsd": "合計 (USD)",
+        "totalVnd": "合計 (VND)",
+        "paid": "本月已付",
+        "margin": "差額",
+        "search": "搜尋客戶、VM、方案...",
+        "noData": "本月沒有產生費用的 VM",
+        "vmCount": "VM 數",
+        "until": "到期",
+        "coverage": "佔本月 {{pct}}%",
+        "terminated": "已刪除"
+      },
+      "assumptions": {
+        "no_state_history": "無狀態歷史 — 假定 VM 自建立至刪除持續運行",
+        "ocpus_from_package": "OCPU 數取自方案描述（未從 OCI 同步）",
+        "memory_from_package": "記憶體取自方案描述（未從 OCI 同步）",
+        "boot_volume_from_package": "開機磁碟區大小取自方案描述（最小 50 GB）",
+        "baseline_unknown_assumed_100pct": "突發基線未知 — 以 100% OCPU 計算（保守，可能偏高）",
+        "gpu_priced_from_package": "GPU/BM 規格：以方案價格（USD/月）乘以存在時數比例"
+      },
+      "rates": {
+        "title": "目前適用的 Oracle 單價",
+        "ocpuHour": "OCPU / 小時 ({{family}})",
+        "memGbHour": "記憶體 / GB / 小時 ({{family}})",
+        "blockGbMonth": "區塊磁碟區 / GB-月",
+        "blockVpu": "區塊磁碟區效能 / VPU / GB-月（預設 {{vpus}} VPU）",
+        "egressGb": "出站流量 / GB (APAC, SKU B93455)",
+        "egressFree": "每月免費出站流量（租戶）",
+        "windowsLicense": "Windows 授權 / OCPU / 小時",
+        "discounts": "代理商折扣",
+        "fx": "USD → VND 匯率",
+        "envNote": "所有單價與折扣均可透過後端環境變數 OCI_COST_* 調整，無需改程式碼。預設折扣來自 2026 年 6–7 月帳單（運算 22%、儲存/流量 8%、Windows 0%）。"
+      },
+      "method": {
+        "title": "計算方式",
+        "compute": "vCPU 與記憶體僅在 VM 處於運行狀態（RUNNING/STARTING/STOPPING）時計費；STOPPED 時段免費。OCPU 依突發基線（BASELINE_1_2 為 50%）計費，記憶體全額計費。",
+        "storage": "開機磁碟區自 VM 建立至刪除（terminated_at）持續計費，含停機期間，按當月小時比例換算。",
+        "egress": "出站流量取自 OCI Monitoring（或月度歸檔），以 $/GB 計費；因代理商自第 1 GB 起計費，免費額度預設為 0。",
+        "windows": "Windows 方案依完整 OCPU 數（不適用基線）× 運行小時加收授權費。",
+        "revenue": "「本月已付」為當月發生、關聯該訂閱的錢包扣款合計（新購、續約、QR 付款）— 現金基礎。客戶月初購買、月中取消：收款 100%，Oracle 成本約 50%。",
+        "partial": "本月計算至目前時刻。已刪除 VM 僅計至刪除時刻。",
+        "excluded": "未包含：區塊磁碟區備份、保留 IP、遙測、外國承包商稅與營業稅。此為與代理商帳單對帳的估算值，非會計數字。"
+      }
+    },
     "users": {
       "editTooltip": "編輯使用者",
       "editDialog": {

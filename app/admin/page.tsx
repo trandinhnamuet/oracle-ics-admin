@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Users, FileText, Package, HardDrive, DollarSign, LogIn, BarChart3, Activity, HeadphonesIcon, TrendingDown, Wallet, ScrollText } from 'lucide-react'
+import { Users, FileText, Package, HardDrive, DollarSign, LogIn, BarChart3, Activity, HeadphonesIcon, TrendingDown, Wallet, ScrollText, Cloud } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
 const adminLinks = (t: any) => [
@@ -95,6 +95,14 @@ const adminLinks = (t: any) => [
 		icon: TrendingDown,
 		color: 'bg-yellow-500',
 		stats: t('admin.costsStats'),
+	},
+	{
+		title: t('admin.oracleCostsTitle'),
+		description: t('admin.oracleCostsDesc'),
+		href: '/admin/oracle-costs',
+		icon: Cloud,
+		color: 'bg-red-500',
+		stats: t('admin.oracleCostsStats'),
 	},
 	{
 		title: t('admin.walletTransactionsTitle'),

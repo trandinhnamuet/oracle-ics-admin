@@ -7,7 +7,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { RefreshCw, Search, TrendingUp, TrendingDown, Wallet, Users, ArrowLeft } from 'lucide-react'
+import { RefreshCw, Search, TrendingUp, TrendingDown, Wallet, Users, ArrowLeft, Cloud } from 'lucide-react'
 import { getAllWallets, getAllWalletTransactions, UserWallet, WalletTransaction } from '@/api/user-wallet.api'
 import { formatPrice, parseAsUtc } from '@/lib/utils'
 import { useRouter } from 'next/navigation'
@@ -234,10 +234,16 @@ export default function AdminCostsPage() {
             <p className="text-muted-foreground mt-1">{t('admin.costs.subtitle')}</p>
           </div>
         </div>
-        <Button onClick={fetchData} variant="outline" disabled={loading}>
-          <RefreshCw className={`h-4 w-4 mr-2 ${loading ? 'animate-spin' : ''}`} />
-          {t('admin.costs.refresh')}
-        </Button>
+        <div className="flex items-center gap-2">
+          <Button variant="outline" onClick={() => router.push('/admin/oracle-costs')}>
+            <Cloud className="h-4 w-4 mr-2" />
+            {t('admin.oracleCostsTitle')}
+          </Button>
+          <Button onClick={fetchData} variant="outline" disabled={loading}>
+            <RefreshCw className={`h-4 w-4 mr-2 ${loading ? 'animate-spin' : ''}`} />
+            {t('admin.costs.refresh')}
+          </Button>
+        </div>
       </div>
 
       {/* Summary Cards */}

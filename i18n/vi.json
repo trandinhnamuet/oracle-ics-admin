@@ -970,7 +970,117 @@
     "supportTicketsStats": "Phiếu hỗ trợ",
     "costsTitle": "Chi phí & Credit",
     "costsDesc": "Tổng số dư, tiền nạp và tiền dùng của từng người dùng, tháng, năm",
-    "costsStats": "Tổng quan chi phí & credit",
+    "costsStats": "Tổng quan chi phí & credit",
+    "oracleCostsTitle": "Chi phí Oracle (OCI)",
+    "oracleCostsDesc": "Ước tính số tiền phải trả Oracle theo tháng: vCPU, RAM, ổ đĩa, băng thông, Windows — đối chiếu với tiền khách đã trả",
+    "oracleCostsStats": "Đối soát chi phí Oracle",
+    "oracleCosts": {
+      "title": "Chi phí Oracle (OCI)",
+      "subtitle": "Số tiền ICS phải trả Oracle trong tháng, tính theo thời gian VM thực sự tồn tại/chạy, so với tiền khách hàng đã thanh toán",
+      "back": "Quay lại",
+      "refresh": "Làm mới",
+      "exportCsv": "Xuất CSV",
+      "loading": "Đang tính chi phí Oracle (truy vấn OCI, có thể mất vài chục giây)...",
+      "error": "Không tải được báo cáo chi phí Oracle",
+      "month": {
+        "label": "Tháng",
+        "current": "(hiện tại)"
+      },
+      "currentMonthNote": "Tháng hiện tại chưa kết thúc: số liệu tính đến thời điểm này ({{elapsed}}/{{total}} giờ). VM còn chạy sẽ tiếp tục phát sinh chi phí.",
+      "warnings": {
+        "egress_unavailable": "Không lấy được dữ liệu băng thông từ OCI — chi phí egress trong báo cáo này đang là 0.",
+        "shape_sync_failed": "Không đồng bộ được cấu hình từ OCI cho {{count}} VM — dùng cấu hình đã lưu / theo gói."
+      },
+      "summary": {
+        "oracleBill": "Phải trả Oracle (ước tính)",
+        "oracleBillDesc": "Niêm yết {{list}}, chiết khấu đại lý bình quân {{discount}}%",
+        "collected": "Khách đã thanh toán trong tháng",
+        "collectedDesc": "Trong đó {{unattributed}} từ subscription chưa gắn VM",
+        "margin": "Lãi gộp trước thuế",
+        "marginDesc": "{{pct}}% số tiền thu được (chưa tính GTGT, thuế NTNN)",
+        "marginNoRevenue": "Chưa có khoản thu nào trong tháng",
+        "vms": "Số VM tính phí",
+        "vmsDesc": "{{running}} đang chạy · {{terminated}} đã xóa trong tháng · {{windows}} Windows"
+      },
+      "components": {
+        "title": "Chi phí theo thành phần",
+        "component": "Thành phần",
+        "listUsd": "Giá niêm yết (USD)",
+        "discount": "Chiết khấu",
+        "netUsd": "Phải trả (USD)",
+        "netVnd": "Phải trả (VND)",
+        "share": "Tỷ trọng",
+        "cpu": "vCPU (OCPU)",
+        "ram": "RAM",
+        "storage": "Ổ đĩa (boot volume)",
+        "egress": "Băng thông ra (egress)",
+        "windows": "Bản quyền Windows",
+        "other": "Khác (GPU/BM)",
+        "total": "Tổng cộng",
+        "egressNote": "Tổng {{total}} GB (VM đã xóa khỏi DB: {{unattributed}} GB) · miễn phí {{free}} GB · tính tiền {{billable}} GB"
+      },
+      "fxNote": "Quy đổi theo tỷ giá {{rate}} ₫/USD — {{source}} {{date}}",
+      "fxSource": {
+        "query": "tỷ giá do người dùng nhập",
+        "exchange_rate_table": "giá bán USD Vietcombank",
+        "env": "cấu hình OCI_COST_USD_TO_VND",
+        "default": "tỷ giá mặc định của bảng giá"
+      },
+      "tabs": {
+        "byVm": "Theo VM",
+        "byUser": "Theo khách hàng",
+        "byPackage": "Theo gói",
+        "assumptions": "Đơn giá & giả định"
+      },
+      "table": {
+        "customer": "Khách hàng",
+        "vm": "VM",
+        "package": "Gói",
+        "period": "Giờ chạy / tồn tại",
+        "spec": "Cấu hình tính phí",
+        "totalUsd": "Tổng (USD)",
+        "totalVnd": "Tổng (VND)",
+        "paid": "Khách trả trong tháng",
+        "margin": "Chênh lệch",
+        "search": "Tìm theo khách, VM, gói...",
+        "noData": "Không có VM nào phát sinh chi phí trong tháng này",
+        "vmCount": "Số VM",
+        "until": "Đến",
+        "coverage": "{{pct}}% tháng",
+        "terminated": "Đã xóa"
+      },
+      "assumptions": {
+        "no_state_history": "Không có lịch sử trạng thái — giả định VM chạy liên tục từ khi tạo đến khi xóa",
+        "ocpus_from_package": "Số OCPU lấy từ mô tả gói (chưa đồng bộ được từ OCI)",
+        "memory_from_package": "Dung lượng RAM lấy từ mô tả gói (chưa đồng bộ được từ OCI)",
+        "boot_volume_from_package": "Dung lượng ổ đĩa lấy từ mô tả gói (tối thiểu 50 GB)",
+        "baseline_unknown_assumed_100pct": "Chưa rõ baseline burstable — tính 100% OCPU (thận trọng, có thể cao hơn thực tế)",
+        "gpu_priced_from_package": "Shape GPU/BM: tính theo giá gói (USD/tháng) nhân tỷ lệ thời gian tồn tại"
+      },
+      "rates": {
+        "title": "Đơn giá Oracle đang áp dụng",
+        "ocpuHour": "OCPU / giờ ({{family}})",
+        "memGbHour": "RAM / GB / giờ ({{family}})",
+        "blockGbMonth": "Block volume / GB-tháng",
+        "blockVpu": "Hiệu năng block volume / VPU / GB-tháng (mặc định {{vpus}} VPU)",
+        "egressGb": "Egress / GB (APAC, SKU B93455)",
+        "egressFree": "Egress miễn phí mỗi tháng (tenancy)",
+        "windowsLicense": "Bản quyền Windows / OCPU / giờ",
+        "discounts": "Chiết khấu đại lý",
+        "fx": "Tỷ giá USD → VND",
+        "envNote": "Mọi đơn giá và chiết khấu có thể thay đổi bằng biến môi trường OCI_COST_* trên backend mà không cần sửa code. Chiết khấu mặc định lấy từ hóa đơn tháng 6–7/2026 (compute 22%, storage/egress 8%, Windows 0%)."
+      },
+      "method": {
+        "title": "Cách tính",
+        "compute": "vCPU và RAM chỉ tính trong giờ VM ở trạng thái chạy (RUNNING/STARTING/STOPPING); VM STOPPED không tính. OCPU tính theo baseline burstable (50% với BASELINE_1_2), RAM tính đủ.",
+        "storage": "Ổ đĩa (boot volume) tính từ lúc tạo VM đến lúc xóa (terminated_at), kể cả khi VM đang tắt, theo tỷ lệ giờ/tổng giờ trong tháng.",
+        "egress": "Băng thông ra lấy từ OCI Monitoring (hoặc bản lưu tháng cũ), tính $/GB; quota miễn phí mặc định 0 vì đại lý hiện tính từ GB đầu tiên.",
+        "windows": "Gói Windows cộng thêm bản quyền theo OCPU đầy đủ (không áp baseline) nhân giờ chạy.",
+        "revenue": "\"Khách trả trong tháng\" là tổng các giao dịch trừ ví gắn với subscription phát sinh trong tháng (mua mới, gia hạn, thanh toán QR) — cơ sở tiền mặt. Khách mua đầu tháng rồi hủy giữa tháng: thu 100%, chi phí Oracle chỉ ~50%.",
+        "partial": "Tháng hiện tại tính đến thời điểm mở báo cáo. VM đã xóa chỉ được tính đến thời điểm xóa.",
+        "excluded": "Chưa gồm: backup block volume, IP dự phòng, telemetry, thuế nhà thầu nước ngoài và GTGT. Đây là số ước tính để đối soát với hóa đơn đại lý, không phải số kế toán."
+      }
+    },
     "users": {
       "editTooltip": "Chỉnh sửa người dùng",
       "editDialog": {

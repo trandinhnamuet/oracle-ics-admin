@@ -987,7 +987,117 @@
     "supportTicketsStats": "지원 티켓",
     "costsTitle": "비용 & 크레딧",
     "costsDesc": "사용자별, 월별, 연별 총 잔액, 충전 및 사용 금액",
-    "costsStats": "비용 & 크레딧 개요",
+    "costsStats": "비용 & 크레딧 개요",
+    "oracleCostsTitle": "Oracle (OCI) 비용",
+    "oracleCostsDesc": "월별 Oracle 예상 지불액(vCPU·RAM·스토리지·전송량·Windows)을 고객 결제액과 대조",
+    "oracleCostsStats": "Oracle 비용 대조",
+    "oracleCosts": {
+      "title": "Oracle (OCI) 비용",
+      "subtitle": "각 VM이 실제 존재·실행된 시간을 기준으로 한 당월 Oracle 지불 예상액과 고객 결제액 비교",
+      "back": "뒤로",
+      "refresh": "새로고침",
+      "exportCsv": "CSV 내보내기",
+      "loading": "Oracle 비용 계산 중 (OCI 조회로 시간이 걸릴 수 있습니다)...",
+      "error": "Oracle 비용 보고서를 불러올 수 없습니다",
+      "month": {
+        "label": "월",
+        "current": "(현재)"
+      },
+      "currentMonthNote": "이번 달은 아직 마감되지 않았습니다. 수치는 현재 시점까지({{elapsed}}/{{total}}시간)입니다. 실행 중인 VM은 비용이 계속 발생합니다.",
+      "warnings": {
+        "egress_unavailable": "OCI에서 대역폭 데이터를 가져올 수 없습니다. 이 보고서의 egress 비용은 0입니다.",
+        "shape_sync_failed": "VM {{count}}대의 셰이프 구성을 OCI에서 동기화할 수 없어 캐시/패키지 값을 사용했습니다."
+      },
+      "summary": {
+        "oracleBill": "Oracle 지불 예상액",
+        "oracleBillDesc": "정가 {{list}}, 딜러 평균 할인 {{discount}}%",
+        "collected": "당월 고객 결제액",
+        "collectedDesc": "이 중 {{unattributed}}은 VM 미생성 구독분",
+        "margin": "세전 매출총이익",
+        "marginDesc": "수금액의 {{pct}}% (VAT·외국계약자세 제외)",
+        "marginNoRevenue": "당월 수금 내역 없음",
+        "vms": "과금 VM 수",
+        "vmsDesc": "실행 {{running}} · 당월 삭제 {{terminated}} · Windows {{windows}}"
+      },
+      "components": {
+        "title": "항목별 비용",
+        "component": "항목",
+        "listUsd": "정가 (USD)",
+        "discount": "할인",
+        "netUsd": "지불액 (USD)",
+        "netVnd": "지불액 (VND)",
+        "share": "비중",
+        "cpu": "vCPU (OCPU)",
+        "ram": "RAM",
+        "storage": "스토리지 (부트 볼륨)",
+        "egress": "아웃바운드 대역폭 (egress)",
+        "windows": "Windows 라이선스",
+        "other": "기타 (GPU/BM)",
+        "total": "합계",
+        "egressNote": "합계 {{total}} GB (DB에 없는 VM: {{unattributed}} GB) · 무료 {{free}} GB · 과금 {{billable}} GB"
+      },
+      "fxNote": "환율 {{rate}} ₫/USD 적용 — {{source}} {{date}}",
+      "fxSource": {
+        "query": "사용자 지정 환율",
+        "exchange_rate_table": "Vietcombank USD 매도 환율",
+        "env": "OCI_COST_USD_TO_VND 설정",
+        "default": "가격표 기본 환율"
+      },
+      "tabs": {
+        "byVm": "VM별",
+        "byUser": "고객별",
+        "byPackage": "패키지별",
+        "assumptions": "단가 및 가정"
+      },
+      "table": {
+        "customer": "고객",
+        "vm": "VM",
+        "package": "패키지",
+        "period": "실행 / 존재 시간",
+        "spec": "과금 구성",
+        "totalUsd": "합계 (USD)",
+        "totalVnd": "합계 (VND)",
+        "paid": "당월 결제액",
+        "margin": "차액",
+        "search": "고객, VM, 패키지 검색...",
+        "noData": "이번 달 비용이 발생한 VM이 없습니다",
+        "vmCount": "VM 수",
+        "until": "만료",
+        "coverage": "월의 {{pct}}%",
+        "terminated": "삭제됨"
+      },
+      "assumptions": {
+        "no_state_history": "상태 이력 없음 — 생성부터 삭제까지 계속 실행된 것으로 가정",
+        "ocpus_from_package": "OCPU 수는 패키지 설명에서 추출 (OCI 미동기화)",
+        "memory_from_package": "RAM은 패키지 설명에서 추출 (OCI 미동기화)",
+        "boot_volume_from_package": "부트 볼륨 크기는 패키지 설명에서 추출 (최소 50 GB)",
+        "baseline_unknown_assumed_100pct": "버스터블 기준선 불명 — OCPU 100%로 계산 (보수적, 과대 가능)",
+        "gpu_priced_from_package": "GPU/BM 셰이프: 패키지 가격(USD/월)을 존재 시간 비율로 계산"
+      },
+      "rates": {
+        "title": "적용 중인 Oracle 단가",
+        "ocpuHour": "OCPU / 시간 ({{family}})",
+        "memGbHour": "메모리 / GB / 시간 ({{family}})",
+        "blockGbMonth": "블록 볼륨 / GB-월",
+        "blockVpu": "블록 볼륨 성능 / VPU / GB-월 (기본 {{vpus}} VPU)",
+        "egressGb": "Egress / GB (APAC, SKU B93455)",
+        "egressFree": "월 무료 egress (테넌시)",
+        "windowsLicense": "Windows 라이선스 / OCPU / 시간",
+        "discounts": "딜러 할인",
+        "fx": "USD → VND 환율",
+        "envNote": "모든 단가와 할인은 백엔드 환경 변수 OCI_COST_*로 코드 수정 없이 변경할 수 있습니다. 기본 할인은 2026년 6–7월 청구서 기준입니다 (컴퓨트 22%, 스토리지/egress 8%, Windows 0%)."
+      },
+      "method": {
+        "title": "계산 방식",
+        "compute": "vCPU와 RAM은 VM이 실행 상태(RUNNING/STARTING/STOPPING)인 시간만 과금. STOPPED 시간은 무료. OCPU는 버스터블 기준선(BASELINE_1_2는 50%)으로, RAM은 전량 계산.",
+        "storage": "부트 볼륨은 VM 생성부터 삭제(terminated_at)까지, 중지 상태 포함, 월 시간 비율로 과금.",
+        "egress": "아웃바운드 대역폭은 OCI Monitoring(또는 월별 아카이브)에서 가져와 $/GB로 계산. 딜러가 첫 GB부터 청구하므로 무료 한도 기본값은 0.",
+        "windows": "Windows 패키지는 전체 OCPU 수(기준선 미적용) × 실행 시간으로 라이선스를 추가.",
+        "revenue": "\"당월 결제액\"은 당월에 발생한 구독 연결 지갑 차감 합계(신규·갱신·QR 결제) — 현금 기준. 월초 구매 후 월중 해지 시 수금 100%, Oracle 비용 약 50%.",
+        "partial": "이번 달은 현재 시점까지 계산. 삭제된 VM은 삭제 시각까지만 계산.",
+        "excluded": "미포함: 블록 볼륨 백업, 예약 IP, 텔레메트리, 외국계약자세, VAT. 딜러 청구서 대조용 추정치이며 회계 수치가 아닙니다."
+      }
+    },
     "users": {
       "editTooltip": "사용자 편집",
       "editDialog": {
