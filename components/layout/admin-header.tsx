@@ -27,7 +27,7 @@ const adminNavItems = [
   { href: "/admin/packages", label: "admin.packagesTitle", icon: Package },
   { href: "/admin/payments", label: "admin.paymentsTitle", icon: Wallet },
   { href: "/admin/wallet-transactions", label: "admin.walletTransactionsTitle", icon: ArrowLeftRight },
-  { href: "/admin/analytics", label: "admin.analyticsTitle", icon: BarChart2 },
+  { href: "/admin/visitors", label: "admin.visitorsTitle", icon: BarChart2 },
   { href: "/admin/support-tickets", label: "admin.supportTicketsTitle", icon: LifeBuoy },
   { href: "/admin/login-history", label: "admin.loginHistoryTitle", icon: History },
   { href: "/admin/bandwidth-management", label: "admin.bandwidthTitle", icon: Activity },

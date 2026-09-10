@@ -959,6 +959,9 @@
     "analyticsTitle": "Analytics",
     "analyticsDesc": "View page view and user interaction statistics",
     "analyticsStats": "Website Analytics",
+    "visitorsTitle": "Visitor Analytics",
+    "visitorsDesc": "Self-hosted access log: every page view, IP and returning visitor",
+    "visitorsStats": "Website traffic",
     "bandwidthTitle": "Bandwidth Monitor",
     "bandwidthDesc": "Monitor bandwidth of all virtual machines (limit 10TB)",
     "bandwidthStats": "Bandwidth Monitor",
@@ -1052,6 +1055,103 @@
         "featurePlaceholder": "Additional features or notes...",
         "isActive": "Active (visible to users)",
         "saving": "Saving..."
+      }
+    },
+    "visitors": {
+      "title": "Visitor Analytics",
+      "subtitle": "Self-collected data, stored on our own server — no Google, not blocked by ad-blockers",
+      "updatedAt": "updated {{time}}",
+      "refresh": "Refresh",
+      "legacyLink": "Old dashboard",
+      "loading": "Loading data...",
+      "error": "Could not load statistics",
+      "errorTitle": "Failed to load statistics.",
+      "empty": "No data for this period",
+      "unit": "views",
+      "direct": "Direct",
+      "other": "Other",
+      "window": "From {{from}} to {{to}}",
+      "botsFiltered": "{{count}} bot hits excluded",
+      "range": {
+        "label": "Period",
+        "custom": "Custom range",
+        "from": "From date",
+        "to": "To date",
+        "today": "Today",
+        "7d": "7 days",
+        "28d": "28 days",
+        "90d": "90 days",
+        "all": "All time"
+      },
+      "kpi": {
+        "visits": "Page views",
+        "visitsHint": "total pages opened",
+        "visitors": "Unique visitors",
+        "visitorsHint": "counted by visitor ID",
+        "ips": "IP addresses",
+        "ipsHint": "distinct IPs",
+        "sessions": "Sessions",
+        "sessionsHint": "one per browser tab",
+        "newVisitors": "New visitors",
+        "newVisitorsHint": "first time on the site",
+        "returning": "Returning views",
+        "returningHint": "visitors who came back"
+      },
+      "chart": {
+        "title": "Daily trend",
+        "hint": "One visitor can generate several page views",
+        "needMoreDays": "Only one day of data so far — a line needs at least two"
+      },
+      "series": {
+        "visits": "Page views",
+        "visitors": "Unique visitors"
+      },
+      "cards": {
+        "topPaths": "Most visited pages",
+        "topPathsHint": "Top 10 by page views",
+        "referrers": "Referrers",
+        "referrersHint": "Where visitors came from",
+        "devices": "Devices",
+        "browsers": "Browsers",
+        "os": "Operating systems",
+        "fromUserAgent": "Derived from user-agent"
+      },
+      "device": {
+        "desktop": "Desktop",
+        "mobile": "Mobile",
+        "tablet": "Tablet"
+      },
+      "topVisitors": {
+        "title": "Most frequent visitors",
+        "hint": "By page views in this period · top 20",
+        "visitorId": "Visitor ID",
+        "visits": "Views",
+        "lastIp": "Last IP",
+        "device": "Device",
+        "firstSeen": "First seen",
+        "lastSeen": "Last seen",
+        "lastPath": "Last page",
+        "ipCount": "{{count}} distinct IPs"
+      },
+      "log": {
+        "title": "Individual page views",
+        "hint": "Newest first · {{total}} records",
+        "searchPlaceholder": "Search by IP, visitor ID or path...",
+        "empty": "No matching records",
+        "time": "Time",
+        "ip": "IP",
+        "visitor": "Visitor",
+        "page": "Page",
+        "device": "Device",
+        "source": "Source",
+        "screen": "Screen"
+      },
+      "tag": {
+        "new": "new",
+        "returning": "returning"
+      },
+      "pagination": {
+        "info": "Page {{current}} / {{total}} — {{records}} records"
       }
     }
   },

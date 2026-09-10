@@ -976,6 +976,9 @@
     "analyticsTitle": "분석",
     "analyticsDesc": "페이지 뷰 및 사용자 상호작용 통계 보기",
     "analyticsStats": "웹사이트 분석",
+    "visitorsTitle": "방문 기록",
+    "visitorsDesc": "자체 수집 접속 기록: 페이지뷰, IP, 재방문자",
+    "visitorsStats": "사이트 트래픽",
     "bandwidthTitle": "대역폭 모니터",
     "bandwidthDesc": "모든 가상 머신의 대역폭 모니터링 (한도 10TB)",
     "bandwidthStats": "대역폭 모니터",
@@ -1069,6 +1072,103 @@
         "featurePlaceholder": "추가 기능 또는 메모...",
         "isActive": "활성 (사용자에게 표시)",
         "saving": "저장 중..."
+      }
+    },
+    "visitors": {
+      "title": "방문 기록",
+      "subtitle": "자체 서버에 저장하는 수집 데이터 — Google 불필요, 광고 차단기 영향 없음",
+      "updatedAt": "{{time}} 업데이트",
+      "refresh": "새로고침",
+      "legacyLink": "이전 대시보드",
+      "loading": "데이터 로딩 중...",
+      "error": "통계를 가져오지 못했습니다",
+      "errorTitle": "통계를 가져오지 못했습니다.",
+      "empty": "해당 기간의 데이터가 없습니다",
+      "unit": "회",
+      "direct": "직접 유입",
+      "other": "기타",
+      "window": "{{from}} ~ {{to}}",
+      "botsFiltered": "봇 {{count}}건 제외됨",
+      "range": {
+        "label": "기간",
+        "custom": "기간 직접 지정",
+        "from": "시작일",
+        "to": "종료일",
+        "today": "오늘",
+        "7d": "7일",
+        "28d": "28일",
+        "90d": "90일",
+        "all": "전체"
+      },
+      "kpi": {
+        "visits": "페이지뷰",
+        "visitsHint": "열린 페이지 총수",
+        "visitors": "순 방문자",
+        "visitorsHint": "visitor ID 기준",
+        "ips": "IP 주소",
+        "ipsHint": "서로 다른 IP 수",
+        "sessions": "세션",
+        "sessionsHint": "탭당 하나",
+        "newVisitors": "신규 방문자",
+        "newVisitorsHint": "첫 방문",
+        "returning": "재방문",
+        "returningHint": "이전에 방문한 사용자"
+      },
+      "chart": {
+        "title": "일별 추이",
+        "hint": "한 방문자가 여러 페이지뷰를 만들 수 있습니다",
+        "needMoreDays": "하루치 데이터만 있습니다 — 선 그래프에는 이틀 이상 필요합니다"
+      },
+      "series": {
+        "visits": "페이지뷰",
+        "visitors": "순 방문자"
+      },
+      "cards": {
+        "topPaths": "가장 많이 본 페이지",
+        "topPathsHint": "페이지뷰 상위 10개",
+        "referrers": "유입 경로",
+        "referrersHint": "방문자가 온 곳",
+        "devices": "기기",
+        "browsers": "브라우저",
+        "os": "운영체제",
+        "fromUserAgent": "user-agent에서 추정"
+      },
+      "device": {
+        "desktop": "데스크톱",
+        "mobile": "모바일",
+        "tablet": "태블릿"
+      },
+      "topVisitors": {
+        "title": "가장 자주 방문한 사용자",
+        "hint": "기간 내 페이지뷰 순 · 상위 20명",
+        "visitorId": "Visitor ID",
+        "visits": "회수",
+        "lastIp": "최근 IP",
+        "device": "기기",
+        "firstSeen": "처음",
+        "lastSeen": "마지막",
+        "lastPath": "마지막 페이지",
+        "ipCount": "서로 다른 IP {{count}}개"
+      },
+      "log": {
+        "title": "개별 방문 기록",
+        "hint": "최신순 · {{total}}건",
+        "searchPlaceholder": "IP, visitor ID, 경로로 검색...",
+        "empty": "일치하는 기록이 없습니다",
+        "time": "시각",
+        "ip": "IP",
+        "visitor": "방문자",
+        "page": "페이지",
+        "device": "기기",
+        "source": "유입 경로",
+        "screen": "화면"
+      },
+      "tag": {
+        "new": "신규",
+        "returning": "재방문"
+      },
+      "pagination": {
+        "info": "{{current}} / {{total}} 페이지 — 총 {{records}}건"
       }
     }
   },

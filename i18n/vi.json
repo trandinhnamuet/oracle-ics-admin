@@ -959,6 +959,9 @@
     "analyticsTitle": "Analytics",
     "analyticsDesc": "Xem thống kê lượt truy cập và tương tác người dùng",
     "analyticsStats": "Phân tích trang web",
+    "visitorsTitle": "Nhật ký truy cập",
+    "visitorsDesc": "Thống kê truy cập tự lưu: từng lượt mở trang, IP và khách quay lại",
+    "visitorsStats": "Lưu lượng website",
     "bandwidthTitle": "Giám sát Băng thông",
     "bandwidthDesc": "Theo dõi băng thông của tất cả máy ảo (giới hạn 10TB)",
     "bandwidthStats": "Giám sát băng thông",
@@ -1052,6 +1055,103 @@
         "featurePlaceholder": "Tính năng bổ sung hoặc ghi chú...",
         "isActive": "Kích hoạt (hiển thị cho người dùng)",
         "saving": "Đang lưu..."
+      }
+    },
+    "visitors": {
+      "title": "Nhật ký truy cập oraclecloud.vn",
+      "subtitle": "Dữ liệu tự thu thập, lưu trên máy chủ của mình — không qua Google, không bị ad-blocker chặn",
+      "updatedAt": "cập nhật {{time}}",
+      "refresh": "Làm mới",
+      "legacyLink": "Trang thống kê cũ",
+      "loading": "Đang tải dữ liệu...",
+      "error": "Không lấy được số liệu",
+      "errorTitle": "Không lấy được số liệu.",
+      "empty": "Chưa có dữ liệu trong kỳ này",
+      "unit": "lượt",
+      "direct": "Truy cập thẳng",
+      "other": "Khác",
+      "window": "Từ {{from}} đến {{to}}",
+      "botsFiltered": "đã lọc {{count}} lượt bot",
+      "range": {
+        "label": "Khoảng thời gian",
+        "custom": "Tự chọn",
+        "from": "Từ ngày",
+        "to": "Đến ngày",
+        "today": "Hôm nay",
+        "7d": "7 ngày",
+        "28d": "28 ngày",
+        "90d": "90 ngày",
+        "all": "Tất cả"
+      },
+      "kpi": {
+        "visits": "Lượt truy cập",
+        "visitsHint": "tổng số trang được mở",
+        "visitors": "Khách duy nhất",
+        "visitorsHint": "đếm theo visitor ID",
+        "ips": "Địa chỉ IP",
+        "ipsHint": "số IP khác nhau",
+        "sessions": "Phiên",
+        "sessionsHint": "mỗi tab một phiên",
+        "newVisitors": "Khách mới",
+        "newVisitorsHint": "lần đầu vào site",
+        "returning": "Lượt quay lại",
+        "returningHint": "khách đã từng vào"
+      },
+      "chart": {
+        "title": "Diễn biến theo ngày",
+        "hint": "Một khách có thể tạo nhiều lượt truy cập",
+        "needMoreDays": "Mới có dữ liệu của một ngày — cần từ hai ngày trở lên mới vẽ được đường"
+      },
+      "series": {
+        "visits": "Lượt truy cập",
+        "visitors": "Khách duy nhất"
+      },
+      "cards": {
+        "topPaths": "Trang được mở nhiều nhất",
+        "topPathsHint": "Top 10 theo lượt truy cập",
+        "referrers": "Nguồn giới thiệu",
+        "referrersHint": "Trang đưa khách sang",
+        "devices": "Thiết bị",
+        "browsers": "Trình duyệt",
+        "os": "Hệ điều hành",
+        "fromUserAgent": "Suy từ user-agent"
+      },
+      "device": {
+        "desktop": "Máy tính",
+        "mobile": "Điện thoại",
+        "tablet": "Máy tính bảng"
+      },
+      "topVisitors": {
+        "title": "Khách quay lại nhiều nhất",
+        "hint": "Xếp theo số lượt trong kỳ · top 20",
+        "visitorId": "Visitor ID",
+        "visits": "Lượt",
+        "lastIp": "IP gần nhất",
+        "device": "Thiết bị",
+        "firstSeen": "Lần đầu",
+        "lastSeen": "Lần cuối",
+        "lastPath": "Trang cuối",
+        "ipCount": "{{count}} IP khác nhau"
+      },
+      "log": {
+        "title": "Từng lượt truy cập",
+        "hint": "Mới nhất trước · {{total}} bản ghi",
+        "searchPlaceholder": "Tìm theo IP, visitor ID hoặc đường dẫn...",
+        "empty": "Không có bản ghi nào khớp",
+        "time": "Thời điểm",
+        "ip": "IP",
+        "visitor": "Khách",
+        "page": "Trang",
+        "device": "Thiết bị",
+        "source": "Nguồn",
+        "screen": "Màn hình"
+      },
+      "tag": {
+        "new": "mới",
+        "returning": "quay lại"
+      },
+      "pagination": {
+        "info": "Trang {{current}} / {{total}} — {{records}} bản ghi"
       }
     }
   },

@@ -976,6 +976,9 @@
     "analyticsTitle": "分析",
     "analyticsDesc": "查看页面浏览量和用户互动统计",
     "analyticsStats": "网站分析",
+    "visitorsTitle": "访问日志",
+    "visitorsDesc": "自建访问记录：每次页面浏览、IP 和回访访客",
+    "visitorsStats": "网站流量",
     "bandwidthTitle": "带宽监控",
     "bandwidthDesc": "监控所有虚拟机的带宽（限制10TB）",
     "bandwidthStats": "带宽监控",
@@ -1069,6 +1072,103 @@
         "featurePlaceholder": "附加功能或备注...",
         "isActive": "激活（对用户可见）",
         "saving": "保存中..."
+      }
+    },
+    "visitors": {
+      "title": "访问日志",
+      "subtitle": "自行采集并存在自己服务器上 — 不经过 Google，不被广告拦截插件屏蔽",
+      "updatedAt": "更新于 {{time}}",
+      "refresh": "刷新",
+      "legacyLink": "旧版统计",
+      "loading": "加载数据中...",
+      "error": "无法获取统计数据",
+      "errorTitle": "无法获取统计数据。",
+      "empty": "该时段暂无数据",
+      "unit": "次",
+      "direct": "直接访问",
+      "other": "其他",
+      "window": "{{from}} 至 {{to}}",
+      "botsFiltered": "已过滤 {{count}} 次机器人访问",
+      "range": {
+        "label": "时间范围",
+        "custom": "自定义",
+        "from": "开始日期",
+        "to": "结束日期",
+        "today": "今天",
+        "7d": "7 天",
+        "28d": "28 天",
+        "90d": "90 天",
+        "all": "全部"
+      },
+      "kpi": {
+        "visits": "页面浏览",
+        "visitsHint": "打开页面总数",
+        "visitors": "独立访客",
+        "visitorsHint": "按 visitor ID 统计",
+        "ips": "IP 地址",
+        "ipsHint": "不同 IP 数量",
+        "sessions": "会话",
+        "sessionsHint": "每个标签页一个",
+        "newVisitors": "新访客",
+        "newVisitorsHint": "首次访问",
+        "returning": "回访次数",
+        "returningHint": "曾访问过的访客"
+      },
+      "chart": {
+        "title": "每日趋势",
+        "hint": "一位访客可能产生多次页面浏览",
+        "needMoreDays": "目前只有一天的数据 — 折线图需要至少两天"
+      },
+      "series": {
+        "visits": "页面浏览",
+        "visitors": "独立访客"
+      },
+      "cards": {
+        "topPaths": "浏览最多的页面",
+        "topPathsHint": "按浏览量前 10",
+        "referrers": "来源网站",
+        "referrersHint": "访客从哪里来",
+        "devices": "设备",
+        "browsers": "浏览器",
+        "os": "操作系统",
+        "fromUserAgent": "根据 user-agent 推断"
+      },
+      "device": {
+        "desktop": "电脑",
+        "mobile": "手机",
+        "tablet": "平板"
+      },
+      "topVisitors": {
+        "title": "访问最频繁的访客",
+        "hint": "按本期浏览量排序 · 前 20 位",
+        "visitorId": "Visitor ID",
+        "visits": "次数",
+        "lastIp": "最近 IP",
+        "device": "设备",
+        "firstSeen": "首次",
+        "lastSeen": "最后",
+        "lastPath": "最后页面",
+        "ipCount": "{{count}} 个不同 IP"
+      },
+      "log": {
+        "title": "逐条访问记录",
+        "hint": "最新在前 · {{total}} 条",
+        "searchPlaceholder": "按 IP、visitor ID 或路径搜索...",
+        "empty": "没有匹配的记录",
+        "time": "时间",
+        "ip": "IP",
+        "visitor": "访客",
+        "page": "页面",
+        "device": "设备",
+        "source": "来源",
+        "screen": "屏幕"
+      },
+      "tag": {
+        "new": "新",
+        "returning": "回访"
+      },
+      "pagination": {
+        "info": "第 {{current}} / {{total}} 页 — 共 {{records}} 条"
       }
     }
   },

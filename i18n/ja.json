@@ -978,6 +978,9 @@
     "analyticsTitle": "アナリティクス",
     "analyticsDesc": "ページビューとユーザーインタラクション統計の表示",
     "analyticsStats": "ウェブサイト分析",
+    "visitorsTitle": "アクセスログ",
+    "visitorsDesc": "自前のアクセス記録：ページビュー、IP、再訪問者",
+    "visitorsStats": "サイトのアクセス",
     "bandwidthTitle": "帯域幅モニター",
     "bandwidthDesc": "すべての仮想マシンの帯域幅を監視 (制限10TB)",
     "bandwidthStats": "帯域幅モニター",
@@ -1071,6 +1074,103 @@
         "featurePlaceholder": "追加機能またはメモ...",
         "isActive": "アクティブ (ユーザーに表示)",
         "saving": "保存中..."
+      }
+    },
+    "visitors": {
+      "title": "アクセスログ",
+      "subtitle": "自社サーバーに保存する独自集計 — Google不要、広告ブロックの影響なし",
+      "updatedAt": "更新 {{time}}",
+      "refresh": "更新",
+      "legacyLink": "旧ダッシュボード",
+      "loading": "データを読み込み中...",
+      "error": "統計を取得できませんでした",
+      "errorTitle": "統計の取得に失敗しました。",
+      "empty": "この期間のデータはありません",
+      "unit": "件",
+      "direct": "直接アクセス",
+      "other": "その他",
+      "window": "{{from}} 〜 {{to}}",
+      "botsFiltered": "ボット {{count}} 件を除外",
+      "range": {
+        "label": "期間",
+        "custom": "期間を指定",
+        "from": "開始日",
+        "to": "終了日",
+        "today": "今日",
+        "7d": "7日間",
+        "28d": "28日間",
+        "90d": "90日間",
+        "all": "全期間"
+      },
+      "kpi": {
+        "visits": "ページビュー",
+        "visitsHint": "開いたページの総数",
+        "visitors": "ユニーク訪問者",
+        "visitorsHint": "visitor ID で集計",
+        "ips": "IPアドレス",
+        "ipsHint": "異なるIPの数",
+        "sessions": "セッション",
+        "sessionsHint": "タブごとに1つ",
+        "newVisitors": "新規訪問者",
+        "newVisitorsHint": "初回訪問",
+        "returning": "再訪問",
+        "returningHint": "以前に訪れた訪問者"
+      },
+      "chart": {
+        "title": "日別推移",
+        "hint": "1人の訪問者が複数のページビューを生むことがあります",
+        "needMoreDays": "データが1日分しかありません — 折れ線には2日以上必要です"
+      },
+      "series": {
+        "visits": "ページビュー",
+        "visitors": "ユニーク訪問者"
+      },
+      "cards": {
+        "topPaths": "よく見られたページ",
+        "topPathsHint": "ページビュー上位10件",
+        "referrers": "参照元",
+        "referrersHint": "訪問者の流入元",
+        "devices": "デバイス",
+        "browsers": "ブラウザ",
+        "os": "OS",
+        "fromUserAgent": "user-agent から推定"
+      },
+      "device": {
+        "desktop": "デスクトップ",
+        "mobile": "モバイル",
+        "tablet": "タブレット"
+      },
+      "topVisitors": {
+        "title": "訪問回数の多い訪問者",
+        "hint": "期間内のページビュー順 · 上位20件",
+        "visitorId": "Visitor ID",
+        "visits": "件数",
+        "lastIp": "最新IP",
+        "device": "デバイス",
+        "firstSeen": "初回",
+        "lastSeen": "最終",
+        "lastPath": "最終ページ",
+        "ipCount": "異なるIP {{count}} 件"
+      },
+      "log": {
+        "title": "個別のアクセス",
+        "hint": "新着順 · {{total}} 件",
+        "searchPlaceholder": "IP、visitor ID、パスで検索...",
+        "empty": "一致する記録がありません",
+        "time": "日時",
+        "ip": "IP",
+        "visitor": "訪問者",
+        "page": "ページ",
+        "device": "デバイス",
+        "source": "流入元",
+        "screen": "画面"
+      },
+      "tag": {
+        "new": "新規",
+        "returning": "再訪"
+      },
+      "pagination": {
+        "info": "{{current}} / {{total}} ページ — 全 {{records}} 件"
       }
     }
   },

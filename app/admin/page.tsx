@@ -65,12 +65,12 @@ const adminLinks = (t: any) => [
 		stats: t('admin.compartmentStats'),
 	},
 	{
-		title: t('admin.analyticsTitle'),
-		description: t('admin.analyticsDesc'),
-		href: '/admin/analytics',
+		title: t('admin.visitorsTitle'),
+		description: t('admin.visitorsDesc'),
+		href: '/admin/visitors',
 		icon: BarChart3,
 		color: 'bg-cyan-500',
-		stats: t('admin.analyticsStats'),
+		stats: t('admin.visitorsStats'),
 	},
 	{
 		title: t('admin.bandwidthTitle'),

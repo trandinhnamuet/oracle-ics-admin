@@ -976,6 +976,9 @@
     "analyticsTitle": "分析",
     "analyticsDesc": "查看頁面瀏覽量和使用者互動統計",
     "analyticsStats": "網站分析",
+    "visitorsTitle": "訪問日誌",
+    "visitorsDesc": "自建訪問紀錄：每次頁面瀏覽、IP 與回訪訪客",
+    "visitorsStats": "網站流量",
     "bandwidthTitle": "頻寬監控",
     "bandwidthDesc": "監控所有虛擬機的頻寬（限制10TB）",
     "bandwidthStats": "頻寬監控",
@@ -1069,6 +1072,103 @@
         "featurePlaceholder": "附加功能或備註...",
         "isActive": "啟用（對使用者可見）",
         "saving": "儲存中..."
+      }
+    },
+    "visitors": {
+      "title": "訪問日誌",
+      "subtitle": "自行蔑集並存在自己伺服器上 — 不經過 Google，不被廣告鑿截外掛封鎖",
+      "updatedAt": "更新於 {{time}}",
+      "refresh": "重新整理",
+      "legacyLink": "舊版統計",
+      "loading": "載入資料中...",
+      "error": "無法取得統計資料",
+      "errorTitle": "無法取得統計資料。",
+      "empty": "該時段尚無資料",
+      "unit": "次",
+      "direct": "直接訪問",
+      "other": "其他",
+      "window": "{{from}} 至 {{to}}",
+      "botsFiltered": "已過濾 {{count}} 次機器人訪問",
+      "range": {
+        "label": "時間範圍",
+        "custom": "自訂",
+        "from": "開始日期",
+        "to": "結束日期",
+        "today": "今天",
+        "7d": "7 天",
+        "28d": "28 天",
+        "90d": "90 天",
+        "all": "全部"
+      },
+      "kpi": {
+        "visits": "頁面瀏覽",
+        "visitsHint": "開啟頁面總數",
+        "visitors": "獨立訪客",
+        "visitorsHint": "依 visitor ID 統計",
+        "ips": "IP 位址",
+        "ipsHint": "不同 IP 數量",
+        "sessions": "對話",
+        "sessionsHint": "每個分頁一個",
+        "newVisitors": "新訪客",
+        "newVisitorsHint": "首次訪問",
+        "returning": "回訪次數",
+        "returningHint": "曾訪問過的訪客"
+      },
+      "chart": {
+        "title": "每日趨勢",
+        "hint": "一位訪客可能產生多次頁面瀏覽",
+        "needMoreDays": "目前只有一天的資料 — 折線圖需要至少兩天"
+      },
+      "series": {
+        "visits": "頁面瀏覽",
+        "visitors": "獨立訪客"
+      },
+      "cards": {
+        "topPaths": "瀏覽最多的頁面",
+        "topPathsHint": "依瀏覽量前 10",
+        "referrers": "來源網站",
+        "referrersHint": "訪客從哪裡來",
+        "devices": "裝置",
+        "browsers": "瀏覽器",
+        "os": "作業系統",
+        "fromUserAgent": "依 user-agent 推斷"
+      },
+      "device": {
+        "desktop": "電腦",
+        "mobile": "手機",
+        "tablet": "平板"
+      },
+      "topVisitors": {
+        "title": "訪問最頻繁的訪客",
+        "hint": "依本期瀏覽量排序 · 前 20 位",
+        "visitorId": "Visitor ID",
+        "visits": "次數",
+        "lastIp": "最近 IP",
+        "device": "裝置",
+        "firstSeen": "首次",
+        "lastSeen": "最後",
+        "lastPath": "最後頁面",
+        "ipCount": "{{count}} 個不同 IP"
+      },
+      "log": {
+        "title": "逐筆訪問紀錄",
+        "hint": "最新在前 · {{total}} 筆",
+        "searchPlaceholder": "依 IP、visitor ID 或路徑搜尋...",
+        "empty": "沒有符合的紀錄",
+        "time": "時間",
+        "ip": "IP",
+        "visitor": "訪客",
+        "page": "頁面",
+        "device": "裝置",
+        "source": "來源",
+        "screen": "螢幕"
+      },
+      "tag": {
+        "new": "新",
+        "returning": "回訪"
+      },
+      "pagination": {
+        "info": "第 {{current}} / {{total}} 頁 — 共 {{records}} 筆"
       }
     }
   },

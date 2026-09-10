@@ -6,7 +6,6 @@ import { AuthProvider } from '@/lib/auth-context'
 import { AuthGuard } from '@/components/auth/auth-guard'
 import { AuthStoreInitializer } from '@/components/providers/auth-store-initializer'
 import { I18nProvider } from '@/components/providers/i18n-provider'
-import { AnalyticsProvider } from '@/components/providers/analytics-provider'
 import { Toaster } from '@/components/ui/toaster'
 import { cookies } from 'next/headers'
 import { DomPatchProvider } from '@/components/providers/dom-patch-provider'
@@ -50,15 +49,13 @@ export default function RootLayout({
           <I18nProvider initialLanguage={language}>
             <AuthProvider>
               <AuthStoreInitializer />
-              <AnalyticsProvider>
-                <div className="min-h-screen flex flex-col">
-                  <AdminHeader />
-                  <main className="flex-1">
-                    <AuthGuard>{children}</AuthGuard>
-                  </main>
-                  <Toaster />
-                </div>
-              </AnalyticsProvider>
+              <div className="min-h-screen flex flex-col">
+                <AdminHeader />
+                <main className="flex-1">
+                  <AuthGuard>{children}</AuthGuard>
+                </main>
+                <Toaster />
+              </div>
             </AuthProvider>
           </I18nProvider>
         </ThemeProvider>
