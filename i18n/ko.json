@@ -828,6 +828,19 @@
         "title": "결제 목록 ({{count}})",
         "searchPlaceholder": "거래 코드, 이메일, 이름으로 검색..."
       },
+      "filters": {
+        "dateRange": "기간",
+        "fromDate": "시작일",
+        "toDate": "종료일",
+        "user": "사용자",
+        "allUsers": "모든 사용자",
+        "searchUser": "이름 또는 이메일 검색...",
+        "noUser": "일치하는 사용자가 없습니다",
+        "allStatus": "모든 상태",
+        "allTypes": "모든 유형",
+        "clear": "필터 초기화",
+        "matched": "{{total}}건 중 {{count}}건 표시"
+      },
       "table": {
         "transactionCode": "거래 코드",
         "subscriptionId": "구독 ID",

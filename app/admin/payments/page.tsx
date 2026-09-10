@@ -6,14 +6,17 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command'
 import {
   Search, RefreshCw, CheckCircle, Clock, XCircle, DollarSign, AlertTriangle,
-  ChevronLeft, ChevronRight, ChevronsUpDown, ChevronUp, ChevronDown,
+  ChevronLeft, ChevronRight, ChevronsUpDown, ChevronUp, ChevronDown, Check, X, ArrowRight,
 } from 'lucide-react'
 import { paymentApi } from '@/api/payment.api'
 import { useTranslation } from 'react-i18next'
 import { useToast } from '@/hooks/use-toast'
-import { formatDateTime } from '@/lib/utils'
+import { cn, formatDateTime, parseAsUtc } from '@/lib/utils'
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from '@/components/ui/alert-dialog'
 
 interface Payment {
@@ -40,6 +43,15 @@ type SortDir = 'asc' | 'desc'
 
 const PAGE_SIZE = 20
 
+// Ngay theo mui gio local (khop voi cot "Ngay tao"), dang YYYY-MM-DD de so sanh voi input type="date"
+function toLocalDateKey(dateString: string) {
+  if (!dateString) return ''
+  const d = parseAsUtc(dateString)
+  if (isNaN(d.getTime())) return ''
+  const pad = (n: number) => String(n).padStart(2, '0')
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`
+}
+
 function SortIcon({ col, sortKey, sortDir }: { col: SortKey; sortKey: SortKey; sortDir: SortDir }) {
   if (col !== sortKey) return <ChevronsUpDown className="inline h-3 w-3 ml-1 text-muted-foreground" />
   return sortDir === 'asc'
@@ -52,6 +64,12 @@ export default function PaymentManagementPage() {
   const [payments, setPayments] = useState<Payment[]>([])
   const [loading, setLoading] = useState(true)
   const [searchTerm, setSearchTerm] = useState('')
+  const [dateFrom, setDateFrom] = useState('')
+  const [dateTo, setDateTo] = useState('')
+  const [userFilter, setUserFilter] = useState('all')
+  const [statusFilter, setStatusFilter] = useState('all')
+  const [typeFilter, setTypeFilter] = useState('all')
+  const [userPickerOpen, setUserPickerOpen] = useState(false)
   const [processingId, setProcessingId] = useState<string | null>(null)
   const [confirmPaymentId, setConfirmPaymentId] = useState<string | null>(null)
   const [sortKey, setSortKey] = useState<SortKey>('created_at')
@@ -87,8 +105,37 @@ export default function PaymentManagementPage() {
     console.log('Admin payments - total amount (subscription only, excluding expired):', totalSubscription)
   }, [payments])
 
-  // Reset to page 1 on search or sort change
-  useEffect(() => { setPage(1) }, [searchTerm, sortKey, sortDir])
+  // Reset to page 1 on search, filter or sort change
+  useEffect(() => { setPage(1) }, [searchTerm, dateFrom, dateTo, userFilter, statusFilter, typeFilter, sortKey, sortDir])
+
+  // Danh sach nguoi dung cho dropdown search (suy ra tu chinh du lieu payments)
+  const userOptions = useMemo(() => {
+    const map = new Map<string, { id: string; name: string; email: string }>()
+    payments.forEach(p => {
+      const id = String(p.user?.id ?? p.user_id ?? '')
+      if (!id || map.has(id)) return
+      const name = `${p.user?.firstName || ''} ${p.user?.lastName || ''}`.trim()
+      map.set(id, { id, name, email: p.user?.email || '' })
+    })
+    return Array.from(map.values()).sort((a, b) =>
+      (a.name || a.email || a.id).localeCompare(b.name || b.email || b.id)
+    )
+  }, [payments])
+
+  const selectedUser = userOptions.find(u => u.id === userFilter)
+
+  const hasActiveFilters =
+    !!searchTerm.trim() || !!dateFrom || !!dateTo ||
+    userFilter !== 'all' || statusFilter !== 'all' || typeFilter !== 'all'
+
+  const clearFilters = () => {
+    setSearchTerm('')
+    setDateFrom('')
+    setDateTo('')
+    setUserFilter('all')
+    setStatusFilter('all')
+    setTypeFilter('all')
+  }
 
   const handleSort = (col: SortKey) => {
     if (sortKey === col) {
@@ -101,17 +148,29 @@ export default function PaymentManagementPage() {
 
   const filteredSorted = useMemo(() => {
     const term = searchTerm.trim().toLowerCase()
-    let list = term
-      ? payments.filter(p =>
-          p.transaction_code.toLowerCase().includes(term) ||
+    const list = payments.filter(p => {
+      if (term) {
+        const matchesTerm =
+          p.transaction_code?.toLowerCase().includes(term) ||
           (p.subscription_id || '').toLowerCase().includes(term) ||
           p.user?.email?.toLowerCase().includes(term) ||
           p.user?.firstName?.toLowerCase().includes(term) ||
           p.user?.lastName?.toLowerCase().includes(term) ||
-          p.status.toLowerCase().includes(term) ||
-          p.payment_type.toLowerCase().includes(term)
-        )
-      : [...payments]
+          p.status?.toLowerCase().includes(term) ||
+          p.payment_type?.toLowerCase().includes(term)
+        if (!matchesTerm) return false
+      }
+      if (userFilter !== 'all' && String(p.user?.id ?? p.user_id ?? '') !== userFilter) return false
+      if (statusFilter !== 'all' && p.status !== statusFilter) return false
+      if (typeFilter !== 'all' && p.payment_type !== typeFilter) return false
+      if (dateFrom || dateTo) {
+        const dateKey = toLocalDateKey(p.created_at)
+        if (!dateKey) return false
+        if (dateFrom && dateKey < dateFrom) return false
+        if (dateTo && dateKey > dateTo) return false
+      }
+      return true
+    })
 
     list.sort((a, b) => {
       let va: any, vb: any
@@ -131,7 +190,7 @@ export default function PaymentManagementPage() {
       return 0
     })
     return list
-  }, [payments, searchTerm, sortKey, sortDir])
+  }, [payments, searchTerm, dateFrom, dateTo, userFilter, statusFilter, typeFilter, sortKey, sortDir])
 
   // Log filtered totals when search changes
   useEffect(() => {
@@ -141,11 +200,11 @@ export default function PaymentManagementPage() {
       .filter(p => p.payment_type === 'subscription')
       .reduce((sum, p) => sum + Number(p.amount || 0), 0)
 
-    if (searchTerm.trim()) {
-      console.log(`[Filtered Results] Total amount (excluding expired, search="${searchTerm}"):`, total)
-      console.log(`[Filtered Results] Total amount subscription (excluding expired, search="${searchTerm}"):`, totalSubscription)
+    if (hasActiveFilters) {
+      console.log('[Filtered Results] Total amount (excluding expired):', total)
+      console.log('[Filtered Results] Total amount subscription (excluding expired):', totalSubscription)
     }
-  }, [filteredSorted, searchTerm])
+  }, [filteredSorted, hasActiveFilters])
 
   const totalPages = Math.max(1, Math.ceil(filteredSorted.length / PAGE_SIZE))
   const pagedPayments = filteredSorted.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
@@ -269,8 +328,8 @@ export default function PaymentManagementPage() {
       </div>
 
       <Card>
-        <CardHeader>
-          <div className="flex items-center justify-between">
+        <CardHeader className="space-y-4">
+          <div className="flex flex-wrap items-center justify-between gap-4">
             <CardTitle className="flex items-center gap-2">
               <DollarSign className="w-5 h-5" />
               {t('admin.payments.list.title', { count: filteredSorted.length })}
@@ -286,6 +345,129 @@ export default function PaymentManagementPage() {
               />
             </div>
           </div>
+
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
+            {/* Filter: khoang thoi gian */}
+            <div className="space-y-1.5 lg:col-span-2">
+              <label className="text-xs font-medium text-muted-foreground">{t('admin.payments.filters.dateRange')}</label>
+              <div className="flex items-center gap-2">
+                <Input
+                  type="date"
+                  aria-label={t('admin.payments.filters.fromDate')}
+                  value={dateFrom}
+                  max={dateTo || undefined}
+                  onChange={(e) => setDateFrom(e.target.value)}
+                  className="flex-1 text-sm"
+                />
+                <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground" />
+                <Input
+                  type="date"
+                  aria-label={t('admin.payments.filters.toDate')}
+                  value={dateTo}
+                  min={dateFrom || undefined}
+                  onChange={(e) => setDateTo(e.target.value)}
+                  className="flex-1 text-sm"
+                />
+              </div>
+            </div>
+
+            {/* Filter: nguoi dung (dropdown co search) */}
+            <div className="space-y-1.5">
+              <label className="text-xs font-medium text-muted-foreground">{t('admin.payments.filters.user')}</label>
+              <Popover open={userPickerOpen} onOpenChange={setUserPickerOpen}>
+                <PopoverTrigger asChild>
+                  <Button
+                    variant="outline"
+                    role="combobox"
+                    aria-expanded={userPickerOpen}
+                    className="w-full justify-between font-normal"
+                  >
+                    <span className="truncate">
+                      {userFilter === 'all'
+                        ? t('admin.payments.filters.allUsers')
+                        : (selectedUser?.name || selectedUser?.email || `#${userFilter}`)}
+                    </span>
+                    <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-[var(--radix-popover-trigger-width)] min-w-72 p-0" align="start">
+                  <Command>
+                    <CommandInput placeholder={t('admin.payments.filters.searchUser')} />
+                    <CommandList>
+                      <CommandEmpty>{t('admin.payments.filters.noUser')}</CommandEmpty>
+                      <CommandGroup>
+                        <CommandItem
+                          value={t('admin.payments.filters.allUsers')}
+                          onSelect={() => { setUserFilter('all'); setUserPickerOpen(false) }}
+                        >
+                          <Check className={cn('mr-2 h-4 w-4', userFilter === 'all' ? 'opacity-100' : 'opacity-0')} />
+                          {t('admin.payments.filters.allUsers')}
+                        </CommandItem>
+                        {userOptions.map((u) => (
+                          <CommandItem
+                            key={u.id}
+                            value={`${u.name} ${u.email} ${u.id}`}
+                            onSelect={() => { setUserFilter(u.id); setUserPickerOpen(false) }}
+                          >
+                            <Check className={cn('mr-2 h-4 w-4', userFilter === u.id ? 'opacity-100' : 'opacity-0')} />
+                            <div className="min-w-0">
+                              <div className="truncate">{u.name || u.email || `#${u.id}`}</div>
+                              {u.name && u.email && (
+                                <div className="truncate text-xs text-muted-foreground">{u.email}</div>
+                              )}
+                            </div>
+                          </CommandItem>
+                        ))}
+                      </CommandGroup>
+                    </CommandList>
+                  </Command>
+                </PopoverContent>
+              </Popover>
+            </div>
+
+            {/* Filter: trang thai */}
+            <div className="space-y-1.5">
+              <label className="text-xs font-medium text-muted-foreground">{t('admin.payments.table.status')}</label>
+              <Select value={statusFilter} onValueChange={setStatusFilter}>
+                <SelectTrigger className="w-full">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">{t('admin.payments.filters.allStatus')}</SelectItem>
+                  <SelectItem value="pending">{t('admin.payments.status.pending')}</SelectItem>
+                  <SelectItem value="success">{t('admin.payments.status.success')}</SelectItem>
+                  <SelectItem value="failed">{t('admin.payments.status.failed')}</SelectItem>
+                  <SelectItem value="expired">{t('admin.payments.status.expired')}</SelectItem>
+                  <SelectItem value="deleted">{t('admin.payments.status.deleted')}</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* Filter: loai giao dich */}
+            <div className="space-y-1.5">
+              <label className="text-xs font-medium text-muted-foreground">{t('admin.payments.table.type')}</label>
+              <Select value={typeFilter} onValueChange={setTypeFilter}>
+                <SelectTrigger className="w-full">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">{t('admin.payments.filters.allTypes')}</SelectItem>
+                  <SelectItem value="deposit">{t('admin.payments.paymentType.deposit')}</SelectItem>
+                  <SelectItem value="subscription">{t('admin.payments.paymentType.subscription')}</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+
+          {hasActiveFilters && (
+            <div className="flex flex-wrap items-center justify-between gap-2 text-sm text-muted-foreground">
+              <span>{t('admin.payments.filters.matched', { count: filteredSorted.length, total: payments.length })}</span>
+              <Button variant="ghost" size="sm" onClick={clearFilters}>
+                <X className="mr-1 h-4 w-4" />
+                {t('admin.payments.filters.clear')}
+              </Button>
+            </div>
+          )}
         </CardHeader>
         <CardContent>
           {loading ? (

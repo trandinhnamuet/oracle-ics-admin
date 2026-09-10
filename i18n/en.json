@@ -811,6 +811,19 @@
         "title": "Payment List ({{count}})",
         "searchPlaceholder": "Search by transaction code, email, name..."
       },
+      "filters": {
+        "dateRange": "Date range",
+        "fromDate": "From date",
+        "toDate": "To date",
+        "user": "User",
+        "allUsers": "All users",
+        "searchUser": "Search name or email...",
+        "noUser": "No matching user",
+        "allStatus": "All statuses",
+        "allTypes": "All types",
+        "clear": "Clear filters",
+        "matched": "Showing {{count}} / {{total}} transactions"
+      },
       "table": {
         "transactionCode": "Transaction Code",
         "subscriptionId": "Subscription ID",

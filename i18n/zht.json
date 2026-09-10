@@ -828,6 +828,19 @@
         "title": "支付列表 ({{count}})",
         "searchPlaceholder": "按交易碼、信箱、姓名搜尋..."
       },
+      "filters": {
+        "dateRange": "時間範圍",
+        "fromDate": "開始日期",
+        "toDate": "結束日期",
+        "user": "使用者",
+        "allUsers": "所有使用者",
+        "searchUser": "按姓名或信箱搜尋...",
+        "noUser": "未找到符合的使用者",
+        "allStatus": "所有狀態",
+        "allTypes": "所有類型",
+        "clear": "清除篩選",
+        "matched": "顯示 {{count}} / {{total}} 筆交易"
+      },
       "table": {
         "transactionCode": "交易碼",
         "subscriptionId": "訂閱ID",

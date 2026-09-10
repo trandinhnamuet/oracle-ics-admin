@@ -811,6 +811,19 @@
         "title": "Danh sách thanh toán ({{count}})",
         "searchPlaceholder": "Tìm theo mã giao dịch, email, tên..."
       },
+      "filters": {
+        "dateRange": "Khoảng thời gian",
+        "fromDate": "Từ ngày",
+        "toDate": "Đến ngày",
+        "user": "Người dùng",
+        "allUsers": "Tất cả người dùng",
+        "searchUser": "Tìm theo tên hoặc email...",
+        "noUser": "Không tìm thấy người dùng",
+        "allStatus": "Tất cả trạng thái",
+        "allTypes": "Tất cả loại",
+        "clear": "Xóa bộ lọc",
+        "matched": "Hiển thị {{count}} / {{total}} giao dịch"
+      },
       "table": {
         "transactionCode": "Mã giao dịch",
         "subscriptionId": "Subscription ID",

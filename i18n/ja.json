@@ -830,6 +830,19 @@
         "title": "支払いリスト ({{count}})",
         "searchPlaceholder": "取引コード、メール、名前で検索..."
       },
+      "filters": {
+        "dateRange": "期間",
+        "fromDate": "開始日",
+        "toDate": "終了日",
+        "user": "ユーザー",
+        "allUsers": "すべてのユーザー",
+        "searchUser": "名前またはメールで検索...",
+        "noUser": "該当するユーザーがいません",
+        "allStatus": "すべてのステータス",
+        "allTypes": "すべての種類",
+        "clear": "フィルターをクリア",
+        "matched": "{{total}}件中{{count}}件を表示"
+      },
       "table": {
         "transactionCode": "取引コード",
         "subscriptionId": "サブスクリプションID",
